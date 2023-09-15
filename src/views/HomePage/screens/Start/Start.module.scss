@@ -1,0 +1,65 @@
+@use "../../../../assets/styles/index.scss" as *;
+
+.start{
+    display: flex;
+    position: relative;
+
+    .verticalDivider{
+        position: absolute;
+        background-color: color(text-yellow-90);
+        width: 1px;
+        height: 100%;
+        top: 0;
+        left: 50%;
+    }
+
+    .bottomDivider{
+        position: absolute;
+        background-color: color(text-yellow-90);
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+    }
+
+    .left{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 50%;
+
+        .player{
+            width: 100%;
+        }
+
+    }
+
+    .right{
+        position: relative;
+
+        .firstDivider{
+            position: absolute;
+            background-color: color(text-yellow-90);
+            width: 100%;
+            height: 1px;
+            bottom: 32%;
+            left: 0;
+        }
+
+        .secondDivider{
+            position: absolute;
+            background-color: color(text-yellow-90);
+            width: 100%;
+            height: 1px;
+            bottom: 62%;
+            left: 0;
+        }
+    }
+}
+
+.commentsSection{
+    padding: rm(64);
+    display: flex;
+    flex-direction: column;
+    gap: rm(128);
+}

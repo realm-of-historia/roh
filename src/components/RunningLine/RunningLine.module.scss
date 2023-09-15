@@ -1,0 +1,49 @@
+@use "../../assets/styles/index.scss" as *;
+
+@keyframes moveRightFirst {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+
+
+.runningLine{
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background-color: color(text-black);
+    padding: rm(32) 0;
+    white-space: nowrap;
+    display: flex;
+    height: rm(102);
+
+    p{
+        position: absolute;
+        color: color(text-yellow-90);
+        font-size: font(32);
+        @include font-dune-regular;
+        line-height: 120%;
+        margin-right: rm(128);
+        left: 0;
+    }
+
+    p:nth-child(1){
+        // animation: moveRightFirst 5s linear infinite;
+    }
+
+    p:nth-child(2){
+        left: rm(500);
+    }
+
+    p:nth-child(3){
+        left: rm(1000);
+    }
+
+    p:nth-child(4){
+        left: rm(1500);
+    }
+}

@@ -1,0 +1,12 @@
+@use "../../../../assets/styles/index.scss" as *;
+
+
+.videos{
+    display: flex;
+    align-items: center;
+
+    img{
+        width: rm(640);
+        height: rm(640);
+    }
+}

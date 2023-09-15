@@ -1,0 +1,71 @@
+@use "../../assets/styles/index.scss" as *;
+
+.bundle{
+    position: relative;
+    width: rm(480);
+
+    .imageContainer{
+        position: relative;
+
+        img{
+            width: rm(480);
+            height: rm(480);
+        }
+
+        .dividerTop{
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background-color: color(text-yellow-90);
+            top: 0;
+            left: 0;
+        }
+    
+        .dividerBottom{
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background-color: color(text-yellow-90);
+            bottom: rm(5);
+            left: 0;
+        }
+    }
+
+    .dividerRight{
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        background-color: color(text-yellow-90);
+        top: 0;
+        right: 0;
+    }
+
+
+    .first{
+        color: color(text-black);
+        font-size: font(15);
+        @include font-work-regular;
+        width: rm(128);
+        line-height: 160%;
+    }
+
+    .second{
+        color: color(text-brown);
+        @include font-work-regular;
+        font-size: font(15);
+        width: rm(224);
+        line-height: 160%;
+    }
+
+    .title{
+        padding: rm(64) rm(64) rm(32) rm(64);
+        display: flex;
+
+    }
+
+    .price{
+        padding: rm(0) rm(64) rm(64) rm(64);
+        display: flex;
+
+    }
+}

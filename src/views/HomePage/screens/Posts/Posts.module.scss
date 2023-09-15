@@ -1,0 +1,57 @@
+@use "../../../../assets/styles/index.scss" as *;
+
+
+.posts{
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .dividerTop{
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: color(text-yellow-90);
+        top: 0;
+        left: 0;
+    }
+
+    .left{
+        width: 50%;
+        display: flex;
+        flex-wrap: wrap;
+
+        div{
+            width: rm(310);
+            height: rm(310);
+            border-radius: rm(1000);
+            border: 1px solid color(text-yellow-90);
+        }
+
+        div:nth-child(1){
+            background-color: color(text-yellow-80);
+        }
+
+        div:nth-child(2){
+            background-color: color(text-yellow-70);
+        }
+
+
+
+    }
+
+    .right{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p:first-child{
+            width: rm(536);
+            text-align: center;
+            color: color(text-black);
+            font-size: font(48);
+            @include font-dune-regular;
+            line-height: 160%;
+        }
+    }
+}
