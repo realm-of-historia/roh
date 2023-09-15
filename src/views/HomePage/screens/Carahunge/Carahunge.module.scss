@@ -1,0 +1,38 @@
+@use "../../../../assets/styles/index.scss" as *;
+
+.carahunge{
+    display: flex;
+    padding: rm(64);
+    justify-content: space-between;
+    position: relative;
+    // overflow: hidden;
+
+    .divider{
+        width: 1px;
+        height: 100.7%;
+        top: rm(-4);
+        left: 50%;
+        background-color: color(text-yellow-90);
+        position: absolute;
+    }
+
+    .left{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        p:first-child{
+            @include font-dune-regular;
+            color: color(text-black);
+            font-size: font(48);
+            margin-bottom: rm(16);
+        }
+
+        p:last-child{
+            @include font-work-regular;
+            font-size: font(16);
+            color: color(text-brown);
+            font-style: italic;
+        }
+    }
+}

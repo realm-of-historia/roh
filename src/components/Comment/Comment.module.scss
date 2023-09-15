@@ -1,0 +1,31 @@
+@use "../../assets/styles/index.scss" as *;
+
+.comment{
+
+    .newsContainer{
+        width: 100%;
+        margin-top: rm(32);
+    }
+
+    .commentContainer{
+        width: rm(640);
+    }
+
+    .title{
+        color: color(text-black);
+        font-size: font(22);
+        @include font-work-regular;
+        font-weight: 600;
+        margin-bottom: rm(16);
+        line-height: 130%;
+    }
+
+    .text{
+        color: color(text-brown);
+        font-size: font(15);
+        @include font-work-regular;
+        margin-bottom: rm(24);
+        line-height: 160%;
+    }
+
+}

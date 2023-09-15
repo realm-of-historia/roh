@@ -1,0 +1,11 @@
+@use "../../../../../assets/styles/index.scss" as *;
+
+.news{
+    display: flex;
+    flex-direction: column;
+
+    img{
+        width: 100%;
+        height: rm(334);
+    }
+}

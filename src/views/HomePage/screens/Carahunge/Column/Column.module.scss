@@ -1,0 +1,85 @@
+@use "../../../../../assets/styles/index.scss" as *;
+
+.main{
+    display: flex;
+    flex-direction: column;
+
+    .section{
+        margin-bottom: rm(32);
+        display: flex;
+
+        p{
+            font-size: font(16);
+            line-height: 160%;
+            @include font-work-regular;
+            display: flex;
+            align-items: center;
+
+            span{
+                width: rm(24);
+                height: rm(24);
+                margin-right: rm(12);
+            }
+        }
+
+        p:first-child{
+            width: rm(155);
+            font-weight: 600;
+            color: color(text-black);
+        }
+
+        p:last-child{
+            width: rm(314);
+            color: color(text-brown);
+
+            @include md{
+                width: rm(325);
+            }
+
+            @include xsm{
+                width: rm(360);
+            }
+        }
+    }
+
+        .description{
+            margin-bottom: rm(32);
+            display: flex;
+    
+            p{
+                font-size: font(16);
+                line-height: 160%;
+                @include font-work-regular
+            }
+    
+            >p:first-child{
+                width: rm(155);
+                font-weight: 600;
+                color: color(text-black);
+            }
+
+            div{
+                gap: rm(20);
+                display: flex;
+                flex-direction: column;
+
+                p{
+                    width: rm(677);
+                    color: color(text-brown);
+        
+                    @include md{
+                        width: rm(325);
+                    }
+        
+                    @include xsm{
+                        width: rm(360);
+                    }
+                }
+            }
+    }
+
+    .section:last-child{
+        margin-bottom: rm(0);
+    }
+
+}

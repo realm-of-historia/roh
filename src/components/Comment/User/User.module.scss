@@ -1,0 +1,38 @@
+@use "../../../assets/styles/index.scss" as *;
+
+.user{
+    display: flex;
+    align-items: center;
+
+    .commentImage{
+        width: rm(24);
+        height: rm(24);
+        margin-right: rm(20);
+    }
+
+    .newsImage{
+        width: rm(48);
+        height: rm(48);
+        margin-right: rm(16);
+        margin-left: rm(32);
+    }
+
+    p{
+        text-transform: uppercase;
+        font-size: font(14);
+        color: color(text-brown);
+        @include font-work-regular;
+        font-weight: 600;
+    }
+
+    .titleNews{
+        color: color(text-black);
+        text-transform: none;
+        font-size: font(18);
+        @include font-work-regular;
+        font-weight: 600;
+        margin-bottom: rm(8);
+        line-height: 130%;
+    }
+    
+}
