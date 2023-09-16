@@ -29,6 +29,7 @@ const HomePage = () => {
       <Videos></Videos>
       <Panegliph isFirst={false}></Panegliph>
       <Marketplace></Marketplace>
+      <div>For test commit</div>
     </div>
   )
 }
