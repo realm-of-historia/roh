@@ -85,10 +85,10 @@ const Digest = () => {
     <div className={styles.main}>
         <div className={styles.subscription}>
             <div className={styles.header}>
-                <button onClick={disHandler}><img src='images/discordImage.svg' alt='' width='24' height='24'/> <Text>Discord</Text></button>
-                <button onClick={tikHandler}><img src='images/tiktok (1).svg' alt='' width='24' height='24'/> <Text>TikTok</Text></button>
-                <button onClick={twitHandler}><img src='images/twitterImage.svg' alt='' width='24' height='24'/> <Text>Twitter</Text></button>
-                <button onClick={instHandler}><img src='images/instagramImage.svg' alt='' width='24' height='24'/> <Text>Instagram</Text></button>
+                <button onClick={disHandler}><img src='images/discordImage.svg' alt='' width='24' height='24'/> Discord</button>
+                <button onClick={tikHandler}><img src='images/tiktok (1).svg' alt='' width='24' height='24'/> TikTok</button>
+                <button onClick={twitHandler}><img src='images/twitterImage.svg' alt='' width='24' height='24'/> Twitter</button>
+                <button onClick={instHandler}><img src='images/instagramImage.svg' alt='' width='24' height='24'/> Instagram</button>
             </div>
             <div className={styles.container}>
                 <div className={styles.text}>
