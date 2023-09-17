@@ -1,0 +1,57 @@
+@use "../../../../../assets/styles/index.scss" as *;
+
+.column{
+    display: flex;
+    flex-direction: column;
+
+    .firstBlock{
+        font-size: 16px;
+        margin-bottom: 20px;
+        display: flex;
+
+
+        p:first-child{
+            width: 155px;
+        }
+
+        p:last-child{
+            width: 677px;
+        }
+    }
+
+    .secondBlock{
+        display: flex;
+        font-size: 16px;
+        
+        >p:first-child{
+            width: 155px;
+        }
+
+        .container{
+            width: 677px;
+
+            >p:first-child{
+                margin-bottom: 15px;
+            }
+
+            .list{
+                display: flex;
+                align-items: center;
+                width: 677px;
+
+                .divider{
+                    width: 6px;
+                    height: 6px;
+                    background-color: brown;
+                    border-radius: 100px;
+                    margin-right: 10px;
+                    margin-left: 5px;
+                }
+
+                p{
+
+                }
+            }
+        }
+    }
+}
