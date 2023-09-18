@@ -1,0 +1,453 @@
+@use "../../assets/styles/index.scss" as *;
+
+
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow: hidden;
+
+    @include md{
+        flex-direction: column;
+    }
+
+    .promotion{
+
+        width: rm(960);
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+
+        @include md{
+            height: rm(420);
+        }
+
+        div{
+            background-color: #EAD8B1;
+            height: 1px;
+            width: 100%;
+            position: absolute;
+
+            @include md{
+                width: 200%;
+            }
+        }
+
+        .topFirst{
+            left: 0;
+            top: rm(90);
+
+            @include md{
+                top: rm(118);
+                left: rm(-300);
+            }
+
+            @include xsm{
+                top: rm(150);
+            }
+
+        }
+
+        .topSecond{
+            left: 0;
+            bottom: rm(90);
+
+            @include md{
+                bottom: rm(151);
+                left: rm(-300);
+            }
+
+        }
+
+        .left{
+            width: 1px;
+            height: rm(1260);
+            top: rm(-600);
+            left: rm(167);
+
+            @include lg{
+                left: rm(7);
+            }
+
+            @include md{
+                left: rm(270);
+                height: rm(520);
+                top: rm(0);
+            }
+        }
+
+        .right{
+            width: 1px;
+            height: rm(1060);
+            top: rm(-600);
+            right: rm(167);
+            
+            @include lg{
+                right: rm(7);
+            }
+
+            @include md{
+                right: rm(270);
+                height: rm(570);
+                top: rm(0);
+            }
+
+        }
+
+        .mainCircle{
+            position: absolute;
+            border: 1px solid #EAD8B1;
+            width: rm(630);
+            height: rm(630);
+            border-radius: rm(1000);
+            background-color: transparent;
+            opacity: 0.75;
+
+            @include md{
+                width: rm(420);
+                height: rm(420);
+            }
+        }
+
+
+        img{
+            position: absolute;
+            width: rm(297);
+            height: rm(297);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            @include md{
+                width: rm(198);
+                height: rm(198);
+            }
+        }
+
+        .firstElipse{
+            transform: translate(-106%, -55%);
+        }
+
+        .secondElipse{
+            transform: translate(6%, -55%);
+        }
+
+        .thirdElipse{
+            transform: translate(-50%, -106%);
+
+        }
+
+        .fourthElipse{
+            transform: translate(-50%, 6%);
+        }
+
+        .logo{
+            width: rm(630);
+            height: rm(180);
+
+            @include md{
+                width: rm(420);
+                height: rm(120);
+            }
+        }
+
+        .divider{
+            display: none;
+
+            @include md{
+                display: inline-block;
+                width: rm(630);
+                height: 1px;
+                background-color: #EAD8B1;
+                position: absolute;
+                top: rm(0);
+            }
+        }
+
+        .footer{
+            font-size: font(12);
+            color: color(text-brown);
+            line-height: 160%;
+            @include font-work-regular;
+            position: absolute;
+            bottom: rm(-280);
+            z-index: 1000;
+
+            @include md{
+                bottom: rm(40);
+            }
+        }
+    }
+
+    .subscription{
+        width: rm(960);
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @include md{
+            width: 100%;
+        }
+
+        .leftDivider{
+            position: absolute;
+            background-color: #EAD8B1;
+            width: 1px;
+            height: 100%;
+            right: rm(0);
+            top: 0;
+
+            @include md{
+                display: none;
+            }
+        }
+    }
+
+    .header{
+        display: flex;
+        width: 100%;
+
+        button{
+            width: 25%;
+            height: rm(70);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: color(text-brown);
+            font-size: font(16);
+            line-height: 140%;
+            @include font-work-regular;
+            border: 1px solid #EAD8B1;
+            border-left: 0;
+            cursor: pointer;
+            transition: background-color .7s ease;
+            z-index: 1000;
+            font-weight: 600;
+
+            &:hover{
+                background-color: rgba(	234,	216,	177, .4);
+            }
+
+            img{
+                margin-right: rm(10);
+                width: rm(24);
+                height: rm(24);
+
+                @include md{
+                    display: inline-block;
+                }
+            }
+        }
+
+        button:last-child{
+            border-right: 0;
+        }
+
+        button:first-child{
+            border-left: 0;
+        }
+    }
+
+    .container{
+
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: rm(630);
+
+        @include xsm{
+            height: rm(450);
+        }
+
+        .text{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            width: rm(480);
+            height: 100%;
+            position: relative;
+
+            >p:first-child{
+                color: color(text-black);
+                font-size: font(32);
+                line-height: 120%;
+                margin-bottom: rm(16);
+                @include font-dune-regular;
+            }
+
+            >p:nth-child(2){
+                color: color(text-brown);
+                font-size: font(14);
+                line-height: 120%;
+                margin-bottom: rm(48);
+                @include font-work-regular;
+                font-style: italic;
+            }
+
+
+            .input_wrapper{
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                
+
+                .input_divider{
+                    position: relative;
+                    margin-bottom: rm(16);
+                    width: 100%;
+                    height: 1px;
+
+                    > * {
+                        position: absolute;
+                        top: 50%; left: 50%;
+                        width: 100%;
+                        height: 100%;
+                        transform: translate(-50%, -50%);
+                        transition: .3s transform ease, .3s background-color ease;
+                    }
+            
+                    > :first-child {
+                        background: #EAD8B1;
+                    }
+            
+                    > :last-child {
+                        background: color(text-brown);
+                        transform: translateX(-50%) scale(0);
+                    }
+                }
+            }
+
+            
+            input{
+                margin-top: rm(16);
+                font-size: font(16);
+                color: color(text-brown);
+                @include font-work-regular;
+                line-height: 140%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: rm(480);
+                padding: rm(24) 0;
+                background-color: transparent;
+                text-align: center;
+                z-index: 1000;
+
+
+                &:hover, &:focus, &:not(:placeholder-shown) {
+                    ~ .input_divider > :last-child {
+                        transform: translateX(-50%) scale(1);
+                    }
+                }
+
+                &::placeholder{
+                    font-size: font(16);
+                    color: color(text-brown);
+                    @include font-work-regular;
+                    line-height: 140%;
+                }
+
+                @include xsm{
+                    font-size: 16px;
+                }
+            }
+
+            button{
+                font-size: font(16);
+                position: relative;
+                color: color(text-brown);
+                @include font-work-regular;
+                line-height: 140%;
+                display: flex;
+                cursor: pointer;
+                justify-content: center;
+                align-items: center;
+                width: rm(480);
+                border: 1px solid #EAD8B1;
+                height: rm(70);
+                margin-top: rm(16);
+                font-weight: 600;
+                transition: background-color .7s ease;
+                z-index: 1000;
+
+                &:hover{
+                    background-color: rgba(	234,	216,	177, .4);
+                }
+            }
+
+
+            .left{
+                position: absolute;
+                width: 1px;
+                background-color: #EAD8B1;
+                height: rm(639);
+                left: 0;
+                top: rm(-272);
+                opacity: 0.25;
+
+                @include lg{
+                    top: rm(0);
+                    height: rm(365);
+                }
+
+                @include xsm{
+                    height: rm(277);
+                }
+                
+            }
+    
+            .right{
+                position: absolute;
+                width: 1px;
+                background-color: #EAD8B1;
+                height: rm(639);
+                right: 0;
+                top: rm(-272);
+                opacity: 0.25;
+
+                @include lg{
+                    top: rm(0);
+                    height: rm(365);
+                }
+
+                @include xsm{
+                    height: rm(277);
+                }
+
+            }
+
+    
+            div:first-child{
+                font-size: font(32);
+                @include font-dune-regular;
+                font-weight: 400;
+                margin-bottom: rm(16);
+                line-height: 120%;
+                color: #171513;
+
+            }
+    
+            div:nth-child(2){
+                font-size: font(16);
+                line-height: 160%;
+                @include font-work-regular;
+                color: color(text-brown);
+
+            }
+        }
+    }
+}

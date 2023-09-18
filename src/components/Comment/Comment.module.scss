@@ -5,10 +5,26 @@
     .newsContainer{
         width: 100%;
         margin-top: rm(32);
+
+        @include xsm{
+            margin-bottom: rm(32);
+        }
     }
 
     .commentContainer{
         width: rm(640);
+
+        @include lg{
+            width: rm(530);
+        }
+
+        @include md{
+            width: rm(430);
+        }
+
+        @include xsm{
+            width: 100%;
+        }
     }
 
     .title{
@@ -18,6 +34,10 @@
         font-weight: 600;
         margin-bottom: rm(16);
         line-height: 130%;
+
+        @include lg{
+            font-size: font(18);
+        }
     }
 
     .text{
@@ -26,6 +46,14 @@
         @include font-work-regular;
         margin-bottom: rm(24);
         line-height: 160%;
+
+        @include lg{
+            font-size: font(14);
+        }
+
+        @include xsm{
+            font-size: font(15);
+        }
     }
 
 }

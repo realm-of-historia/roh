@@ -8,12 +8,36 @@ const Posts = () => {
     <div className={styles.posts}>
         <div className={styles.dividerTop}></div>
         <div className={styles.left}>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div className={styles.container}>
+                <div></div>
+                <div className={styles.dividerBottom}></div>
+                <div className={styles.dividerRight}></div>
+            </div>
+            <div className={styles.container}>
+                <div></div>
+                <div className={styles.dividerBottom}></div>
+                <div className={styles.dividerRight}></div>
+            </div>
+            <div className={styles.container}>
+                <div></div>
+                <div className={styles.dividerBottom}></div>
+                <div className={styles.dividerRight}></div>
+            </div>
+            <div className={styles.container}>
+                <div></div>
+                <div className={styles.dividerBottom}></div>
+                <div className={styles.dividerRight}></div>
+            </div>
+            <div className={styles.container}>
+                <div></div>
+                <div className={styles.dividerBottom}></div>
+                <div className={styles.dividerRight}></div>
+            </div>
+            <div className={styles.container}>
+                <div></div>
+                <div className={styles.dividerBottom}></div>
+                <div className={styles.dividerRight}></div>
+            </div>
         </div>
         <div className={styles.right}>
             <p>

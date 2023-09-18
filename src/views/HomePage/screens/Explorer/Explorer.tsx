@@ -7,9 +7,10 @@ const Explorer = () => {
 
   return (
     <div className={styles.main}>
-        <picture>
-            <img src='Home Screen.png' alt='' width={1920} height={720}/>
-        </picture>
+        <div className={styles.explorerImage}>
+          <img src='Slider image.png' alt='' width={1920} height={720}/>
+        </div>
+        <p>UNLeASH YOUR INNeR eXPLOReR</p>
     </div>
   )
 }

@@ -82,6 +82,10 @@ $ancientsXSM: (
     z-index: 1000;
     background-color: #FBF6E8;
 
+    @include xsm{
+        display: none;
+    }
+
 
     &::before,
     &::after {

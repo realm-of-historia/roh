@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
 
+
     .section{
         margin-bottom: rm(32);
         display: flex;
@@ -15,10 +16,30 @@
             display: flex;
             align-items: center;
 
+            @include md{
+                font-size: font(15);
+            }
+
+            @include xsm{
+                font-size: font(16);
+            }
+
             span{
                 width: rm(24);
                 height: rm(24);
                 margin-right: rm(12);
+
+                @include md{
+                    width: rm(20);
+                    height: rm(20);
+                    margin-right: rm(8);
+                }
+
+                @include md{
+                    width: rm(24);
+                    height: rm(24);
+                    margin-right: rm(12);
+                }
             }
         }
 
@@ -26,18 +47,27 @@
             width: rm(155);
             font-weight: 600;
             color: color(text-black);
+
+            @include lg{
+                width: rm(130);
+            }
+
+            @include md{
+                width: rm(110);
+            }
+
+            @include xsm{
+                width: rm(128);
+            }
         }
 
         p:last-child{
             width: rm(314);
             color: color(text-brown);
 
-            @include md{
-                width: rm(325);
-            }
 
             @include xsm{
-                width: rm(360);
+                width: rm(448);
             }
         }
     }
@@ -49,13 +79,33 @@
             p{
                 font-size: font(16);
                 line-height: 160%;
-                @include font-work-regular
+                @include font-work-regular;
+
+                @include md{
+                    font-size: font(15);
+                }
+
+                @include xsm{
+                    font-size: font(16);
+                }
             }
     
             >p:first-child{
                 width: rm(155);
                 font-weight: 600;
                 color: color(text-black);
+                
+                @include lg{
+                    width: rm(130);
+                }
+
+                @include md{
+                    width: rm(110);
+                }
+
+                @include xsm{
+                    width: rm(128);
+                }
             }
 
             div{
@@ -66,6 +116,10 @@
                 p{
                     width: rm(677);
                     color: color(text-brown);
+
+                    @include lg{
+                        width: rm(400);
+                    }
         
                     @include md{
                         width: rm(325);
@@ -73,6 +127,10 @@
         
                     @include xsm{
                         width: rm(360);
+                    }
+
+                    @include xsm{
+                        width: rm(400);
                     }
                 }
             }

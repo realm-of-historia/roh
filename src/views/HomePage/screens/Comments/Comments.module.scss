@@ -3,4 +3,9 @@
 .comments{
     display: flex;
     padding: rm(0) rm(64) rm(32) rm(64);
+
+    @include xsm{
+        flex-direction: column;
+        padding: 0;
+    }
 }
