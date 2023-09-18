@@ -47,6 +47,12 @@
         margin-bottom: rm(24);
         line-height: 160%;
 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+
         @include lg{
             font-size: font(14);
         }
