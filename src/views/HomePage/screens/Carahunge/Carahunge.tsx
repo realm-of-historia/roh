@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './Carahunge.module.scss'
 import Column from './Column/Column'
+import Avatar from '@/components/Header/Avatar/Avatar'
 
 const Carahunge = () => {
 

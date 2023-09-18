@@ -2,6 +2,60 @@
 
 .marketplace{
 
+    @include xsm{
+        overflow-x: scroll;
+    }
+
+    .title{
+        padding: rm(64);
+        overflow: hidden;
+        position: relative;
+
+        @include md{
+            padding: rm(32);
+        }
+
+
+
+        .dividerRight{
+            position: absolute;
+            background-color: color(text-yellow-90);
+            width: 1px;
+            height: 100%;
+            top: 0;
+            left: 50%;
+
+            @include xsm{
+                left: rm(512);
+            }
+        }   
+
+        .dividerTop{
+            position: absolute;
+            background-color: color(text-yellow-90);
+            width: 100%;
+            height: 1px;
+            top: 0;
+            right: 0;
+        }
+
+        p{
+            width: rm(536);
+            color: color(text-black);
+            font-size: font(48);
+            @include font-dune-regular;
+            line-height: 160%;
+
+            @include md{
+                font-size: font(40);
+            }
+
+            @include xsm{
+                font-size: font(32);
+            }
+        }
+    }
+
     .cardsContainer{
         display: flex;
     }

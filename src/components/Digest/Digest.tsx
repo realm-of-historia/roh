@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react'
 import Image from 'next/image';
-import rohLogo from '../../../public/images/ROHlogo.svg.svg'
+import Loader from './Loader/Loader';
 
 
 const Digest = () => {
@@ -85,10 +85,10 @@ const Digest = () => {
     <div className={styles.main}>
         <div className={styles.subscription}>
             <div className={styles.header}>
-                <button onClick={disHandler}><img src='images/discordImage.svg' alt='' width='24' height='24'/> Discord</button>
-                <button onClick={tikHandler}><img src='images/tiktok (1).svg' alt='' width='24' height='24'/> TikTok</button>
-                <button onClick={twitHandler}><img src='images/twitterImage.svg' alt='' width='24' height='24'/> Twitter</button>
-                <button onClick={instHandler}><img src='images/instagramImage.svg' alt='' width='24' height='24'/> Instagram</button>
+                <button onClick={disHandler}><img src='discordImage.svg' alt='' width='24' height='24'/> Discord</button>
+                <button onClick={tikHandler}><img src='tiktok.svg' alt='' width='24' height='24'/> TikTok</button>
+                <button onClick={twitHandler}><img src='twitterImage.svg' alt='' width='24' height='24'/> Twitter</button>
+                <button onClick={instHandler}><img src='instagramImage.svg' alt='' width='24' height='24'/> Instagram</button>
             </div>
             <div className={styles.container}>
                 <div className={styles.text}>
@@ -109,12 +109,12 @@ const Digest = () => {
                             <div></div>
                         </div>
                     </div>
-                    <button>
-                    {/* onClick={subscribeHandler}>{loading ? (
+                    <button
+                    onClick={subscribeHandler}>{loading ? (
                         <Loader/>
                         ) : (
                             'Subscribe'
-                        )} */}
+                        )}
                     </button>
                     <div className={styles.left}></div>
                     <div className={styles.right}></div>
@@ -123,7 +123,7 @@ const Digest = () => {
             <div className={styles.leftDivider}></div>
       </div>
       <div className={styles.promotion}>
-        <Image className={styles.logo} alt='' src={rohLogo}/>
+        <Image className={styles.logo} alt='' src={'ROHlogo.svg.svg'} width={630} height={180}/>
         <p className={styles.footer}>
           Ⓒ ROH 2023
         </p>
@@ -133,10 +133,10 @@ const Digest = () => {
         <div className={styles.left}></div>
         <div className={styles.right}></div>
         <div className={styles.mainCircle}></div>
-        <picture><img className={styles.firstElipse} alt='' width='198' height='198' src='images/Ellipse.svg' /></picture>
-        <picture><img className={styles.secondElipse} alt='' width='198' height='198' src='images/Ellipse.svg' /></picture>
-        <picture><img className={styles.thirdElipse} alt='' width='198' height='198' src='images/Ellipse.svg' /></picture>
-        <picture><img className={styles.fourthElipse} alt='' width='198' height='198' src='images/Ellipse.svg' /></picture>
+        <picture><img className={styles.firstElipse} alt='' width='198' height='198' src='Ellipse.svg' /></picture>
+        <picture><img className={styles.secondElipse} alt='' width='198' height='198' src='Ellipse.svg' /></picture>
+        <picture><img className={styles.thirdElipse} alt='' width='198' height='198' src='Ellipse.svg' /></picture>
+        <picture><img className={styles.fourthElipse} alt='' width='198' height='198' src='Ellipse.svg' /></picture>
       </div>
     </div>
   )

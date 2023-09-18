@@ -13,25 +13,60 @@
         background-color: color(text-yellow-90);
         top: 0;
         left: 0;
+        z-index: 10000;
     }
 
     .left{
-        width: 50%;
+        width: 53%;
         display: flex;
         flex-wrap: wrap;
 
-        div{
-            width: rm(310);
-            height: rm(310);
-            border-radius: rm(1000);
-            border: 1px solid color(text-yellow-90);
+        @include xsm{
+            display: none;
         }
 
-        div:nth-child(1){
+        .container{
+            position: relative;
+
+            div{
+                width: rm(320);
+                height: rm(320);
+                border-radius: rm(1000);
+                border: 1px solid color(text-yellow-90);
+
+                @include md{
+                    width: rm(270);
+                    height: rm(270);
+                }
+            }
+
+            .dividerBottom{
+                position: absolute;
+                background-color: color(text-yellow-90);
+                width: 100%;
+                height: 1px;
+                bottom: 0;
+                left: 0;
+                border: none;
+            }
+
+            .dividerRight{
+                position: absolute;
+                background-color: color(text-yellow-90);
+                width: 1px;
+                height: 100%;
+                top: 0;
+                right: 0;
+                border: none;
+            }
+
+        }
+
+        .container:nth-child(1){
             background-color: color(text-yellow-80);
         }
 
-        div:nth-child(2){
+        .container:nth-child(2){
             background-color: color(text-yellow-70);
         }
 
@@ -45,13 +80,28 @@
         justify-content: center;
         align-items: center;
 
+        @include xsm{
+            width: 100%;
+        }
+
         p:first-child{
-            width: rm(536);
+            width: rm(336);
             text-align: center;
             color: color(text-black);
             font-size: font(48);
             @include font-dune-regular;
             line-height: 160%;
+
+            @include lg{
+                font-size: font(40);
+            }
+
+            @include xsm{
+                width: rm(500);
+                font-size: font(32);
+                margin-top: rm(32);
+                margin-bottom: rm(32);
+            }
         }
     }
 }

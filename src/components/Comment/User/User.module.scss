@@ -3,6 +3,10 @@
 .user{
     display: flex;
     align-items: center;
+    
+    @include xsm{
+        margin-bottom: rm(32);
+    }
 
     .commentImage{
         width: rm(24);
@@ -15,6 +19,19 @@
         height: rm(48);
         margin-right: rm(16);
         margin-left: rm(32);
+
+        @include md{
+            width: rm(32);
+            height: rm(32);
+            margin-left: rm(24);
+        }
+
+        @include xsm{
+            width: rm(48);
+            height: rm(48);
+            margin-right: rm(16);
+            margin-left: rm(32);
+        }
     }
 
     p{
@@ -33,6 +50,12 @@
         font-weight: 600;
         margin-bottom: rm(8);
         line-height: 130%;
+
+        @include md{
+            font-size: font(14);
+            margin-bottom: rm(6);
+            line-height: 100%;
+        }
     }
     
 }

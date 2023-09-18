@@ -4,5 +4,9 @@
 
     .bundlesContainer{
         display: flex;
+
+        @include xsm{
+            overflow-x: scroll;
+        }
     }
 }

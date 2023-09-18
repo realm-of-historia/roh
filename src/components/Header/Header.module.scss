@@ -2,7 +2,7 @@
 
 .header{
     position: relative;
-    overflow: hidden;
+    // overflow: hidden;
     @include font-work-regular;
     color: color(text-brown);
     display: flex;
@@ -15,21 +15,37 @@
     .leftDivider{
         position: absolute;
         width: 1px;
-        height: rm(100%);
+        height: rm(74%);
         background-color: color(text-yellow-90);
         z-index: 1000;
         left: 15%;
         top: 0;
+
+        @include xsm{
+            left: rm(156);
+        }
     }
 
     .rightDivider{
         position: absolute;
         width: 1px;
-        height: rm(100%);
+        height: rm(74%);
         background-color: color(text-yellow-90);
         z-index: 1000;
         right: 30%;
         top: 0;
+
+        @include lg{
+            right: 37%;
+        }
+
+        @include md{
+            right: 10%;
+        }
+
+        @include xsm{
+            right: 17%;
+        }
     }
 
     .bottomDivider{
@@ -46,6 +62,18 @@
         margin-right: rm(542);
         width: rm(92);
         height: rm(38);
+
+        @include lg{
+            margin-right: rm(250);
+        }
+
+        @include md{
+            margin-right: rm(300);
+        }
+
+        @include xsm{
+            margin-right: rm(79);
+        }
     }
 
     .navigation{
@@ -54,12 +82,46 @@
         gap: rm(24);
         margin-right: rm(327);
 
+        @include lg{
+            margin-right: rm(170);
+        }
+
+        @include md{
+            margin-right: rm(340);
+        }
+
+        @include xsm{
+            margin-right: rm(64);
+        }
+
         p{
             opacity: 1;
             transition: opacity .3s ease-in-out;
+            font-size: font(16);
     
             &:hover{
                 opacity: .7;
+            }
+
+
+        }
+
+        p:nth-child(1){
+
+            @include md{
+                display: none;
+            }
+        }
+
+        p:nth-child(2){
+
+            @include lg{
+                width: rm(120);
+            }
+
+            @include md{
+                width: rm(120);
+                margin-right: rm(0);
             }
         }
 
@@ -75,6 +137,10 @@
             margin-left: rm(8);
             margin-right: rm(32);
 
+            @include md{
+                display: none;
+            }
+
             span{
                 width: rm(36);
                 height: rm(36);
@@ -86,8 +152,19 @@
             opacity: 1;
             transition: opacity .3s ease-in-out;
 
+            @include md{
+                display: none;
+            }
+
             &:hover{
                 opacity: .7;
+            }
+        }
+
+        p:nth-child(1) {
+
+            @include lg{
+                width: rm(50);
             }
         }
     }

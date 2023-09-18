@@ -10,6 +10,11 @@
     justify-content: center;
     align-items: center;
 
+    @include xsm{
+        height: rm(640);
+        padding-top: rm(40);
+    }
+
     .title{
         z-index: 100;
         font-size: font(64);
@@ -17,6 +22,10 @@
         line-height: 120%;
         @include font-dune-regular;
         margin-bottom: rm(48);
+
+        @include xsm{
+            font-size: font(48);
+        }
     }
 
     .lobby_image{
@@ -102,6 +111,12 @@
             color: color(bg);
             text-transform: uppercase;
             text-align: center;
+
+            @include xsm{
+                position: absolute;
+                top: rm(55);
+                right: 9%;
+            }
         }   
     }
 }

@@ -51,6 +51,7 @@ const Start = () => {
         <div className={styles.right}>
             <div className={styles.firstDivider}></div>
             <div className={styles.secondDivider}></div>
+            <div className={styles.thirdDivider}></div>
             <div className={styles.commentsSection}>
                 <Comment isNews={false} title={firstComment[0]} comment={firstComment[1]} avatar={firstComment[2]} name={firstComment[3]} date={firstComment[4]}></Comment>
                 <Comment isNews={false} title={secondComment[0]} comment={secondComment[1]} avatar={secondComment[2]} name={secondComment[3]} date={secondComment[4]}></Comment>

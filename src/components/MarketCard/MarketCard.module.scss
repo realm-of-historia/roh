@@ -4,6 +4,18 @@
     position: relative;
     width: rm(480);
 
+    @include lg{
+        width: rm(320);
+    }
+
+    @include md{
+        width: rm(270);
+    }
+
+    @include xsm{
+        width: rm(480);
+    }
+
     .dividerBot{
         position: absolute;
         width: 100%;
@@ -20,7 +32,19 @@
         @include font-work-regular;
         width: rm(352);
         line-height: 160%;
-        font-weight: 600;
+        font-weight: 700;
+
+        @include lg{
+            padding: rm(32) rm(32) rm(0) rm(32);
+        }
+
+        @include md{
+            font-size: font(20);   
+        }
+
+        @include xsm{
+             font-size: font(24);
+        }
     }
 
     .imageContainer{
@@ -29,6 +53,21 @@
         img{
             width: rm(480);
             height: rm(480);
+
+            @include lg{
+                width: rm(320);
+                height: rm(320);
+            }
+
+            @include md{
+                width: rm(270);
+                height: rm(270);
+            }
+
+            @include xsm{
+                width: rm(480);
+                height: rm(480);
+            }
         }
 
         .dividerTop{
@@ -67,6 +106,16 @@
         width: rm(155);
         line-height: 160%;
         font-weight: 600;
+
+        @include md{
+            width: rm(220);
+        }
+
+
+        @include xsm{
+            font-size: font(16);
+            width: rm(155);
+        }
     }
 
     .second{
@@ -75,18 +124,36 @@
         font-size: font(15);
         width: rm(197);
         line-height: 160%;
+
+        @include xsm{
+            font-size: font(16);
+        }
     }
 
     .price{
         padding: rm(32) rm(64) rm(16) rm(64);
         display: flex;
 
+        @include lg{
+            padding: rm(32) rm(32) rm(32) rm(32);
+        }
+
+        @include md{
+            padding: rm(16) rm(16) rm(16) rm(32);
+        }
     }
 
     .bid{
         padding: rm(0) rm(64) rm(32) rm(64);
         display: flex;
 
+        @include lg{
+            padding: rm(0) rm(32) rm(32) rm(32);
+        }
+
+        @include md{
+            padding: rm(0) rm(16) rm(16) rm(32);
+        }
     }
 
     .user{
@@ -94,9 +161,23 @@
         align-items: center;
         padding: rm(0) rm(64) rm(64) rm(64);
 
+        @include lg{
+            padding: rm(0) rm(32) rm(32) rm(32);
+        }
+
         img{
             width: rm(32);
             height: rm(32);
+
+            @include md{
+                width: rm(24);
+                height: rm(24);
+            }
+
+            @include xsm{
+                width: rm(32);
+                height: rm(32);
+            }
         }
 
         p{
@@ -107,6 +188,10 @@
             line-height: 160%;
             font-weight: 500;
             margin-left: rm(16);
+
+            @include xsm{
+                font-size: font(16);
+            }
         }
     }
 }
