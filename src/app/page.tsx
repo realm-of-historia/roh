@@ -5,7 +5,10 @@ import '../assets/index.scss'
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '@/components/Header/Header';
-import HomePage from '@/views/HomePage/HomePage';
+import Link from 'next/link';
+import HomePage from './home/page';
+import BlogPage from './blogs/page';
+import ArticlePage from './article/page';
 
 
 export default function Home() {
@@ -14,8 +17,10 @@ export default function Home() {
   return (
     <main className={styles.main}>
         {/* <ToastContainer /> */}
-        <Header></Header>
-        <HomePage></HomePage>
+        {/* <Header></Header> */}
+        {/* <HomePage></HomePage> */}
+        {/* <BlogPage></BlogPage> */}
+        <ArticlePage></ArticlePage>
     </main>
   )
 }

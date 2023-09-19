@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './Header.module.scss'
 import Icon from '../UI/Icon/Icon'
 import Avatar from './Avatar/Avatar'
+import Link from 'next/link'
 
 
 const Header = () => {
@@ -16,7 +17,7 @@ const Header = () => {
             <img className={styles.logoImage} alt='' width={92} height={38} src='Logo.png'/>
         </picture>
         <div className={styles.navigation}>
-            <p>Home</p>
+            <Link href="/home"><p>Home</p></Link>
             <p>History Section</p>
             <p>Perks</p>
             <p>Help</p>

@@ -1,0 +1,115 @@
+@use "../../../../assets/styles/index.scss" as *;
+
+.getStarted{
+
+
+    .container{
+        padding-left: rm(213);
+        display: flex;
+
+        @include lg{
+            padding-left: rm(100);
+        }
+    }
+
+    .left{
+        position: relative;
+        padding-bottom: rm(64);
+
+        .dividerLeft{
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: color(text-yellow-90);
+            width: 1px;
+            height: 100%;
+        }
+
+        .dividerRight{
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-color: color(text-yellow-90);
+            width: 1px;
+            height: 100%;
+        }
+
+        .title{
+            font-size: font(24);
+            color: color(text-black);
+            line-height: 160%;
+            margin-bottom: rm(32);
+            width: rm(918);
+            font-weight: 600;
+            padding: rm(64) rm(64) rm(0) rm(64);
+        }
+
+        .infos{
+            display: flex;
+            gap: rm(32);
+            padding: rm(0) rm(64) rm(0) rm(64);
+        }
+
+        .talking{
+            width: 100%;
+            height: rm(468);
+            margin-bottom: rm(64);
+            margin-top: rm(64);
+        }
+
+        .text{
+            display: flex;
+            flex-direction: column;
+            gap: rm(20);
+            width: rm(918);
+            margin-bottom: rm(128);
+            padding: rm(0) rm(64) rm(0) rm(64);
+
+            p{
+                color: color(text-brown);
+                font-size: font(18);
+                line-height: 160%;
+            }
+        }
+    }
+
+    .right{
+        display: flex;
+        flex-direction: column;
+        gap: rm(64);
+        padding: rm(64);
+
+        .search{
+            display: flex;
+            align-items: center;
+
+            p{
+                width: rm(160);
+                font-size: font(16);
+                @include font-work-regular;
+                color: color(text-black);
+                line-height: 160%;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .footer{
+        display: flex;
+
+        p{
+            height: rm(70);
+            width: 14.3%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: 1px solid color(text-yellow-90);
+            border-bottom: 1px solid color(text-yellow-90);
+            border-right: 1px solid color(text-yellow-90);
+        }
+
+        p:last-child{
+            border-right: none;
+        }
+    }
+}

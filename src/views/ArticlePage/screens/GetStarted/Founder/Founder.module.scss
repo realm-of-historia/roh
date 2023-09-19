@@ -1,0 +1,49 @@
+@use "../../../../../assets/styles/index.scss" as *;
+
+.founder{
+    display: flex;
+
+
+    img{
+        width: rm(80);
+        height: rm(80);
+        margin-right: rm(64);
+        margin-left: rm(64);
+
+        // @include md{
+        //     width: rm(32);
+        //     height: rm(32);
+        //     margin-left: rm(24);
+        // }
+
+        // @include xsm{
+        //     width: rm(48);
+        //     height: rm(48);
+        //     margin-right: rm(16);
+        //     margin-left: rm(32);
+        // }
+    }
+
+    div{
+
+        p{
+            color: color(text-brown);
+            line-height: 160%;
+            font-size: font(18);
+            @include font-work-regular;
+        }
+
+
+        p:first-child{
+            margin-bottom: rm(32);
+            width: rm(774);
+        }
+
+        p:last-child{
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+    }
+
+    
+}

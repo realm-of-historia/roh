@@ -6,9 +6,11 @@ const Comment = ({ isNews, title, comment, avatar, name, date }: { isNews: boole
 
   const titleClass = isNews ? styles.titleNews : styles.title;
   const containerClass = isNews ? styles.newsContainer : styles.commentContainer;
+  const dividerBottom = isNews ? styles.dividerBottomComment : styles.dividerBottomNews
 
   return (
     <div className={styles.comment}>
+      <div className={dividerBottom}></div>
       <div className={containerClass}>
         <div className={titleClass}>
         {isNews ? null : Array.isArray(title) ? (

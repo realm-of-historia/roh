@@ -56,6 +56,11 @@
 
     .right{
         position: relative;
+        width: 50%;
+
+        @include xsm{
+            width: 100%;
+        }
 
         .firstDivider{
             position: absolute;
@@ -64,6 +69,10 @@
             height: 1px;
             bottom: 31%;
             left: 0;
+
+            @include xsm{
+                display: none;
+            }
         }
 
         .secondDivider{
@@ -73,6 +82,10 @@
             height: 1px;
             bottom: 59%;
             left: 0;
+
+            @include xsm{
+                display: none;
+            }
         }
 
         .thirdDivider{

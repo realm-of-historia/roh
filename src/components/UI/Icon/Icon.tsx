@@ -611,6 +611,58 @@ const Icon = ({label, ...props} : {label: string | Array<string> | undefined}) =
 
             </span>
             )
+
+        case 'briefcase':
+                return(
+                    <span className={styles.icon}>
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clipPath="url(#clip0_872_1560)">
+                            <path d="M16.5 7.5V13.5C16.5 15.1569 15.1569 16.5 13.5 16.5H4.5C2.84315 16.5 1.5 15.1569 1.5 13.5V7.5M16.5 7.5C16.5 5.84315 15.1569 4.5 13.5 4.5H4.5C2.84315 4.5 1.5 5.84315 1.5 7.5M16.5 7.5C16.5 7.5 14.128 9.57349 9 9.43582C3.87196 9.29816 1.5 7.5 1.5 7.5M6 4.5V3.75C6 2.50736 7.00736 1.5 8.25 1.5H9.75C10.9926 1.5 12 2.50736 12 3.75V4.5M6 8.00755V10.2575M12 8.00755V10.2575" stroke="#EAD8B1" strokeWidth="1.125" strokeLinecap="round"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_872_1560">
+                            <rect width="18" height="18" fill="white"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+                    </span>
+                )
+                    
+        case 'calendar':
+            return(
+                <span className={styles.icon}>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.25 6.75V13.5C2.25 15.1569 3.59315 16.5 5.25 16.5H12.75C14.4069 16.5 15.75 15.1569 15.75 13.5V6.75M2.25 6.75V5.625C2.25 3.96815 3.59315 2.625 5.25 2.625H12.75C14.4069 2.625 15.75 3.96815 15.75 5.625V6.75M2.25 6.75H15.75M12 1.5V3.75M6 1.5V3.75" stroke="#EAD8B1" strokeWidth="1.125" strokeLinecap="round"/>
+                    </svg>
+                </span>
+            )
+
+
+        case 'chat-smile':
+        return(
+            <span className={styles.icon}>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 10.5C6 10.5 7.125 12 9 12C10.875 12 12 10.5 12 10.5M8.25 2.25H9.75C13.4779 2.25 16.5 5.27208 16.5 9C16.5 12.7279 13.4779 15.75 9.75 15.75H4.5C2.84315 15.75 1.5 14.4069 1.5 12.75V9C1.5 5.27208 4.52208 2.25 8.25 2.25Z" stroke="#EAD8B1" strokeWidth="1.125" strokeLinecap="round"/>
+                </svg>
+            </span>
+        )
+
+
+        case 'oclock':
+            return(
+                <span className={styles.icon}>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clipPath="url(#clip0_872_1566)">
+                        <path fillRule="evenodd" clipRule="evenodd" d="M2.0625 9C2.0625 5.16852 5.16852 2.0625 9 2.0625C12.8315 2.0625 15.9375 5.16852 15.9375 9C15.9375 12.8315 12.8315 15.9375 9 15.9375C5.16852 15.9375 2.0625 12.8315 2.0625 9ZM9 0.9375C4.5472 0.9375 0.9375 4.5472 0.9375 9C0.9375 13.4528 4.5472 17.0625 9 17.0625C13.4528 17.0625 17.0625 13.4528 17.0625 9C17.0625 4.5472 13.4528 0.9375 9 0.9375ZM9 3.9375C8.68934 3.9375 8.4375 4.18934 8.4375 4.5V7.60903C7.88778 7.83155 7.5 8.37049 7.5 9C7.5 9.82843 8.17157 10.5 9 10.5C9.82843 10.5 10.5 9.82843 10.5 9C10.5 8.37049 10.1122 7.83155 9.5625 7.60903V4.5C9.5625 4.18934 9.31066 3.9375 9 3.9375Z" fill="#EAD8B1"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_872_1566">
+                        <rect width="18" height="18" fill="white"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                </span>
+            )
     }
 }
 export default Icon
