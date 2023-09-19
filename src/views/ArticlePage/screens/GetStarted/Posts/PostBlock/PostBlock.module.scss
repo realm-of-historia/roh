@@ -1,0 +1,20 @@
+@use '../../../../../../assets/styles/index.scss' as *;
+
+.postBlock{
+    display: flex;
+    flex-direction: column;
+    gap: rm(8);
+
+    p{
+        width: rm(374);
+        font-size: font(16);
+        @include font-work-regular;
+        color: color(text-brown);
+        line-height: 160%;
+    }
+
+    p:first-child{
+        font-weight: 600;
+    }
+
+}

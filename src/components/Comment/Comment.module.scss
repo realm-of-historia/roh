@@ -1,6 +1,19 @@
 @use "../../assets/styles/index.scss" as *;
 
 .comment{
+    position: relative;
+
+    .dividerBottomNews{
+
+        @include xsm{
+            background-color: color(text-yellow-90);
+            width: 120%;
+            height: 1px;
+            position: absolute;
+            bottom: rm(-32);
+            left: rm(-50);
+        }
+    }
 
     .newsContainer{
         width: 100%;

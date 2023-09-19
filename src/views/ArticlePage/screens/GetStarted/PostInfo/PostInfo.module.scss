@@ -1,0 +1,18 @@
+@use "../../../../../assets/styles/index.scss" as *;
+
+.postInfo{
+    display: flex;
+    align-items: center;
+
+    p{
+        color: color(text-brown);
+        font-size: font(15);
+        line-height: 140%;
+        margin-left: rm(8);
+    }
+
+    svg{
+        width: rm(18);
+        height: rm(18);
+    }
+}
