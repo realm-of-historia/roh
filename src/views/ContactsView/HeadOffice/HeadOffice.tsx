@@ -9,7 +9,7 @@ export default function HeadOffice() {
             <div className={styles.container}>
                 <div className={styles.left}>
                     <div className={styles.logo}>
-                        <p>LeT'S SPeAK</p>
+                        <p>LeT`&#34;`S SPeAK</p>
                         <p>1 (833) 597-7538</p>
                     </div>
                     <div className={styles.divider}></div>
