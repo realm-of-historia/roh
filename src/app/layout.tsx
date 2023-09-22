@@ -2,6 +2,7 @@
 import type { Metadata } from 'next'
 import Head from 'next/head'
 import LenisScroll from '@/components/LenisScroll/LenisScroll'
+import '@/assets/index.scss'
 
 
 export const metadata: Metadata = {

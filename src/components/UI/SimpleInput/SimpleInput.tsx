@@ -1,20 +1,27 @@
-import styles from './SimpleInput.module.scss'
-import React from 'react'
-import { useState } from 'react'
+import styles from './SimpleInput.module.scss';
+import React from 'react';
 import Icon from '../Icon/Icon';
 
+interface SimpleInputProps {
+    placeholder: string;
+    icon?: string;
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    isContacts: boolean;
+}
 
-const SimpleInput = ({placeholder, icon}: {placeholder: string, icon?: string}) => {
+const SimpleInput: React.FC<SimpleInputProps> = ({ placeholder, icon, value, onChange, isContacts}) => {
 
-    const [text, setText] = useState('');
+    const padding = isContacts ? styles.input : styles.contactsInput
 
     return (
         <div className={styles.simpleInput}>
             <Icon label={icon}></Icon>
             <input
                 placeholder={placeholder}
-                value={text}
-                onChange={(e) => setText(e.target.value)}
+                value={value}
+                onChange={onChange}
+                className={padding}
             />
             <div className={styles.inputDivider}>
                 <div></div>
@@ -22,6 +29,6 @@ const SimpleInput = ({placeholder, icon}: {placeholder: string, icon?: string}) 
             </div>
         </div>
     )
-} 
+}
 
-export default SimpleInput
+export default SimpleInput;

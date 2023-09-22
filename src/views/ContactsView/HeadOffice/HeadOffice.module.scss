@@ -1,0 +1,459 @@
+@use '../../../assets/styles/index.scss' as *;
+
+.headOffice{
+
+
+    .container{
+        display: flex;
+        width: 100%;
+        height: rm(700);
+
+        @include md{
+            height: rm(420);
+        }
+
+        @include xsm{
+            flex-direction: column;
+            height: rm(840);
+        }
+    }
+
+    .footer{
+        display: flex;
+
+        p{
+            height: rm(70);
+            width: 14.3%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: 1px solid color(text-yellow-90);
+            border-bottom: 1px solid color(text-yellow-90);
+            border-right: 1px solid color(text-yellow-90);
+        }
+
+        p:last-child{
+            border-right: none;
+        }
+    }
+
+    .left{
+
+        width: rm(960);
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+
+        @include md{
+            height: rm(420);
+        }
+
+        @include xsm{
+            width: 100%;
+        }
+
+        div{
+            background-color: #EAD8B1;
+            height: 1px;
+            width: 100%;
+            position: absolute;
+
+        }
+
+        .topFirst{
+            left: 0;
+            top: rm(250);
+
+            @include md{
+                top: rm(118);
+            }
+
+        }
+
+        .topSecond{
+            left: 0;
+            bottom: rm(250);
+
+            @include md{
+                bottom: rm(151);
+            }
+
+        }
+
+        .left{
+            width: 1px;
+            height: 100%;
+            top: rm(0);
+            left: rm(167);
+
+            @include lg{
+                left: rm(5);
+            }
+
+            @include md{
+                left: rm(60);
+            }
+
+            @include xsm{
+                left: rm(78);
+            }
+        }
+
+        .right{
+            width: 1px;
+            height: 100%;
+            top: rm(0);
+            right: rm(167);
+            
+            @include lg{
+                right: rm(5);
+            }
+
+            @include md{
+                right: rm(60);
+            }
+
+            @include xsm{
+                right: rm(78);
+            }
+        }
+
+        .mainCircle{
+            position: absolute;
+            border: 1px solid #EAD8B1;
+            width: rm(630);
+            height: rm(630);
+            border-radius: rm(1000);
+            background-color: transparent;
+            opacity: 0.75;
+
+            @include md{
+                width: rm(420);
+                height: rm(420);
+            }
+        }
+
+
+        img{
+            position: absolute;
+            width: rm(297);
+            height: rm(297);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            @include md{
+                width: rm(198);
+                height: rm(198);
+            }
+
+        }
+
+        .firstElipse{
+            transform: translate(-106%, -55%);
+        }
+
+        .secondElipse{
+            transform: translate(6%, -55%);
+        }
+
+        .thirdElipse{
+            transform: translate(-50%, -106%);
+
+        }
+
+        .fourthElipse{
+            transform: translate(-50%, 6%);
+        }
+
+        .logo{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            height: 100%;
+            width: 100%;
+            position: relative;
+
+            p:first-child{
+                color: color(text-black);
+                font-size: font(24);
+                margin-bottom: rm(16);
+                @include font-dune-regular;
+                line-height: 120%;
+            }
+
+            p:last-child{
+                color: color(text-brown);
+                @include font-work-regular;
+                font-size: font(18);
+                line-height: 140%;
+            }
+        }
+
+        .divider{
+            display: none;
+
+            @include md{
+                display: inline-block;
+                width: rm(630);
+                height: 1px;
+                background-color: #EAD8B1;
+                position: absolute;
+                top: rm(0);
+            }
+        }
+
+        .footer{
+            font-size: font(12);
+            color: color(text-brown);
+            line-height: 160%;
+            @include font-work-regular;
+            position: absolute;
+            bottom: rm(-280);
+            z-index: 1000;
+
+            @include md{
+                bottom: rm(40);
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .right{
+
+        width: rm(960);
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+
+        @include md{
+            height: rm(420);
+        }
+
+        @include xsm{
+            width: 100%;
+        }
+
+        div{
+            background-color: #EAD8B1;
+            height: 1px;
+            width: 100%;
+            position: absolute;
+
+            @include md{
+                width: 200%;
+            }
+        }
+
+        .topFirst{
+            left: 0;
+            top: rm(250);
+
+            @include md{
+                top: rm(118);
+                left: rm(-300);
+            }
+
+            @include xsm{
+                top: rm(150);
+            }
+
+        }
+
+        .topSecond{
+            left: 0;
+            bottom: rm(250);
+
+            @include md{
+                bottom: rm(151);
+                left: rm(-300);
+            }
+
+        }
+
+        .left{
+            width: 1px;
+            height: 100%;
+            top: rm(0);
+            left: rm(167);
+
+            @include lg{
+                left: rm(5);
+            }
+
+            @include md{
+                left: rm(60);
+            }
+
+            @include xsm{
+                left: rm(78);
+            }
+        }
+
+        .right{
+            width: 1px;
+            height: 100%;
+            top: rm(0);
+            right: rm(167);
+            
+            @include lg{
+                right: rm(5);
+            }
+
+            @include md{
+                right: rm(60);
+            }
+
+            @include xsm{
+                right: rm(78);
+            }
+        }
+
+        .mainCircle{
+            position: absolute;
+            border: 1px solid #EAD8B1;
+            width: rm(630);
+            height: rm(630);
+            border-radius: rm(1000);
+            background-color: transparent;
+            opacity: 0.75;
+
+            @include md{
+                width: rm(420);
+                height: rm(420);
+            }
+        }
+
+
+        img{
+            position: absolute;
+            width: rm(297);
+            height: rm(297);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            @include md{
+                width: rm(198);
+                height: rm(198);
+            }
+        }
+
+        .firstElipse{
+            transform: translate(-106%, -55%);
+        }
+
+        .secondElipse{
+            transform: translate(6%, -55%);
+        }
+
+        .thirdElipse{
+            transform: translate(-50%, -106%);
+
+        }
+
+        .fourthElipse{
+            transform: translate(-50%, 6%);
+        }
+
+        .logo{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            height: 100%;
+            width: 100%;
+            position: relative;
+
+            p:first-child{
+                color: color(text-black);
+                font-size: font(24);
+                margin-bottom: rm(16);
+                @include font-dune-regular;
+                line-height: 120%;
+            }
+
+            p:last-child{
+                color: color(text-brown);
+                @include font-work-regular;
+                font-size: font(18);
+                line-height: 140%;
+            }
+        }
+
+
+        .divider{
+            display: none;
+
+            @include md{
+                display: inline-block;
+                width: rm(630);
+                height: 1px;
+                background-color: #EAD8B1;
+                position: absolute;
+                top: rm(0);
+            }
+        }
+    }
+
+    .officeFooter{
+        display: flex;
+
+        p{
+            height: rm(70);
+            width: 14.3%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid color(text-yellow-90);
+            border-right: 0px;
+
+            @include xsm{
+                width: 25%;
+            }
+        }
+
+        p:last-child{
+            border: 1px solid color(text-yellow-90);
+        }
+
+        @include xsm{
+            flex-wrap: wrap;
+            width: rm(576);
+
+            p:nth-child(5){
+                width: 33.3%;
+            }
+
+            p:nth-child(6){
+                width: 33.3%;
+            }
+
+            p:nth-child(7){
+                width: 33.3%;
+                border-right: 0;
+            }
+        }
+
+    }
+}

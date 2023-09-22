@@ -9,12 +9,68 @@
 
         @include lg{
             padding-left: rm(100);
+            padding-right: rm(100);
+            flex-direction: column;
+        }
+
+        @include xsm{
+            padding: rm(0);
+            align-items: center;
+        }
+
+        .footer{
+            display: none;
+    
+            @include lg{
+                display: flex;
+            }
+
+            p{
+                height: rm(70);
+                width: 14.3%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid color(text-yellow-90);
+                border-right: 0px;
+
+                @include xsm{
+                    width: 25%;
+                }
+            }
+
+            p:last-child{
+                border: 1px solid color(text-yellow-90);
+            }
+
+            @include xsm{
+                flex-wrap: wrap;
+                width: rm(576);
+
+                p:nth-child(5){
+                    width: 33.3%;
+                }
+
+                p:nth-child(6){
+                    width: 33.3%;
+                }
+
+                p:nth-child(7){
+                    width: 33.3%;
+                    border-right: 0;
+                }
+            }
+    
         }
     }
 
     .left{
         position: relative;
         padding-bottom: rm(64);
+
+        @include xsm{
+            padding-bottom: rm(32);
+        }
 
         .dividerLeft{
             position: absolute;
@@ -23,6 +79,10 @@
             background-color: color(text-yellow-90);
             width: 1px;
             height: 100%;
+
+            @include xsm{
+                display: none;
+            }
         }
 
         .dividerRight{
@@ -32,6 +92,10 @@
             background-color: color(text-yellow-90);
             width: 1px;
             height: 100%;
+
+            @include xsm{
+                display: none;
+            }
         }
 
         .title{
@@ -42,12 +106,23 @@
             width: rm(918);
             font-weight: 600;
             padding: rm(64) rm(64) rm(0) rm(64);
+
+            @include xsm{
+                padding: rm(32) rm(32) rm(0) rm(32);
+                margin-bottom: rm(16);
+                width: 100%;
+            }
         }
 
         .infos{
             display: flex;
             gap: rm(32);
             padding: rm(0) rm(64) rm(0) rm(64);
+
+            @include xsm{
+                padding: rm(0) rm(32) rm(0) rm(32);
+                gap: rm(13);
+            }
         }
 
         .talking{
@@ -55,6 +130,12 @@
             height: rm(468);
             margin-bottom: rm(64);
             margin-top: rm(64);
+
+            @include xsm{
+                height: rm(286);
+                margin-bottom: rm(32);
+                margin-top: rm(32);
+            }
         }
 
         .text{
@@ -64,6 +145,12 @@
             width: rm(918);
             margin-bottom: rm(128);
             padding: rm(0) rm(64) rm(0) rm(64);
+
+            @include xsm{
+                padding: rm(0) rm(32) rm(0) rm(32);
+                width: 100%;
+                margin-bottom: rm(64);
+            }
 
             p{
                 color: color(text-brown);
@@ -78,6 +165,15 @@
         flex-direction: column;
         gap: rm(64);
         padding: rm(64);
+
+        @include lg{
+            align-items: center;
+        }
+
+        @include xsm{
+            padding: rm(0);
+            padding-bottom: rm(32);
+        }
 
         .search{
             display: flex;
@@ -94,8 +190,13 @@
         }
     }
 
+
     .footer{
         display: flex;
+
+        @include lg{
+            display: none;
+        }
 
         p{
             height: rm(70);

@@ -12,6 +12,7 @@
     font-size: font(16);
     width: 100%;
 
+
     .leftDivider{
         position: absolute;
         width: 1px;
@@ -22,7 +23,7 @@
         top: 0;
 
         @include xsm{
-            left: rm(156);
+            left: rm(116);
         }
     }
 
@@ -41,11 +42,11 @@
         }
 
         @include md{
-            right: 10%;
+            right: 11%;
         }
 
         @include xsm{
-            right: 17%;
+            right: 15%;
         }
     }
 
@@ -69,11 +70,11 @@
         }
 
         @include md{
-            margin-right: rm(300);
+            margin-right: rm(250);
         }
 
         @include xsm{
-            margin-right: rm(79);
+            margin-right: rm(-30);
         }
     }
 
@@ -88,11 +89,12 @@
         }
 
         @include md{
-            margin-right: rm(340);
+            margin-right: rm(310);
         }
 
         @include xsm{
-            margin-right: rm(64);
+            margin-right: rm(60);
+            margin-left: rm(50);
         }
 
         p{
@@ -109,9 +111,9 @@
 
         p:nth-child(1){
 
-            @include md{
-                display: none;
-            }
+            // @include md{
+            //     display: none;
+            // }
         }
 
         p:nth-child(2){
@@ -153,19 +155,26 @@
             opacity: 1;
             transition: opacity .3s ease-in-out;
 
-            @include md{
-                display: none;
-            }
 
             &:hover{
                 opacity: .7;
             }
         }
 
-        p:nth-child(1) {
+        >p:nth-child(1) {
 
             @include lg{
                 width: rm(50);
+            }
+
+            @include md{
+                    display: none;
+            }
+        }
+
+        >p:nth-child(2) {
+            @include md{
+                    display: none;
             }
         }
     }

@@ -4,6 +4,7 @@
     position: relative;
     z-index: 10000000;
 
+
     img{
         width: rm(38);
         height: rm(38);             
@@ -21,11 +22,17 @@
         background-color: #FBF6E8;
 
         @include lg{
-            right: rm(-55);
+            right: rm(-50);
+            top: rm(57);
         }
 
         @include md{
             right: rm(-40);
+            top: rm(58);
+        }
+
+        @include xsm{
+            right: rm(-22);
         }
 
         .leftDivider{
