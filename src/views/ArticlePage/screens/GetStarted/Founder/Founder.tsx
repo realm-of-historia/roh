@@ -12,6 +12,7 @@ const Founder = ({avatar, name, rank, title} : {avatar: string | Array<string>, 
             <p className={styles.text}>{title}</p>
             <p>{name}, {rank}</p>
         </div>
+        <div className={styles.topDivider}></div>
     </div>
   )
 }

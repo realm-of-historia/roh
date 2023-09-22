@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Marketplace.module.scss'
 import MarketCard from '@/components/MarketCard/MarketCard'
 
-const Marketplace = () => {
+const Marketplace = ({isMarket}: {isMarket?: boolean}) => {
 
     const marketCardInfo = [
         'Stone of prophecy',
@@ -33,11 +33,13 @@ const Marketplace = () => {
 
   return (
     <div className={styles.marketplace}>
-        <div className={styles.title}>
-            <p>MARKeTPLACe</p>
-            <div className={styles.dividerRight}></div>
-            <div className={styles.dividerTop}></div>
-        </div>
+        {!isMarket &&         
+            <div className={styles.title}>
+                <p>MARKeTPLACe</p>
+                <div className={styles.dividerRight}></div>
+                <div className={styles.dividerTop}></div>
+            </div>
+        }
         <div className={styles.cardsContainer}>
             <MarketCard title={marketCardInfo[0]} price={marketCardInfo[1]} image={marketCardInfo[2]} avatar={marketCardInfo[3]} name={marketCardInfo[4]} bid={marketCardInfo[5]}></MarketCard>
             <MarketCard title={marketCardInfoSecond[0]} price={marketCardInfoSecond[1]} image={marketCardInfoSecond[2]} avatar={marketCardInfoSecond[3]} name={marketCardInfoSecond[4]} bid={marketCardInfoSecond[5]}></MarketCard>

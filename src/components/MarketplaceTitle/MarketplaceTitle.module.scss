@@ -1,0 +1,22 @@
+@use "@/assets/styles/index.scss" as *;
+
+.marketTitle{
+    font-size: font(48);
+    @include font-dune-regular;
+    line-height: 120%;
+    color: color(text-black);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding-top: rm(64);
+    margin-bottom: rm(64);
+
+    .dividerBot{
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: color(text-yellow-90);
+        bottom: rm(-64);
+        left: 0;
+    }
+}

@@ -54,7 +54,6 @@
         justify-content: center;
         align-items: center;
         width: rm(370);
-        padding: rm(24) rm(0) rm(24) rm(32);
         background-color: transparent;
         z-index: 1000;
     
@@ -72,6 +71,14 @@
             line-height: 140%;
         }
     
+    }
+
+    .contactsInput{
+        padding: rm(12) rm(0) rm(24) rm(0);
+    }
+
+    .input{
+        padding: rm(24) rm(0) rm(24) rm(32);
     }
 }
 

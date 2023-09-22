@@ -37,3 +37,7 @@ html {
     @include generate-grid;
     background-color: color(bg);
 }
+
+body {
+    overflow-x: hidden;
+}

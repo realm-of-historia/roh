@@ -9,6 +9,7 @@ import Link from 'next/link';
 import HomePage from './home/page';
 import BlogPage from './blogs/page';
 import ArticlePage from './article/page';
+import ContactsPage from './contacts/page';
 
 
 export default function Home() {
@@ -18,9 +19,10 @@ export default function Home() {
     <main className={styles.main}>
         {/* <ToastContainer /> */}
         {/* <Header></Header> */}
-        {/* <HomePage></HomePage> */}
+        <HomePage></HomePage>
         {/* <BlogPage></BlogPage> */}
-        <ArticlePage></ArticlePage>
+        {/* <ArticlePage></ArticlePage> */}
+        {/* <ContactsPage></ContactsPage> */}
     </main>
   )
 }

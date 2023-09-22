@@ -1,3 +1,5 @@
+"use client"
+
 import React, { FormEventHandler } from 'react'
 import styles from './Digest.module.scss'
 import { toast } from 'react-toastify';

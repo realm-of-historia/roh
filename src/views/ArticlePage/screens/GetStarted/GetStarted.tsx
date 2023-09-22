@@ -5,9 +5,12 @@ import Founder from './Founder/Founder'
 import Categories from './Categories/Categories'
 import Posts from './Posts/Posts'
 import SimpleInput from '@/components/UI/SimpleInput/SimpleInput'
+import {useState} from 'react'
 
 
 const GetStarted = () => {
+
+    const [text, setText] = useState('')
 
     const infos = [
         ['calendar', '06 April, 2021'],
@@ -55,12 +58,21 @@ const GetStarted = () => {
                         </p>
                     </div>
                     <Founder name='JANE JOHNSON' rank='CO-FOUNDER' avatar="devImage" title={'First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words per minute and your writing skills are sharp writing a blog post often takes more than a couple.'}></Founder>
+                </div>
+                <div className={styles.footer}>
+                    <p>Facebook</p>
+                    <p>Instagram</p>
+                    <p>GitHub</p>
+                    <p>Behance</p>
+                    <p>Pinterest</p>
+                    <p>Twitter</p>
+                    <p>Dribbble</p>
                 </div> 
                 <div className={styles.right}>
                     <div className={styles.search}>
                         <p>Search Blog</p>
                         <div>
-                            <SimpleInput placeholder='Search' icon='search-icon'></SimpleInput>
+                            <SimpleInput onChange={(e) => setText(e.target.value)} isContacts={true} value='' placeholder='Search' icon='search-icon'></SimpleInput>
                         </div>
                     </div>
                     <Categories text={categories[1]} numbers={categories[2]} title={categories[0]}></Categories>
