@@ -18,7 +18,7 @@ const Details = () => {
   return (
     <div className={styles.details}>
         {detailsText.map((element: any) => (
-            <div className={styles.section}>
+            <div key={element} className={styles.section}>
                 <Text>
                     <p>
                         {element[0]}
