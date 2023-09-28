@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './Marketplace.module.scss'
 import MarketCard from '@/components/MarketCard/MarketCard'
+import Text from '@/components/Text/Text'
 
 const Marketplace = ({isMarket}: {isMarket?: boolean}) => {
 
@@ -35,7 +36,7 @@ const Marketplace = ({isMarket}: {isMarket?: boolean}) => {
     <div className={styles.marketplace}>
         {!isMarket &&         
             <div className={styles.title}>
-                <p>MARKeTPLACe</p>
+                <Text><p>MARKeTPLACe</p></Text>
                 <div className={styles.dividerRight}></div>
                 <div className={styles.dividerTop}></div>
             </div>

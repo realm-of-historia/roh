@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './User.module.scss'
+import Text from '@/components/Text/Text'
 
 
 const User = ({avatar, name, date, title} : {avatar: string | Array<string>, name: string | Array<string>, date: string | Array<string>, title?: string | Array<string> | undefined}) => {
@@ -10,8 +11,8 @@ const User = ({avatar, name, date, title} : {avatar: string | Array<string>, nam
     <div className={styles.user}>
         <img className={image} src={`${avatar}.png`} alt='' width={48} height={48}/>
         <div>
-          {title ? <p className={styles.titleNews}>{title}</p> : <></>}
-          <p>{name} on {date}</p>
+          {title ? <Text><p className={styles.titleNews}>{title}</p></Text> : <></>}
+          <Text><p>{name} on {date}</p></Text>
         </div>
     </div>
   )

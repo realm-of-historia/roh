@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './Carahunge.module.scss'
 import Column from './Column/Column'
 import Avatar from '@/components/Header/Avatar/Avatar'
+import Text from '@/components/Text/Text'
 
 const Carahunge = () => {
 
@@ -20,12 +21,16 @@ const Carahunge = () => {
     <div className={styles.carahunge}>
         <div className={styles.divider}></div>
         <div className={styles.left}>
-            <p>
-                CARAHUNGe X
-            </p>
-            <p>
-                Mint On Aug 11, 2023
-            </p>
+            <Text>
+                <p>
+                    CARAHUNGe X
+                </p>
+            </Text>
+            <Text>
+                <p>
+                    Mint On Aug 11, 2023
+                </p>
+            </Text>
         </div>
         <Column creator={column[0]} description={column[1]} details={column[2]} icon={column[3]}></Column>
     </div>

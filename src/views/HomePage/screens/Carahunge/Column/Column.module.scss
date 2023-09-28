@@ -43,10 +43,13 @@
             }
         }
 
-        p:first-child{
+        >:first-child{
             width: rm(155);
-            font-weight: 600;
-            color: color(text-black);
+
+            p{
+                color: color(text-black);
+                font-weight: 600;
+            }
 
             @include lg{
                 width: rm(130);
@@ -61,9 +64,12 @@
             }
         }
 
-        p:last-child{
+        >:last-child{
             width: rm(314);
-            color: color(text-brown);
+
+            p{
+                color: color(text-brown);
+            }
 
 
             @include xsm{
@@ -90,10 +96,13 @@
                 }
             }
     
-            >p:first-child{
+            >:first-child{
                 width: rm(155);
-                font-weight: 600;
-                color: color(text-black);
+
+                p{
+                    font-weight: 600;
+                    color: color(text-black);
+                }
                 
                 @include lg{
                     width: rm(130);
@@ -140,4 +149,14 @@
         margin-bottom: rm(0);
     }
 
+
+    .details{
+        cursor: pointer;
+        opacity: 1;
+
+        &:hover{
+            opacity: 0.7;
+            transition: opacity 0.3s ease-in-out;
+        }
+    }
 }

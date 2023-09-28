@@ -241,10 +241,6 @@
                 margin-right: rm(10);
                 width: rm(24);
                 height: rm(24);
-
-                @include md{
-                    display: inline-block;
-                }
             }
         }
 

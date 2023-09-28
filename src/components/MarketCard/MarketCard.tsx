@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './MarketCard.module.scss'
+import Text from '../Text/Text'
 
 const MarketCard = ({bid, price, image, title, avatar, name}: {bid: string | Array<string>, price: string | Array<string>, image: string | Array<string>, title: string | Array<string>, avatar: string, name: string | Array<string>}) => {
 
@@ -13,28 +14,40 @@ const MarketCard = ({bid, price, image, title, avatar, name}: {bid: string | Arr
         </div>
         <div className={styles.dividerRight}></div>
         <div className={styles.dividerBot}></div>
-        <p className={styles.title}>
-            {title}
-        </p>
+        <Text>
+            <p className={styles.title}>
+                {title}
+            </p>
+        </Text>
         <div className={styles.price}>
-            <p className={styles.first}>
-                Price
-            </p>
-            <p className={styles.second}>
-                {price}
-            </p>
+            <Text>
+                <p className={styles.first}>
+                    Price
+                </p>
+            </Text>
+            <Text>
+                <p className={styles.second}>
+                    {price}
+                </p>
+            </Text>
         </div>
         <div className={styles.bid}>
-            <p className={styles.first}>
-                Highest Bid
-            </p>
-            <p className={styles.second}>
-                {bid}
-            </p>
+            <Text>
+                <p className={styles.first}>
+                    Highest Bid
+                </p>
+            </Text>
+            <Text>
+                <p className={styles.first}>
+                    Highest Bid
+                </p>
+            </Text>
         </div>
         <div className={styles.user}>
             <img src={`${avatar}.png`} alt='' width={32} height={32}/>
-            <p>{name}</p>
+            <Text>
+                <p>{name}</p>
+            </Text>
         </div>
     </div>
   )

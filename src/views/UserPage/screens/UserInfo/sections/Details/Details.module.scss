@@ -1,0 +1,81 @@
+@use "../../../../../../assets/styles/index.scss" as *;
+
+
+.details{
+    display: flex;
+    flex-direction: column;
+    padding: rm(64);
+
+
+    button{
+        font-size: font(16);
+        position: relative;
+        color: color(text-brown);
+        @include font-work-regular;
+        line-height: 140%;
+        display: flex;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border: 1px solid #EAD8B1;
+        height: rm(60);
+        margin-top: rm(16);
+        font-weight: 600;
+        transition: background-color .7s ease;
+        z-index: 1000;
+
+        &:hover{
+            background-color: rgba(	234,	216,	177, .4);
+        }
+    }
+
+    .section{
+        display: flex;
+
+        :first-child{
+            p{
+                width: rm(155);
+                color: colot(text-black);
+                font-size: font(16);
+                line-height: 160%;
+                margin-bottom: rm(32);
+                font-weight: 600;
+                @include font-work-regular;
+            }
+        }
+
+        .info{
+            color: color(text-brown);
+            font-size: font(16);
+            line-height: 160%;
+            @include font-work-regular;
+
+        }
+
+        .verification{
+            display: flex;
+            margin-left: rm(10);
+
+            :first-child{
+                margin-top: rm(1);
+                span{
+                    width: rm(18);
+                    height: rm(18);
+                }
+            }
+
+            :last-child{
+
+                p{
+                    font-size: font(14);
+                    @include font-work-regular;
+                    line-height: 140%;
+                    color: color(text-brown);
+                    margin-left: rm(4);
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,41 @@
+@use "@/assets/styles/index.scss" as *;
+
+.profileLayout{
+    display: flex;
+    position: relative;
+
+    .dividerCenter{
+        position: absolute;
+        background-color: color(text-yellow-90);
+        height: 100%;
+        width: 1px;
+        top: 0;
+        right: 50%;
+    }
+
+    .dividerBottom{
+        position: absolute;
+        background-color: color(text-yellow-90);
+        height: 1px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+    }
+
+    .left{
+        width: 50%;
+        padding: rm(64);
+
+        .title{
+            @include font-dune-regular;
+            font-size: font(48);
+            line-height: 120%;
+            color: color(text-black);
+        }
+    }
+
+    .right{
+        width: 50%;
+        padding: rm(64);
+    }
+}

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import styles from './Contacts.module.scss';
 import SimpleInput from '@/components/UI/SimpleInput/SimpleInput';
+import Text from '@/components/Text/Text';
 
 export default function Contacts() {
     const [name, setName] = useState('');
@@ -21,7 +22,7 @@ export default function Contacts() {
         <div className={styles.contacts}>
             <div className={styles.left}>
                 <div className={styles.divider}></div>
-                <p>SeND US eMAIL</p>
+                <Text><p>SeND US eMAIL</p></Text>
                 <SimpleInput
                     placeholder='Name'
                     value={name}
@@ -46,7 +47,7 @@ export default function Contacts() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                 />
-                <button onClick={handleSendClick}>Send</button>
+                <button onClick={handleSendClick}><Text>Send</Text></button>
             </div>
             <img src='map.png' className={styles.right} alt='' width={1408} height={591} />
         </div>

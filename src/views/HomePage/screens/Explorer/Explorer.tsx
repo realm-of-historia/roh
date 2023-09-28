@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Explorer.module.scss'
+import Text from '@/components/Text/Text'
 
 
 const Explorer = () => {
@@ -10,7 +11,7 @@ const Explorer = () => {
         <div className={styles.explorerImage}>
           <img src='Slider image.png' alt='' width={1920} height={720}/>
         </div>
-        <p>UNLeASH YOUR INNeR eXPLOReR</p>
+        <Text><p>UNLeASH YOUR INNeR eXPLOReR</p></Text>
     </div>
   )
 }

@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react'
 import Image from 'next/image';
 import Loader from './Loader/Loader';
+import Text from '../Text/Text';
 
 
 const Digest = () => {
@@ -87,19 +88,23 @@ const Digest = () => {
     <div className={styles.main}>
         <div className={styles.subscription}>
             <div className={styles.header}>
-                <button onClick={disHandler}><img src='discordImage.svg' alt='' width='24' height='24'/> Discord</button>
-                <button onClick={tikHandler}><img src='tiktok.svg' alt='' width='24' height='24'/> TikTok</button>
-                <button onClick={twitHandler}><img src='twitterImage.svg' alt='' width='24' height='24'/> Twitter</button>
-                <button onClick={instHandler}><img src='instagramImage.svg' alt='' width='24' height='24'/> Instagram</button>
+                <button onClick={disHandler}><img src='discordImage.svg' alt='' width='24' height='24'/><Text yMove={15}>Discord</Text></button>
+                <button onClick={tikHandler}><img src='tiktok.svg' alt='' width='24' height='24'/> <Text yMove={15}>TikTok</Text></button>
+                <button onClick={twitHandler}><img src='twitterImage.svg' alt='' width='24' height='24'/> <Text yMove={15}>Twitter</Text></button>
+                <button onClick={instHandler}><img src='instagramImage.svg' alt='' width='24' height='24'/> <Text yMove={15}>Instagram</Text></button>
             </div>
             <div className={styles.container}>
                 <div className={styles.text}>
-                    <p>
-                        JOIN OUR WeeKLY DIGeST
-                    </p>
-                    <p>
-                        Get exclusive promotions & updates straight to your inbox.
-                    </p>
+                    <Text>
+                      <p>
+                          JOIN OUR WeeKLY DIGeST
+                      </p>
+                    </Text>
+                    <Text>
+                      <p>
+                          Get exclusive promotions & updates straight to your inbox.
+                      </p>
+                    </Text>
                     <div className={styles.input_wrapper}>
                         <input 
                         placeholder='Email'

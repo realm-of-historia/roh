@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Posts.module.scss'
+import Text from '@/components/Text/Text'
 
 const Posts = () => {
 
@@ -40,9 +41,11 @@ const Posts = () => {
             </div>
         </div>
         <div className={styles.right}>
-            <p>
-                LATeST INSTAGRAM POSTS
-            </p>
+            <Text>
+                <p>
+                    LATeST INSTAGRAM POSTS
+                </p>
+            </Text>
         </div>
     </div>
   )

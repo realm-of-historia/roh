@@ -33,7 +33,7 @@
         flex-direction: column;
         justify-content: flex-start;
 
-        p:first-child{
+        >:first-child{
             @include font-dune-regular;
             color: color(text-black);
             font-size: font(48);
@@ -48,7 +48,7 @@
             }
         }
 
-        p:last-child{
+        >:last-child{
             @include font-work-regular;
             font-size: font(16);
             color: color(text-brown);

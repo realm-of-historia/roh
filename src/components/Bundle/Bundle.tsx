@@ -1,7 +1,8 @@
 import React from 'react'
 import styles from './Bundle.module.scss'
+import Text from '../Text/Text'
 
-const Bundle = ({title, price, image}: {title: string | Array<string>, price: string | Array<string>, image: string | Array<string>}) => {
+const Bundle = ({title, price, image, isText}: {title: string | Array<string>, price: string | Array<string>, image: string | Array<string>, isText?: boolean}) => {
 
 
   return (
@@ -12,22 +13,30 @@ const Bundle = ({title, price, image}: {title: string | Array<string>, price: st
             <div className={styles.dividerBottom}></div>
         </div>
         <div className={styles.dividerRight}></div>
-        <div className={styles.title}>
-            <p className={styles.first}>
-                Title
-            </p>
-            <p className={styles.second}>
-                {title}
-            </p>
-        </div>
-        <div className={styles.price}>
-            <p className={styles.first}>
-                Purchase
-            </p>
-            <p className={styles.second}>
-                {price}
-            </p>
-        </div>
+        {!isText ? <div className={styles.title}>
+            <Text>
+                <p className={styles.first}>
+                    Title
+                </p>
+            </Text>
+            <Text>
+                <p className={styles.second}>
+                    {title}
+                </p>
+            </Text>
+        </div> : <></>}
+        {!isText ? <div className={styles.price}>
+            <Text>
+                <p className={styles.first}>
+                    Purchase
+                </p>
+            </Text>
+            <Text>
+                <p className={styles.second}>
+                    {price}
+                </p>
+            </Text>
+        </div> : <></>}
     </div>
   )
 }

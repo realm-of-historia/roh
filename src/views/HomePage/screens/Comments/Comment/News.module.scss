@@ -3,9 +3,39 @@
 .news{
     display: flex;
     flex-direction: column;
+    position: relative;
 
     img{
         width: 100%;
         height: rm(334);
+        z-index: 100;
+    }
+
+    .divider{
+        position: absolute;
+        background-color: color(text-yellow-90);
+        height: 100%;
+        width: 1px;
+        bottom: rm(-32);
+        left: 0;
+        z-index: 1;
+
+        @include xsm{
+            display: none;
+        }
+    }
+
+    .dividerRight{
+        position: absolute;
+        background-color: color(text-yellow-90);
+        height: 100%;
+        width: 1px;
+        bottom: rm(-32);
+        right: 0;
+        z-index: 1;
+
+        @include xsm{
+            display: none;
+        }
     }
 }
