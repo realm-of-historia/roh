@@ -17,9 +17,12 @@
             font-size: font(15);
         }
 
-        p:first-child{
+        >:first-child{
             width: rm(155);
-            font-weight: 600;
+
+            p{
+                font-weight: 600;
+            }
 
             @include lg{
                 width: rm(130);
@@ -34,7 +37,7 @@
             }
         }
 
-        p:last-child{
+        >:last-child{
             width: rm(677);
 
             @include lg{
@@ -61,9 +64,12 @@
             font-size: font(15);
         }
 
-        >p:first-child{
+        >:first-child{
             width: rm(155);
-            font-weight: 600;
+
+            p{
+                font-weight: 600;
+            }
 
             @include lg{
                 width: rm(130);
@@ -79,7 +85,7 @@
         }
 
         .container{
-            width: rm(677);
+            width: rm(667);
 
             @include lg{
                 width: rm(400);
@@ -93,7 +99,7 @@
                 width: rm(420);
             }
 
-            >p:first-child{
+            >:first-child{
                 margin-bottom: rm(15);
             }
 

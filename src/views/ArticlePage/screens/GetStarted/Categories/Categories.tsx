@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Categories.module.scss'
+import Text from '@/components/Text/Text'
 
 
 const Categories = ({text, numbers, title} : {text: string | Array<string>, numbers: string | Array<string>, title?: string | Array<string> | undefined}) => {
@@ -7,15 +8,15 @@ const Categories = ({text, numbers, title} : {text: string | Array<string>, numb
 
   return (
     <div className={styles.categories}>
-        <p className={styles.title}>Categories</p>
+        <Text><p className={styles.title}>Categories</p></Text>
         <div className={styles.text}>
             {Array.isArray(text) ? text.map((el) => (
-              <p key={el}>{el}</p>
+              <Text key={el}><p>{el}</p></Text>
             )) : <></>}
         </div>
         <div className={styles.numbers}>
             {Array.isArray(numbers) ? numbers.map((el) => (
-              <p key={el}>{el}</p>
+              <Text key={el}><p>{el}</p></Text>
             )) : <></>}
         </div>
     </div>

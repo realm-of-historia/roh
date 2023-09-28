@@ -1,0 +1,48 @@
+@use "../../../../../assets/styles/index.scss" as *;
+
+.navButton{
+    position: relative;
+    height: rm(70);
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color .7s ease;
+
+    &:hover{
+        background-color: rgba(	234,	216,	177, .4);
+    }
+
+
+    .dividerLeft{
+        position: absolute;
+        background-color: color(text-yellow-90);
+        top: 0;
+        width: 1px;
+        height: 100%;
+        left: 0;
+    }
+
+    .dividerRight{
+        position: absolute;
+        background-color: color(text-yellow-90);
+        top: 0;
+        width: 1px;
+        height: 100%;
+        right: 0;
+
+    }
+
+
+    :last-child{
+        p{
+            color: color(text-brown);
+            line-height: 140%;
+            font-size: font(15);
+            @include font-work-regular;
+            font-weight: 400;
+            transition: font-weight .3s ease-in-out;
+        }
+    }
+}

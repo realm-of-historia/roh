@@ -55,12 +55,11 @@
             width: 100%;
         }
 
-        div{
+        .block{
             background-color: #EAD8B1;
             height: 1px;
             width: 100%;
             position: absolute;
-
         }
 
         .topFirst{
@@ -179,7 +178,8 @@
             width: 100%;
             position: relative;
 
-            p:first-child{
+
+            .first{
                 color: color(text-black);
                 font-size: font(24);
                 margin-bottom: rm(16);
@@ -187,7 +187,7 @@
                 line-height: 120%;
             }
 
-            p:last-child{
+            .second{
                 color: color(text-brown);
                 @include font-work-regular;
                 font-size: font(18);
@@ -205,20 +205,6 @@
                 background-color: #EAD8B1;
                 position: absolute;
                 top: rm(0);
-            }
-        }
-
-        .footer{
-            font-size: font(12);
-            color: color(text-brown);
-            line-height: 160%;
-            @include font-work-regular;
-            position: absolute;
-            bottom: rm(-280);
-            z-index: 1000;
-
-            @include md{
-                bottom: rm(40);
             }
         }
     }
@@ -253,7 +239,7 @@
             width: 100%;
         }
 
-        div{
+        .block{
             background-color: #EAD8B1;
             height: 1px;
             width: 100%;
@@ -385,7 +371,7 @@
             width: 100%;
             position: relative;
 
-            p:first-child{
+            .first{
                 color: color(text-black);
                 font-size: font(24);
                 margin-bottom: rm(16);
@@ -393,7 +379,7 @@
                 line-height: 120%;
             }
 
-            p:last-child{
+            .second{
                 color: color(text-brown);
                 @include font-work-regular;
                 font-size: font(18);
@@ -419,7 +405,7 @@
     .officeFooter{
         display: flex;
 
-        p{
+        .block{
             height: rm(70);
             width: 14.3%;
             display: flex;
@@ -427,13 +413,19 @@
             justify-content: center;
             border: 1px solid color(text-yellow-90);
             border-right: 0px;
+            transition: background-color .7s ease;
+            cursor: pointer;
 
             @include xsm{
                 width: 25%;
             }
+
+            &:hover{
+                background-color: rgba(	234,	216,	177, .4);
+            }
         }
 
-        p:last-child{
+        .block:last-child{
             border: 1px solid color(text-yellow-90);
         }
 
@@ -441,15 +433,15 @@
             flex-wrap: wrap;
             width: rm(576);
 
-            p:nth-child(5){
+            .block:nth-child(5){
                 width: 33.3%;
             }
 
-            p:nth-child(6){
+            .block:nth-child(6){
                 width: 33.3%;
             }
 
-            p:nth-child(7){
+            .block:nth-child(7){
                 width: 33.3%;
                 border-right: 0;
             }

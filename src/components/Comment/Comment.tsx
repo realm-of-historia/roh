@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './Comment.module.scss'
 import User from './User/User'
+import Text from '../Text/Text'
 
 const Comment = ({ isNews, title, comment, avatar, name, date }: { isNews: boolean, title: string | string[], comment?: string | undefined | string | string[], avatar: string | string[], name: string | string[], date: string | string[] }) => {
 
@@ -14,12 +15,12 @@ const Comment = ({ isNews, title, comment, avatar, name, date }: { isNews: boole
       <div className={containerClass}>
         <div className={titleClass}>
         {isNews ? null : Array.isArray(title) ? (
-            title.map((el: string) => <p key={el}>{el}</p>)
+            title.map((el: string) => <Text key={el}><p>{el}</p></Text>)
           ) : (
-            <p>{title}</p>
+            <Text><p>{title}</p></Text>
           )}
         </div>
-        {comment ? <p className={styles.text}>{comment}</p> : <></>}
+        {comment ? <Text><p className={styles.text}>{comment}</p></Text> : <></>}
         <User avatar={avatar} name={name} date={date} title={isNews ? title : ''}></User>
       </div>
     </div>

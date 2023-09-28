@@ -34,6 +34,7 @@ const Comments = () => {
         <News link={firstNew[4]} isNews={true} title={firstNew[0]} avatar={firstNew[1]} name={firstNew[2]} date={firstNew[3]}></News>
         <News link={secondNew[4]} isNews={true} title={secondNew[0]} avatar={secondNew[1]} name={secondNew[2]} date={secondNew[3]}></News>
         <News link={thirdNew[4]} isNews={true} title={secondNew[0]} avatar={secondNew[1]} name={secondNew[2]} date={secondNew[3]}></News>
+        <div className={styles.divider}></div>
     </div>
   )
 }

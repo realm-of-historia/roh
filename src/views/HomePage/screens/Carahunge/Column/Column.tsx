@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './Column.module.scss'
 import { NextPage } from 'next'
 import Icon from '@/components/UI/Icon/Icon'
+import Text from '@/components/Text/Text'
 
 
 interface Column {
@@ -18,24 +19,28 @@ const Column: NextPage<Column> = ({creator, description, details, icon}) => {
   return (
     <div className={styles.main}>
         <div className={styles.section}>
-            <p>Created By</p>
-            <p>{creator}</p>
+            <Text><p>Created By</p></Text>
+            <Text><p>{creator}</p></Text>
         </div>
         <div className={styles.description}>
-            <p>Description</p>
+            <Text><p>Description</p></Text>
             <div>
                 {description.map((element: any) => (
-                    <p key={element}>{element}</p>
+                    <Text key={element}><p>{element}</p></Text>
                 ))}
             </div>
         </div>
         <div className={styles.section}>
-            <p>
-                Details
-            </p>
-            <p>
-                {<Icon label={icon}></Icon>} {details}
-            </p>
+            <Text>
+                <p>
+                    Details
+                </p>
+            </Text>
+            <Text>
+                <p className={styles.details}>
+                    {<Icon label={icon}></Icon>} {details}
+                </p>
+            </Text>
         </div>
     </div>
   )

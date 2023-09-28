@@ -77,12 +77,13 @@
         font-weight: 600;
 
         @include md{
-            width: rm(140);
+            width: rm(100);
         }
 
         @include xsm{
-            width: rm(128);
+            width: rm(160);
         }
+
     }
 
     .second{
@@ -91,6 +92,18 @@
         font-size: font(15);
         width: rm(224);
         line-height: 160%;
+
+        @include lg{
+            width: rm(135);
+        }
+
+        @include md{
+            width: rm(125);
+        }
+
+        @include xsm{
+            width: rm(224);
+        }
     }
 
     .title{

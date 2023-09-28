@@ -1,24 +1,25 @@
 import React from 'react'
 import styles from './Column.module.scss'
+import Text from '@/components/Text/Text'
 
 const Column = ({secondText, text, list}: {secondText: string | Array<string> | undefined, text: string | Array<string>, list: Array<string> | string}) => {
 
     return (
         <div className={styles.column}>
             <div className={styles.firstBlock}>
-                <p>About</p>
-                <p>{text}</p>
+                <Text><p>About</p></Text>
+                <Text><p>{text}</p></Text>
             </div>
             <div className={styles.secondBlock}>
-                <p className={styles.title}>Our vision</p>
+                <Text><p className={styles.title}>Our vision</p></Text>
                 <div className={styles.container}>
-                    <p>{secondText}</p>
+                    <Text><p>{secondText}</p></Text>
                     {Array.isArray(list) ? list.map((element: any) => (
                         <div className={styles.list} key={element}>
-                            <div className={styles.divider}></div>
-                            <p>{element}</p>
+                            <Text><div className={styles.divider}></div></Text>
+                            <Text><p>{element}</p></Text>
                         </div>
-                    )) : <p>{list}</p>}
+                    )) : <Text><p>{list}</p></Text>}
                 </div>
             </div>
         </div>

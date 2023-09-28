@@ -25,7 +25,9 @@
                 display: flex;
             }
 
-            p{
+            .block{
+                color: color(text-brown);
+                @include font-work-regular;
                 height: rm(70);
                 width: 14.3%;
                 display: flex;
@@ -33,13 +35,19 @@
                 justify-content: center;
                 border: 1px solid color(text-yellow-90);
                 border-right: 0px;
+                cursor: pointer;
+                transition: background-color .7s ease;
 
                 @include xsm{
                     width: 25%;
                 }
+
+                &:hover{
+                    background-color: rgba(	234,	216,	177, .4);
+                }
             }
 
-            p:last-child{
+            .block:last-child{
                 border: 1px solid color(text-yellow-90);
             }
 
@@ -47,15 +55,15 @@
                 flex-wrap: wrap;
                 width: rm(576);
 
-                p:nth-child(5){
+                .block:nth-child(5){
                     width: 33.3%;
                 }
 
-                p:nth-child(6){
+                .block:nth-child(6){
                     width: 33.3%;
                 }
 
-                p:nth-child(7){
+                .block:nth-child(7){
                     width: 33.3%;
                     border-right: 0;
                 }
@@ -198,7 +206,9 @@
             display: none;
         }
 
-        p{
+        .block{
+            color: color(text-brown);
+            @include font-work-regular;
             height: rm(70);
             width: 14.3%;
             display: flex;
@@ -207,9 +217,15 @@
             border-top: 1px solid color(text-yellow-90);
             border-bottom: 1px solid color(text-yellow-90);
             border-right: 1px solid color(text-yellow-90);
+            transition: background-color .7s ease;
+            cursor: pointer;
+
+            &:hover{
+                background-color: rgba(	234,	216,	177, .4);
+            }
         }
 
-        p:last-child{
+        .block:last-child{
             border-right: none;
         }
     }
