@@ -7,8 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Header from '@/components/Header/Header';
 import Link from 'next/link';
 import HomePage from './home/page';
-import BlogPage from './blogs/page';
-import ArticlePage from './article/page';
+import BlogPage from './blog/page';
 import ContactsPage from './contacts/page';
 
 

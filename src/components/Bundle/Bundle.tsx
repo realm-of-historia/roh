@@ -10,7 +10,7 @@ const Bundle = ({title, price, image, isText}: {title: string | Array<string>, p
         <div className={styles.imageContainer}>
             <img src={`${image}.png`} alt='' width={480} height={480}/>
             <div className={styles.dividerTop}></div>
-            <div className={styles.dividerBottom}></div>
+            {/* <div className={styles.dividerBottom}></div> */}
         </div>
         <div className={styles.dividerRight}></div>
         {!isText ? <div className={styles.title}>

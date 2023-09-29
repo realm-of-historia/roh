@@ -15,21 +15,21 @@ const Header = () => {
         <div className={styles.rightDivider}></div>
         <div className={styles.bottomDivider}></div>
         <picture>
-            <img className={styles.logoImage} alt='' width={92} height={38} src='Logo.png'/>
+            <Link href="/"><img className={styles.logoImage} alt='' width={92} height={38} src='/Logo.png'/></Link>
         </picture>
         <div className={styles.navigation}>
-            <Text yMove={10}><Link href="/"><p>Home</p></Link></Text>
-            <Text yMove={10}><Link href="/"><p>History Section</p></Link></Text>
-            <Text yMove={10}><Link href="/"><p>Perks</p></Link></Text>
-            <Text yMove={10}><Link href="/"><p>Help</p></Link></Text>
+           <Link href="/"><p>Home</p></Link>
+           <Link href="/"><p>History Section</p></Link>
+           <Link href="/"><p>Perks</p></Link>
+           <Link href="/"><p>Help</p></Link>
         </div>
         <div className={styles.right}>
-            <Text yMove={10}><Link href="/"><p>Log In</p></Link></Text>
-            <Text yMove={10}><Link href="/"><p>Register</p></Link></Text>
+           <Link href="/"><p>Log In</p></Link>
+           <Link href="/"><p>Register</p></Link>
             <div className={styles.icons}>
-                <Text yMove={10}><Icon label='search-icon'></Icon></Text>
-                <Text yMove={10}><Icon label='message-icon'></Icon></Text>
-                <Text yMove={10}><Icon label='theme-icon'></Icon></Text>
+               <Icon label='search-icon'></Icon>
+               <Icon label='message-icon'></Icon>
+               <Icon label='theme-icon'></Icon>
             </div>
             <Avatar></Avatar>
         </div>

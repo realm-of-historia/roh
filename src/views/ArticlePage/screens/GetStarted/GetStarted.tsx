@@ -43,7 +43,7 @@ const GetStarted = () => {
                             <PostInfo key={el[0]} label={el[0]} text={el[1]}></PostInfo>
                         ))}
                     </div>
-                    <img className={styles.talking} src='talking.png' height={468} width={1068} alt=''/>
+                    <img className={styles.talking} src='/talking.png' height={468} width={1068} alt=''/>
                     <div className={styles.text}>
                         <Text>
                             <p>

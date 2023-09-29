@@ -9,7 +9,7 @@ const User = ({avatar, name, date, title} : {avatar: string | Array<string>, nam
 
   return (
     <div className={styles.user}>
-        <img className={image} src={`${avatar}.png`} alt='' width={48} height={48}/>
+        <img className={image} src={`/${avatar}.png`} alt='' width={48} height={48}/>
         <div>
           {title ? <Text><p className={styles.titleNews}>{title}</p></Text> : <></>}
           <Text><p>{name} on {date}</p></Text>

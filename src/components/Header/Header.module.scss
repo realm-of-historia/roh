@@ -64,6 +64,8 @@
         margin-right: rm(542);
         width: rm(92);
         height: rm(38);
+        cursor: pointer;
+
 
         @include lg{
             margin-right: rm(250);
@@ -168,7 +170,7 @@
         >:nth-child(1) {
 
             @include lg{
-                width: rm(50);
+                width: rm(80);
             }
 
             @include md{

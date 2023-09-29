@@ -76,16 +76,22 @@
 
     .right{
         width: 50%;
+        // height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        // transition: background-color .3s ease-in-out;
+        
+        // &:hover{
+        //     background-color: rgba(	234,	216,	177, .4);
+        // }
 
         @include xsm{
             width: 100%;
         }
 
         p:first-child{
-            width: rm(336);
+            width: rm(406);
             text-align: center;
             color: color(text-black);
             font-size: font(48);

@@ -32,6 +32,11 @@ $fonts: (
   font-weight: normal;
 }
 
+@mixin font-rune-regular {
+  font-family: 'Rune', sans-serif;
+  font-weight: normal;
+}
+
 
 
 @function font($name) {
