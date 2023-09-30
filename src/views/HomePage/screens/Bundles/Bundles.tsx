@@ -8,19 +8,19 @@ const Bundles = () => {
     const bundleInfo = [
         '25 Products Mega Bundle with 50% off discount',
         '$ 28.00',
-        'rockHoleNFT'
+        '/rockHoleNFT'
     ]
 
     const bundleInfoSecond = [
         '25 Products Mega Bundle with 50% off discount',
         '$ 28.00',
-        'chestNFT'
+        '/chestNFT'
     ]
 
     const bundleInfoThird = [
         '25 Products Mega Bundle with 50% off discount',
         '$ 28.00',
-        'rockNFT'
+        '/rockNFT'
     ]
 
   return (

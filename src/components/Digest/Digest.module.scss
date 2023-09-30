@@ -216,40 +216,57 @@
         display: flex;
         width: 100%;
 
-        button{
-            width: 25%;
-            height: rm(70);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: color(text-brown);
-            font-size: font(16);
-            line-height: 140%;
-            @include font-work-regular;
-            border: 1px solid #EAD8B1;
-            border-left: 0;
-            cursor: pointer;
-            transition: background-color .7s ease;
-            z-index: 1000;
-            font-weight: 600;
+        div{
+            width: rm(300);
 
-            &:hover{
-                background-color: rgba(	234,	216,	177, .4);
+            @include lg{
+                width: rm(160);
             }
 
-            img{
-                margin-right: rm(10);
-                width: rm(24);
-                height: rm(24);
+            @include lg{
+                width: rm(300);
+            }
+
+            button{
+                height: rm(70);
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: color(text-brown);
+                font-size: font(16);
+                line-height: 140%;
+                @include font-work-regular;
+                border: 1px solid #EAD8B1;
+                border-left: 0;
+                cursor: pointer;
+                transition: background-color .7s ease;
+                z-index: 1000;
+                font-weight: 600;
+    
+                &:hover{
+                    background-color: rgba(	234,	216,	177, .4);
+                }
+    
+                img{
+                    margin-right: rm(10);
+                    width: rm(24);
+                    height: rm(24);
+                }
+            }
+    
+        }
+
+        div:last-child{
+            button{
+                border-right: 0;
             }
         }
 
-        button:last-child{
-            border-right: 0;
-        }
-
-        button:first-child{
-            border-left: 0;
+        div:first-child{
+            button{
+                border-left: 0;
+            }
         }
     }
 

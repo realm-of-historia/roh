@@ -88,10 +88,10 @@ const Digest = () => {
     <div className={styles.main}>
         <div className={styles.subscription}>
             <div className={styles.header}>
-                <button onClick={disHandler}><img src='discordImage.svg' alt='' width='24' height='24'/><Text yMove={15}>Discord</Text></button>
-                <button onClick={tikHandler}><img src='tiktok.svg' alt='' width='24' height='24'/> <Text yMove={15}>TikTok</Text></button>
-                <button onClick={twitHandler}><img src='twitterImage.svg' alt='' width='24' height='24'/> <Text yMove={15}>Twitter</Text></button>
-                <button onClick={instHandler}><img src='instagramImage.svg' alt='' width='24' height='24'/> <Text yMove={15}>Instagram</Text></button>
+              <Text yMove={15}><button onClick={disHandler}><img src='/discordImage.svg' alt='' width='24' height='24'/>Discord</button></Text>
+              <Text yMove={15}><button onClick={tikHandler}><img src='/tiktok.svg' alt='' width='24' height='24'/>TikTok</button></Text>
+              <Text yMove={15}><button onClick={twitHandler}><img src='/twitterImage.svg' alt='' width='24' height='24'/>Twitter</button></Text>
+              <Text yMove={15}><button onClick={instHandler}><img src='/instagramImage.svg' alt='' width='24' height='24'/>Instagram</button></Text>
             </div>
             <div className={styles.container}>
                 <div className={styles.text}>
@@ -130,7 +130,7 @@ const Digest = () => {
             <div className={styles.leftDivider}></div>
       </div>
       <div className={styles.promotion}>
-        <Image className={styles.logo} alt='' src={'ROHlogo.svg.svg'} width={630} height={180}/>
+        <Image className={styles.logo} alt='' src={'/ROHlogo.svg.svg'} width={630} height={180}/>
         <p className={styles.footer}>
           Ⓒ ROH 2023
         </p>
@@ -140,10 +140,10 @@ const Digest = () => {
         <div className={styles.left}></div>
         <div className={styles.right}></div>
         <div className={styles.mainCircle}></div>
-        <picture><img className={styles.firstElipse} alt='' width='198' height='198' src='Ellipse.svg' /></picture>
-        <picture><img className={styles.secondElipse} alt='' width='198' height='198' src='Ellipse.svg' /></picture>
-        <picture><img className={styles.thirdElipse} alt='' width='198' height='198' src='Ellipse.svg' /></picture>
-        <picture><img className={styles.fourthElipse} alt='' width='198' height='198' src='Ellipse.svg' /></picture>
+        <picture><img className={styles.firstElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
+        <picture><img className={styles.secondElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
+        <picture><img className={styles.thirdElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
+        <picture><img className={styles.fourthElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
       </div>
     </div>
   )

@@ -7,7 +7,7 @@ const News = ({isNews, link, title, avatar, name, date} : {isNews: boolean ,link
 
   return (
     <div className={styles.news}>
-      <img src={link} alt='' width={597} height={334}/>
+      <img src={'/' + link} alt='' width={597} height={334}/>
       <Comment isNews={isNews} title={title} avatar={avatar} name={name} date={date}></Comment>
       <div className={styles.divider}></div>
       <div className={styles.dividerRight}></div>

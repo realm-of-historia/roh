@@ -2,6 +2,8 @@ import React from 'react'
 import styles from './Marketplace.module.scss'
 import MarketCard from '@/components/MarketCard/MarketCard'
 import Text from '@/components/Text/Text'
+import Divider from '@/components/Divider/Divider'
+import { useSwiper } from 'swiper/vue'
 
 const Marketplace = ({isMarket}: {isMarket?: boolean}) => {
 
@@ -37,8 +39,7 @@ const Marketplace = ({isMarket}: {isMarket?: boolean}) => {
         {!isMarket &&         
             <div className={styles.title}>
                 <Text><p>MARKeTPLACe</p></Text>
-                <div className={styles.dividerRight}></div>
-                <div className={styles.dividerTop}></div>
+                <Divider position={'left top'}></Divider>
             </div>
         }
         <div className={styles.cardsContainer}>

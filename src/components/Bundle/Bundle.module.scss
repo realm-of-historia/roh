@@ -18,10 +18,19 @@
 
     .imageContainer{
         position: relative;
+        overflow: hidden;
+        width: rm(480);
+        height: rm(480);
 
         img{
-            width: rm(480);
-            height: rm(480);
+            width: 100%;
+            height: 100%;
+            transform: scale(1.3);
+            transition: transform .4s ease-in-out;
+
+            &:hover{
+                transform: scale(1);
+            }
 
             @include lg{
                 width: rm(320);

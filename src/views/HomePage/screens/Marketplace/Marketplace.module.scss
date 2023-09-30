@@ -17,27 +17,19 @@
 
 
 
-        .dividerRight{
+        >:nth-child(2){
             position: absolute;
             background-color: color(text-yellow-90);
             width: 1px;
             height: 100%;
-            top: 0;
-            left: 50%;
+            top: 0 !important;
+            left: 50% !important;
 
             @include xsm{
-                left: rm(512);
+                left: rm(512) !important;
             }
         }   
 
-        .dividerTop{
-            position: absolute;
-            background-color: color(text-yellow-90);
-            width: 100%;
-            height: 1px;
-            top: 0;
-            right: 0;
-        }
 
         p{
             width: rm(536);

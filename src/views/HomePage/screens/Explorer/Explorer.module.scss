@@ -2,46 +2,68 @@
 
 .main{
     position: relative;
-    height: rm(800);
-    padding-top: rm(522);
-    padding-left: rm(64);
-
-    @include xsm{
-        padding-top: rm(220);
-        padding-left: rm(32);
-        height: rm(600);
-    }
+    // height: rm(800);
+    // padding-top: rm(522);
+    // padding-left: rm(64);
+    display: flex;
+    // width: 100%;
 
 
-    p{
-        color: color(bg);
-        font-size: font(56);
-        @include font-dune-regular;
-        line-height: 120%;
-        z-index: 10000;
-        position: relative;
-        width: rm(895);
 
-        @include xsm{
-            width: rm(520);
-            text-align: center;
-        }
 
-    }
 
-    .explorerImage{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
 
-        img{
+    .swiperSlide{
+        >:last-child{
             position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: translate(-50%, -50%);
+            top: rm(500);
+            left: rm(100);
+            z-index: 10000;
+
+            @include lg{
+                top: 70%;
+            }
+
+            @include md{
+                top: 80%;
+            }
+
+            @include xsm{
+                top: 45%;
+                left: rm(30);
+            }
+            
+            p{
+                color: color(bg);
+                font-size: font(56);
+                @include font-dune-regular;
+                line-height: 120%;
+                z-index: 10000;
+                width: rm(895);
+        
+                @include xsm{
+                    width: rm(520);
+                    text-align: center;
+                }
+        
+            }
         }
     }
+
+
+    // .explorerImage{
+    //     width: 100%;
+    //     height: 100%;
+    //     position: absolute;
+    //     top: 50%;
+    //     left: 50%;
+
+    //     img{
+    //         position: absolute;
+    //         width: 100%;
+    //         height: 100%;
+    //         object-fit: cover;
+    //         transform: translate(-50%, -50%);
+    //     }
+    // }
 }

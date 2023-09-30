@@ -170,3 +170,12 @@
     font-display: fallback;
 }
 
+@font-face {
+    font-family: 'Rune';
+    src: url('FUTHARKVIKINGS.woff2') format('woff2'),
+        url('FUTHARKVIKINGS.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

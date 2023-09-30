@@ -2,6 +2,7 @@ import React from 'react'
 import Column from './Column/Column'
 import styles from './OurVision.module.scss'
 import Text from '@/components/Text/Text'
+import Divider from '@/components/Divider/Divider'
 
 const OurVision = ({secondText, list, text, leftSide}: {secondText: string | Array<string>,list: Array<string> | string, text: string | Array<string>, leftSide: string | Array<string>}) => {
 
@@ -9,8 +10,9 @@ const OurVision = ({secondText, list, text, leftSide}: {secondText: string | Arr
 
     return (
         <div className={styles.vision}>
-            <div className={styles.divider}></div>
-            <div className={styles.phoneDivider}></div>
+            <Divider position={"bottom left"} horizontal={true}></Divider>
+            <Divider position={"top left"} horizontal={true}/>
+            <Divider position={"top left"}/>
             <div className={styles.left}>
                 <Text><p>{leftSide}</p></Text>
             </div>

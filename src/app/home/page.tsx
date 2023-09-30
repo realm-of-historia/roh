@@ -15,6 +15,8 @@ import Marketplace from '../../views/HomePage/screens/Marketplace/Marketplace'
 import Digest from '@/components/Digest/Digest'
 import OurVision from '../../views/HomePage/screens/OurVision/OurVision'
 import Header from '@/components/Header/Header'
+import { NativeUnderpin } from '@/components/NativeUnderpin/NativeUnderpin'
+import { ParallaxProvider } from 'react-scroll-parallax'
 
 
 export default function HomePage() {
@@ -38,7 +40,9 @@ export default function HomePage() {
       <Header></Header>
       <Explorer></Explorer>
       <Carahunge></Carahunge>
-      <Lobby></Lobby>
+      <ParallaxProvider>
+        <Lobby isCircle={true}></Lobby>
+      </ParallaxProvider>
       <Start></Start>
       <Ancient></Ancient>
       <Comments></Comments>

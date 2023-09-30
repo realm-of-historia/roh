@@ -3,6 +3,7 @@ import styles from './Carahunge.module.scss'
 import Column from './Column/Column'
 import Avatar from '@/components/Header/Avatar/Avatar'
 import Text from '@/components/Text/Text'
+import Divider from '@/components/Divider/Divider'
 
 const Carahunge = () => {
 
@@ -19,7 +20,8 @@ const Carahunge = () => {
 
   return (
     <div className={styles.carahunge}>
-        <div className={styles.divider}></div>
+        <Divider position={"top right"}/>
+        {/* <div className={styles.divider}></div> */}
         <div className={styles.left}>
             <Text>
                 <p>

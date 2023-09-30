@@ -9,10 +9,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    will-change: transform;
 
     @include xsm{
         height: rm(640);
         padding-top: rm(40);
+    }
+
+    >:nth-child(1){
+        position: absolute;
+        width: 100%;
+        height: 120%;
+        object-fit: cover;
+        left: 0;
+        top: 0;
     }
 
     .title{
@@ -100,30 +111,75 @@
                 transform: translate(-68%, -50%);
                 rotate: -45deg;
             }
+
+            .circle {
+                --borderW: 0.1px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
+                display: inline-grid;
+                place-content: center;
+                width: rm(126);
+                height: rm(126);
+                aspect-ratio: 1;
+                border-radius: 50%;
+              }
+
+              .circle::before {
+                content: "";
+                position: absolute;
+                inset: calc(-1*var(--borderW));
+                clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%);
+                border: solid color(text-yellow-90) ;
+                border-radius: 50%;
+                animation: progress 1.5s cubic-bezier(.25, .4, .75, .6) paused forwards;
+              }
+              .circle:hover::before {
+                animation-play-state: running;
+              }
+
+              .circle:hover{
+                cursor: none;
+              }
+
+              @keyframes progress {
+                //   0% { clip-path: polygon(50% 50%, 50% -21%, 50% -21%, 50% -21%, 50% -21%, 50% -21%); }
+                 25% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%); }
+                 50% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, 50% 121%, 50% 121%); }
+                 75% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, -21% 50%); }
+                100% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, 50% -21%);}
+              }
+
+
         }
 
-        p{  
-            font-size: font(12);
-            @include font-work-regular;
-            line-height: 120%;
-            letter-spacing: 1%;
-            width: rm(106);
-            color: color(bg);
-            text-transform: uppercase;
-            text-align: center;
-            cursor: pointer;
-            opacity: 1;
-            transition: opacity .3s ease-in-out;
+        >:last-child{
+            div{
+                p{  
+                    font-size: font(12);
+                    @include font-work-regular;
+                    line-height: 120%;
+                    letter-spacing: 1%;
+                    width: rm(106);
+                    color: color(bg);
+                    text-transform: uppercase;
+                    text-align: center;
+                    cursor: pointer;
+                    opacity: 1;
+                    transition: opacity .3s ease-in-out;
+        
+                    &:hover{
+                        opacity: 0.7;
+                    }
+                }   
 
-            &:hover{
-                opacity: 0.7;
+                @include xsm{
+                    position: absolute;
+                    top: rm(140);
+                    right: 9%;
+                }
             }
-
-            @include xsm{
-                position: absolute;
-                top: rm(55);
-                right: 9%;
-            }
-        }   
+        }
     }
 }
