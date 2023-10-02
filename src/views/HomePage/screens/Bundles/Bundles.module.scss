@@ -1,18 +1,29 @@
 @use "../../../../assets/styles/index.scss" as *;
 
 .bundles{
-    height: 100%;
+    height: rm(800);
     width: 100%;
+
+    @include lg{
+        height: rm(615);
+    }
+
+    @include md{
+        height: rm(585);
+    }
+    
+    @include xsm{
+        height: rm(750);
+    }
 
     .bundlesContainer{
         display: flex;
-        
-
-
+        height: 100%;
 
 
         .offers{
-            height: rm(700);
+            // height: rm(700);
+            height: 100%;
             width: 100%;
             display: flex;
             justify-content: center;
@@ -21,17 +32,6 @@
             transition: background-color .3s ease-in-out;
             cursor: pointer;
 
-            @include lg{
-                height: rm(510);
-            }
-
-            @include md{
-                height: rm(485);
-            }
-            
-            @include md{
-                height: rm(650);
-            }
 
 
             &:hover{
@@ -45,13 +45,15 @@
                 @include font-dune-regular;
                 line-height: 120%;
                 color: color(text-black);
+                z-index: 10000;
+                margin-bottom: rm(60);
             }
 
             .bigCircle{
                 width: rm(465);
                 height: rm(465);
                 position: absolute;
-                top: 50%;
+                top: 44%;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 // border: 1px solid color(text-yellow-90);
@@ -96,7 +98,7 @@
                 width: rm(235);
                 height: rm(235);
                 position: absolute;
-                top: 33.5%;
+                top: 29.5%;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 // border: 1px solid color(text-yellow-90);
@@ -109,19 +111,19 @@
                 @include lg{
                     width: rm(160);
                     height: rm(160);
-                    top: 34.4%;
+                    top: 31%;
                 }
 
                 @include md{
                     width: rm(135);
                     height: rm(135);
-                    top: 39.5%;
+                    top: 32.5%;
                 }
 
                 @include xsm{
                     width: rm(240);
                     height: rm(240);
-                    top: 31.5%;
+                    top: 28%;
                 }
             }
 
@@ -143,7 +145,7 @@
                 width: rm(235);
                 height: rm(235);
                 position: absolute;
-                top: 66.5%;
+                top: 58.5%;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 // border: 1px solid color(text-yellow-90);
@@ -156,19 +158,19 @@
                 @include lg{
                     width: rm(160);
                     height: rm(160);
-                    top: 66%;
+                    top: 57%;
                 }
 
                 @include md{
                     width: rm(135);
                     height: rm(135);
-                    top: 60.5%;
+                    top: 55.5%;
                 }
 
                 @include xsm{
                     width: rm(240);
                     height: rm(240);
-                    top: 68.5%;
+                    top: 60%;
                 }
             }
 

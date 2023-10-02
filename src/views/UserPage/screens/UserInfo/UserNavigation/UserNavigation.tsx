@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './UserNavigation.module.scss'
 import Text from '@/components/Text/Text'
 import NavButton from '../NavButton/NavButton'
+import Link from 'next/link'
 
 const UserNavigation = () => {
 
@@ -10,11 +11,11 @@ const UserNavigation = () => {
     <div className={styles.navigation}>
           <div className={styles.dividerTop}></div>
           <div className={styles.dividerBottom}></div>
-          <NavButton text='Personal'></NavButton>
-          <NavButton text='Dashboard'></NavButton>
-          <NavButton text='History'></NavButton>
-          <NavButton text='Perks'></NavButton>
-          <NavButton text='Settings'></NavButton>
+          <Link href='/user' className={styles.link}><NavButton text='Personal'></NavButton></Link>
+          <Link href='/dashboard' className={styles.link}><NavButton text='Dashboard'></NavButton></Link>
+          <Link href='/history' className={styles.link}><NavButton text='History'></NavButton></Link>
+          <Link href='/perks' className={styles.link}><NavButton text='Perks'></NavButton></Link>
+          <Link href='/settings' className={styles.link}><NavButton text='Settings'></NavButton></Link>
     </div>
   )
 }

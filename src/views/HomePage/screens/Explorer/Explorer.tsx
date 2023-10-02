@@ -11,10 +11,10 @@ import 'swiper/swiper-bundle.css'
 const Explorer = () => {
 
   const slides = [
-    ['Slider image.png', 'UNLeASH YOUR INNeR eXPLOReR'],
-    ['Slider image.png', 'UNLeASH YOUR INNeR eXPLOReR'],
-    ['Slider image.png', 'UNLeASH YOUR INNeR eXPLOReR'],
-    ['Slider image.png', 'UNLeASH YOUR INNeR eXPLOReR']
+    ['/Slider image.png', 'UNLeASH YOUR INNeR eXPLOReR'],
+    ['/Slider image.png', 'UNLeASH YOUR INNeR eXPLOReR'],
+    ['/Slider image.png', 'UNLeASH YOUR INNeR eXPLOReR'],
+    ['/Slider image.png', 'UNLeASH YOUR INNeR eXPLOReR']
   ]
 
 

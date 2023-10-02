@@ -8,12 +8,15 @@ import { useState } from 'react'
 import Image from 'next/image';
 import Loader from './Loader/Loader';
 import Text from '../Text/Text';
+import Divider from '../Divider/Divider';
+import { InView, useInView } from 'react-intersection-observer';
 
 
-const Digest = () => {
+const Digest = ({reff}: {reff?: any}) => {
 
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
+  const { ref, inView } = useInView()
 
   const disHandler = () => {
     window.open('https://discord.gg/48B3V4Av')
@@ -85,7 +88,8 @@ const Digest = () => {
   };
 
   return (
-    <div className={styles.main}>
+    <div className={styles.main} ref={reff}>
+      <div className={styles.mainDivider}></div>
         <div className={styles.subscription}>
             <div className={styles.header}>
               <button onClick={disHandler}><Text yMove={15}><img src='/discordImage.svg' alt='' width='24' height='24'/>Discord</Text></button>
@@ -134,12 +138,14 @@ const Digest = () => {
         <p className={styles.footer}>
           Ⓒ ROH 2023
         </p>
-        <div className={styles.divider}></div>
-        <div className={styles.topFirst}></div>
-        <div className={styles.topSecond}></div>
-        <div className={styles.left}></div>
+        <Divider horizontal={true} position={'top left'}></Divider>
+        <Divider horizontal={true} position={'bottom left'}></Divider>
+        <div></div>
+        {/* <Divider position={'top left'}></Divider> */}
+        {/* <Divider position={'top right'}></Divider> */}
         <div className={styles.right}></div>
-        <div className={styles.mainCircle}></div>
+        <div className={styles.divider}></div>
+        <div ref={ref} className={`${ inView ? styles.mainCircle : ''}`}></div>
         <picture><img className={styles.firstElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
         <picture><img className={styles.secondElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
         <picture><img className={styles.thirdElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>

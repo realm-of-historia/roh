@@ -8,45 +8,28 @@ import Digest from '@/components/Digest/Digest'
 import MarketplaceTitle from '@/components/MarketplaceTitle/MarketplaceTItle'
 import {useState, useRef, useEffect} from 'react'
 import { gsap } from 'gsap';
+import { useInView } from 'react-intersection-observer'
 
 export default function MarketplacePage() {
-
-    const [showSecondMarketplace, setShowSecondMarketplace] = useState(false);
+    const { ref, inView } = useInView()
 
     const endRef = useRef(null)
     const firstRef = useRef(null)
     const secondRef = useRef(null)
 
+    const [cardsCount, setCardsCount] = useState(0)
+    const [cards, setCards] = useState([])
 
-    useEffect(() => {
-        // Анимация для появления firstRef
-        gsap.from(endRef.current, {
-          opacity: 0,
-          y: 50,
-          duration: 1,
-          scrollTrigger: {
-            trigger: firstRef.current,
-            start: 'top bottom', // Начать анимацию, когда верхняя граница firstRef видна
-            endTrigger: secondRef.current, // Завершить анимацию при достижении secondRef
-            end: 'top bottom',
-            scrub: 1,
-          },
-        });
-    
-        // Анимация для появления secondRef
-        gsap.from(secondRef.current, {
-          opacity: 0,
-          y: 50,
-          duration: 1,
-          scrollTrigger: {
-            trigger: secondRef.current,
-            start: 'top bottom', // Начать анимацию, когда верхняя граница secondRef видна
-            scrub: 1, // "Scrub" значит, что анимация будет привязана к скроллу
-          },
-        });
-      }, []);
-    
-
+    useEffect(() =>{
+        if(inView) {
+            setTimeout(() =>{
+                setCards(
+                    [<Marketplace isMarket={true} ref={firstRef}></Marketplace>]
+                )
+            }, 2000)
+            console.log(cards)
+        }
+    }, [inView]) //setTimeout
 
 
     return(
@@ -56,9 +39,10 @@ export default function MarketplacePage() {
             <Panegliph isFirst={false}></Panegliph>
             <Marketplace isMarket={true}></Marketplace>
             <Marketplace isMarket={true} ref={endRef}></Marketplace>
-            <Marketplace isMarket={true} ref={firstRef}></Marketplace>
-            <Marketplace isMarket={true} ref={secondRef}></Marketplace>            
-            <Digest></Digest>
+            {cards.map((element : any) => (
+                element
+            ))}     
+            <Digest reff={ref}></Digest>
         </div>
     )
 }

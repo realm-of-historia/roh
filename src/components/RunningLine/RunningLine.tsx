@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import styles from './RunningLine.module.scss'
 import {useRef, useEffect, useState} from 'react'
@@ -5,32 +7,47 @@ import gsap from 'gsap'
 
 const RunningLine = ({ text }: { text: string }) => {
 
-  const [isRight, setIsRight] = useState(false)
+  const [isRight, setIsRight] = useState(1)
 
   const containerRef = useRef(null);
 
+
   useEffect(() => {
-    const container = containerRef.current;
+    const container: any = containerRef.current;
+
+    const animationOptions = {
+      backgroundPositionX: -container.offsetWidth * 16000 * isRight,
+      duration: 1000000,
+      repeat: -1,
+      ease: 'linear',
+    };
+
+    const animation = gsap.to(container, animationOptions);
+
 
     gsap.to(container, {
-      backgroundPositionX: '100%',
+      backgroundPositionX: '-50%',
       scrollTrigger: {
-        trigger: container,
-        start: 'top bottom',
-        scrub: 1,
-        toggleActions: 'play reset play reset',
-        onEnter: () => setIsRight(false),
-        onLeaveBack: () => setIsRight(true),
+        trigger: containerRef.current,
+        start: 'bottom bottom',
+        scrub: true,
+        onUpdate: ({direction}) => {
+          setIsRight(direction)
+          console.log(isRight, direction)
+        }
       },
     });
 
-    console.log(isRight)
-  }, [containerRef]);
+    return () => {
+      animation.kill();
+    };
+  }, [isRight]);
 
-
+  
 
   return (
-    <div className={`${styles.runningLine} ${!isRight ? styles.run : styles.runReverse}`} ref={containerRef}>
+    <div className={`${styles.runningLine} ${!isRight ? styles.run : styles.runReverse}`}>
+        <div className={styles.content} ref={containerRef}></div>
     </div>
   )
 }

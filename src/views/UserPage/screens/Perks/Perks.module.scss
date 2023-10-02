@@ -1,0 +1,7 @@
+@use "../../../../assets/styles/index.scss" as *;
+
+.perks{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}

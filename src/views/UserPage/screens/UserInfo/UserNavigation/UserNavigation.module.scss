@@ -11,6 +11,14 @@
         padding: rm(0);
     }
 
+    .link{
+        width: 20%;
+
+        >:nth-child(1){
+            width: 100%;
+        }
+    }
+
     .dividerTop{
         position: absolute;
         top: 0;
