@@ -30,7 +30,7 @@
         }
     }
 
-    div{
+
 
         p{
             color: color(text-brown);
@@ -41,7 +41,7 @@
         }
 
 
-        &:first-child{
+        p:first-child{
             margin-bottom: rm(32);
             width: rm(774);
 
@@ -51,13 +51,10 @@
             }
         }
 
-        &:last-child{
-            p{
+        p:last-child{
                 text-transform: uppercase;
                 font-weight: 600;
-            }
         }
-    }
 
     
 }

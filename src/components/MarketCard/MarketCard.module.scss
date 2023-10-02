@@ -3,6 +3,19 @@
 .card{
     position: relative;
     width: rm(480);
+    transition: background-color .6s ease-in-out;
+    cursor: pointer;
+    overflow: hidden;
+
+    &:hover{
+        background-color: rgba(	234,	216,	177, .4);
+
+        .imageContainer{
+            img{
+                transform: scale(1);
+            }
+        }
+    }
 
     @include lg{
         width: rm(320);
@@ -32,7 +45,7 @@
         @include font-work-regular;
         width: rm(352);
         line-height: 160%;
-        font-weight: 700;
+        font-weight: 610;
 
         @include lg{
             padding: rm(32) rm(32) rm(0) rm(32);
@@ -49,10 +62,31 @@
 
     .imageContainer{
         position: relative;
+        width: rm(480);
+        height: rm(480);
+        overflow: hidden;
 
-        img{
+        @include lg{
+            width: rm(320);
+            height: rm(320);
+        }
+
+        @include md{
+            width: rm(270);
+            height: rm(270);
+        }
+
+        @include xsm{
             width: rm(480);
             height: rm(480);
+        }
+
+        img{
+            width: 100%;
+            height: 100%;
+            transform: scale(1.3);
+            transition: transform .6s ease-in-out;
+
 
             @include lg{
                 width: rm(320);
@@ -79,14 +113,14 @@
             left: 0;
         }
     
-        .dividerBottom{
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            background-color: color(text-yellow-90);
-            bottom: rm(5);
-            left: 0;
-        }
+        // .dividerBottom{
+        //     position: absolute;
+        //     width: 100%;
+        //     height: 1px;
+        //     background-color: color(text-yellow-90);
+        //     bottom: rm(5);
+        //     left: 0;
+        // }
     }
 
     .dividerRight{
@@ -98,6 +132,16 @@
         right: 0;
     }
 
+    // .dividerLeft{
+    //     position: absolute;
+    //     width: 1px;
+    //     height: 100%;
+    //     background-color: color(text-yellow-90);
+    //     top: 0;
+    //     left: 0;
+    // }
+
+
 
     .first{
         color: color(text-brown);
@@ -108,7 +152,7 @@
         font-weight: 600;
 
         @include md{
-            width: rm(220);
+            width: rm(145);
         }
 
 
@@ -157,12 +201,15 @@
     }
 
     .user{
-        display: flex;
-        align-items: center;
         padding: rm(0) rm(64) rm(64) rm(64);
 
         @include lg{
             padding: rm(0) rm(32) rm(32) rm(32);
+        }
+
+        div{
+            display: flex;
+            align-items: center;
         }
 
         img{

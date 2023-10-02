@@ -6,6 +6,7 @@ import Header from '@/components/Header/Header'
 import UserNavigation from '@/views/UserPage/screens/UserInfo/UserNavigation/UserNavigation'
 import Digest from '@/components/Digest/Digest'
 import Bundle from '@/components/Bundle/Bundle'
+import Payment from '@/views/UserPage/screens/Dashboard/Payment/Payment'
 
 export default function UserPage() {
     return(
@@ -13,11 +14,7 @@ export default function UserPage() {
             <Header></Header>
             <UserInfo></UserInfo>
             <UserNavigation></UserNavigation>
-            <div style={{display: "flex"}}>
-                <Bundle title={'ff'} price={'ff'} isText={true} image={'chestNFT'}></Bundle>
-                <Bundle title={'ff'} price={'ff'} isText={true} image={'rockNFT'}></Bundle>
-                <Bundle title={'ff'} price={'ff'} isText={true} image={'rockHoleNFT'}></Bundle>
-            </div>
+            <Payment></Payment>
             <Digest></Digest>
         </div>
     )

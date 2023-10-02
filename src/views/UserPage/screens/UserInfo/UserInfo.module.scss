@@ -3,15 +3,31 @@
 .userInfo{
 
     display: flex;
-    padding: 0 0 0 rm(64    );
+    padding: 0 0 0 rm(64);
+    overflow: hidden;
+
+    @include xsm{
+        padding: 0 0 0 rm(32);
+    }
 
     .left{
         width: rm(363);
         height: rm(363);
 
+        @include xsm{
+            width: rm(192);
+            height: rm(192);
+        }
+
+
         img{
             width: rm(363);
             height: rm(363);
+
+            @include xsm{
+                width: rm(192);
+                height: rm(192);
+            }
         }
     }
 
@@ -20,6 +36,11 @@
         justify-content: space-between;
         width: 100%;
         padding: rm(64);
+
+        @include xsm{
+            padding: rm(32);
+            flex-direction: column;
+        }
 
         .info{
 
@@ -32,6 +53,11 @@
                     line-height: 120%;
                     margin-bottom: rm(16);
                     color: color(text-black);
+
+                    @include xsm{
+                        font-size: font(18);
+                        margin-bottom: rm(5);
+                    }
                 }
 
                 .verification{
@@ -67,6 +93,14 @@
             display: flex;
             flex-direction: column;
             gap: rm(14);
+
+            @include md{
+                width: rm(300);
+            }
+
+            @include xsm{
+                width: rm(290);
+            }
 
             .first{
                 display: flex;

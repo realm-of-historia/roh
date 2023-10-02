@@ -88,10 +88,10 @@ const Digest = () => {
     <div className={styles.main}>
         <div className={styles.subscription}>
             <div className={styles.header}>
-              <Text yMove={15}><button onClick={disHandler}><img src='/discordImage.svg' alt='' width='24' height='24'/>Discord</button></Text>
-              <Text yMove={15}><button onClick={tikHandler}><img src='/tiktok.svg' alt='' width='24' height='24'/>TikTok</button></Text>
-              <Text yMove={15}><button onClick={twitHandler}><img src='/twitterImage.svg' alt='' width='24' height='24'/>Twitter</button></Text>
-              <Text yMove={15}><button onClick={instHandler}><img src='/instagramImage.svg' alt='' width='24' height='24'/>Instagram</button></Text>
+              <button onClick={disHandler}><Text yMove={15}><img src='/discordImage.svg' alt='' width='24' height='24'/>Discord</Text></button>
+              <button onClick={tikHandler}><Text yMove={15}><img src='/tiktok.svg' alt='' width='24' height='24'/>TikTok</Text></button>
+              <button onClick={twitHandler}><Text yMove={15}><img src='/twitterImage.svg' alt='' width='24' height='24'/>Twitter</Text></button>
+              <button onClick={instHandler}><Text yMove={15}><img src='/instagramImage.svg' alt='' width='24' height='24'/>Instagram</Text></button>
             </div>
             <div className={styles.container}>
                 <div className={styles.text}>

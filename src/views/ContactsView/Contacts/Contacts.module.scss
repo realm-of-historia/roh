@@ -31,9 +31,16 @@
         }
     }
 
+    iframe{
+        // filter: invert(100%);
+        // color: color(text-black);
+        // background-color: color(text-black);
+    }
+
     .right{
         height: rm(591);
-        width: 100%;
+
+
 
         @include xsm{
             height: rm(640);

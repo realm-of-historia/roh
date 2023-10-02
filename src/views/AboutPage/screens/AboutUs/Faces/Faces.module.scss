@@ -4,9 +4,26 @@
 .faces{
     display: flex;
     align-items: center;
+    overflow: hidden;
 
     @include xsm{
         flex-direction: column;
+    }
+
+    .mySwiper{
+        height: rm(640);
+
+        @include lg{
+            height: rm(425);
+        }
+
+        @include md{
+            height: rm(355);
+        }
+
+        @include xsm{
+            height: rm(640);
+        }
     }
 
     img{
@@ -19,13 +36,13 @@
         }
 
         @include md{
-            width: rm(355);
-            height: rm(355);
+            width: rm(360);
+            height: rm(360);
         }
 
         @include xsm{
-            width: rm(640);
-            height: rm(640);
+            width: rm(576);
+            height: rm(576);
         }
     }
 }

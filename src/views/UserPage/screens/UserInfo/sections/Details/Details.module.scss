@@ -6,6 +6,10 @@
     flex-direction: column;
     padding: rm(64);
 
+    @include xsm{
+        padding: 0;
+    }
+
 
     button{
         font-size: font(16);
@@ -33,15 +37,15 @@
     .section{
         display: flex;
 
-        :first-child{
+        >:first-child{
             p{
                 width: rm(155);
-                color: colot(text-black);
+                color: color(text-black);
                 font-size: font(16);
                 line-height: 160%;
                 margin-bottom: rm(32);
-                font-weight: 600;
                 @include font-work-regular;
+                font-weight: 600;
             }
         }
 

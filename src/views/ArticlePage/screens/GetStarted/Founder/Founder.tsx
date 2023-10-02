@@ -10,8 +10,8 @@ const Founder = ({avatar, name, rank, title} : {avatar: string | Array<string>, 
     <div className={styles.founder}>
         <img src={`/${avatar}.png`} alt='' width={80} height={80}/>
         <div>
-            <Text><p className={styles.text}>{title}</p></Text>
-            <Text><p>{name}, {rank}</p></Text>
+            <p className={styles.text}>{title}</p>
+            <p>{name}, {rank}</p>
         </div>
         <div className={styles.topDivider}></div>
     </div>

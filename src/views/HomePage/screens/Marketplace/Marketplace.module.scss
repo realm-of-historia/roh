@@ -2,10 +2,6 @@
 
 .marketplace{
 
-    @include xsm{
-        overflow-x: scroll;
-    }
-
     .title{
         padding: rm(64);
         overflow: hidden;

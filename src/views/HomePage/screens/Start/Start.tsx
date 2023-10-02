@@ -45,8 +45,8 @@ const Start = () => {
         <Divider position={"top"}></Divider>
         <Divider position={"bottom"} horizontal={true}></Divider>
         <div className={styles.left}>
-            <video className={styles.player} muted autoPlay playsInline loop controls>
-            <source src="testVideo.mp4" type="video/mp4" />
+            <video className={styles.player} muted autoPlay playsInline loop>
+            <source src="/testVideo.mp4" type="video/mp4" />
             </video>
             {/* <img className={styles.player} src='player.png' alt='' width={960} height={540}/> */}
             <div className={styles.commentsSection}>

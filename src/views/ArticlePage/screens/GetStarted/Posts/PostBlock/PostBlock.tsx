@@ -9,8 +9,8 @@ const PostBlock = ({text, secondText} : {text: string | Array<string>, secondTex
   return (
     <div className={styles.postBlock}>
         <div className={styles.text}>
-            <Text><p>{text}</p></Text>
-            <Text><p>{secondText}</p></Text>
+            <p>{text}</p>
+            <p>{secondText}</p>
         </div>
     </div>
   )

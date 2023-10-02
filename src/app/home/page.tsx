@@ -19,6 +19,7 @@ import { NativeUnderpin } from '@/components/NativeUnderpin/NativeUnderpin'
 import { ParallaxProvider } from 'react-scroll-parallax'
 
 
+
 export default function HomePage() {
 
   const firstBlock = [
@@ -40,9 +41,11 @@ export default function HomePage() {
       <Header></Header>
       <Explorer></Explorer>
       <Carahunge></Carahunge>
-      <ParallaxProvider>
-        <Lobby isCircle={true}></Lobby>
-      </ParallaxProvider>
+      <NativeUnderpin>
+        <ParallaxProvider>
+          <Lobby isCircle={true}></Lobby>
+        </ParallaxProvider>
+      </NativeUnderpin>
       <Start></Start>
       <Ancient></Ancient>
       <Comments></Comments>
@@ -52,7 +55,9 @@ export default function HomePage() {
       <OurVision secondText={firstBlock[3]} list={firstBlock[2]} leftSide={firstBlock[0]} text={firstBlock[1]}></OurVision>
       <Panegliph isFirst={false}></Panegliph>
       <OurVision secondText={secondBlock[3]} list={secondBlock[2]} leftSide={secondBlock[0]} text={secondBlock[1]}></OurVision>
-      <Marketplace></Marketplace>
+      <NativeUnderpin amplitude={0.65}>
+        <Marketplace></Marketplace>
+      </NativeUnderpin>
       <Digest></Digest>
     </div>
   )

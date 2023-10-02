@@ -3,7 +3,7 @@
 
 .navigation{
     position: absolute;
-    top: 50%;
+    top: 45%;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -14,8 +14,8 @@
     }
 
     svg{
-        width: rm(100);
-        height: rm(100);
+        width: rm(64);
+        height: rm(64);
     }
 
     button:first-child{

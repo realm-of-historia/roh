@@ -2,3 +2,11 @@
 @forward '_typography' hide $fonts;
 @forward '_grid' hide $breakpoints, $grid, generate-grid, $breakpoints-fonts;
 @forward '_functions' hide $font-base;
+
+.mySwiper{
+    // display: none;
+
+    div{
+        transition-timing-function: linear;
+    }
+}

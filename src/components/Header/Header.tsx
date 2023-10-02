@@ -4,9 +4,23 @@ import Icon from '../UI/Icon/Icon'
 import Avatar from './Avatar/Avatar'
 import Link from 'next/link'
 import Text from '../Text/Text'
+import {useAuthStore} from '../../store/store'
+import { useWindowWidth } from '@react-hook/window-size'
 
 
 const Header = () => {
+
+  const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
+
+  const handleAuth = () => {
+    useAuthStore.setState({isSignedIn: !isSignedIn})
+    console.log(isSignedIn)
+  }
+
+
+  const windowWidth = useWindowWidth()
+
+
 
 
   return (
@@ -24,14 +38,14 @@ const Header = () => {
            <Link href="/"><p>Help</p></Link>
         </div>
         <div className={styles.right}>
-           <Link href="/"><p>Log In</p></Link>
-           <Link href="/"><p>Register</p></Link>
+           {!isSignedIn ? <Link href="/"><p className={styles.logIn} onClick={handleAuth}>Log In</p></Link> : <div className={styles.logIn}></div>}
+           {!isSignedIn ? <Link href="/"><p className={styles.signIn} onClick={handleAuth}>Register</p></Link> : <div className={styles.signIn}></div>}
             <div className={styles.icons}>
                <Icon label='search-icon'></Icon>
                <Icon label='message-icon'></Icon>
                <Icon label='theme-icon'></Icon>
             </div>
-            <Avatar></Avatar>
+            {isSignedIn || windowWidth < 1081 ? <Avatar></Avatar> : <div className={styles.avatarSpace}></div>}
         </div>
     </div>
   )
