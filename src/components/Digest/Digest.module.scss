@@ -7,8 +7,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
     overflow: hidden;
+    background-color: color(bg);
+    position: relative;
+    z-index: 10000000;
 
     @include md{
         flex-direction: column;
@@ -216,46 +218,36 @@
         display: flex;
         width: 100%;
 
-        div{
-            width: rm(300);
 
-            @include lg{
-                width: rm(160);
+        button{
+            height: rm(70);
+            width: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: color(text-brown);
+            font-size: font(16);
+            line-height: 140%;
+            @include font-work-regular;
+            border: 1px solid #EAD8B1;
+            border-left: 0;
+            cursor: pointer;
+            transition: background-color .7s ease;
+            z-index: 1000;
+            font-weight: 600;
+
+            &:hover{
+                background-color: rgba(	234,	216,	177, .4);
             }
 
-            @include lg{
-                width: rm(300);
+            img{
+                margin-right: rm(10);
+                width: rm(24);
+                height: rm(24);
+                margin-bottom: rm(-7);
             }
-
-            button{
-                height: rm(70);
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                color: color(text-brown);
-                font-size: font(16);
-                line-height: 140%;
-                @include font-work-regular;
-                border: 1px solid #EAD8B1;
-                border-left: 0;
-                cursor: pointer;
-                transition: background-color .7s ease;
-                z-index: 1000;
-                font-weight: 600;
-    
-                &:hover{
-                    background-color: rgba(	234,	216,	177, .4);
-                }
-    
-                img{
-                    margin-right: rm(10);
-                    width: rm(24);
-                    height: rm(24);
-                }
-            }
-    
         }
+    
 
         div:last-child{
             button{

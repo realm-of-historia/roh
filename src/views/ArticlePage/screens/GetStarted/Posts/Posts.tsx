@@ -9,7 +9,7 @@ const Posts = ({text, secondText, title} : {text: Array<string>, secondText?: Ar
 
   return (
     <div className={styles.posts}>
-        <Text><p className={styles.title}>Recent Posts</p></Text>
+       <p className={styles.title}>Recent Posts</p>
         <div className={styles.text}>
             {Array.isArray(secondText) ? text.map((el, _) => (
                 <PostBlock key={el} text={text[_]} secondText={secondText[_]}></PostBlock>    

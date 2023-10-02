@@ -33,10 +33,10 @@ const Text: NextPage<text> = memo(function Text({children, yMove}) {
           timeline.from(textRef.current, {
             opacity: 0,
             autoAlpha: 0,
-            y: yMove ? yMove : 40,
-            duration: 0.5,
+            y: yMove ? yMove : 30,
+            duration: 0.75,
             ease: 'power1.inOut',
-            filter: 'blur(5px)',
+            // filter: 'blur(5px)',
           });
         }
 

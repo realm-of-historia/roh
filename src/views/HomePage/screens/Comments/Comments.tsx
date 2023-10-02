@@ -11,7 +11,7 @@ const Comments = () => {
         'userImage3',
         'Cris morgan',
         'mar 14, 2021',
-        'Video.png'
+        'booksVideo'
     ]
 
     const secondNew = [
@@ -19,7 +19,7 @@ const Comments = () => {
         'userImage1',
         'Cris morgan',
         'mar 14, 2021',
-        'Video-2.png'
+        'stonehengeVideo'
     ]
 
     const thirdNew = [
@@ -27,7 +27,7 @@ const Comments = () => {
         'userImage2',
         'Cris morgan',
         'mar 14, 2021',
-        'Video-1.png'
+        'colliseumVideo'
     ]
 
   return (

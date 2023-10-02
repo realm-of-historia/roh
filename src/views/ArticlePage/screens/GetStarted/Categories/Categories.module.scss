@@ -21,6 +21,23 @@
         display: flex;
         flex-direction: column;
         gap: rm(16);
+
+        div{
+
+            p{
+                cursor: pointer;
+            }
+
+            &:hover{
+
+                p{
+            
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
     }
 
     .numbers{

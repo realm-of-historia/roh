@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './AboutUs.module.scss'
 import Text from '@/components/Text/Text'
 import Statistic from './Statistic/Statistic'
+import Divider from '@/components/Divider/Divider'
 
 
 const AboutUs = () => {
@@ -10,7 +11,7 @@ const AboutUs = () => {
   return (
     <div className={styles.about}>
       <div className={styles.first}>
-        <div className={styles.divider}></div>
+        <Divider position={'top left'}></Divider>
         <div className={styles.left}>
           <img src='Graphic.png' alt='' width={488} height={540}/>
         </div>
@@ -34,7 +35,7 @@ const AboutUs = () => {
               Disclaimer
             </p>
           </Text>
-          <div className={styles.leftDivider}></div>
+          <Divider position={'top right'}></Divider>
           <Text>
             <p>
               First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words per minute and your writing skills are sharp. From the seed of the idea to finally hitting «Publish», you might spend several days or maybe even a week “writing” a blog post, but it’s important to spend those vital hours planning your post and even thinking about Your Post (yes, thinking counts as working if you’re a blogger) before you actually write it.
@@ -45,8 +46,8 @@ const AboutUs = () => {
           <Statistic title='700+' text='BUSINESSES'></Statistic>
           <Statistic title='80k+' text='Quick Reports'></Statistic>
           <Statistic title='35M+' text='Payments'></Statistic>
-          <div className={styles.dividerTop}></div>
-          <div className={styles.dividerBottom}></div>
+          <Divider horizontal={true} position={'top left'}></Divider>
+          <Divider horizontal={true} position={'bottom left'}></Divider>
         </div>
         <div className={styles.footer}>
           <div className={styles.container}>
@@ -55,7 +56,7 @@ const AboutUs = () => {
                 «When you care about your topic, you’ll write about it in a more powerful, emotionally expressive way»
               </p>
             </Text>
-            <div className={styles.leftDivider}></div>
+            <Divider position={'top left'}></Divider>
             <Text>
               <p>
                 Marcus Levy, KeenThemes CEO

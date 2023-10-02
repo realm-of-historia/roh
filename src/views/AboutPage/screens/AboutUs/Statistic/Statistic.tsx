@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './Statistic.module.scss'
 import Text from '@/components/Text/Text'
+import Divider from '@/components/Divider/Divider'
 
 const Statistic = ({title, text}: {title: string, text: string}) => {
 
@@ -12,8 +13,8 @@ const Statistic = ({title, text}: {title: string, text: string}) => {
                 {title}
             </p>
         </Text>
-        <div className={styles.dividerLeft}></div>
-        <div className={styles.dividerRight}></div>
+        <Divider position={'top left'}></Divider>
+        <Divider position={'top right'}></Divider>
         <Text>
             <p>
                 {text}

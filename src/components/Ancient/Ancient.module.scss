@@ -4,20 +4,29 @@
     height: 50vh;
     position: relative;
     overflow: hidden;
-    pointer-events: none;
+    background-color: color(bg);
+    z-index: 1090000;
 
     .runes{
         font-size: font(80);
         line-height: 140%;
-        @include font-rune-regular;
         width: 100%;
         color: #D1AB65;
-        background: linear-gradient(90deg, #ffb400, #ffb400, #ffb999, #ffb999, #fbf999);
-        background-size: 200% auto;
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        // animation: textflow 5s linear infinite;
+
+        span{
+            color: #D1AB65;
+            text-transform: uppercase;
+            @include font-rune-regular;
+        }
+
+        :nth-child(8n){
+            background: linear-gradient(90deg, #D1AB65, #ffb400, #E7A52D, #EFB215, #D1AB65);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textflow 5s linear infinite;
+        }
       }
 
       @keyframes textflow {

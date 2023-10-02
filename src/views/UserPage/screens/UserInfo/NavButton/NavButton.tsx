@@ -4,7 +4,7 @@ import Text from '@/components/Text/Text'
 
 export default function NavButton({text}: {text: string}) {
     return(
-        <div className={styles.navButton}>
+        <button className={styles.navButton}>
             <div className={styles.dividerLeft}></div>
             <div className={styles.dividerRight}></div>
             <Text>
@@ -12,6 +12,6 @@ export default function NavButton({text}: {text: string}) {
                     {text}
                 </p>
             </Text>
-        </div>
+        </button>
     )
 }

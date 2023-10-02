@@ -8,15 +8,15 @@ const Categories = ({text, numbers, title} : {text: string | Array<string>, numb
 
   return (
     <div className={styles.categories}>
-        <Text><p className={styles.title}>Categories</p></Text>
+        <p className={styles.title}>Categories</p>
         <div className={styles.text}>
             {Array.isArray(text) ? text.map((el) => (
-              <Text key={el}><p>{el}</p></Text>
+              <p key={el}>{el}</p>
             )) : <></>}
         </div>
         <div className={styles.numbers}>
             {Array.isArray(numbers) ? numbers.map((el) => (
-              <Text key={el}><p>{el}</p></Text>
+              <p key={el}>{el}</p>
             )) : <></>}
         </div>
     </div>

@@ -5,6 +5,17 @@
     flex-direction: column;
     gap: rm(8);
 
+    &:hover{
+        cursor: pointer;
+
+        >:last-child{
+            p{
+                text-decoration: underline;
+            }
+        }
+    
+    }
+
     .text{
 
         p{

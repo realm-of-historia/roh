@@ -1,12 +1,213 @@
 @use "../../../../assets/styles/index.scss" as *;
 
 .bundles{
+    height: 100%;
+    width: 100%;
 
     .bundlesContainer{
         display: flex;
+        
 
-        @include xsm{
-            overflow-x: scroll;
+
+
+
+        .offers{
+            height: rm(700);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            transition: background-color .3s ease-in-out;
+            cursor: pointer;
+
+            @include lg{
+                height: rm(510);
+            }
+
+            @include md{
+                height: rm(485);
+            }
+            
+            @include md{
+                height: rm(650);
+            }
+
+
+            &:hover{
+                background-color: rgba(	234,	216,	177, .2);
+            }
+
+            .text{
+                width: rm(256);
+                text-align: center;
+                font-size: font(32);
+                @include font-dune-regular;
+                line-height: 120%;
+                color: color(text-black);
+            }
+
+            .bigCircle{
+                width: rm(465);
+                height: rm(465);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                // border: 1px solid color(text-yellow-90);
+                --borderW: 0.1px;
+                display: inline-grid;
+                place-content: center;
+                aspect-ratio: 1;
+                border-radius: 50%;
+
+                @include lg{
+                    width: rm(320);
+                    height: rm(320);
+                }
+
+                @include md{
+                    width: rm(270);
+                    height: rm(270);
+                }
+
+                @include xsm{
+                    width: rm(480);
+                    height: rm(480);
+                }
+            }
+
+            .bigCircle::before {
+                content: "";
+                position: absolute;
+                inset: calc(-1*var(--borderW));
+                clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%);
+                border: 1px solid color(text-yellow-90) ;
+                border-radius: 50%;
+                animation: progress 3s cubic-bezier(.25, .4, .75, .6) paused forwards;
+              }
+              .bigCircle::before {
+                animation-play-state: running;
+              }
+
+
+
+              .firstCircle{
+                width: rm(235);
+                height: rm(235);
+                position: absolute;
+                top: 33.5%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                // border: 1px solid color(text-yellow-90);
+                --borderW: 0.1px;
+                display: inline-grid;
+                place-content: center;
+                aspect-ratio: 1;
+                border-radius: 50%;
+
+                @include lg{
+                    width: rm(160);
+                    height: rm(160);
+                    top: 34.4%;
+                }
+
+                @include md{
+                    width: rm(135);
+                    height: rm(135);
+                    top: 39.5%;
+                }
+
+                @include xsm{
+                    width: rm(240);
+                    height: rm(240);
+                    top: 31.5%;
+                }
+            }
+
+            .firstCircle::before {
+                content: "";
+                position: absolute;
+                inset: calc(-1*var(--borderW));
+                clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%);
+                border: 1px solid color(text-yellow-90) ;
+                border-radius: 50%;
+                animation: progress 3s cubic-bezier(.25, .4, .75, .6) paused forwards;
+              }
+              .firstCircle::before {
+                animation-play-state: running;
+              }
+
+
+              .secondCircle{
+                width: rm(235);
+                height: rm(235);
+                position: absolute;
+                top: 66.5%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                // border: 1px solid color(text-yellow-90);
+                --borderW: 0.1px;
+                display: inline-grid;
+                place-content: center;
+                aspect-ratio: 1;
+                border-radius: 50%;
+
+                @include lg{
+                    width: rm(160);
+                    height: rm(160);
+                    top: 66%;
+                }
+
+                @include md{
+                    width: rm(135);
+                    height: rm(135);
+                    top: 60.5%;
+                }
+
+                @include xsm{
+                    width: rm(240);
+                    height: rm(240);
+                    top: 68.5%;
+                }
+            }
+
+            .secondCircle::before {
+                content: "";
+                position: absolute;
+                inset: calc(-1*var(--borderW));
+                clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%);
+                border: 1px solid color(text-yellow-90) ;
+                border-radius: 50%;
+                animation: progress 3s cubic-bezier(.25, .4, .75, .6) paused forwards;
+              }
+              .secondCircle::before {
+                animation-play-state: running;
+              }
+
+
+              @keyframes progress {
+                  0% { clip-path: polygon(50% 50%, 50% -21%, 50% -21%, 50% -21%, 50% -21%, 50% -21%); }
+                 25% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%); }
+                 50% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, 50% 121%, 50% 121%); }
+                 75% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, -21% 50%); }
+                100% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, 50% -21%);}
+              }
+
+
+            //   .firstLine{
+            //     position: absolute;
+            //     top: 60px;
+            //     left: 60px;
+            //     border-top: 10px solid color(text-yellow-90);
+            //     transform: rotate(45deg);
+            //     transform-origin: 50% 50%;
+            //   }
+              
+            //   .secondLine{
+            //     transform: rotate(-45deg);
+            //   }
+
         }
     }
 }

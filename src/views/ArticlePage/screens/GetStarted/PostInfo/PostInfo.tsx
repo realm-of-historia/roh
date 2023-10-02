@@ -8,8 +8,8 @@ const PostInfo = ({label, text} : {label: string | Array<string>, text: string |
 
     return (
         <div className={styles.postInfo}>
-            <Text><Icon label={label}></Icon></Text>
-            <Text><p>{text}</p></Text>
+            <Icon label={label}></Icon>
+            <p>{text}</p>
         </div>
     )
 }

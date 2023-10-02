@@ -3,7 +3,7 @@
 import { useMemo } from "react"
 import { useInView } from "react-intersection-observer"
 
-const Divider = ({ position, horizontal, animation, style = {}, duration = '1.2s' }: {position?: any, horizontal?: any, animation?: any, style?: any, duration?: any,}) => {
+const Divider = ({ position, horizontal, animation, style = {}, duration = '2.4s' }: {position?: any, horizontal?: any, animation?: any, style?: any, duration?: any,}) => {
     const { ref, inView } = useInView()
     const isHorizontal = useMemo(() => !!horizontal, [horizontal])
     const positions = useMemo(() => { 
@@ -14,7 +14,7 @@ const Divider = ({ position, horizontal, animation, style = {}, duration = '1.2s
             height: isHorizontal ? '.0625rem' : (inView  ? '100%' : '0%'),
             backgroundColor: '#EAD8B1',
             opacity: '1',
-            transition: inView && animation? `width ${duration} ease, height ${duration} ease` : '1s',
+            transition: inView ? `width ${duration} ease, height ${duration} ease` : '1s',
         }
 
         return Object.assign({}, ...array, innerStyle, style)

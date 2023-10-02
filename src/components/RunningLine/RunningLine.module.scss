@@ -1,48 +1,74 @@
 @use "../../assets/styles/index.scss" as *;
 
 
+.run{
+    -moz-transform:translateX(100%);
+    -webkit-transform:translateX(100%);	
+    transform:translateX(100%);
+    -moz-animation: run 15s linear infinite;
+    -webkit-animation: run 15s linear infinite;
+    animation: run 15s linear infinite;
+}
 
+.runReverse{
+    -moz-transform:translateX(100%);
+    -webkit-transform:translateX(100%);	
+    transform:translateX(100%);
+    -moz-animation: runReverse 15s linear infinite;
+    -webkit-animation: runReverse 15s linear infinite;
+    animation: runReverse 15s linear infinite;
+}
 
 .runningLine{
     overflow: hidden;
     position: relative;
     width: 100%;
-    background-color: color(text-black);
-    padding: rm(32) 0;
-    white-space: nowrap;
-    display: flex;
     height: rm(102);
-
-    p{
-        color: color(text-yellow-90);
-        font-size: font(32);
-        @include font-dune-regular;
-        line-height: 120%;
-        margin-right: rm(128);
-        left: 0;
-        z-index: 9999999999998;
-    }
+    background-image: url('/publications.png');
+    background-repeat: repeat-x;
+    background-size: auto 100%;
 
 
-    .track {
-        position: absolute  ;
-        white-space: nowrap  ;
-        will-change: transform  ;
-        animation: run 32s linear infinite  ;
-    }
-    
-    .content {
-        display: flex  ;
-        gap: rm(4)  ;
-    }
-    
-    @keyframes run {
-        from {
-            transform: translateX(0)  ;
+
+    @-moz-keyframes run {
+        0%   { -moz-transform: translateX(100%); }
+        100% { -moz-transform: translateX(-100%); }
+       }
+       @-webkit-keyframes run {
+        0%   { -webkit-transform: translateX(100%); }
+        100% { -webkit-transform: translateX(-100%); }
+       }
+       @keyframes run {
+        0%   { 
+        -moz-transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%); 		
         }
-    
-        to {
-            transform: translateX(-50%)  ;
+        100% { 
+        -moz-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%); 
+        }
+    }
+
+    @-moz-keyframes runReverse {
+        0%   { -moz-transform: translateX(-100%); }
+        100% { -moz-transform: translateX(100%); }
+       }
+       @-webkit-keyframes runReverse {
+        0%   { -webkit-transform: translateX(-100%); }
+        100% { -webkit-transform: translateX(100%); }
+       }
+       @keyframes runReverse {
+        0%   { 
+        -moz-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%); 		
+        }
+        100% { 
+        -moz-transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%); 
         }
     }
 }

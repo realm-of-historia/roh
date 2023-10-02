@@ -7,7 +7,11 @@ const News = ({isNews, link, title, avatar, name, date} : {isNews: boolean ,link
 
   return (
     <div className={styles.news}>
-      <img src={'/' + link} alt='' width={597} height={334}/>
+      <div className={styles.imageContainer}>
+        <video muted playsInline loop autoPlay>
+          <source src={'/' + link + '.mp4'} type="video/mp4" />
+        </video>
+      </div>
       <Comment isNews={isNews} title={title} avatar={avatar} name={name} date={date}></Comment>
       <div className={styles.divider}></div>
       <div className={styles.dividerRight}></div>

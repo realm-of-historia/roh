@@ -4,29 +4,41 @@
 .videos{
     display: flex;
     align-items: center;
+    position: relative;
+    z-index: 1000000;
+    overflow: hidden;
 
     @include xsm{
         flex-direction: column;
     }
 
-    img{
+    .imageContainer{
         width: rm(640);
         height: rm(640);
+        position: relative;
+        overflow: hidden;
 
-        
         @include lg{
             width: rm(425);
             height: rm(425);
         }
 
         @include md{
-            width: rm(355);
-            height: rm(355);
+            width: rm(360);
+            height: rm(360);
         }
 
         @include xsm{
-            width: rm(640);
-            height: rm(640);
+            width: rm(576);
+            height: rm(576);
         }
+    }
+
+    video{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        // transform: scale(2);
+
     }
 }

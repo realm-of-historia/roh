@@ -3,6 +3,7 @@
 .start{
     display: flex;
     position: relative;
+    background-color: color(bg);
 
     @include xsm{
         flex-direction: column;
@@ -21,7 +22,7 @@
         }
     }
 
-    .bottomDivider{
+    >:nth-child(2){
         position: absolute;
         background-color: color(text-yellow-90);
         width: 100%;
