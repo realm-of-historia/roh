@@ -5,6 +5,7 @@ import styles from './Contacts.module.scss';
 import SimpleInput from '@/components/UI/SimpleInput/SimpleInput';
 import Text from '@/components/Text/Text';
 
+
 export default function Contacts() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -44,7 +45,18 @@ export default function Contacts() {
     //         ]
     //       }
     //     ]
-    //   });     
+    //   });
+    
+    
+
+    // function myMap() {
+    //     const mapOptions = {
+    //         center: new google.maps.LatLng(51.5, -0.12);
+    //         zoom: 6
+    //     }
+
+    //     const map = new google.maps.Map(d)
+    // }
 
       
       

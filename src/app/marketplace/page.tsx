@@ -9,6 +9,7 @@ import MarketplaceTitle from '@/components/MarketplaceTitle/MarketplaceTItle'
 import {useState, useRef, useEffect} from 'react'
 import { gsap } from 'gsap';
 import { useInView } from 'react-intersection-observer'
+import Loader from '@/components/Loader/Loader'
 
 export default function MarketplacePage() {
     const { ref, inView } = useInView()
@@ -17,19 +18,25 @@ export default function MarketplacePage() {
     const firstRef = useRef(null)
     const secondRef = useRef(null)
 
-    const [cardsCount, setCardsCount] = useState(0)
-    const [cards, setCards] = useState([])
+    const [cards, setCards]: Array<any> = useState([])
+    const [isLoader, setIsLoader] = useState(false)
+    const [cardNumber, setCardNumber] = useState(0)
+
+
+    const allCards: Array<any> = [<Marketplace isMarket={true} ></Marketplace>, <Marketplace isMarket={true} ></Marketplace>, <Marketplace isMarket={true} ></Marketplace>, <Marketplace isMarket={true} ></Marketplace>]
 
     useEffect(() =>{
-        if(inView) {
+        if(inView && cardNumber < 4 && !isLoader) {
+            setIsLoader(true)
             setTimeout(() =>{
                 setCards(
-                    [<Marketplace isMarket={true} ref={firstRef}></Marketplace>]
+                    [cards, allCards[cardNumber]]
                 )
+                setCardNumber(cardNumber + 1)
+                setIsLoader(false)
             }, 2000)
-            console.log(cards)
         }
-    }, [inView]) //setTimeout
+    }, [inView])
 
 
     return(
@@ -38,10 +45,11 @@ export default function MarketplacePage() {
             <MarketplaceTitle></MarketplaceTitle>
             <Panegliph isFirst={false}></Panegliph>
             <Marketplace isMarket={true}></Marketplace>
-            <Marketplace isMarket={true} ref={endRef}></Marketplace>
-            {cards.map((element : any) => (
-                element
-            ))}     
+            <Marketplace isMarket={true} ></Marketplace>
+            {cards.map((element : any, index: any) => (
+                <div key={index * Math.random()}>{element}</div>
+            ))}
+            {isLoader && <Loader></Loader>}
             <Digest reff={ref}></Digest>
         </div>
     )

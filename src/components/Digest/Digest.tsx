@@ -140,10 +140,8 @@ const Digest = ({reff}: {reff?: any}) => {
         </p>
         <Divider horizontal={true} position={'top left'}></Divider>
         <Divider horizontal={true} position={'bottom left'}></Divider>
-        <div></div>
-        {/* <Divider position={'top left'}></Divider> */}
-        {/* <Divider position={'top right'}></Divider> */}
-        <div className={styles.right}></div>
+        <Divider position={'top left'}></Divider>
+        <Divider position={'top right'}></Divider>
         <div className={styles.divider}></div>
         <div ref={ref} className={`${ inView ? styles.mainCircle : ''}`}></div>
         <picture><img className={styles.firstElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>

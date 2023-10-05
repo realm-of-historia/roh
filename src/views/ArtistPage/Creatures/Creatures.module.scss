@@ -1,0 +1,17 @@
+@use "../../../assets/styles/index.scss" as *;
+
+.creatures{
+    // height: rm(800);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    div{
+        width: rm(355);
+        
+        img{
+            width: rm(360);
+        }
+    }
+
+}

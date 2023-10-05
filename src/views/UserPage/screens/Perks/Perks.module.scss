@@ -4,4 +4,30 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+
+    .container{
+        @include xsm{
+            overflow-x: scroll;
+        }
+    }
+
+    .inputBlock{
+        width: rm(416);
+        margin: rm(32) rm(64) rm(32) rm(64);
+    
+        @include xsm{
+            margin: rm(16) rm(32) rm(16) rm(32);
+        }
+
+        >:first-child{
+            width: rm(240);
+    
+            input{
+                padding: rm(16) rm(0) rm(16) rm(32);
+                margin-top: rm(0);
+                width: rm(240);
+            }
+        }
+    
+    }
 }

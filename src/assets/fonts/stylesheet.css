@@ -179,7 +179,7 @@
     font-display: fallback;
 } */
 
-@font-face {
+/* @font-face {
     font-family: 'Rune';
     src: url('SHKAida-Bold.woff2') format('woff2'),
         url('SHKAida-Bold.woff') format('woff');
@@ -188,5 +188,15 @@
     font-display: fallback;
 }
 
+ */
 
 
+@font-face {
+font-family: 'Rune';
+src: url('Rune.woff2') format('woff2'),
+    url('Rune.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+font-display: fallback;
+}
+ 

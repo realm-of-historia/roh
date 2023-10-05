@@ -12,6 +12,7 @@ import SwiperButton from '@/components/SwiperButton/SwiperButton'
 import 'swiper/css/pagination';
 import 'swiper/swiper-bundle.css'
 import { useWindowWidth } from '@react-hook/window-size'
+import Divider from '@/components/Divider/Divider'
 
 
 const Bundles = () => {
@@ -68,12 +69,14 @@ const Bundles = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                     <Link href='/marketplace' className={styles.offers}>
+                        <div className={`${inView ? styles.diagonal : ''}`}></div>
                         <p className={styles.text}>
                             View all offers
                         </p>
                         <div className={`${inView ? styles.bigCircle : ''}`}></div>
                         <div className={`${inView ? styles.firstCircle : ''}`}></div>
                         <div className={`${inView ? styles.secondCircle : ''}`}></div>
+                        
                         {/* <div className={styles.firstLine}></div>
                         <div className={styles.secondLine}></div> */}
                     </Link>

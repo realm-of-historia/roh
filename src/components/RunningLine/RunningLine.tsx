@@ -26,14 +26,18 @@ const RunningLine = ({ text }: { text: string }) => {
 
 
     gsap.to(container, {
-      backgroundPositionX: '-50%',
+      // backgroundPositionX: `${100 * -isRight}%`,
       scrollTrigger: {
         trigger: containerRef.current,
-        start: 'bottom bottom',
+        start: 'center center',
         scrub: true,
         onUpdate: ({direction}) => {
-          setIsRight(direction)
-          console.log(isRight, direction)
+          setIsRight(prevIsRight => {
+            if (direction !== prevIsRight) {
+              return direction;
+            }
+            return prevIsRight;
+          });
         }
       },
     });
@@ -46,7 +50,7 @@ const RunningLine = ({ text }: { text: string }) => {
   
 
   return (
-    <div className={`${styles.runningLine} ${!isRight ? styles.run : styles.runReverse}`}>
+    <div className={`${styles.runningLine}`}>
         <div className={styles.content} ref={containerRef}></div>
     </div>
   )

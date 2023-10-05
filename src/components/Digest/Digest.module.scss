@@ -26,9 +26,8 @@
     }
 
     .promotion{
-
         width: rm(960);
-        height: 100%;
+        height: rm(700);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -37,6 +36,7 @@
 
         @include md{
             height: rm(420);
+            width: 100%;
         }
 
         div{
@@ -52,51 +52,44 @@
 
         >:nth-child(3){
             left: 0 !important;
-            top: rm(90) !important;
+            top: rm(260) !important;
 
             @include md{
-                top: rm(118) !important;
-                left: rm(-300) !important;
-            }
-
-            @include xsm{
                 top: rm(150) !important;
             }
+
+
 
         }
 
         >:nth-child(4){
             left: 0 !important;
-            bottom: rm(90) !important;
+            bottom: rm(260) !important;
 
             @include md{
-                bottom: rm(151) !important;
-                left: rm(-300) !important;
+                bottom: rm(150) !important;
             }
+
 
         }
 
         >:nth-child(5){
-            width: 1px;
-            height: rm(1260);
-            top: rm(-600) !important;
-            left: rm(167) !important;   
+            left: rm(167) !important;
 
             @include lg{
                 left: rm(7) !important;
             }
 
             @include md{
-                left: rm(270) !important;
-                height: rm(520);
-                top: rm(0) !important;
+                left: rm(330) !important;
+            }
+
+            @include xsm{
+                left: rm(80) !important; 
             }
         }
 
         >:nth-child(6){
-            width: 1px;
-            height: rm(1060);
-            top: rm(-600) !important;
             right: rm(167) !important;
             
             @include lg{
@@ -104,9 +97,11 @@
             }
 
             @include md{
-                right: rm(270) !important;
-                height: rm(570);
-                top: rm(0) !important; 
+                right: rm(330) !important;
+            }
+
+            @include xsm{
+                right: rm(80) !important;
             }
 
         }

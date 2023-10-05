@@ -6,9 +6,7 @@
     align-items: center;
     overflow: hidden;
 
-    @include xsm{
-        flex-direction: column;
-    }
+
 
     .mySwiper{
         height: rm(640);

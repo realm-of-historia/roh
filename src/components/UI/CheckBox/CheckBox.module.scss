@@ -1,0 +1,37 @@
+@use '../../../assets/styles/index.scss' as *;
+
+
+.checkbox {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(88,63,33, 0.4);
+    width: rm(19);
+    height: rm(19);
+    border-radius: rm(4);
+}
+
+.checkbox input {
+    display: none; /* Скрываем стандартный checkbox */
+}
+
+.checkmark{
+    width: rm(10);
+    height: rm(10);
+    padding-left: 5px;
+
+    span{
+        width: rm(10);
+        height: rm(10);
+        z-index: 10000;
+    }
+}
+
+.checkbox .checkmark span {
+
+    display: none;
+}
+
+.checkbox input:checked + .checkmark span {
+    display: inline-block; /* Показываем картинку галочки при выборе (checked) */
+}

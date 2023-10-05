@@ -6,7 +6,7 @@ import { useInView } from 'react-intersection-observer';
 const Ancient = () => {
   const textRef = useRef(null);
   const [letters, setLetters] = useState([]);
-  const text =  `Աշխարհի պատմությունը հսկայական և հետաքրքրաշարժ թեմա է, որն ընդգրկում է անթիվ քաղաքակրթություններ և զարգացումներ Սկսած ամենավաղ քաղաքակրթություններից մինչև մեր օրերը մարդկության պատմությունը լցված է հաղթական հակամարտություններով հայտնագործություններով և նորարարություններով։ izationanbtradbaktothancintorldhrsvralinfluntialivilizationsmergedMesopotamia, որը գտնվում է ժամանակակից Իրաքի տարածաշրջանում, վկա`
+  const text =  `Th history of th world is a vast and fascinating subjct that ncompasss countlss vntscivilizationsand dvlopmnts From th arlist rcordd civilizations to th prsnt dayth story of humanity is filld with triumphsconflicts discovrisand innovationsIn this txtw willxplorariouspriodsanda`
 
   const [ref, inView] = useInView();
 

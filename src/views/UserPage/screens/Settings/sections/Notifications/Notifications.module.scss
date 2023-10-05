@@ -1,0 +1,77 @@
+@use "../../../../../../assets/styles/index.scss" as *;
+
+
+.notifications{
+    display: flex;
+    flex-direction: column;
+    padding: rm(64);
+
+    @include xsm{
+        padding: 0;
+    }
+
+
+    .footer{
+        display: flex;
+        // align-items: center;
+        margin-top: rm(16);
+        gap: rm(16);
+
+
+        >:last-child{
+            height: rm(60);
+        }
+    }
+
+    button{
+        font-size: font(16);
+        position: relative;
+        color: color(text-brown);
+        @include font-work-regular;
+        line-height: 140%;
+        display: flex;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border: 1px solid #EAD8B1;
+        height: rm(60);
+        font-weight: 600;
+        transition: background-color .7s ease;
+        z-index: 1000;
+
+        @include lg{
+            margin-left: rm(0);
+        }
+
+        &:hover{
+            background-color: rgba(	234,	216,	177, .4);
+        }
+    }
+
+    .section{
+        display: flex;
+        align-items: center;
+        margin-bottom: rm(32);
+        gap: rm(8);
+
+
+        >:nth-child(1){
+            p{
+                width: rm(155);
+                color: color(text-black);
+                font-size: font(16);
+                line-height: 160%;
+                @include font-work-regular;
+                font-weight: 600;
+            }
+        }
+
+        .text{
+            margin-right: rm(16);
+        }
+
+
+    }
+
+}

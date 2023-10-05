@@ -5,15 +5,13 @@ import UserInfo from '@/views/UserPage/screens/UserInfo/UserInfo'
 import Header from '@/components/Header/Header'
 import UserNavigation from '@/views/UserPage/screens/UserInfo/UserNavigation/UserNavigation'
 import Digest from '@/components/Digest/Digest'
+import Settings from '@/views/UserPage/screens/Settings/Settings'
 
 
 export default function SettingsPage() {
     return(
         <div>
-            <Header></Header>
-            <UserInfo></UserInfo>
-            <UserNavigation></UserNavigation>
-            <Digest></Digest>
+            <Settings></Settings>
         </div>
     )
 }

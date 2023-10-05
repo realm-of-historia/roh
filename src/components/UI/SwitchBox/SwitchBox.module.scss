@@ -1,0 +1,60 @@
+@use '../../../assets/styles/index.scss' as *;
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: rm(36);
+    height: rm(24);
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(88,63,33, 0.4);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: rm(18);
+    width: rm(18);
+    left: rm(4);
+    bottom: rm(3);
+    background-color: #583F21;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+//   input:checked + .slider {
+//     background-color: #2196F3;
+//   }
+  
+//   input:focus + .slider {
+//     box-shadow: 0 0 1px #2196F3;
+//   }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(rm(10));
+    -ms-transform: translateX(rm(10));
+    transform: translateX(rm(10));
+  }
+  
+  .slider.round {
+    border-radius: rm(32);
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }

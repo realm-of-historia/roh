@@ -30,15 +30,15 @@ const Lobby = ({isCircle} : {isCircle?: boolean}) => {
     }
 
     const {ref: parallaxRef}: {ref: any} = useParallax({
-        speed: 30,
+        speed: 10,
         targetElement: target.current || undefined,
       });
 
 
   return (
     <div className={styles.lobby} ref={target}>
-        <div ref={parallaxRef} className={styles.imageContainer}>
-            <img src='/Lobby.png' alt='' width={1920} height={800}/>
+        <div className={styles.imageContainer}>
+            <img ref={parallaxRef} src='/Lobby.png' alt='' width={1920} height={800}/>
         </div>
         <Text><p className={styles.title}>3D LOBBY</p></Text>
         {isCircle && <div className={styles.container}>
