@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './Details.module.scss'
-import Text from '@/components/Text/Text'
 import Icon from '@/components/UI/Icon/Icon'
 
 const Details = () => {
@@ -19,23 +18,23 @@ const Details = () => {
     <div className={styles.details}>
         {detailsText.map((element: any) => (
             <div key={element} className={styles.section}>
-                <Text>
+                <div>
                     <p>
                         {element[0]}
                     </p>
-                </Text>
-                <Text>
+                </div>
+                <div>
                     <p className={styles.info}>
                         {element[1]}
                     </p>
-                </Text>
+                </div>
                 {element[2] ? <div className={styles.verification}>
-                    <Text>
+                    <div>
                         <Icon label='checked'></Icon>
-                    </Text>
-                    <Text>
+                    </div>
+                    <div>
                         <p>Verified</p>
-                    </Text>
+                    </div>
                 </div> : <></>}
             </div>
         ))}

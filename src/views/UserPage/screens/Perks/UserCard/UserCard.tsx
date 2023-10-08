@@ -2,14 +2,17 @@ import React from 'react'
 import styles from './UserCard.module.scss'
 import Text from '@/components/Text/Text'
 import Icon from '@/components/UI/Icon/Icon'
+import CheckBox from '@/components/UI/CheckBox/CheckBox'
+import Dropdown from '@/components/UI/Dropdown/Dropdown'
 
 export default function UserCard({isWeight, product, sku, qty, price, status, actions, label}: {isWeight?: boolean, product: string, sku: string, qty:string, price: string, status: string, actions: string, label?: string}) {
 
+    const options = ['Done', 'In Progress', 'Waiting']
 
     return(
         <div className={styles.userCard}>
             <div>
-                <Icon label='check-icon'></Icon>
+                <CheckBox></CheckBox>
             </div>
             <div className={`${isWeight ? styles.weight : ''}`}>
                 <img alt='' src='/Avatar.png' width={32} height={32}/>
@@ -42,6 +45,7 @@ export default function UserCard({isWeight, product, sku, qty, price, status, ac
             <div className={`${isWeight ? styles.weight : ''} ${!isWeight ? styles.hovered : ''}`}>
                 {actions}
                 {!isWeight && <Icon label='arrow-down'></Icon>}
+                {/* <Dropdown initialText='Actions' options={options} isActions={true}></Dropdown> */}
             </div>
         </div>
     )

@@ -41,6 +41,12 @@
     >:nth-child(1){
         padding: rm(20);
 
+        @include xsm{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         span{
             height: rm(24);
             width: rm(24);
@@ -52,7 +58,7 @@
         align-items: center;
         gap: rm(16);
         padding: rm(16) rm(32);
-        width: rm(265);
+        min-width: rm(265);
 
         @include lg{
             gap: rm(8);
@@ -88,7 +94,7 @@
         padding: rm(19.5) rm(32);
         display: flex;
         align-items: center;
-        width: rm(265);
+        min-width: rm(265);
 
     }
 
@@ -96,7 +102,7 @@
         padding: rm(19.5) rm(32);
         display: flex;
         align-items: center;
-        width: rm(265);
+        min-width: rm(265);
 
     }
 
@@ -104,7 +110,7 @@
         padding: rm(19.5) rm(32);
         display: flex;
         align-items: center;
-        width: rm(265);
+        min-width: rm(265);
 
     }
 
@@ -112,14 +118,14 @@
         padding: rm(19.5) rm(32);
         display: flex;
         align-items: center;
-        width: rm(265);
+        min-width: rm(265);
 
     }
 
     >:nth-child(7){
         padding: rm(19.5) rm(32);
         display: flex;
-        width: rm(265);
+        min-width: rm(265);
 
     }
 
@@ -128,7 +134,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: rm(265);
+        min-width: rm(265);
 
 
         span{

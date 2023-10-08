@@ -16,13 +16,26 @@
 }
 
 .checkmark{
-    width: rm(10);
-    height: rm(10);
-    padding-left: 5px;
+    width: rm(10) !important;
+    height: rm(10) !important;
+    padding-left: rm(5);
+
+    @include lg{
+        padding-left: rm(5);
+    }
+
+    @include md{
+        padding-top: rm(1);
+    }
+
+    @include xsm{
+        padding-top: rm(0);
+        padding-left: rm(4);
+    }
 
     span{
-        width: rm(10);
-        height: rm(10);
+        width: rm(10) !important;
+        height: rm(10) !important;
         z-index: 10000;
     }
 }

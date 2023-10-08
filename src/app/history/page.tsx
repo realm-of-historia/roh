@@ -12,10 +12,13 @@ import SimpleInput from '@/components/UI/SimpleInput/SimpleInput'
 import { useState } from 'react'
 import UserButtonBlack from '@/components/UI/buttons/UserButtonBlack/UserButtonBlack'
 import styles from './page.module.scss'
+import {useForm} from 'react-hook-form'
 
 export default function HistoryPage() {
 
     const [items, setItems] = useState('')
+
+    const {register} = useForm()
 
     return(
         <div>
@@ -27,8 +30,8 @@ export default function HistoryPage() {
                 placeholder='Search'
                 isContacts={true}
                 icon='search-icon'
-                value={items}
-                onChange={(e) => setItems(e.target.value)}
+                register={register}
+                name='historySearch'
                 ></SimpleInput>
                 <UserButtonBlack text='File Manager'></UserButtonBlack>
             </div>  

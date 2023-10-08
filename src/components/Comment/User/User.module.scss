@@ -3,7 +3,7 @@
 .user{
     display: flex;
     align-items: center;
-    justify-content: center;
+    // justify-content: center;
     
     @include xsm{
         margin-bottom: rm(32);

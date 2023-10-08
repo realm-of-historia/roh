@@ -1,21 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './UserNavigation.module.scss'
 import Text from '@/components/Text/Text'
 import NavButton from '../NavButton/NavButton'
-import Link from 'next/link'
+import { useAuthStore } from '@/store/store'
 
 const UserNavigation = () => {
 
+  const route = useAuthStore((state) => (state.userRoute))
 
+  const routeHandler = (currentRoute: any) => {
+    useAuthStore.setState({userRoute: currentRoute})
+  }
+  
   return (
     <div className={styles.navigation}>
           <div className={styles.dividerTop}></div>
           <div className={styles.dividerBottom}></div>
-          <Link href='/user' className={styles.link}><NavButton text='Personal'></NavButton></Link>
-          <Link href='/dashboard' className={styles.link}><NavButton text='Dashboard'></NavButton></Link>
-          <Link href='/history' className={styles.link}><NavButton text='History'></NavButton></Link>
-          <Link href='/perks' className={styles.link}><NavButton text='Perks'></NavButton></Link>
-          <Link href='/settings' className={styles.link}><NavButton text='Settings'></NavButton></Link>
+          <div onClick={() => routeHandler('personal')} className={`${styles.link} ${route == 'personal' ? styles.active : ''}`}><NavButton text='Personal'></NavButton></div>
+          <div onClick={() => routeHandler('dashboard')} className={`${styles.link} ${route == 'dashboard' ? styles.active : ''}`}><NavButton text='Dashboard'></NavButton></div>
+          <div onClick={() => routeHandler('history')} className={`${styles.link} ${route == 'history' ? styles.active : ''}`}><NavButton text='History'></NavButton></div>
+          <div onClick={() => routeHandler('perks')} className={`${styles.link} ${route == 'perks' ? styles.active : ''}`}><NavButton text='Perks'></NavButton></div>
+          <div onClick={() => routeHandler('settings')} className={`${styles.link} ${route == 'settings' ? styles.active : ''}`}><NavButton text='Settings'></NavButton></div>
     </div>
   )
 }

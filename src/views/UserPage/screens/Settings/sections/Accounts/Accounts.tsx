@@ -8,29 +8,29 @@ const Accounts = () => {
 
   return (
     <div className={styles.accounts}>
-        <Text>
+        <div>
             <p className={styles.important}>
-                Two-factor authentication adds an extra layer of security to your account. To log in, in you'll need to provide a 4 digit amazing code. <span>Learn More.</span>
+                Two-factor authentication adds an extra layer of security to your account. To log in, in you`&apos;`ll need to provide a 4 digit amazing code. <span>Learn More.</span>
             </p>
-        </Text>
+        </div>
         <div className={styles.section}>
-            <Text>
+            <div>
                 <p>
                     Google
                 </p>
-            </Text>
+            </div>
             <SwitchBox></SwitchBox>
         </div>
         <div className={styles.section}>
-            <Text>
+            <div>
                 <p>
                     Metamask
                 </p>
-            </Text>
+            </div>
             <SwitchBox></SwitchBox>
         </div>
         <div className={styles.footer}>
-            <button>Discard</button>
+            <button className={styles.buttonWhite}>Discard</button>
             <UserButtonBlack text='Save Changes'></UserButtonBlack>
         </div>
     </div>

@@ -9,52 +9,52 @@ const Notifications = () => {
   return (
     <div className={styles.notifications}>
         <div className={styles.section}>
-            <Text>
+            <div>
                 <p>
                     Notifications
                 </p>
-            </Text>
+            </div>
             <CheckBox></CheckBox>
-            <Text>
+            <div>
                 <p className={styles.text}>Email</p>
-            </Text>
+            </div>
             <CheckBox></CheckBox>
-            <Text>
+            <div>
                 <p className={styles.text}>Phone</p>
-            </Text>
+            </div>
         </div>
         <div className={styles.section}>
-            <Text>
+            <div>
                 <p>
                     Billing Updates
                 </p>
-            </Text>
+            </div>
             <CheckBox></CheckBox>
-            <Text>
+            <div>
                 <p className={styles.text}>Email</p>
-            </Text>
+            </div>
             <CheckBox></CheckBox>
-            <Text>
+            <div>
                 <p className={styles.text}>Phone</p>
-            </Text>
+            </div>
         </div>
         <div className={styles.section}>
-            <Text>
+            <div>
                 <p>
                     Mining
                 </p>
-            </Text>
+            </div>
             <CheckBox></CheckBox>
-            <Text>
+            <div>
                 <p className={styles.text}>Email</p>
-            </Text>
+            </div>
             <CheckBox></CheckBox>
-            <Text>
+            <div>
                 <p className={styles.text}>Phone</p>
-            </Text>
+            </div>
         </div>
         <div className={styles.footer}>
-            <button>Discard</button>
+            <button className={styles.buttonWhite}>Discard</button>
             <UserButtonBlack text='Save Changes'></UserButtonBlack>
         </div>
     </div>

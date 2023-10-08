@@ -1,64 +1,67 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import styles from './Option.module.scss'
 import Divider from '@/components/Divider/Divider'
-import Text from '@/components/Text/Text'
 import Icon from '@/components/UI/Icon/Icon'
 import UserButtonBlack from '@/components/UI/buttons/UserButtonBlack/UserButtonBlack'
+import { useAuthStore } from '@/store/store'
+import Dropdown from '@/components/UI/Dropdown/Dropdown'
 
-export default function Option() {
+export default function Option({name, money, amount}: {name: string, money: string, amount: string}) {
+
+    const isBuy: any = useAuthStore((state) => (state.isBuy))
+
+    const clickHandlerBuy = () => {
+        useAuthStore.setState({isBuy: true})
+    }
+
+    const clickHandlerSell = () => {
+        useAuthStore.setState({isBuy: false})
+    }
+
+    useEffect(() => {
+        console.log(isBuy)
+    })
+
+    const options = ['Bitcoin/BTC', 'Etherium/ETH', 'Dogecoin/DGC'];
 
 
     return(
         <div className={styles.option}>
-            <Divider position={'left top'}></Divider>
-            <Divider position={'right top'}></Divider>
+            <div></div>
+            <div></div>
             <div className={styles.choose}>
-                <button><Text><p>Buy</p></Text></button>
-                <button><Text><p>Sell</p></Text></button>
+                <button onClick={clickHandlerBuy} className={`${isBuy ? styles.buttonActive : ''}`}><div><p>Buy</p></div></button>
+                <button onClick={clickHandlerSell} className={`${!isBuy ? styles.buttonActive : ''}`}><div><p>Sell</p></div></button>
             </div>
             <div className={styles.coinName}>
-                <div className={styles.text}>
-                    <Text>
-                        <p> 
-                            Coin Name
-                        </p>
-                    </Text>
-                    <Text>
-                        <p>
-                            Bitcoin/BTC
-                        </p>
-                    </Text>
-                </div>
-                <Text>
-                    <Icon label='arrow-down'></Icon>
-                </Text>
+                <Dropdown options={options} initialText='Bitcoin/BTC'></Dropdown>
             </div>
             <div className={styles.money}>
                 <div className={styles.text}>
-                    <Text>
+                    <div>
                         <p> 
                             Amount
                         </p>
-                    </Text>
-                    <Text>
+                    </div>
+                    <div>
                         <p>
-                            $230.00
+                            {money}
                         </p>
-                    </Text>
+                    </div>
                 </div>
             </div>
             <div className={styles.amount}>
                 <div className={styles.text}>
-                    <Text>
+                    <div>
                         <p> 
                             Amount
                         </p>
-                    </Text>
-                    <Text>
+                    </div>
+                    <div>
                         <p>
-                            $230.00
+                            {amount}
                         </p>
-                    </Text>
+                    </div>
                 </div>
             </div>
             <UserButtonBlack text='Make Payment' isPayment></UserButtonBlack>

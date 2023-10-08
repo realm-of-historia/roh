@@ -5,7 +5,6 @@ import Avatar from './Avatar/Avatar'
 import Link from 'next/link'
 import Text from '../Text/Text'
 import {useAuthStore} from '../../store/store'
-import { useWindowWidth } from '@react-hook/window-size'
 
 
 const Header = () => {
@@ -18,8 +17,8 @@ const Header = () => {
   }
 
 
-  const windowWidth = useWindowWidth()
 
+  
 
 
   return (

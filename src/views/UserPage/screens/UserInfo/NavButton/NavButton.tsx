@@ -7,11 +7,9 @@ export default function NavButton({text}: {text: string}) {
         <button className={styles.navButton}>
             <div className={styles.dividerLeft}></div>
             <div className={styles.dividerRight}></div>
-            <Text>
-                <p>
-                    {text}
-                </p>
-            </Text>
+            <p>
+                {text}
+            </p>
         </button>
     )
 }

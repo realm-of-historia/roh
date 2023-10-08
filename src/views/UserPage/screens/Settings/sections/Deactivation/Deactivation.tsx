@@ -10,14 +10,14 @@ const Deactivation = () => {
     <div className={styles.deactivation}>
         <div className={styles.section}>
             <CheckBox></CheckBox>
-            <Text>
+            <div>
                 <p>
                     I confirm my account deactivation
                 </p>
-            </Text>
+            </div>
         </div>
         <div className={styles.footer}>
-            <button>Deactivate account</button>
+            <button className={styles.buttonWhite}>Deactivate account</button>
         </div>
     </div>
   )

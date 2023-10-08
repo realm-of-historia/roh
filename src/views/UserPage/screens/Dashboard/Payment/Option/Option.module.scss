@@ -18,6 +18,11 @@
 
     >:nth-child(1){
         left: rm(64) !important;
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        background-color: color(text-yellow-90);
+        top: 0;
 
         @include md{
             left: rm(32) !important;
@@ -26,6 +31,11 @@
 
     >:nth-child(2){
         right: rm(64) !important;
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        background-color: color(text-yellow-90);
+        top: 0;
 
         @include md{
             right: rm(32) !important;
@@ -111,6 +121,11 @@
 
         button:hover{
             background-color: rgba(	234,	216,	177, .4);
+        }
+
+        .buttonActive{
+            background-color: rgba(	234,	216,	177, .4);
+            font-weight: 600;
         }
 
         >:first-child{

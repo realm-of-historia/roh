@@ -28,8 +28,8 @@ export default function Artist({name, spec, text}: {name: string | Array<string>
                         </p>
                     </Text>
                     <div className={styles.container}>
-                        {Array.isArray(text) ? text.map((element: any) => (
-                            <Text>
+                        {Array.isArray(text) ? text.map((element: any, index: number) => (
+                            <Text key={index}>
                                 <p className={styles.text}>
                                     {text}
                                 </p>

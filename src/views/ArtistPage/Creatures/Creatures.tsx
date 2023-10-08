@@ -35,8 +35,8 @@ const Creatures = ({text, price, image}: {text?: string | Array<string>, price?:
 
   return (
     <div className={styles.creatures}>
-        {items.map((element: any) => (
-            <Bundle title={element[0]} price={element[1]} image={element[2]}></Bundle>
+        {items.map((element: any, index: number) => (
+            <Bundle key={index} title={element[0]} price={element[1]} image={element[2]}></Bundle>
         ))}
         {}
     </div>

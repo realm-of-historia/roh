@@ -2,13 +2,19 @@
 
 .marketplace{
 
+
+    .viewAnimation{
+        transition: transform .5s ease;
+        transform: translateY(rm(-50));
+    }
+
     .title{
-        padding: rm(64);
+        padding: rm(114) rm(64) rm(0) rm(64);
         overflow: hidden;
         position: relative;
 
         @include md{
-            padding: rm(32);
+            padding: rm(100) rm(32) rm(0) rm(32);
         }
 
 

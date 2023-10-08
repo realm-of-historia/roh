@@ -8,30 +8,30 @@ const SignIn = () => {
   return (
     <div className={styles.signIn}>
         <div className={styles.section}>
-            <Text>
+            <div>
                 <p>
                     Email Address
                 </p>
-            </Text>
-            <Text>
+            </div>
+            <div>
                 <p>
                     support@keenthemes.com
                 </p>
-            </Text>
-            <button>Change Email</button>
+            </div>
+            <button className={styles.buttonWhite}>Change Email</button>
         </div>
         <div className={styles.section}>
-            <Text>
+            <div>
                 <p>
                     Password
-                </p>
-            </Text>
-            <Text>
+                </p>  
+            </div>
+            <div>
                 <p>
                     *************
                 </p>
-            </Text>
-            <button>Reset Password</button>
+            </div>
+            <button className={styles.buttonWhite}>Reset Password</button>
         </div>
     </div>
   )

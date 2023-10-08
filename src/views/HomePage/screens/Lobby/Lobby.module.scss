@@ -17,6 +17,18 @@
         // padding-top: rm(40);
     }
 
+    .svgCircle{
+        width: rm(125);
+        height: rm(125);
+        position: relative;
+
+        svg{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
     // >:nth-child(1){
     //     position: absolute;
     //     width: 100%;

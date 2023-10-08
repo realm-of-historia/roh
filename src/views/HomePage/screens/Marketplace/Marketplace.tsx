@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import styles from './Marketplace.module.scss'
 import MarketCard from '@/components/MarketCard/MarketCard'
 import Text from '@/components/Text/Text'
@@ -12,10 +12,20 @@ import 'swiper/css/pagination';
 import 'swiper/swiper-bundle.css'
 import { useWindowWidth } from '@react-hook/window-size'
 import { NativeUnderpin } from '@/components/NativeUnderpin/NativeUnderpin'
+import { useInView } from 'react-intersection-observer'
 
 const Marketplace = ({isMarket, ref}: {isMarket?: boolean, ref?: any}) => {
 
+    const [reff, inView] = useInView()
 
+    
+    const windowWidth: any = useWindowWidth()
+    const [width, setWidth]: any = useState()
+  
+  
+    useEffect(() => {
+      setWidth(windowWidth)
+    }, [windowWidth])  
 
     const marketCardInfo = [
         'Stone of prophecy',
@@ -44,11 +54,10 @@ const Marketplace = ({isMarket, ref}: {isMarket?: boolean, ref?: any}) => {
         '1.33 ETH'
     ]
 
-    const windowWidth = useWindowWidth()
 
     let slides = 4;
 
-    if (windowWidth <= 576) {
+    if (width <= 576) {
         slides = 1.2
     }
 
@@ -59,7 +68,7 @@ const Marketplace = ({isMarket, ref}: {isMarket?: boolean, ref?: any}) => {
         <div className={styles.marketplace} ref={ref}>
             {!isMarket &&         
                 <div className={styles.title}>
-                    <Text><p>MARKeTPLACe</p></Text>
+                    <p ref={reff} className={`${inView ? styles.viewAnimation : ''}`}>MARKeTPLACe</p>
                     <Divider position={'left top'}></Divider>
                 </div>
             }

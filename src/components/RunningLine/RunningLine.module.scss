@@ -5,10 +5,14 @@
 
 
 .runningLine{
-    overflow: hidden;
+    // overflow: hidden;
     position: relative;
     width: 100%;
-    height: rm(102);
+    height: rm(120);
+
+    @include lg{
+        height: rm(90);
+    }
 
     // @include 
 
@@ -17,5 +21,6 @@
         height: 100%;
         background-image: url('/publications.png');
         background-repeat: repeat-x;
+        background-size: cover;
     }
 }

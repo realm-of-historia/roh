@@ -2,13 +2,13 @@ import React from 'react'
 import styles from './UserButtonBlack.module.scss'
 import Text from '@/components/Text/Text'
 
-export default function UserButtonBlack({text, isPayment}: {text: string, isPayment?: boolean}) {
+export default function UserButtonBlack({text, isPayment, formId}: {text: string, isPayment?: boolean, formId?:string}) {
 
     return(
-        <div className={`${styles.buttonBlack} ${isPayment ? styles.pay : ''}`}>
-            <Text>
+        <button form={formId} type='submit' className={`${styles.buttonBlack} ${isPayment ? styles.pay : ''}`}>
+            <div>
                 <p>{text}</p>
-            </Text>
-        </div>
+            </div>
+        </button>
     )
 }

@@ -6,8 +6,11 @@ import UserCard from './UserCard/UserCard'
 import SimpleInput from '@/components/UI/SimpleInput/SimpleInput'
 import UserButtonBlack from '@/components/UI/buttons/UserButtonBlack/UserButtonBlack'
 import { useState } from 'react'
+import {useForm} from 'react-hook-form'
 
 export default function Perks() {
+    
+    const {register} = useForm()
 
     const [perk, setPerk] = useState('')
 
@@ -20,6 +23,8 @@ export default function Perks() {
                 icon='search-icon'
                 value={perk}
                 onChange={(e) => setPerk(e.target.value)}
+                name='perks'
+                register={register}
                 ></SimpleInput>
             </div>
             <div className={styles.container}>
@@ -28,6 +33,17 @@ export default function Perks() {
                 <UserCard product='Product 1' sku='01244009' qty='26' price='51,00' status='Published' actions='Actions'></UserCard>
                 <UserCard product='Product 1' sku='01244009' qty='26' price='51,00' status='Published' actions='Actions'></UserCard>
                 <UserCard product='Product 1' sku='01244009' qty='26' price='51,00' status='Published' actions='Actions'></UserCard>
+            </div>
+            <div className={styles.paggination}>
+                <p>{'<'}</p>
+                <div>
+                    <p>1</p>
+                    <p>2</p>
+                    <p>3</p>
+                    <p>...</p>
+                    <p>24</p>
+                </div>
+                <p>{'>'}</p>
             </div>
         </div>
     )
