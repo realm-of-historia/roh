@@ -8,45 +8,44 @@ import Digest from '@/components/Digest/Digest'
 import MarketplaceTitle from '@/components/MarketplaceTitle/MarketplaceTItle'
 import {useState, useRef, useEffect} from 'react'
 import { gsap } from 'gsap';
+import { useInView } from 'react-intersection-observer'
+import Loader from '@/components/Loader/Loader'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import {ScrollToPlugin} from 'gsap/ScrollToPlugin'
+
 
 export default function MarketplacePage() {
-
-    const [showSecondMarketplace, setShowSecondMarketplace] = useState(false);
+    const { ref, inView } = useInView()
 
     const endRef = useRef(null)
     const firstRef = useRef(null)
     const secondRef = useRef(null)
 
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
-    useEffect(() => {
-        // Анимация для появления firstRef
-        gsap.from(endRef.current, {
-          opacity: 0,
-          y: 50,
-          duration: 1,
-          scrollTrigger: {
-            trigger: firstRef.current,
-            start: 'top bottom', // Начать анимацию, когда верхняя граница firstRef видна
-            endTrigger: secondRef.current, // Завершить анимацию при достижении secondRef
-            end: 'top bottom',
-            scrub: 1,
-          },
-        });
-    
-        // Анимация для появления secondRef
-        gsap.from(secondRef.current, {
-          opacity: 0,
-          y: 50,
-          duration: 1,
-          scrollTrigger: {
-            trigger: secondRef.current,
-            start: 'top bottom', // Начать анимацию, когда верхняя граница secondRef видна
-            scrub: 1, // "Scrub" значит, что анимация будет привязана к скроллу
-          },
-        });
-      }, []);
-    
+    const [cards, setCards]: Array<any> = useState([])
+    const [isLoader, setIsLoader] = useState(false)
+    const [cardNumber, setCardNumber] = useState(0)
 
+
+    const allCards: Array<any> = [<Marketplace isMarket={true} ></Marketplace>, <Marketplace isMarket={true} ></Marketplace>, <Marketplace isMarket={true} ></Marketplace>, <Marketplace isMarket={true} ></Marketplace>]
+
+    useEffect(() =>{
+        if(inView && cardNumber < 4 && !isLoader) {
+            setIsLoader(true)
+            setTimeout(() =>{
+                setCards(
+                    [cards, allCards[cardNumber]]
+                )
+                setCardNumber(cardNumber + 1)
+                setIsLoader(false)
+                
+                setTimeout(() => {
+                    ScrollTrigger.refresh()
+                }, 30)
+            }, 2000)
+        }
+    }, [inView])
 
 
     return(
@@ -55,10 +54,12 @@ export default function MarketplacePage() {
             <MarketplaceTitle></MarketplaceTitle>
             <Panegliph isFirst={false}></Panegliph>
             <Marketplace isMarket={true}></Marketplace>
-            <Marketplace isMarket={true} ref={endRef}></Marketplace>
-            <Marketplace isMarket={true} ref={firstRef}></Marketplace>
-            <Marketplace isMarket={true} ref={secondRef}></Marketplace>            
-            <Digest></Digest>
+            <Marketplace isMarket={true} ></Marketplace>
+            {cards.map((element : any, index: any) => (
+                <div key={index}>{element}</div>
+            ))}
+            {isLoader && <Loader></Loader>}
+            <Digest reff={ref}></Digest>
         </div>
     )
 }

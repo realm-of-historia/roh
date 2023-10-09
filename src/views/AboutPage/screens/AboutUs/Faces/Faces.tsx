@@ -6,15 +6,22 @@ import SwiperButton from '@/components/SwiperButton/SwiperButton'
 import 'swiper/css/pagination';
 import 'swiper/swiper-bundle.css'
 import { useWindowWidth } from '@react-hook/window-size'
-import {useRef} from 'react'
+import {useRef, useEffect, useState} from 'react'
 
 const Faces = () => {
 
-  const windowWidth = useWindowWidth()
+  const windowWidth: any = useWindowWidth()
+  const [width, setWidth]: any = useState()
+
+
+  useEffect(() => {
+    setWidth(windowWidth)
+  }, [windowWidth])  
+
 
   let slides = 3;
 
-  if (windowWidth <= 576) {
+  if (width <= 576) {
       slides = 1.2
   }
 

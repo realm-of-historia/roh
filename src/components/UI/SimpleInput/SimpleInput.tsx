@@ -1,26 +1,28 @@
 import styles from './SimpleInput.module.scss';
 import React from 'react';
 import Icon from '../Icon/Icon';
+import {useForm} from 'react-hook-form'
 
 interface SimpleInputProps {
     placeholder: string;
     icon?: string;
-    value: string;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    value?: string;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     isContacts: boolean;
+    name: string;
+    register?: any
 }
 
-const SimpleInput: React.FC<SimpleInputProps> = ({ placeholder, icon, value, onChange, isContacts}) => {
+const SimpleInput: React.FC<SimpleInputProps> = ({ placeholder, icon, value, onChange, isContacts, name, register}) => {
 
     const padding = isContacts ? styles.input : styles.contactsInput
-
+    
     return (
         <div className={styles.simpleInput}>
             <Icon label={icon}></Icon>
             <input
+                {...register(name)}
                 placeholder={placeholder}
-                value={value}
-                onChange={onChange}
                 className={padding}
             />
             <div className={styles.inputDivider}>

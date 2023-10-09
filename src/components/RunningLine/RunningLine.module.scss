@@ -1,74 +1,26 @@
 @use "../../assets/styles/index.scss" as *;
 
 
-.run{
-    -moz-transform:translateX(100%);
-    -webkit-transform:translateX(100%);	
-    transform:translateX(100%);
-    -moz-animation: run 15s linear infinite;
-    -webkit-animation: run 15s linear infinite;
-    animation: run 15s linear infinite;
-}
 
-.runReverse{
-    -moz-transform:translateX(100%);
-    -webkit-transform:translateX(100%);	
-    transform:translateX(100%);
-    -moz-animation: runReverse 15s linear infinite;
-    -webkit-animation: runReverse 15s linear infinite;
-    animation: runReverse 15s linear infinite;
-}
+
 
 .runningLine{
-    overflow: hidden;
+    // overflow: hidden;
     position: relative;
     width: 100%;
-    height: rm(102);
-    background-image: url('/publications.png');
-    background-repeat: repeat-x;
-    background-size: auto 100%;
+    height: rm(120);
 
-
-
-    @-moz-keyframes run {
-        0%   { -moz-transform: translateX(100%); }
-        100% { -moz-transform: translateX(-100%); }
-       }
-       @-webkit-keyframes run {
-        0%   { -webkit-transform: translateX(100%); }
-        100% { -webkit-transform: translateX(-100%); }
-       }
-       @keyframes run {
-        0%   { 
-        -moz-transform: translateX(100%);
-        -webkit-transform: translateX(100%);
-        transform: translateX(100%); 		
-        }
-        100% { 
-        -moz-transform: translateX(-100%);
-        -webkit-transform: translateX(-100%);
-        transform: translateX(-100%); 
-        }
+    @include lg{
+        height: rm(90);
     }
 
-    @-moz-keyframes runReverse {
-        0%   { -moz-transform: translateX(-100%); }
-        100% { -moz-transform: translateX(100%); }
-       }
-       @-webkit-keyframes runReverse {
-        0%   { -webkit-transform: translateX(-100%); }
-        100% { -webkit-transform: translateX(100%); }
-       }
-       @keyframes runReverse {
-        0%   { 
-        -moz-transform: translateX(-100%);
-        -webkit-transform: translateX(-100%);
-        transform: translateX(-100%); 		
-        }
-        100% { 
-        -moz-transform: translateX(100%);
-        -webkit-transform: translateX(100%);
-        transform: translateX(100%); 
-        }
+    // @include 
+
+    .content{
+        width: 100%;
+        height: 100%;
+        background-image: url('/publications.png');
+        background-repeat: repeat-x;
+        background-size: cover;
     }
 }

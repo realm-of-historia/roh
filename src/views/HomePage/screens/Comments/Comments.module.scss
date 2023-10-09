@@ -4,6 +4,7 @@
     display: flex;
     padding: rm(0) rm(64) rm(0) rm(64);
     position: relative;
+    background-color: color(bg);
 
     @include xsm{
         flex-direction: column;

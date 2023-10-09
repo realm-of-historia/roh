@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styles from './HeadOffice.module.scss';
 import Image from 'next/image';
-import Text from '@/components/Text/Text';
 
 export default function HeadOffice() {
 
@@ -10,8 +9,8 @@ export default function HeadOffice() {
             <div className={styles.container}>
                 <div className={styles.left}>
                     <div className={styles.logo}>
-                        <Text><p className={styles.first}>LeT`&#34;`S SPeAK</p></Text>
-                        <Text><p className={styles.second}>1 (833) 597-7538</p></Text>
+                        <div><p className={styles.first}>LeT`&#34;`S SPeAK</p></div>
+                        <div><p className={styles.second}>1 (833) 597-7538</p></div>
                     </div>
                     <div className={`${styles.divider} ${styles.block}`}></div>
                     <div className={`${styles.topFirst} ${styles.block}`}></div>
@@ -26,8 +25,8 @@ export default function HeadOffice() {
                 </div>
                 <div className={styles.right}>
                     <div className={styles.logo}>
-                        <Text><p className={styles.first}>OUR HeAD OFFICe</p></Text>
-                        <Text><p className={styles.second}>Churchill-laan 16 II, 1052 CD, Amsterdam</p></Text>
+                        <div><p className={styles.first}>OUR HeAD OFFICe</p></div>
+                        <div><p className={styles.second}>Churchill-laan 16 II, 1052 CD, Amsterdam</p></div>
                     </div>
                     <div className={`${styles.divider} ${styles.block}`}></div>
                     <div className={`${styles.topFirst} ${styles.block}`}></div>
@@ -42,13 +41,13 @@ export default function HeadOffice() {
                 </div>
             </div>
             <div className={styles.officeFooter}>
-                <div className={styles.block}><Text yMove={15}> <p>Facebook</p></Text></div>
-                <div className={styles.block}><Text yMove={15}><p>Instagram</p></Text></div>
-                <div className={styles.block}><Text yMove={15}><p>GitHub</p></Text></div>
-                <div className={styles.block}><Text yMove={15}><p>Behance</p></Text></div>
-                <div className={styles.block}><Text yMove={15}><p>Pinterest</p></Text></div>
-                <div className={styles.block}><Text yMove={15}><p>Twitter</p></Text></div>
-                <div className={styles.block}><Text yMove={15}><p>Dribbble</p></Text></div>
+                <div className={styles.block}><div > <p>Facebook</p></div></div>
+                <div className={styles.block}><div ><p>Instagram</p></div></div>
+                <div className={styles.block}><div ><p>GitHub</p></div></div>
+                <div className={styles.block}><div ><p>Behance</p></div></div>
+                <div className={styles.block}><div ><p>Pinterest</p></div></div>
+                <div className={styles.block}><div ><p>Twitter</p></div></div>
+                <div className={styles.block}><div ><p>Dribbble</p></div></div>
             </div>
         </div>
     );

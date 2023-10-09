@@ -1,0 +1,31 @@
+@use '../../../../assets/styles/index.scss' as *;
+
+.buttonBlack{
+    width: 100%;
+    height: rm(70);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: color(text-black);
+    cursor: pointer;
+
+    p{
+        font-size: font(15);
+        @include font-work-regular;
+        line-height: 140%;
+        color: color(bg);
+    }
+
+}
+
+.pay{
+    height: rm(70);
+
+    @include md{
+        height: rm(53);
+    }
+
+    @include xsm{
+        height: rm(70);
+    }
+}

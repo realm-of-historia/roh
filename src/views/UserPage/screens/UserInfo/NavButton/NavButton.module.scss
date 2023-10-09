@@ -39,14 +39,12 @@
     }
 
 
-    :last-child{
-        p{
-            color: color(text-brown);
-            line-height: 140%;
-            font-size: font(15);
-            @include font-work-regular;
-            font-weight: 400;
-            transition: font-weight .3s ease-in-out;
-        }
+    p{
+        color: color(text-brown);
+        line-height: 140%;
+        font-size: font(15);
+        @include font-work-regular;
+        font-weight: 400;
+        transition: font-weight .3s ease-in-out;
     }
 }

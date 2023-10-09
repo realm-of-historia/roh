@@ -1,0 +1,333 @@
+@use "../../../../../../assets/styles/index.scss" as *;
+
+
+.custom{
+    display: none;
+}
+
+
+.selectDivider{
+    position: relative;
+    width: 100%;
+    height: 1px;
+
+    > * {
+        position: absolute;
+        top: rm(-15); left: 50%;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -150%);
+        transition: .3s transform ease, .3s background-color ease;
+    }
+
+    > :first-child {
+        background: #EAD8B1;
+    }
+
+    > :last-child {
+        background: color(text-brown);
+        transform: translateX(-50%) scale(0);
+    }
+}
+
+.selectStyles{
+    background-color: color(bg) !important;
+    font-size: font(15);
+    color: color(text-brown);
+    padding-left: rm(0);
+    margin-bottom: rm(15);
+    border-color: color(bg);
+    cursor: pointer;
+
+    // input:focus{
+        
+    //     ~ .selectDivider > :last-child {
+    //         transform: translateX(-50%) scale(1);
+    //     }
+    // }
+
+    @include md{
+        margin-bottom: rm(10);
+    }
+
+    &:hover{
+        >:nth-child(3){
+            >:nth-child(2){
+                >:nth-child(2){
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+
+
+    >:nth-child(3){
+        padding-bottom: rm(15);
+        padding-top: rm(5);
+        box-shadow: none;
+        border-color: color(bg) !important;
+        // border-bottom: 2px rgba(234,216,177, 0.5) solid !important;
+
+        >:nth-child(2){
+
+            >:nth-child(1){
+                display: none;
+            }
+
+            >:nth-child(2){
+                color: color(text-black);
+                transition: transform .6s ease-in-out;
+            }
+        }
+
+
+        >:nth-child(1){
+            padding-left: rm(0);
+
+            >:nth-child(1){
+                color: color(text-brown) !important;
+            }
+
+            >:nth-child(2){
+                padding: rm(0);
+            }
+        }
+    }
+
+    >:nth-child(4){
+        background-color: color(bg);
+
+        >:nth-child(1){
+
+            div{
+                background-color: transparent;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    padding: rm(64);
+
+    @include xsm{
+        padding: 0;
+    }
+
+    .avatar{
+        display: flex;
+        margin-bottom: rm(32);
+        position: relative;
+
+        p{
+            width: rm(155);
+            color: color(text-black);
+            font-size: font(16);
+            line-height: 160%;
+            @include font-work-regular;
+            font-weight: 600;
+        }
+
+        img{
+            width: rm(240);
+            height: rm(240);
+            transition: background-color, opacity .6s ease-in-out;
+        }
+
+        span{
+            position: absolute;
+            color: color(text-black);
+            font-size: font(14);
+            top: rm(120);
+            left: rm(220);
+            opacity: 0;
+            transition: opacity .6s ease-in-out;
+        }
+
+
+        .container:hover{
+            img{
+                // background-color: black;
+                opacity: 0.3;
+            }
+
+            span{
+                opacity: 1;
+                cursor: pointer;
+            }
+        }
+
+
+        input{
+            width: rm(240);
+            height: rm(240);
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: rm(155);
+            cursor: pointer;
+        }
+    }
+
+
+    .buttonWhite{
+        font-size: font(16);
+        position: relative;
+        color: color(text-brown);
+        @include font-work-regular;
+        line-height: 140%;
+        display: flex;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border: 1px solid #EAD8B1;
+        height: rm(60);
+        font-weight: 600;
+        transition: background-color .7s ease;
+        z-index: 1000;
+
+        &:hover{
+            background-color: rgba(	234,	216,	177, .4);
+        }
+    }
+
+    .footer{
+        display: flex;
+        align-items: center;
+        margin-top: rm(16);
+        gap: rm(16);
+        position: relative;
+
+
+
+        >:last-child{
+            height: rm(60);
+        }
+    }
+
+    .switches{
+        display: flex;
+        align-items: center;
+        margin-bottom: rm(32);
+
+        p{
+            width: rm(155);
+            color: color(text-black);
+            font-size: font(16);
+            line-height: 160%;
+            @include font-work-regular;
+            font-weight: 600;
+        }
+    }
+
+    .section{
+        display: flex;
+        align-items: center;
+
+        .checks{
+            display: flex;
+            margin-bottom: rm(30);
+            gap: rm(8);
+
+            >:first-child{
+                margin-top: rm(2);
+            }
+
+            >:nth-child(3){
+                margin-top: rm(2);
+            }
+
+            p{
+                font-size: font(16);
+                color: color(text-brown);
+                @include font-work-regular;
+                line-height: 140%;
+            }
+        }
+
+        .inputi{
+            width: 100%;
+
+            input{
+                width: 100% !important;
+                padding-top: rm(0);
+            }
+        }
+
+        .inputs{
+            width: 100%;
+            display: flex;
+            gap: rm(16);
+
+            >:first-child{
+                input{
+                    width: 50% !important;
+                }
+            }
+
+            >:last-child{
+                input{
+                    width: 50% !important;
+                }
+            }
+
+
+            input{
+                margin-top: rm(-10);
+                padding-bottom: rm(16);
+            }
+        }
+
+        >:first-child{
+            p{
+                width: rm(155);
+                color: color(text-black);
+                font-size: font(16);
+                line-height: 160%;
+                margin-bottom: rm(28);
+                @include font-work-regular;
+                font-weight: 600;
+
+                @include lg{
+                    margin-bottom: rm(25);
+                }
+            }
+        }
+
+        .info{
+            color: color(text-brown);
+            font-size: font(16);
+            line-height: 160%;
+            @include font-work-regular;
+
+        }
+
+        .verification{
+            display: flex;
+            margin-left: rm(10);
+
+            :first-child{
+                margin-top: rm(1);
+                span{
+                    width: rm(18);
+                    height: rm(18);
+                }
+            }
+
+            :last-child{
+
+                p{
+                    font-size: font(14);
+                    @include font-work-regular;
+                    line-height: 140%;
+                    color: color(text-brown);
+                    margin-left: rm(4);
+                }
+            }
+        }
+    }
+
+}

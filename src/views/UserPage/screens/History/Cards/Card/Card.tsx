@@ -2,13 +2,13 @@ import React from 'react'
 import styles from './Card.module.scss'
 import Text from '@/components/Text/Text'
 
-export default function Card() {
+export default function Card({title, text}: {title: string | Array<string>, text: string | Array<string>}) {
 
     return(
         <div className={styles.card}>
             <div className={styles.logo}>
-                <Text><p className={styles.first}>CARAHUNGe</p></Text>
-                <Text><p className={styles.second}>7 items</p></Text>
+                <Text><p className={styles.first}>{title}</p></Text>
+                <Text><p className={styles.second}>{text}</p></Text>
             </div>
             <div className={`${styles.divider} ${styles.block}`}></div>
             <div className={`${styles.topFirst} ${styles.block}`}></div>

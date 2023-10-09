@@ -5,7 +5,6 @@ import Avatar from './Avatar/Avatar'
 import Link from 'next/link'
 import Text from '../Text/Text'
 import {useAuthStore} from '../../store/store'
-import { useWindowWidth } from '@react-hook/window-size'
 
 
 const Header = () => {
@@ -18,9 +17,8 @@ const Header = () => {
   }
 
 
-  const windowWidth = useWindowWidth()
 
-
+  
 
 
   return (
@@ -40,12 +38,12 @@ const Header = () => {
         <div className={styles.right}>
            {!isSignedIn ? <Link href="/"><p className={styles.logIn} onClick={handleAuth}>Log In</p></Link> : <div className={styles.logIn}></div>}
            {!isSignedIn ? <Link href="/"><p className={styles.signIn} onClick={handleAuth}>Register</p></Link> : <div className={styles.signIn}></div>}
-            <div className={styles.icons}>
+            {/* <div className={styles.icons}>
                <Icon label='search-icon'></Icon>
                <Icon label='message-icon'></Icon>
                <Icon label='theme-icon'></Icon>
-            </div>
-            {isSignedIn || windowWidth < 1081 ? <Avatar></Avatar> : <div className={styles.avatarSpace}></div>}
+            </div> */}
+            {isSignedIn ? <Avatar></Avatar> : <div className={styles.avatarSpace}></div>}
         </div>
     </div>
   )

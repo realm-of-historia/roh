@@ -7,15 +7,12 @@ import UserNavigation from '@/views/UserPage/screens/UserInfo/UserNavigation/Use
 import ProfileLayout from '@/components/ProfileLayout/ProfileLayout'
 import Digest from '@/components/Digest/Digest'
 import Details from '@/views/UserPage/screens/UserInfo/sections/Details/Details'
+import UserLayout from '@/components/UserLayout/UserLayout'
 
 export default function UserPage() {
     return(
         <div>
-            <Header></Header>
-            <UserInfo></UserInfo>
-            <UserNavigation></UserNavigation>
-            <ProfileLayout title='PROFILe DeTAILS'><Details></Details></ProfileLayout>
-            <Digest></Digest>
+            <UserLayout></UserLayout>
         </div>
     )
 }

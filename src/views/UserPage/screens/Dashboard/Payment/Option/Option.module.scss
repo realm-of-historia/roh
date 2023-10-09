@@ -1,0 +1,172 @@
+@use '../../../../../../assets/styles/index.scss' as *;
+
+.option{
+    padding-left: rm(64);
+    padding-right: rm(64);
+    width: 100%;
+    position: relative;
+
+    @include md{
+        padding-left: rm(32);
+        padding-right: rm(32);
+    }
+
+    
+    @include xsm{
+        padding-bottom: rm(64);
+    }
+
+    >:nth-child(1){
+        left: rm(64) !important;
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        background-color: color(text-yellow-90);
+        top: 0;
+
+        @include md{
+            left: rm(32) !important;
+        }
+    }
+
+    >:nth-child(2){
+        right: rm(64) !important;
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        background-color: color(text-yellow-90);
+        top: 0;
+
+        @include md{
+            right: rm(32) !important;
+        }
+    }
+
+    .coinName, .money, .amount{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        border-top: 1px color(text-yellow-90) solid;
+        border-bottom: 1px color(text-yellow-90) solid;
+        padding: rm(16) rm(22) rm(16) rm(32);
+
+        @include lg{
+            padding: rm(8) rm(11) rm(8) rm(16);
+        }
+
+        @include xsm{
+            padding: rm(16) rm(22) rm(16) rm(32);
+        }
+
+        .text{
+            >:first-child{
+
+                p{
+                    font-size: font(14);
+                    line-height: 140%;
+                    color: color(text-brown);
+                    margin-bottom: rm(4);
+
+                    @include md{
+                        font-size: font(12);
+                    }
+
+                    @include xsm{
+                        font-size: font(14);
+                    }
+                }
+            }
+
+            >:last-child{
+                p{
+                    font-size: font(18);
+                    color: color(text-brown);
+                    line-height: 140%;
+
+                    @include md{
+                        font-size: font(14);
+                    }
+
+                    @include xsm{
+                        font-size: font(18);
+                    }
+                }
+            }
+        }
+
+        span{
+            width: rm(40);
+            height: rm(40);
+        }
+    }
+
+    .money, .amount{
+        border-top: none;
+    }
+
+    .choose{
+        width: 100%;
+        display: flex;
+
+        p{
+            font-size: font(15);
+            color: color(text-brown);
+            line-height: 140%;
+        }
+
+        button{
+            transition: background-color .7s ease-in-out;
+        }
+
+        button:hover{
+            background-color: rgba(	234,	216,	177, .4);
+        }
+
+        .buttonActive{
+            background-color: rgba(	234,	216,	177, .4);
+            font-weight: 600;
+        }
+
+        >:first-child{
+            width: 50%;
+            height: rm(70);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @include lg{
+                height: rm(52);
+            }
+
+            @include md{
+                height: rm(40);
+            }
+
+            @include xsm{
+                height: rm(70);
+            }
+        }
+
+        >:last-child{
+            width: 50%;
+            height: rm(70);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-left: 1px color(text-yellow-90) solid;
+
+            @include lg{
+                height: rm(52);
+            }
+
+            @include md{
+                height: rm(40);
+            }
+
+            @include xsm{
+                height: rm(70);
+            }
+        }
+    }
+}

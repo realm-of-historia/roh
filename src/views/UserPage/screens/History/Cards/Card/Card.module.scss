@@ -57,18 +57,18 @@
         width: 1px;
         height: 100%;
         top: rm(0);
-        left: rm(167);
+        left: rm(79);
 
         @include lg{
-            left: rm(5);
+            left: rm(29);
         }
 
         @include md{
-            left: rm(60);
+            left: rm(29);
         }
 
         @include xsm{
-            left: rm(78);
+            left: rm(49);
         }
     }
 
@@ -76,18 +76,18 @@
         width: 1px;
         height: 100%;
         top: rm(0);
-        right: rm(167);
+        right: rm(79);
         
         @include lg{
-            right: rm(5);
+            right: rm(29);
         }
 
         @include md{
-            right: rm(60);
+            right: rm(29);
         }
 
         @include xsm{
-            right: rm(78);
+            right: rm(49);
         }
     }
 
@@ -135,7 +135,7 @@
             height: rm(140);
         }
 
-        @include md{
+        @include xsm{
             width: rm(227);
             height: rm(227);
         }

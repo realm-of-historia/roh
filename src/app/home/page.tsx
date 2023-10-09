@@ -55,7 +55,7 @@ export default function HomePage() {
       <OurVision secondText={firstBlock[3]} list={firstBlock[2]} leftSide={firstBlock[0]} text={firstBlock[1]}></OurVision>
       <Panegliph isFirst={false}></Panegliph>
       <OurVision secondText={secondBlock[3]} list={secondBlock[2]} leftSide={secondBlock[0]} text={secondBlock[1]}></OurVision>
-      <NativeUnderpin amplitude={0.65}>
+      <NativeUnderpin amplitude={0.6}>
         <Marketplace></Marketplace>
       </NativeUnderpin>
       <Digest></Digest>

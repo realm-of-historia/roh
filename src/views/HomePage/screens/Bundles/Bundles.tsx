@@ -4,7 +4,7 @@ import RunningLine from '@/components/RunningLine/RunningLine'
 import Bundle from '@/components/Bundle/Bundle'
 import { NativeUnderpin } from '@/components/NativeUnderpin/NativeUnderpin'
 import Link from 'next/link'
-import { useRef } from 'react'
+import { useRef , useState, useEffect} from 'react'
 import { useInView } from "react-intersection-observer"
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
 import { A11y, Navigation, Pagination, Scrollbar, Autoplay } from 'swiper/modules'
@@ -12,11 +12,21 @@ import SwiperButton from '@/components/SwiperButton/SwiperButton'
 import 'swiper/css/pagination';
 import 'swiper/swiper-bundle.css'
 import { useWindowWidth } from '@react-hook/window-size'
+import Divider from '@/components/Divider/Divider'
 
 
 const Bundles = () => {
 
     const { ref, inView } = useInView()
+
+    const windowWidth: any = useWindowWidth()
+    const [width, setWidth]: any = useState()
+  
+  
+    useEffect(() => {
+      setWidth(windowWidth)
+    }, [windowWidth])  
+    
 
     const bundleInfo = [
         '25 Products Mega Bundle with 50% off discount',
@@ -36,11 +46,9 @@ const Bundles = () => {
         '/rockNFT'
     ]
 
-    const windowWidth = useWindowWidth()
-
     let slides = 4;
 
-    if (windowWidth <= 576) {
+    if (width <= 576) {
         slides = 1.2
     }
 
@@ -68,12 +76,14 @@ const Bundles = () => {
                     </SwiperSlide>
                     <SwiperSlide>
                     <Link href='/marketplace' className={styles.offers}>
+                        <div className={`${inView ? styles.diagonal : ''}`}></div>
                         <p className={styles.text}>
                             View all offers
                         </p>
                         <div className={`${inView ? styles.bigCircle : ''}`}></div>
                         <div className={`${inView ? styles.firstCircle : ''}`}></div>
                         <div className={`${inView ? styles.secondCircle : ''}`}></div>
+                        
                         {/* <div className={styles.firstLine}></div>
                         <div className={styles.secondLine}></div> */}
                     </Link>

@@ -16,10 +16,18 @@
         flex-direction: column;
     }
 
-    .promotion{
+    .mainDivider{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: color(text-yellow-90);
+    }
 
+    .promotion{
         width: rm(960);
-        height: 100%;
+        height: rm(700);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -28,6 +36,7 @@
 
         @include md{
             height: rm(420);
+            width: 100%;
         }
 
         div{
@@ -41,81 +50,101 @@
             }
         }
 
-        .topFirst{
-            left: 0;
-            top: rm(90);
+        >:nth-child(3){
+            left: 0 !important;
+            top: rm(260) !important;
 
             @include md{
-                top: rm(118);
-                left: rm(-300);
+                top: rm(150) !important;
+            }
+
+
+
+        }
+
+        >:nth-child(4){
+            left: 0 !important;
+            bottom: rm(260) !important;
+
+            @include md{
+                bottom: rm(150) !important;
+            }
+
+
+        }
+
+        >:nth-child(5){
+            left: rm(167) !important;
+
+            @include lg{
+                left: rm(7) !important;
+            }
+
+            @include md{
+                left: rm(330) !important;
             }
 
             @include xsm{
-                top: rm(150);
-            }
-
-        }
-
-        .topSecond{
-            left: 0;
-            bottom: rm(90);
-
-            @include md{
-                bottom: rm(151);
-                left: rm(-300);
-            }
-
-        }
-
-        .left{
-            width: 1px;
-            height: rm(1260);
-            top: rm(-600);
-            left: rm(167);
-
-            @include lg{
-                left: rm(7);
-            }
-
-            @include md{
-                left: rm(270);
-                height: rm(520);
-                top: rm(0);
+                left: rm(80) !important; 
             }
         }
 
-        .right{
-            width: 1px;
-            height: rm(1060);
-            top: rm(-600);
-            right: rm(167);
+        >:nth-child(6){
+            right: rm(167) !important;
             
             @include lg{
-                right: rm(7);
+                right: rm(7) !important;
             }
 
             @include md{
-                right: rm(270);
-                height: rm(570);
-                top: rm(0);
+                right: rm(330) !important;
+            }
+
+            @include xsm{
+                right: rm(80) !important;
             }
 
         }
 
         .mainCircle{
             position: absolute;
-            border: 1px solid #EAD8B1;
             width: rm(630);
             height: rm(630);
-            border-radius: rm(1000);
             background-color: transparent;
             opacity: 0.75;
+            --borderW: 0.1px;
+            display: inline-grid;
+            place-content: center;
+            aspect-ratio: 1;
+            border-radius: 50%;
 
             @include md{
                 width: rm(420);
                 height: rm(420);
             }
         }
+
+        .mainCircle::before {
+            content: "";
+            position: absolute;
+            inset: calc(-1*var(--borderW));
+            clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%);
+            border: 1px solid color(text-yellow-90) ;
+            border-radius: 50%;
+            animation: progress 3s cubic-bezier(.25, .4, .75, .6) paused forwards;
+          }
+          .mainCircle::before {
+            animation-play-state: running;
+          }
+
+
+          @keyframes progress {
+              0% { clip-path: polygon(50% 50%, 50% -21%, 50% -21%, 50% -21%, 50% -21%, 50% -21%); }
+             25% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%); }
+             50% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, 50% 121%, 50% 121%); }
+             75% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, -21% 50%); }
+            100% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, 50% -21%);}
+          }
 
 
         img{

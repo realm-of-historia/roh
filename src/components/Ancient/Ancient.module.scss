@@ -1,11 +1,19 @@
 @use "../../assets/styles/index.scss" as *;
 
 .ancient{
-    height: 50vh;
+    height: 48vh;
     position: relative;
     overflow: hidden;
     background-color: color(bg);
     z-index: 1090000;
+
+    @include lg{
+      height: 55vh;
+    }
+
+    @include md{
+      height: 51vh;
+    }
 
     .runes{
         font-size: font(80);

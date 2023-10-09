@@ -3,6 +3,7 @@
 .user{
     display: flex;
     align-items: center;
+    // justify-content: center;
     
     @include xsm{
         margin-bottom: rm(32);
@@ -40,6 +41,10 @@
         color: color(text-brown);
         @include font-work-regular;
         font-weight: 600;
+
+        @include md{
+            font-size: font(11);
+        }
     }
 
     .titleNews{

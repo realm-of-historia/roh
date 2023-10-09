@@ -1,36 +1,71 @@
+
 import React from 'react'
 import styles from './RunningLine.module.scss'
 import {useRef, useEffect, useState} from 'react'
 import gsap from 'gsap'
 
-const RunningLine = ({ text }: { text: string }) => {
+const RunningLine = ({ text, image }: { text: string, image?: string }) => {
 
-  const [isRight, setIsRight] = useState(false)
-
+  const isRight = useRef(1);
+  const velocity = useRef(1);
+  const speed = useRef(1)
+  // let isRight = 1
   const containerRef = useRef(null);
+  const currentBackgroundPositionXRef = useRef(0);
+  const currentScroll: any = useRef(0)
+
+  const animateBackgroundPosition = (delta: any) => {
+    velocity.current = (speed.current / delta) != 0 ? speed.current * 2 / delta : 1
+    
+
+    const content: any = containerRef.current;
+    if (content) {
+      currentBackgroundPositionXRef.current += (1 * (velocity.current < 0 ? velocity.current * -1 : velocity.current) * 6000) * isRight.current;
+      content.style.backgroundPositionX = `${currentBackgroundPositionXRef.current}px`;
+    }
+
+    requestAnimationFrame(animateBackgroundPosition);
+  };
+
+  const handleScroll = () => {
+    const truth = currentScroll.current <= window.scrollY
+    isRight.current = (truth ? 1 : -1);
+    speed.current = window.scrollY - currentScroll.current
+    currentScroll.current = window.scrollY || window.pageXOffset
+  };
 
   useEffect(() => {
-    const container = containerRef.current;
+    window.addEventListener('scroll', handleScroll);
+    requestAnimationFrame(animateBackgroundPosition);
 
-    gsap.to(container, {
-      backgroundPositionX: '100%',
-      scrollTrigger: {
-        trigger: container,
-        start: 'top bottom',
-        scrub: 1,
-        toggleActions: 'play reset play reset',
-        onEnter: () => setIsRight(false),
-        onLeaveBack: () => setIsRight(true),
-      },
-    });
-
-    console.log(isRight)
-  }, [containerRef]);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
 
+
+    // const direction = useRef(1) // calc direction somewhere, fo example onScroll event
+  //   const velocity = useRef(1) // calc velocity onScroll event
+  //   useEffect(() => {
+  //     const rq = null
+  //   let tr = 0
+      
+
+  //   render()
+  //   function render() {
+  //     tr += 0.1 * velocity.current
+  //     linkRef.current.style.transformX = tr * direction.current
+  //     rq = requestAnimationFrame(render)
+  //   }
+
+  //   return () => cancelRequestAnimationFrame(rq)
+  //   },[])
+  
 
   return (
-    <div className={`${styles.runningLine} ${!isRight ? styles.run : styles.runReverse}`} ref={containerRef}>
+    <div className={`${styles.runningLine}`}>
+        <div className={styles.content} ref={containerRef}></div>
     </div>
   )
 }

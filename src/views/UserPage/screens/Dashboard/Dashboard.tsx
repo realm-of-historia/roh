@@ -1,7 +1,8 @@
 import React from 'react'
-import styles from './Details.module.scss'
+import styles from './Dashboard.module.scss'
 import Text from '@/components/Text/Text'
 import Icon from '@/components/UI/Icon/Icon'
+import Payment from './Payment/Payment'
 
 const Dashboard = () => {
 
@@ -17,8 +18,8 @@ const Dashboard = () => {
 
   return (
     <div className={styles.netWorth}>
-        
-    </div>
+          <Payment></Payment>
+    </div>  
   )
 }
 

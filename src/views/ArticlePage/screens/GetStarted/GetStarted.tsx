@@ -7,11 +7,15 @@ import Posts from './Posts/Posts'
 import SimpleInput from '@/components/UI/SimpleInput/SimpleInput'
 import {useState} from 'react'
 import Text from '@/components/Text/Text'
+import {useForm} from 'react-hook-form'
+
 
 
 const GetStarted = () => {
 
     const [text, setText] = useState('')
+
+    const {register} = useForm()
 
     const infos = [
         ['calendar', '06 April, 2021'],
@@ -81,7 +85,7 @@ const GetStarted = () => {
                     <div className={styles.search}>
                         <p>Search Blog</p>
                         <div>
-                            <SimpleInput onChange={(e) => setText(e.target.value)} isContacts={true} value='' placeholder='Search' icon='search-icon'></SimpleInput>
+                            <SimpleInput register={register} name='search-ii' onChange={(e) => setText(e.target.value)} isContacts={true} value='' placeholder='Search' icon='search-icon'></SimpleInput>
                         </div>
                     </div>
                     <Categories text={categories[1]} numbers={categories[2]} title={categories[0]}></Categories>

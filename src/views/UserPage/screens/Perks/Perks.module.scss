@@ -1,0 +1,60 @@
+@use "../../../../assets/styles/index.scss" as *;
+
+.perks{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    .paggination{
+        display: flex;
+        gap: rm(12);
+        justify-content: center;
+        padding-top: rm(32);
+        padding-bottom: rm(64);
+        color: color(text-brown);
+        font-size: font(14);
+
+        >:nth-child(1), >:nth-child(3){
+            &:hover{
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
+    
+        >:nth-child(2){
+            display: flex;
+            gap: rm(10);
+            
+            p:hover{
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .container{
+        @include xsm{
+            overflow-x: scroll;
+        }
+    }
+
+    .inputBlock{
+        width: rm(416);
+        margin: rm(32) rm(64) rm(32) rm(64);
+    
+        @include xsm{
+            margin: rm(16) rm(32) rm(16) rm(32);
+        }
+
+        >:first-child{
+            width: rm(240);
+    
+            input{
+                padding: rm(16) rm(0) rm(16) rm(32);
+                margin-top: rm(0);
+                width: rm(240);
+            }
+        }
+    
+    }
+}

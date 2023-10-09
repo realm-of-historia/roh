@@ -10,11 +10,11 @@ const ProfileLayout = ({children, title}: {children: any, title: string}) => {
             <div className={styles.dividerCenter}></div>
             <div className={styles.dividerBottom}></div>
             <div className={styles.left}>
-                <Text>
+                <div>
                     <p className={styles.title}>
                         {title}
                     </p>
-                </Text>
+                </div>
             </div>
             <div className={styles.right}>
                 {children}
