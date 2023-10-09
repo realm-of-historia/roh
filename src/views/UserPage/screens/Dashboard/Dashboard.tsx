@@ -3,6 +3,7 @@ import styles from './Dashboard.module.scss'
 import Text from '@/components/Text/Text'
 import Icon from '@/components/UI/Icon/Icon'
 import Payment from './Payment/Payment'
+import Graph from './Graph/Graph'
 
 const Dashboard = () => {
 
@@ -19,6 +20,7 @@ const Dashboard = () => {
   return (
     <div className={styles.netWorth}>
           <Payment></Payment>
+          <Graph></Graph>
     </div>  
   )
 }

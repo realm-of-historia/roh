@@ -3,15 +3,37 @@
 .artist{
     display: flex;
 
+    @include xsm{
+        flex-direction: column;
+    }
+
     .left{
         display: flex;
         flex-direction: column;
+        position: relative;
+
+        .dividerLeft{
+            position: absolute;
+            background-color: color(text-yellow-90);
+            right: 0;
+            top: 0;
+            width: 1px;
+            height: 100%;
+
+            @include xsm{
+                display: none;
+            }
+        }
 
         .info{
             width: rm(480);
             display: flex;
             flex-direction: column;
             padding: rm(64);
+
+            @include xsm{
+                width: rm(576);
+            }
 
             .name{
                 color: color(text-black);
@@ -47,6 +69,11 @@
         img{
             width: rm(480);
             height: rm(480);
+
+            @include xsm{
+                width: rm(576);
+                height: rm(576);
+            }
         }
 
     }

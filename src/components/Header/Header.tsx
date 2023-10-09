@@ -37,13 +37,13 @@ const Header = () => {
         </div>
         <div className={styles.right}>
            {!isSignedIn ? <Link href="/"><p className={styles.logIn} onClick={handleAuth}>Log In</p></Link> : <div className={styles.logIn}></div>}
-           {!isSignedIn ? <Link href="/"><p className={styles.signIn} onClick={handleAuth}>Register</p></Link> : <div className={styles.signIn}></div>}
+           {!isSignedIn ? <Link href="/"><p className={styles.signIn} onClick={handleAuth}>Register</p></Link> : <div></div>}
             {/* <div className={styles.icons}>
                <Icon label='search-icon'></Icon>
                <Icon label='message-icon'></Icon>
                <Icon label='theme-icon'></Icon>
             </div> */}
-            {isSignedIn ? <Avatar></Avatar> : <div className={styles.avatarSpace}></div>}
+            {isSignedIn ? <Avatar></Avatar> : <div></div>}
         </div>
     </div>
   )

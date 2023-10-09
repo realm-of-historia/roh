@@ -1,16 +1,16 @@
 import React from 'react'
-import styles from './Bundle.module.scss'
-import Text from '../Text/Text'
+import styles from './Item.module.scss'
 import Link from 'next/link'
+import Text from '@/components/Text/Text'
 
-const Bundle = ({title, price, image, isText, isArtist}: {title: string | Array<string>, price: string | Array<string>, image: string | Array<string>, isText?: boolean, isArtist?: boolean}) => {
+const Item = ({title, price, image, isText, isArtist}: {title: string | Array<string>, price: string | Array<string>, image: string | Array<string>, isText?: boolean, isArtist?: boolean}) => {
 
 
   return (
     <Link href='/marketplace'> 
-        <div className={styles.bundle}>
+        <div className={styles.item}>
             <div className={styles.imageContainer}>
-                <img src={`${image}.png`} alt='' width={480} height={480}/>
+                <img src={`${image}.png`} alt='' width={360} height={360}/>
                 <div className={styles.dividerTop}></div>
                 {/* <div className={styles.dividerBottom}></div> */}
             </div>
@@ -44,4 +44,4 @@ const Bundle = ({title, price, image, isText, isArtist}: {title: string | Array<
   )
 }
 
-export default Bundle
+export default Item

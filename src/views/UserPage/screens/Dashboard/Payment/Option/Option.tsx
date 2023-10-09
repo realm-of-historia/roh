@@ -5,6 +5,7 @@ import Icon from '@/components/UI/Icon/Icon'
 import UserButtonBlack from '@/components/UI/buttons/UserButtonBlack/UserButtonBlack'
 import { useAuthStore } from '@/store/store'
 import Dropdown from '@/components/UI/Dropdown/Dropdown'
+import Select from 'react-select'
 
 export default function Option({name, money, amount}: {name: string, money: string, amount: string}) {
 
@@ -22,7 +23,28 @@ export default function Option({name, money, amount}: {name: string, money: stri
         console.log(isBuy)
     })
 
-    const options = ['Bitcoin/BTC', 'Etherium/ETH', 'Dogecoin/DGC'];
+    const options = [
+        { value: 'Bitcoin/BTC', label: 'Bitcoin/BTC',},
+        { value: 'Etherium/ETH', label: 'Etherium/ETH' },
+        { value: 'Dogecoin/DGC', label: 'Dogecoin/DGC' },
+    ]
+
+
+    const selectStyles: any = {
+        control: (styles: any) => ({ ...styles, backgroundColor: '#FBF6E8', border: 'none',
+         color: '#583F21 !important', padding: '0px',
+        
+    }),
+        option: (styles: any, { data, isDisabled, isFocused, isSelected } : {data: any, isDisabled: boolean, isFocused: boolean, isSelected: boolean}) => {
+          const color = data.color;
+          return {
+            ...styles,
+            backgroundColor: '#FBF6E8',
+            color: '#583F21 !important',
+            cursor: isDisabled ? 'not-allowed' : 'default',
+          };
+        },
+      };
 
 
     return(
@@ -34,7 +56,14 @@ export default function Option({name, money, amount}: {name: string, money: stri
                 <button onClick={clickHandlerSell} className={`${!isBuy ? styles.buttonActive : ''}`}><div><p>Sell</p></div></button>
             </div>
             <div className={styles.coinName}>
-                <Dropdown options={options} initialText='Bitcoin/BTC'></Dropdown>
+                {/* <Dropdown options={options} initialText='Bitcoin/BTC'></Dropdown> */}
+                <div className={styles.selectContainer}>
+                        <input className={styles.dividerDetector}/>
+                        <p className={styles.name}>
+                            Coin Name
+                        </p>
+                        <Select onChange={(element) => console.log(element)} className={styles.selectStyles} placeholder={'Bitcoin/BTC'} options={options} styles={selectStyles}/>
+                    </div>
             </div>
             <div className={styles.money}>
                 <div className={styles.text}>

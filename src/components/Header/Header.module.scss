@@ -13,7 +13,7 @@
     width: 100%;
     
     @include xsm{
-        gap: rm(75);
+        gap: rm(65);
         justify-content: center;
     }
 
@@ -51,7 +51,7 @@
         }
 
         @include md{
-            right: 32%;
+            right: 25%;
         }
 
         @include xsm{
@@ -144,16 +144,14 @@
     .right{
         display: flex;
         align-items: center;
+        width: rm(240);
 
+        @include md{
+            width: rm(160);
+        }
 
-        .avatarSpace{
-            width: rm(38);
-            height: rm(38);
-            z-index: 1;
-
-            @include xsm{
-                margin-left: rm(-70);
-            }
+        @include xsm{
+            width: rm(60);
         }
 
         .icons{
@@ -193,7 +191,7 @@
 
         .logIn{
             width: rm(90);
-            margin-right: rm(24);
+            // margin-right: rm(24);
 
             @include lg{
                 width: rm(80);
@@ -214,7 +212,7 @@
 
             @include xsm{
                 width: rm(60);
-                margin-right: rm(20);
+                margin-right: rm(0);
             }
         }
     }

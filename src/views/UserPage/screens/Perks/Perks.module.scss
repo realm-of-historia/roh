@@ -3,7 +3,7 @@
 .perks{
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    // overflow: hidden;
 
     .paggination{
         display: flex;
@@ -33,8 +33,10 @@
     }
 
     .container{
-        @include xsm{
+        @include lg{
             overflow-x: scroll;
+            // height: 100%;
+            // overflow-y: hidden;
         }
     }
 
