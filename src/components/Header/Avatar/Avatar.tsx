@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from './Avatar.module.scss'
+import Link from 'next/link'
 
 const Avatar = () => {
 
@@ -27,7 +28,7 @@ const Avatar = () => {
             </div>
             <div className={styles.divider}></div>
             <div className={styles.options}>
-              <p>My Profile</p>
+              <Link href='/user/personal'><p>My Profile</p></Link>
               <p>My Projects</p>
               <p>My Subscription</p>
               <p>My Statement</p>

@@ -738,6 +738,17 @@ const Icon = ({label, ...props} : {label: string | Array<string> | undefined}) =
                     </svg>
                 </span>
             )
+
+        case 'calendar':
+            return(
+                <span className={styles.icon}>
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.4" d="M3 9.5H21V18.5C21 20.7091 19.2091 22.5 17 22.5H7C4.79086 22.5 3 20.7091 3 18.5V9.5Z" fill="#583F21"/>
+                        <path d="M17 4H7C4.79086 4 3 5.79086 3 8V9.5H21V8C21 5.79086 19.2091 4 17 4Z" fill="#583F21"/>
+                        <path opacity="0.4" fill-rule="evenodd" clip-rule="evenodd" d="M8 1.75C8.41421 1.75 8.75 2.08579 8.75 2.5V5.5C8.75 5.91421 8.41421 6.25 8 6.25C7.58579 6.25 7.25 5.91421 7.25 5.5V2.5C7.25 2.08579 7.58579 1.75 8 1.75ZM16 1.75C16.4142 1.75 16.75 2.08579 16.75 2.5V5.5C16.75 5.91421 16.4142 6.25 16 6.25C15.5858 6.25 15.25 5.91421 15.25 5.5V2.5C15.25 2.08579 15.5858 1.75 16 1.75Z" fill="#583F21"/>
+                    </svg>
+                </span>
+            )
     }
 }
 export default Icon

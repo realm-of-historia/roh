@@ -18,9 +18,11 @@
     }
 
     .svgCircle{
-        width: rm(125);
-        height: rm(125);
+        width: rm(124);
+        height: rm(124);
         position: relative;
+        margin-top: rm(2);
+        margin-left: rm(2);
 
         svg{
             position: absolute;

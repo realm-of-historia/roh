@@ -9,7 +9,7 @@ export default function UserInfo() {
         <div className={styles.userInfo}>
             <div className={styles.container}>
                 <div className={styles.left}>
-                    <img src='userImage.png' width={363} height={363} alt=''/>
+                    <img src='/userImage.png' width={363} height={363} alt=''/>
                 </div>
                 <div className={styles.right}>
                     <div className={styles.top}>

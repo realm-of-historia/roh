@@ -28,7 +28,7 @@ export default function MarketplacePage() {
     const [cardNumber, setCardNumber] = useState(0)
 
 
-    const allCards: Array<any> = [<Marketplace isMarket={true} ></Marketplace>, <Marketplace isMarket={true} ></Marketplace>, <Marketplace isMarket={true} ></Marketplace>, <Marketplace isMarket={true} ></Marketplace>]
+    const allCards: Array<any> = [<Marketplace key={Math.random()} isMarket={true} ></Marketplace>, <Marketplace key={Math.random()} isMarket={true} ></Marketplace>, <Marketplace key={Math.random()} isMarket={true} ></Marketplace>, <Marketplace key={Math.random()} isMarket={true} ></Marketplace>]
 
     useEffect(() =>{
         if(inView && cardNumber < 4 && !isLoader) {
