@@ -17,6 +17,16 @@
         // padding-top: rm(40);
     }
 
+    .translation{
+        transform: translateY(rm(0)) !important;
+    }
+
+    .titleContainer, .linkContainer{
+        position: relative;
+        transition: transform 1.2s ease;
+        transform: translateY(rm(60));
+    }
+
     .svgCircle{
         width: rm(124);
         height: rm(124);

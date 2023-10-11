@@ -241,13 +241,11 @@
         width: 133.5% !important;
         left: -16%;
         top: 119%;
-        padding-left: rm(20);
 
         @include lg{
             width: 132% !important;
             left: -16%;
             top: 131%;
-            padding-left: rm(23);
         }
 
         // @include md{
@@ -268,6 +266,17 @@
             div{
                 background-color: transparent;
                 cursor: pointer;
+                transition: background-color .7s ease-in-out;
+                padding-left: rm(20);
+
+                @include lg{
+                    padding-left: rm(23);
+                }
+    
+
+                &:hover{
+                     background-color: rgba(	234,	216,	177, .4);
+                }
             }
         }
     }

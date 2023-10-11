@@ -62,7 +62,7 @@ export default function Option({name, money, amount}: {name: string, money: stri
                         <p className={styles.name}>
                             Coin Name
                         </p>
-                        <Select onChange={(element) => console.log(element)} className={styles.selectStyles} placeholder={'Bitcoin/BTC'} options={options} styles={selectStyles}/>
+                        <Select  onChange={(element) => console.log(element)} className={styles.selectStyles} placeholder={'Bitcoin/BTC'} options={options} styles={selectStyles}/>
                     </div>
             </div>
             <div className={styles.money}>

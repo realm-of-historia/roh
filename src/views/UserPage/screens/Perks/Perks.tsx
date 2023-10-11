@@ -8,8 +8,32 @@ import UserButtonBlack from '@/components/UI/buttons/UserButtonBlack/UserButtonB
 import { useState } from 'react'
 import {useForm} from 'react-hook-form'
 
-export default function Perks() {
-    
+export default function Perks({cards}: {cards: any}) {
+    const [currentPage, setCurrentPage] = useState(0);
+    const cardsPerPage = 5;
+
+    const handlePageChange = (direction: 'prev' | 'next') => {
+        if (direction === 'prev') {
+          if (currentPage > 0) {
+            setCurrentPage(currentPage - 1);
+          }
+        } else if (direction === 'next') {
+          if (currentPage < Math.ceil(cards.length / cardsPerPage) - 1) {
+            setCurrentPage(currentPage + 1);
+          }
+        }
+      };
+
+      const handlePageChangeNumber = (newPage: number) => {
+        if (newPage >= 0 && newPage < Math.ceil(cards.length / cardsPerPage)) {
+          setCurrentPage(newPage);
+        }
+      }
+
+    const startIndex = currentPage * cardsPerPage;
+    const endIndex = startIndex + cardsPerPage;
+    const visibleCards = cards.slice(startIndex, endIndex);
+
     const {register} = useForm()
 
     const [perk, setPerk] = useState('')
@@ -29,21 +53,28 @@ export default function Perks() {
             </div>
             <div className={styles.container}>
                 <UserCard product='Product' isWeight={true} sku='SKU' qty='QTY' price='Price' status='Status' actions='Actions'></UserCard>
-                <UserCard product='Product 1' sku='01244009' qty='26' price='51,00' status='Published' actions='Actions'></UserCard>
-                <UserCard product='Product 1' sku='01244009' qty='26' price='51,00' status='Published' actions='Actions'></UserCard>
-                <UserCard product='Product 1' sku='01244009' qty='26' price='51,00' status='Published' actions='Actions'></UserCard>
-                <UserCard product='Product 1' sku='01244009' qty='26' price='51,00' status='Published' actions='Actions'></UserCard>
+                {visibleCards.map((element: any, index: any) => (
+                    <UserCard
+                        key={index}
+                        product={element[0]}
+                        sku={element[1]}
+                        qty={element[2]}
+                        price={element[3]}
+                        status={element[4]}
+                        actions={element[5]}
+                    ></UserCard>
+                ))}
             </div>
             <div className={styles.paggination}>
-                <p>{'<'}</p>
+                <p onClick={() => handlePageChange('prev')} className={currentPage === 0 ? styles.disabled : ''}>{'<'}</p>
                 <div>
-                    <p>1</p>
-                    <p>2</p>
-                    <p>3</p>
-                    <p>...</p>
-                    <p>24</p>
+                    {Array.from({ length: Math.ceil(cards.length / cardsPerPage) }).map((_, index) => (
+                        <p key={index} className={index === currentPage ? styles.currentPage : ''} onClick={() => handlePageChangeNumber(index)}>
+                        {index + 1}
+                        </p>
+                    ))}
                 </div>
-                <p>{'>'}</p>
+                <p onClick={() => handlePageChange('next')} className={currentPage === Math.ceil(cards.length / cardsPerPage) - 1 ? styles.disabled : ''}>{'>'}</p>
             </div>
         </div>
     )

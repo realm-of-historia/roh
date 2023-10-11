@@ -14,8 +14,8 @@ const Avatar = () => {
       </picture>
         <div className={styles.dropdown}>
             <div className={styles.userInfo}>
-            <div className={styles.leftDivider}></div>
-            <div className={styles.bottomDivider}></div>
+            {/* <div className={styles.leftDivider}></div> */}
+            {/* <div className={styles.bottomDivider}></div> */}
               <img src='/Avatar.png' width={38} height={38}/>
               <div className={styles.container}>
                 <p>

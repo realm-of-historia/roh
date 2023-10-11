@@ -4,7 +4,7 @@
     display: flex;
     overflow: hidden;
 
-    @include xsm{
+    @include md{
         flex-direction: column;
     }
 
@@ -12,6 +12,19 @@
     .left{
         padding: rm(48) rm(64) rm(48) rm(64);
         position: relative;
+
+        @include md{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            // width: 100%;
+        }
+
+        @include xsm{
+            align-items: normal;
+        }
+
 
         p{
             color: color(text-black);
@@ -37,10 +50,8 @@
         // background-color: color(text-black);
     }
 
-    .right{
+    .rightContainer{
         height: rm(591);
-
-
 
         @include xsm{
             height: rm(640);

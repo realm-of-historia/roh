@@ -27,7 +27,7 @@ const Header = () => {
         <div className={styles.rightDivider}></div>
         <div className={styles.bottomDivider}></div>
         <picture>
-            <Link href="/"><img className={styles.logoImage} alt='' width={92} height={38} src='/Logo.png'/></Link>
+            <Link href="/"><img className={styles.logoImage} alt='' width={92} height={38} src='/Logo (2).svg'/></Link>
         </picture>
         <div className={styles.navigation}>
            <Link href="/"><p>Home</p></Link>

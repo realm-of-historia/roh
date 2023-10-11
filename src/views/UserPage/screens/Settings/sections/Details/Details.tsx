@@ -66,7 +66,11 @@ const DetailsProfile = () => {
     const [Phone, setPhone] = useState('')
     const [Site, setSite] = useState('')
 
-    const {register, handleSubmit, control} = useForm();
+    const {register, handleSubmit, control} = useForm<any>({
+        defaultValues: {
+            CheckBox: false
+        }
+    });
 
     const detailsText = [
         ['Full Name *', 'Vasya', 'firstName', false, 'Pupkin', 'secondName', setSecondName],
@@ -79,7 +83,7 @@ const DetailsProfile = () => {
         ['Communication', '', '', '', '', '', '', 'Email', 'Phone'],
     ]
 
-    const onSubmit = (data: any) => console.log(data)
+    const onSubmit: any = (data: any) => console.log(data)
 
   return (
     <form id='detailsForm' className={styles.details} onSubmit={handleSubmit(onSubmit)}>
@@ -123,9 +127,19 @@ const DetailsProfile = () => {
                 }
                 </div> : 
                 <div className={styles.checks}>
-                    <CheckBox></CheckBox>
+                    <Controller
+                        name='checkEmail'
+                        control={control}
+                        rules={{required: true}}
+                        render={({field}) => <input type='checkbox' {...field}/>}
+                    />
                     <p>{element[7]}</p>
-                    <CheckBox></CheckBox>
+                    <Controller
+                        name='checkPhone'
+                        control={control}
+                        rules={{required: true}}
+                        render={({field}) => <input type='checkbox' {...field}/>}
+                    />
                     <p>{element[8]}</p>
                 </div>}
             </div>

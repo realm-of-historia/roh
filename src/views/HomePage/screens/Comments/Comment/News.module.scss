@@ -6,11 +6,39 @@
     position: relative;
     overflow: hidden;
 
+    .loader {
+        width: rm(48);
+        height: rm(48);
+        border: 5px solid color(text-yellow-90);
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+        position: absolute;
+        left: 45%;
+        top: 35%;
+
+
+    }
+
+    @keyframes rotation {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+        } 
+
     &:hover{
         .imageContainer{
+            position: relative;
             video{
                 transform: scale(1);
+                z-index: 10000;
             }
+
         }
 
         >:nth-child(2){

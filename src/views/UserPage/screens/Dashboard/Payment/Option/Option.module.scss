@@ -136,25 +136,21 @@
             width: 117% !important;
             left: -10%;
             top: 112%;
-            padding-left: rm(20);
 
             @include lg{
                 width: 118% !important;
                 left: -9%;
                 top: 100%;
-                padding-left: rm(6);
             }
 
             @include md{
                 width: 126% !important;
-                padding-left: rm(7);
                 top: 100%;
             }
 
             @include xsm{
                 width: 110.5% !important;
                 left: -6.5%;
-                padding-left: rm(20);
                 top: 115%;
             }
 
@@ -163,6 +159,24 @@
                 div{
                     background-color: transparent;
                     cursor: pointer;
+                    transition: background-color .7s ease-in-out;
+                    padding-left: rm(20);
+    
+                    @include lg{
+                        padding-left: rm(6);
+                    }
+        
+                    @include md{
+                        padding-left: rm(7);
+                    }
+        
+                    @include xsm{
+                        padding-left: rm(20);
+                    }
+    
+                    &:hover{
+                         background-color: rgba(	234,	216,	177, .4);
+                    }
                 }
             }
         }

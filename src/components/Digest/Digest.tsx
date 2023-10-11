@@ -1,6 +1,6 @@
 "use client"
 
-import React, { FormEventHandler } from 'react'
+import React, { FormEventHandler, useEffect } from 'react'
 import styles from './Digest.module.scss'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,7 +16,9 @@ const Digest = ({reff}: {reff?: any}) => {
 
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
-  const { ref, inView } = useInView()
+  const [ref, inView ] = useInView()
+
+  const [iconRef, iconRefView] = useInView()
 
   const disHandler = () => {
     window.open('https://discord.gg/48B3V4Av')
@@ -87,29 +89,26 @@ const Digest = ({reff}: {reff?: any}) => {
     }, 1500);
   };
 
+
   return (
     <div className={styles.main} ref={reff}>
       <div className={styles.mainDivider}></div>
         <div className={styles.subscription}>
-            <div className={styles.header}>
-              <button onClick={disHandler}><Text yMove={15}><img src='/discordImage.svg' alt='' width='24' height='24'/>Discord</Text></button>
-              <button onClick={tikHandler}><Text yMove={15}><img src='/tiktok.svg' alt='' width='24' height='24'/>TikTok</Text></button>
-              <button onClick={twitHandler}><Text yMove={15}><img src='/twitterImage.svg' alt='' width='24' height='24'/>Twitter</Text></button>
-              <button onClick={instHandler}><Text yMove={15}><img src='/instagramImage.svg' alt='' width='24' height='24'/>Instagram</Text></button>
+            <div className={styles.header} ref={ref}>
+              <button className={`${inView ? styles.translation : ''}`} onClick={disHandler}><div><img src='/discordImage.svg' alt='' width='24' height='24'/>Discord</div></button>
+              <button className={`${inView ? styles.translation : ''}`} onClick={tikHandler}><div><img src='/tiktok.svg' alt='' width='24' height='24'/>TikTok</div></button>
+              <button className={`${inView ? styles.translation : ''}`} onClick={twitHandler}><div><img src='/twitterImage.svg' alt='' width='24' height='24'/>Twitter</div></button>
+              <button className={`${inView ? styles.translation : ''}`} onClick={instHandler}><div><img src='/instagramImage.svg' alt='' width='24' height='24'/>Instagram</div></button>
             </div>
             <div className={styles.container}>
                 <div className={styles.text}>
-                    <Text>
-                      <p>
+                      <p className={`${inView ? styles.translation : ''}`}>
                           JOIN OUR WeeKLY DIGeST
                       </p>
-                    </Text>
-                    <Text>
-                      <p>
+                      <p className={`${inView ? styles.translation : ''}`}>
                           Get exclusive promotions & updates straight to your inbox.
                       </p>
-                    </Text>
-                    <div className={styles.input_wrapper}>
+                    <div className={`${styles.input_wrapper} ${inView ? styles.translation : ''}`}>
                         <input 
                         placeholder='Email'
                         value={email}
@@ -120,7 +119,7 @@ const Digest = ({reff}: {reff?: any}) => {
                             <div></div>
                         </div>
                     </div>
-                    <button
+                    <button className={`${styles.loaderContainer} ${inView ? styles.translation : ''}`}
                     onClick={subscribeHandler}>{loading ? (
                         <Loader/>
                         ) : (
@@ -143,7 +142,7 @@ const Digest = ({reff}: {reff?: any}) => {
         <Divider position={'top left'}></Divider>
         <Divider position={'top right'}></Divider>
         <div className={styles.divider}></div>
-        <div ref={ref} className={`${ inView ? styles.mainCircle : ''}`}></div>
+        <div className={`${ inView ? styles.mainCircle : ''}`}></div>
         <picture><img className={styles.firstElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
         <picture><img className={styles.secondElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
         <picture><img className={styles.thirdElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>

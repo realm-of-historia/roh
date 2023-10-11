@@ -43,6 +43,9 @@
         align-items: center;
         margin-bottom: rm(32);
 
+        @include md{
+            flex-wrap: wrap;
+        }
 
         >:nth-child(1){
             p{
@@ -52,6 +55,11 @@
                 line-height: 160%;
                 @include font-work-regular;
                 font-weight: 600;
+
+                @include md{
+                    margin-bottom: rm(20);
+                }
+
             }
         }
 
@@ -66,6 +74,10 @@
 
                 @include lg{
                     width: rm(220);
+                }
+
+                @include md{
+                    margin-bottom: rm(20);
                 }
             }
         }

@@ -5,6 +5,15 @@
     flex-direction: column;
     // overflow: hidden;
 
+    .currentPage{
+        text-decoration: underline;
+    }
+
+    .disabled{
+        opacity: 0.5;
+        cursor: default !important;
+    }
+
     .paggination{
         display: flex;
         gap: rm(12);

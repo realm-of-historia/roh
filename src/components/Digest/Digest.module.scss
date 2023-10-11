@@ -16,6 +16,15 @@
         flex-direction: column;
     }
 
+    .translation{
+        transform: translateY(rm(0)) !important;
+    }
+
+    .loaderContainer{
+        transition: transform .7s ease;
+        transform: translateY(rm(40));
+    }
+
     .mainDivider{
         position: absolute;
         top: 0;
@@ -261,7 +270,8 @@
             border: 1px solid #EAD8B1;
             border-left: 0;
             cursor: pointer;
-            transition: background-color .7s ease;
+            transition: background-color, transform .7s ease;
+            transform: translateY(rm(40));
             z-index: 1000;
             font-weight: 600;
 
@@ -319,6 +329,8 @@
                 line-height: 120%;
                 margin-bottom: rm(16);
                 @include font-dune-regular;
+                transition: transform .7s ease;
+                transform: translateY(rm(40));
             }
 
             >p:nth-child(2){
@@ -328,6 +340,8 @@
                 margin-bottom: rm(48);
                 @include font-work-regular;
                 font-style: italic;
+                transition: transform .7s ease;
+                transform: translateY(rm(40));
             }
 
 
@@ -337,6 +351,8 @@
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: flex-start;
+                transition: transform .7s ease;
+                transform: translateY(rm(40));
                 
 
                 .input_divider{
