@@ -12,7 +12,7 @@ const UserNavigation = () => {
   const routeHandler = (currentRoute: any) => {
     setTimeout(() => {
       useAuthStore.setState({userRoute: currentRoute})
-    }, 400)
+    }, 100)
   }
   
   return (

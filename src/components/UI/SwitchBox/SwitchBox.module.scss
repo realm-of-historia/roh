@@ -50,6 +50,10 @@
     -ms-transform: translateX(rm(10));
     transform: translateX(rm(10));
   }
+
+  input:checked + .slider{
+    background-color: #583F21;
+  }
   
   .slider.round {
     border-radius: rm(32);

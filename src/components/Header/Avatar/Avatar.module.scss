@@ -34,14 +34,15 @@
         transform: translateY(rm(-7));
         padding: rm(32);
         background-color: #FBF6E8;
+        border: 1px color(text-yellow-90) solid;
 
         @include lg{
-            right: rm(-152);
+            right: rm(-131);
             top: rm(57);
         }
 
         @include md{
-            right: rm(-110);
+            right: rm(-85);
             top: rm(58);
         }
 

@@ -20,7 +20,7 @@ const RunningLine = ({ text, image }: { text: string, image?: string }) => {
 
     const content: any = containerRef.current;
     if (content) {
-      currentBackgroundPositionXRef.current += (1 * (velocity.current < 0 ? velocity.current * -1 : velocity.current) * 6000) * isRight.current;
+      currentBackgroundPositionXRef.current += 2 * isRight.current; //(velocity.current < 0 ? velocity.current * -1 : velocity.current)
       content.style.backgroundPositionX = `${currentBackgroundPositionXRef.current}px`;
     }
 

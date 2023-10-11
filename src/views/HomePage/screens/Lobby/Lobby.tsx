@@ -8,6 +8,7 @@ import { useParallax } from "react-scroll-parallax";
 import {useRef, useEffect} from 'react'
 import { redirect, useRouter } from 'next/navigation'
 import { set } from 'react-hook-form'
+import { useInView } from 'react-intersection-observer'
 
 
 const Lobby = ({isCircle} : {isCircle?: boolean}) => {
@@ -16,7 +17,7 @@ const Lobby = ({isCircle} : {isCircle?: boolean}) => {
     const circle: any = useRef(null)
 
     const [strokeDashOffset, setStrokeDashOffset] = useState(332)
-
+    const {ref, inView} = useInView()
 
 
 
@@ -53,7 +54,7 @@ const Lobby = ({isCircle} : {isCircle?: boolean}) => {
         <div className={styles.imageContainer}>
             <img ref={parallaxRef} src='/Lobby.png' alt='' width={1920} height={800}/>
         </div>
-        <Text><p className={styles.title}>3D LOBBY</p></Text>
+        <div className={`${styles.titleContainer} ${inView ? styles.translation : ''}`}><p ref={ref} className={styles.title}>3D LOBBY</p></div>
         {isCircle && <div className={styles.container}>
             <div className={styles.loader} onMouseEnter={handleHover} onMouseLeave={handleRestarter}>
                 <div className={styles.circleBig}></div>
@@ -76,12 +77,12 @@ const Lobby = ({isCircle} : {isCircle?: boolean}) => {
                 </span>
             </div>
             <Link href="/lobby">
-                <Text>
+                <div className={`${inView ? styles.translation : ''} ${styles.linkContainer}`}>
                     <p>
                         <span>Click to go</span>
                         <span>to the 3d lobby</span>
                     </p>
-                </Text>
+                </div>
             </Link>
         </div>}
     </div>

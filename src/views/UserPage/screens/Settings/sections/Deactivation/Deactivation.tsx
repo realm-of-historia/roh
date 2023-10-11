@@ -3,13 +3,26 @@ import styles from './Deactivation.module.scss'
 import Text from '@/components/Text/Text'
 import UserButtonBlack from '@/components/UI/buttons/UserButtonBlack/UserButtonBlack'
 import CheckBox from '@/components/UI/CheckBox/CheckBox'
+import {useForm, Controller} from 'react-hook-form'
 
 const Deactivation = () => {
 
+
+    
+    const {register, handleSubmit, control} = useForm<any>({
+    });
+
+    const onSubmit: any = (data: any) => console.log(data)
+
   return (
-    <div className={styles.deactivation}>
+    <form className={styles.deactivation} id='deactivation' onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.section}>
-            <CheckBox></CheckBox>
+            <Controller
+                name='deactivationConfirmationCheckbox'
+                control={control}
+                rules={{required: true}}
+                render={({field}) => <input type='checkbox' {...field}/>}
+            />
             <div>
                 <p>
                     I confirm my account deactivation
@@ -17,9 +30,9 @@ const Deactivation = () => {
             </div>
         </div>
         <div className={styles.footer}>
-            <button className={styles.buttonWhite}>Deactivate account</button>
+            <button type='submit' className={styles.buttonWhite}>Deactivate account</button>
         </div>
-    </div>
+    </form>
   )
 }
 

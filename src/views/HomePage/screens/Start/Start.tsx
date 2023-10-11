@@ -46,8 +46,9 @@ const Start = () => {
         <Divider position={"bottom"} horizontal={true}></Divider>
         <div className={styles.left}>
             <video className={styles.player} muted autoPlay playsInline loop>
-            <source src="/testVideo.mp4" type="video/mp4" />
+                <source src="/testVideo.mp4" type="video/mp4" />
             </video>
+            <span className={styles.loader}></span>
             {/* <img className={styles.player} src='player.png' alt='' width={960} height={540}/> */}
             <div className={styles.commentsSection}>
                 <Link href='/blog/1'><Comment isDivider={true} isNews={false} title={fourthComment[0]} comment={fourthComment[1]} avatar={fourthComment[2]} name={fourthComment[3]} date={fourthComment[4]}></Comment></Link>

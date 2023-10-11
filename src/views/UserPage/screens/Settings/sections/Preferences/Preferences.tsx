@@ -3,7 +3,7 @@ import styles from './Preferences.module.scss'
 import Text from '@/components/Text/Text'
 import UserButtonBlack from '@/components/UI/buttons/UserButtonBlack/UserButtonBlack'
 import CheckBox from '@/components/UI/CheckBox/CheckBox'
-import {useForm, SubmitHandler} from 'react-hook-form'
+import {useForm, SubmitHandler, Controller} from 'react-hook-form'
 
 interface IFormInputs {
     paymentsCheckbox: boolean,
@@ -22,18 +22,27 @@ const Preferences = () => {
     //   })
     //   const onSubmit: SubmitHandler<IFormInputs> = (data) => console.log(data)
 
+    const {handleSubmit, control} = useForm()
+
     const [payment, setPayment] = useState(false)
     const [fee, setFee] = useState(false)
     const [payouts, setPayouts] = useState(false)
 
-    const handleSubmit = () => {
-        console.log(payment, fee, payouts)
-    }
+    // const handleSubmit = () => {
+    //     console.log(payment, fee, payouts)
+    // }
+
+    const onSubmit: any = (data: any) => console.log(data)
     
   return (
-    <form id='preferences' className={styles.preferences} onSubmit={handleSubmit}>
+    <form id='preferences' className={styles.preferences} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.section}>
-            <CheckBox ></CheckBox>
+            <Controller
+                name='paymentsCheckbox'
+                control={control}
+                rules={{required: true}}
+                render={({field}) => <input type='checkbox' {...field}/>}
+            />
             <div>
                 <p>
                     Successful payments
@@ -41,7 +50,12 @@ const Preferences = () => {
             </div>
         </div>
         <div className={styles.section}>
-            <CheckBox></CheckBox>
+            <Controller
+                name='payoutsCheckbox'
+                control={control}
+                rules={{required: true}}
+                render={({field}) => <input type='checkbox' {...field}/>}
+            />
             <div>
                 <p>
                     Payouts
@@ -49,7 +63,12 @@ const Preferences = () => {
             </div>
         </div>
         <div className={styles.section}>
-            <CheckBox></CheckBox>
+            <Controller
+                name='feeCheckbox'
+                control={control}
+                rules={{required: true}}
+                render={({field}) => <input type='checkbox' {...field}/>}
+            />
             <div>
                 <p>
                     Fee Collection

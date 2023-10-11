@@ -1,6 +1,7 @@
 import React from "react";
 import styles from './Graph.module.scss'
 import Icon from "@/components/UI/Icon/Icon";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -72,7 +73,7 @@ export default function Graph() {
             <Line options={options} data={data} />;
             </div>
             <div className={styles.right}>
-              <img alt="" src="/lobby.png" width={480} height={597}/>
+              <img alt="" src='/lobby.png' width={480} height={597}/>
             </div>
         </div>
     )
