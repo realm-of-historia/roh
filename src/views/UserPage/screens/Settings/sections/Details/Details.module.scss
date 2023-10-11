@@ -6,10 +6,16 @@
 }
 
 
+.focused > :last-child {
+    transform: translateX(-50%) scale(1) !important;
+    margin-top: rm(-1);
+}
+
 .selectDivider{
     position: relative;
     width: 100%;
     height: 1px;
+
 
     > * {
         position: absolute;
@@ -28,6 +34,12 @@
         background: color(text-brown);
         transform: translateX(-50%) scale(0);
     }
+
+    &:hover{
+        >:last-child{
+            transform: translateX(-50%) scale(1) !important;
+        }        
+    }
 }
 
 .selectStyles{
@@ -39,12 +51,12 @@
     border-color: color(bg);
     cursor: pointer;
 
-    // input:focus{
+    input:focus{
         
-    //     ~ .selectDivider > :last-child {
-    //         transform: translateX(-50%) scale(1);
-    //     }
-    // }
+        ~ .selectDivider > :last-child {
+            transform: translateX(-50%) scale(1);
+        }
+    }
 
     @include md{
         margin-bottom: rm(10);

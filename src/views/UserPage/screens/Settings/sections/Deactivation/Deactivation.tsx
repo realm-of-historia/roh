@@ -21,7 +21,7 @@ const Deactivation = () => {
                 name='deactivationConfirmationCheckbox'
                 control={control}
                 rules={{required: true}}
-                render={({field}) => <input type='checkbox' {...field}/>}
+                render={({field}) => <CheckBox field={field}></CheckBox>}
             />
             <div>
                 <p>

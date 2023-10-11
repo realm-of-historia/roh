@@ -38,7 +38,15 @@ const DetailsProfile = () => {
         { value: 'USA', label: 'United States' },
     ]
 
-    // const countryOptions = useMemo(() => countryList().getData(), [])
+    const [selectFocused, setSelectFocused] = useState(null);
+
+    const handleSelectFocus = (name: any) => {
+        setSelectFocused(name);
+      };
+    
+      const handleSelectBlur = () => {
+        setSelectFocused(null);
+      };
 
 
 
@@ -85,6 +93,8 @@ const DetailsProfile = () => {
 
     const onSubmit: any = (data: any) => console.log(data)
 
+
+
   return (
     <form id='detailsForm' className={styles.details} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.avatar}>
@@ -109,11 +119,11 @@ const DetailsProfile = () => {
                             name={element[5]}
                             control={control}
                             render={({ field: {onChange, value, ref, name}}: any) => (
-                                <Select value={element[4].find((c: any) => c.value === value)} {...register(element[5])} onChange={(val: any) => onChange(val.value)}  className={styles.selectStyles} placeholder={element[1]} options={element[4]} styles={selectStyles}/>
+                                <Select onFocus={() => handleSelectFocus(element[5])} value={element[4].find((c: any) => c.value === value)} {...register(element[5])} onChange={(val: any) => onChange(val.value)}  className={styles.selectStyles} placeholder={element[1]} options={element[4]} styles={selectStyles}/>
                             )}
                             rules={{required: true}}
                         />
-                        <div className={styles.selectDivider}>
+                        <div className={`${styles.selectDivider} ${selectFocused == element[5] ? styles.focused : ''}`}>
                             <div></div>
                             <div></div>
                         </div>
@@ -131,14 +141,14 @@ const DetailsProfile = () => {
                         name='checkEmail'
                         control={control}
                         rules={{required: true}}
-                        render={({field}) => <input type='checkbox' {...field}/>}
+                        render={({field}) => <CheckBox field={field}></CheckBox>}
                     />
                     <p>{element[7]}</p>
                     <Controller
                         name='checkPhone'
                         control={control}
                         rules={{required: true}}
-                        render={({field}) => <input type='checkbox' {...field}/>}
+                        render={({field}) => <CheckBox field={field}></CheckBox>}
                     />
                     <p>{element[8]}</p>
                 </div>}

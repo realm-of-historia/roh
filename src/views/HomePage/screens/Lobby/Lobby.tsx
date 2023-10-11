@@ -52,7 +52,7 @@ const Lobby = ({isCircle} : {isCircle?: boolean}) => {
   return (
     <div className={styles.lobby} ref={target}>
         <div className={styles.imageContainer}>
-            <img ref={parallaxRef} src='/Lobby.png' alt='' width={1920} height={800}/>
+            <img ref={parallaxRef} src='/lobby.png' alt='' width={1920} height={800}/>
         </div>
         <div className={`${styles.titleContainer} ${inView ? styles.translation : ''}`}><p ref={ref} className={styles.title}>3D LOBBY</p></div>
         {isCircle && <div className={styles.container}>

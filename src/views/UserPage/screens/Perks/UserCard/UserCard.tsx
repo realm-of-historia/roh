@@ -5,6 +5,7 @@ import Icon from '@/components/UI/Icon/Icon'
 import CheckBox from '@/components/UI/CheckBox/CheckBox'
 import Dropdown from '@/components/UI/Dropdown/Dropdown'
 import Select from 'react-select'
+import {useForm, Controller} from 'react-hook-form'
 
 export default function UserCard({isWeight, product, sku, qty, price, status, actions, label}: {isWeight?: boolean, product: string, sku: string, qty:string, price: string, status: string, actions: string, label?: string}) {
 
@@ -13,6 +14,8 @@ export default function UserCard({isWeight, product, sku, qty, price, status, ac
         { value: 'Waiting', label: 'Waiting' },
         { value: 'In complete', label: 'In complete' },
     ]
+
+    const {control, handleSubmit} = useForm()
 
     const selectStyles: any = {
         control: (styles: any) => ({ ...styles, backgroundColor: '#FBF6E8', border: 'none',
@@ -30,10 +33,17 @@ export default function UserCard({isWeight, product, sku, qty, price, status, ac
         },
       };
 
+      const onSubmit = (data: any) => console.log(data)
+
     return(
-        <div className={styles.userCard}>
+        <form className={styles.userCard}>
             <div>
-                <CheckBox></CheckBox>
+                <Controller
+                    name='perkCheckbox'
+                    control={control}
+                    rules={{required: true}}
+                    render={({field}) => <CheckBox field={field}></CheckBox>}
+                />
             </div>
             <div className={`${isWeight ? styles.weight : ''}`}>
                 <img alt='' src='/Avatar.png' width={32} height={32}/>
@@ -66,6 +76,6 @@ export default function UserCard({isWeight, product, sku, qty, price, status, ac
             <div className={`${isWeight ? styles.weight : ''}`}>
                 {isWeight ? actions : <Select onChange={(element) => console.log(element)} className={styles.selectStyles} placeholder={'Actions'} options={options} styles={selectStyles}/>}
             </div>
-        </div>
+        </form>
     )
 }

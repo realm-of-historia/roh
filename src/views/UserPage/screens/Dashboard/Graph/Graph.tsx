@@ -1,6 +1,7 @@
-import React from "react";
 import styles from './Graph.module.scss'
 import Icon from "@/components/UI/Icon/Icon";
+import Calendar from "react-calendar";
+import React, {useState} from 'react'
 
 import {
   Chart as ChartJS,
@@ -29,6 +30,8 @@ ChartJS.register(
 
 export default function Graph() {
 
+  const [value, onChange] = useState<any>(new Date());
+
     const options = {
         responsive: true,
         plugins: {
@@ -40,6 +43,17 @@ export default function Graph() {
             display: false,
             text: 'Chart.js Line Chart',
           },
+          tooltip: {
+            callbacks: {
+              label: (context: any) => {
+                let label = '4214';
+                if (context.parsed.y){
+                  label = context.parsed.y + '$'
+                }
+                return label
+              }
+            }
+          }
         },
       };
 
@@ -68,9 +82,10 @@ export default function Graph() {
                 <div className={styles.calendar}>
                   <p>7 May 2023 - 5 Jun 2023</p>
                   <Icon label='calendar'></Icon>
+                  <Calendar locale='en' className={styles.calendarContainer} onChange={onChange} value={value}/>
                 </div>
               </div>
-            <Line options={options} data={data} />;
+            <Line options={options} data={data} />
             </div>
             <div className={styles.right}>
               <img alt="" src='/lobby.png' width={480} height={597}/>
