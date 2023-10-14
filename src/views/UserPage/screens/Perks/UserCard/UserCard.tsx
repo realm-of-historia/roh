@@ -6,8 +6,9 @@ import CheckBox from '@/components/UI/CheckBox/CheckBox'
 import Dropdown from '@/components/UI/Dropdown/Dropdown'
 import Select from 'react-select'
 import {useForm, Controller} from 'react-hook-form'
+import { useAuthStore } from '@/store/store'
 
-export default function UserCard({isWeight, product, sku, qty, price, status, actions, label}: {isWeight?: boolean, product: string, sku: string, qty:string, price: string, status: string, actions: string, label?: string}) {
+export default function UserCard({isWeight, product, sku, qty, price, status, actions, label, isChecked, isRuler}: {isWeight?: boolean, product: string, sku: string, qty:string, price: string, status: string, actions: string, label?: string, isChecked?: boolean, isRuler?: boolean}) {
 
     const options = [
         { value: 'Done', label: 'Done',},
@@ -35,16 +36,34 @@ export default function UserCard({isWeight, product, sku, qty, price, status, ac
 
       const onSubmit = (data: any) => console.log(data)
 
+      const isAllChecked = useAuthStore((state: any) => (state.isAllChecked))
+
+      const checkAll = () => {
+        useAuthStore.setState({isAllChecked: !isAllChecked})
+      }
+
     return(
         <form className={styles.userCard}>
+            {
+                isRuler ?
+            <div onClick={checkAll}>
+                <Controller
+                    name='perkCheckbox'
+                    control={control}
+                    rules={{required: true}}
+                    render={({field}) => <CheckBox isChecked={isChecked} field={field}></CheckBox>}
+                />
+            </div>
+                :
             <div>
                 <Controller
                     name='perkCheckbox'
                     control={control}
                     rules={{required: true}}
-                    render={({field}) => <CheckBox field={field}></CheckBox>}
+                    render={({field}) => <CheckBox isChecked={isChecked} field={field}></CheckBox>}
                 />
             </div>
+            }
             <div className={`${isWeight ? styles.weight : ''}`}>
                 <img alt='' src='/Avatar.png' width={32} height={32}/>
                 {product}

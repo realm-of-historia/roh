@@ -2,23 +2,27 @@
 
 .payment{
     display: flex;
+    height: 100%;
+
 
     @include xsm{
         flex-direction: column;
+        border-bottom: 1px solid color(text-yellow-90);
     }
 
     img{
         width: rm(480);
         height: rm(480);
 
+
         @include lg{
             width: rm(320);
-            height: rm(320);
+            height: rm(360);
         }
 
         @include md{
             width: rm(270);
-            height: rm(270);
+            height: rm(320);
         }
 
         @include xsm{

@@ -2,7 +2,7 @@
 
 .main{
     position: relative;
-    // height: rm(800);
+    height: rm(800);
     // padding-top: rm(522);
     // padding-left: rm(64);
     display: flex;
@@ -21,11 +21,11 @@
             z-index: 10000;
 
             @include lg{
-                top: 70%;
+                top: 60%;
             }
 
             @include md{
-                top: 80%;
+                top: 60%;
             }
 
             @include xsm{

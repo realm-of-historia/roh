@@ -67,12 +67,8 @@ const DetailsProfile = () => {
       };
 
 
-    const [timeOption, setTimeOption] = useState(null)
 
-    const [Name, setName] = useState('')
     const [SecondName, setSecondName] = useState('')
-    const [Phone, setPhone] = useState('')
-    const [Site, setSite] = useState('')
 
     const {register, handleSubmit, control} = useForm<any>({
         defaultValues: {

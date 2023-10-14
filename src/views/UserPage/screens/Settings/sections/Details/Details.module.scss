@@ -51,10 +51,21 @@
     border-color: color(bg);
     cursor: pointer;
 
+    &:hover{
+        ~ .selectDivider > :last-child {
+            transform: translateX(-50%) scale(1);
+        }
+    }
+
     input:focus{
         
         ~ .selectDivider > :last-child {
             transform: translateX(-50%) scale(1);
+        }
+
+
+        svg{
+            display: none;
         }
     }
 
@@ -62,15 +73,15 @@
         margin-bottom: rm(10);
     }
 
-    &:hover{
-        >:nth-child(3){
-            >:nth-child(2){
-                >:nth-child(2){
-                    transform: rotate(180deg);
-                }
-            }
-        }
-    }
+    // &:hover{
+    //     >:nth-child(3){
+    //         >:nth-child(2){
+    //             >:nth-child(2){
+    //                 transform: rotate(180deg);
+    //             }
+    //         }
+    //     }
+    // }
 
 
     >:nth-child(3){

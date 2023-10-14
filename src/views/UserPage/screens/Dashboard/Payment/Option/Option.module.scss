@@ -208,6 +208,17 @@
         }
     }
 
+    .coinName{
+        @include md{
+            padding-top: rm(2) !important;
+            padding-bottom: rm(2) !important;
+        }
+
+        @include xsm{
+            padding: rm(16) rm(22) rm(16) rm(32) !important;
+        }
+    }
+
     .coinName, .money, .amount{
         display: flex;
         justify-content: space-between;
@@ -224,6 +235,8 @@
         @include xsm{
             padding: rm(16) rm(22) rm(16) rm(32);
         }
+
+    
 
         .text{
             >:first-child{

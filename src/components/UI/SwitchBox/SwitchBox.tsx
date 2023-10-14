@@ -6,7 +6,7 @@ export default function SwitchBox() {
     return(
         <label className={styles.switch}>
             <input type="checkbox"></input>
-            <span className={`${styles.slider} ${styles.round}`}></span>
+            <div className={`${styles.slider} ${styles.round}`}></div>
         </label>
     )
 }

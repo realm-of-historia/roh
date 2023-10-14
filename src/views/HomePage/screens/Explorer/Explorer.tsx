@@ -22,7 +22,6 @@ const Explorer = () => {
     <div className={styles.main}>
       <Swiper
         modules={[Navigation, Scrollbar, A11y, Pagination]}
-        spaceBetween={24}
         slidesPerView={1}
         loop={true}
         className='mySwiper'
