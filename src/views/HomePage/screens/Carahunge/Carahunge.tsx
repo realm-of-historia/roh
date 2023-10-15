@@ -4,9 +4,11 @@ import Column from './Column/Column'
 import Avatar from '@/components/Header/Avatar/Avatar'
 import Text from '@/components/Text/Text'
 import Divider from '@/components/Divider/Divider'
-
-const Carahunge = () => {
-
+export interface StandardComponentProps {
+    data?: any
+  }
+const Carahunge = ({data} : StandardComponentProps) => {
+    console.log(data)
     const column = [
         '1507.io',
         [ `The CarahungeX is a collection of 2,500 unique NFTs on the Polygon blockchain, unlocking heritage through art and technology.`,
@@ -25,16 +27,16 @@ const Carahunge = () => {
         <div className={styles.left}>
             <Text>
                 <p>
-                    CARAHUNGe X
+                    {data.title}
                 </p>
             </Text>
             <Text>
                 <p>    
-                    Mint On Aug 11, 2023
+                    {data.date}
                 </p>
             </Text>
         </div>
-        <Column creator={column[0]} description={column[1]} details={column[2]} icon={column[3]}></Column>
+        <Column description={data.description} link={data.link} icon={'globe'}></Column>
     </div>
   )
 }
