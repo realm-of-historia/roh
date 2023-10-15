@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import styles from './Bundles.module.scss'
 import RunningLine from '@/components/RunningLine/RunningLine'

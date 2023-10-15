@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import styles from './Panegliph.module.scss'
 import { NextPage } from 'next'
 import Icon from '../UI/Icon/Icon'

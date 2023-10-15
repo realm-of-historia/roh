@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import styles from './Column.module.scss'
 import { NextPage } from 'next'
 import Icon from '@/components/UI/Icon/Icon'

@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import React from 'react'
 import Panegliph from '@/components/Panegliph/Panegliph'
@@ -18,6 +18,7 @@ import Header from '@/components/Header/Header'
 import { NativeUnderpin } from '@/components/NativeUnderpin/NativeUnderpin'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import Layout from '@/components/Layout/Layout'
+import WrapperParallax from './wrapper/WrapperParallax/WrapperParallax.jsx'
 
 
 
@@ -43,9 +44,9 @@ export default function HomeView() {
             <Explorer></Explorer>
             <Carahunge></Carahunge>
             <NativeUnderpin>
-                <ParallaxProvider>
-                <Lobby isCircle={true}></Lobby>
-                </ParallaxProvider>
+                <WrapperParallax>
+                  <Lobby isCircle={true}></Lobby>
+                </WrapperParallax>
             </NativeUnderpin>
             <Start></Start>
             <Ancient></Ancient>
