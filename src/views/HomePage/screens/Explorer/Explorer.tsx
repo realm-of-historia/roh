@@ -28,9 +28,9 @@ const Explorer = () => {
       >
         {slides.map((item, index) => (
           <SwiperSlide key={index} className={styles.swiperSlide}>
-            <div className={styles.explorerImage}>
+            {/* <div className={styles.explorerImage}> */}
               <img src={item[0]} alt='' width={1920} height={720}/>
-            </div>
+            {/* </div> */}
             <Text><p>{item[1]}</p></Text>
           </SwiperSlide>
         ) )}
