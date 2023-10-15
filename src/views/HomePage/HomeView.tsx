@@ -28,7 +28,9 @@ export default function HomeView({data} : StandardComponentProps) {
   const dataExplorer = useSectionData(data, 'swiperTop')
   const dataCarahunge = useSectionData(data, 'article')
   const dataLobby = useSectionData(data, 'lobby')
-  console.log(dataLobby)
+  const dataAncient = useSectionData(data, 'historyWorld')
+
+  console.log(dataAncient)
   const firstBlock = [
     'ROH',
     'Realm of Historia (RoH) is a unique venture aimed at preserving and immortalizing global cultural heritage through the innovative use of blockchain and metaverse technologies. The project will deliver cultural education, immersive experiences, and profitable NFT opportunities while contributing positively to historical preservation through generous donations and charitable opportunities.',
@@ -54,7 +56,7 @@ export default function HomeView({data} : StandardComponentProps) {
                 </WrapperParallax>
             </NativeUnderpin>
             <Start></Start>
-            <Ancient></Ancient>
+            <Ancient data={dataAncient}></Ancient>
             <Comments></Comments>
             <Bundles></Bundles>
             <Posts></Posts>
