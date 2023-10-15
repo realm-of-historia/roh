@@ -27,7 +27,8 @@ export interface StandardComponentProps {
 export default function HomeView({data} : StandardComponentProps) {
   const dataExplorer = useSectionData(data, 'swiperTop')
   const dataCarahunge = useSectionData(data, 'article')
-  console.log(data)
+  const dataLobby = useSectionData(data, 'lobby')
+  console.log(dataLobby)
   const firstBlock = [
     'ROH',
     'Realm of Historia (RoH) is a unique venture aimed at preserving and immortalizing global cultural heritage through the innovative use of blockchain and metaverse technologies. The project will deliver cultural education, immersive experiences, and profitable NFT opportunities while contributing positively to historical preservation through generous donations and charitable opportunities.',
@@ -49,7 +50,7 @@ export default function HomeView({data} : StandardComponentProps) {
             <Carahunge data={dataCarahunge} />
             <NativeUnderpin>
                 <WrapperParallax>
-                  <Lobby isCircle={true}></Lobby>
+                  <Lobby data={dataLobby} isCircle={true}></Lobby>
                 </WrapperParallax>
             </NativeUnderpin>
             <Start></Start>
