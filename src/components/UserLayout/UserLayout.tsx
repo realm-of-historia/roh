@@ -10,6 +10,7 @@ import Settings from '@/views/UserPage/screens/Settings/Settings'
 import UserNavigation from '@/views/UserPage/screens/UserInfo/UserNavigation/UserNavigation'
 import ProfileLayout from '../ProfileLayout/ProfileLayout'
 import Dashboard from '@/views/UserPage/screens/Dashboard/Dashboard/Dashboard'
+import Layout from '../Layout/Layout'
 
 
 export default function UserLayout() {
@@ -40,15 +41,15 @@ export default function UserLayout() {
 
     return(
         <div>
-            <Header></Header>
-            <UserInfo></UserInfo>
-            <UserNavigation></UserNavigation>
-            {route == 'personal' ? <ProfileLayout title='PROFILe DeTAILS'><Details></Details></ProfileLayout> : <></>}
-            {route == 'dashboard' ? <Dashboard></Dashboard> : <></>}
-            {route == 'history' ? <HistoryView></HistoryView> : <></>}
-            {route == 'perks' ? <Perks cards={cards}></Perks> : <></>}
-            {route == 'settings' ? <Settings></Settings> : <></>}
-            <Digest></Digest>
+            <Layout>
+                <UserInfo></UserInfo>
+                <UserNavigation></UserNavigation>
+                {route == 'personal' ? <ProfileLayout title='PROFILe DeTAILS'><Details></Details></ProfileLayout> : <></>}
+                {route == 'dashboard' ? <Dashboard></Dashboard> : <></>}
+                {route == 'history' ? <HistoryView></HistoryView> : <></>}
+                {route == 'perks' ? <Perks cards={cards}></Perks> : <></>}
+                {route == 'settings' ? <Settings></Settings> : <></>}
+            </Layout>
         </div>
     )
 }

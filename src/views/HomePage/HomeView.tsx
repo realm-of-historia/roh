@@ -17,6 +17,7 @@ import Digest from '@/components/Digest/Digest'
 import Header from '@/components/Header/Header'
 import { NativeUnderpin } from '@/components/NativeUnderpin/NativeUnderpin'
 import { ParallaxProvider } from 'react-scroll-parallax'
+import Layout from '@/components/Layout/Layout'
 
 
 
@@ -38,25 +39,25 @@ export default function HomeView() {
 
   return (
     <div>
-      <Header></Header>
-      <Explorer></Explorer>
-      <Carahunge></Carahunge>
-      <NativeUnderpin>
-        <ParallaxProvider>
-          <Lobby isCircle={true}></Lobby>
-        </ParallaxProvider>
-      </NativeUnderpin>
-      <Start></Start>
-      <Ancient></Ancient>
-      <Comments></Comments>
-      <Bundles></Bundles>
-      <Posts></Posts>
-      <Videos></Videos>
-      <OurVision secondText={firstBlock[3]} list={firstBlock[2]} leftSide={firstBlock[0]} text={firstBlock[1]}></OurVision>
-      <Panegliph isFirst={false}></Panegliph>
-      <OurVision secondText={secondBlock[3]} list={secondBlock[2]} leftSide={secondBlock[0]} text={secondBlock[1]}></OurVision>
-      <Marketplace></Marketplace>
-      <Digest></Digest>
+        <Layout>
+            <Explorer></Explorer>
+            <Carahunge></Carahunge>
+            <NativeUnderpin>
+                <ParallaxProvider>
+                <Lobby isCircle={true}></Lobby>
+                </ParallaxProvider>
+            </NativeUnderpin>
+            <Start></Start>
+            <Ancient></Ancient>
+            <Comments></Comments>
+            <Bundles></Bundles>
+            <Posts></Posts>
+            <Videos></Videos>
+            <OurVision secondText={firstBlock[3]} list={firstBlock[2]} leftSide={firstBlock[0]} text={firstBlock[1]}></OurVision>
+            <Panegliph isFirst={false}></Panegliph>
+            <OurVision secondText={secondBlock[3]} list={secondBlock[2]} leftSide={secondBlock[0]} text={secondBlock[1]}></OurVision>
+            <Marketplace></Marketplace>
+        </Layout>
     </div>
   )
 }
