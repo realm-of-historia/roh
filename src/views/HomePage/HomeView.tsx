@@ -1,26 +1,26 @@
 "use client"
 
 import React from 'react'
-import Explorer from '../../views/HomePage/screens/Explorer/Explorer'
-import Carahunge from '../../views/HomePage/screens/Carahunge/Carahunge'
-import Lobby from '../../views/HomePage/screens/Lobby/Lobby'
-import Start from '../../views/HomePage/screens/Start/Start'
-import Ancient from '@/components/Ancient/Ancient'
-import Comments from '../../views/HomePage/screens/Comments/Comments'
-import Bundles from '../../views/HomePage/screens/Bundles/Bundles'
-import Posts from '../../views/HomePage/screens/Posts/Posts'
-import Videos from '../../views/HomePage/screens/Videos/Videos'
 import Panegliph from '@/components/Panegliph/Panegliph'
-import Marketplace from '../../views/HomePage/screens/Marketplace/Marketplace'
+import Explorer from './screens/Explorer/Explorer'
+import Carahunge from './screens/Carahunge/Carahunge'
+import Lobby from './screens/Lobby/Lobby'
+import Start from './screens/Start/Start'
+import Ancient from '@/components/Ancient/Ancient'
+import Comments from './screens/Comments/Comments'
+import Bundles from './screens/Bundles/Bundles'
+import Posts from './screens/Posts/Posts'
+import Videos from './screens/Videos/Videos'
+import OurVision from './screens/OurVision/OurVision'
+import Marketplace from './screens/Marketplace/Marketplace'
 import Digest from '@/components/Digest/Digest'
-import OurVision from '../../views/HomePage/screens/OurVision/OurVision'
 import Header from '@/components/Header/Header'
 import { NativeUnderpin } from '@/components/NativeUnderpin/NativeUnderpin'
 import { ParallaxProvider } from 'react-scroll-parallax'
 
 
 
-export default function HomePage() {
+export default function HomeView() {
 
   const firstBlock = [
     'ROH',

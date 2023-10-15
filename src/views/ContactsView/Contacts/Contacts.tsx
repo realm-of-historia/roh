@@ -73,7 +73,7 @@ export default function Contacts() {
             </div>
             <p className={styles.rightContainer}>
                 {/* <iframe className={styles.right} id='map' src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD29cTxkGM8BgG7Yb-4zvpJrcOpKcttvTc&callback=initializeMap" width="1408" height="591" loading='lazy' allowFullScreen style={{border: 0}}></iframe> */}
-                <script id='map' src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD29cTxkGM8BgG7Yb-4zvpJrcOpKcttvTc&callback=initializeMap"></script>
+                <iframe id='map' src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD29cTxkGM8BgG7Yb-4zvpJrcOpKcttvTc&callback=initializeMap"></iframe>
             </p>
         </form>
     );
