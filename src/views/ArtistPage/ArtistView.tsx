@@ -4,6 +4,7 @@ import React from 'react'
 import Header from '@/components/Header/Header'
 import Digest from '@/components/Digest/Digest'
 import Artist from './ArtistPage/ArtistPage'
+import Layout from '@/components/Layout/Layout'
 
 export default function ArtistView() {
 
@@ -89,11 +90,11 @@ export default function ArtistView() {
     
     return(
         <div>
-            <Header></Header>
-            {artists.map((element: any, index: number) => (
-                <Artist item={element[3]} key={index} name={element[0]} spec={element[1]} text={element[2]}></Artist>
-            ))}
-            <Digest></Digest>
+            <Layout>
+                {artists.map((element: any, index: number) => (
+                    <Artist item={element[3]} key={index} name={element[0]} spec={element[1]} text={element[2]}></Artist>
+                ))}
+            </Layout>
         </div>
     )
 }

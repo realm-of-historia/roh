@@ -8,17 +8,18 @@ import AboutUs from '@/views/AboutPage/screens/AboutUs/AboutUs'
 import RunningLine from '@/components/RunningLine/RunningLine'
 import Faces from '@/views/AboutPage/screens/AboutUs/Faces/Faces'
 import GreatTeam from '@/views/AboutPage/screens/AboutUs/GreatTeam/GreatTeam'
+import Layout from '@/components/Layout/Layout'
 
 export default function About() {
     return(
         <div>
-            <Header></Header>
-            <AboutUs></AboutUs>
-            <RunningLine text='PUBLICATIONS'></RunningLine>
-            <Comments></Comments>
-            <GreatTeam></GreatTeam>
-            <Faces></Faces>
-            <Digest></Digest>
+            <Layout>
+                <AboutUs></AboutUs>
+                <RunningLine text='PUBLICATIONS'></RunningLine>
+                <Comments></Comments>
+                <GreatTeam></GreatTeam>
+                <Faces></Faces>
+            </Layout>
         </div>
     )
 }
