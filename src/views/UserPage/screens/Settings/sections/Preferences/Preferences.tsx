@@ -41,7 +41,7 @@ const Preferences = () => {
                 name='paymentsCheckbox'
                 control={control}
                 rules={{required: true}}
-                render={({field}) => <input type='checkbox' {...field}/>}
+                render={({field}) => <CheckBox field={field}></CheckBox>}
             />
             <div>
                 <p>
@@ -54,7 +54,7 @@ const Preferences = () => {
                 name='payoutsCheckbox'
                 control={control}
                 rules={{required: true}}
-                render={({field}) => <input type='checkbox' {...field}/>}
+                render={({field}) => <CheckBox field={field}></CheckBox>}
             />
             <div>
                 <p>
@@ -67,7 +67,7 @@ const Preferences = () => {
                 name='feeCheckbox'
                 control={control}
                 rules={{required: true}}
-                render={({field}) => <input type='checkbox' {...field}/>}
+                render={({field}) => <CheckBox field={field}></CheckBox>}
             />
             <div>
                 <p>

@@ -7,9 +7,13 @@ import SimpleInput from '@/components/UI/SimpleInput/SimpleInput'
 import UserButtonBlack from '@/components/UI/buttons/UserButtonBlack/UserButtonBlack'
 import { useState } from 'react'
 import {useForm} from 'react-hook-form'
+import { useAuthStore } from '@/store/store'
 
 export default function Perks({cards}: {cards: any}) {
     const [currentPage, setCurrentPage] = useState(0);
+
+    const isChecked: any = useAuthStore((state: any) => (state.isAllChecked))
+
     const cardsPerPage = 5;
 
     const handlePageChange = (direction: 'prev' | 'next') => {
@@ -29,6 +33,7 @@ export default function Perks({cards}: {cards: any}) {
           setCurrentPage(newPage);
         }
       }
+
 
     const startIndex = currentPage * cardsPerPage;
     const endIndex = startIndex + cardsPerPage;
@@ -52,7 +57,7 @@ export default function Perks({cards}: {cards: any}) {
                 ></SimpleInput>
             </div>
             <div className={styles.container}>
-                <UserCard product='Product' isWeight={true} sku='SKU' qty='QTY' price='Price' status='Status' actions='Actions'></UserCard>
+                <UserCard isRuler={true} isChecked={isChecked} product='Product' isWeight={true} sku='SKU' qty='QTY' price='Price' status='Status' actions='Actions'></UserCard>
                 {visibleCards.map((element: any, index: any) => (
                     <UserCard
                         key={index}
@@ -62,6 +67,7 @@ export default function Perks({cards}: {cards: any}) {
                         price={element[3]}
                         status={element[4]}
                         actions={element[5]}
+                        isChecked={isChecked}
                     ></UserCard>
                 ))}
             </div>

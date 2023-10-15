@@ -95,10 +95,10 @@ const Digest = ({reff}: {reff?: any}) => {
       <div className={styles.mainDivider}></div>
         <div className={styles.subscription}>
             <div className={styles.header} ref={ref}>
-              <button className={`${inView ? styles.translation : ''}`} onClick={disHandler}><div><img src='/discordImage.svg' alt='' width='24' height='24'/>Discord</div></button>
-              <button className={`${inView ? styles.translation : ''}`} onClick={tikHandler}><div><img src='/tiktok.svg' alt='' width='24' height='24'/>TikTok</div></button>
-              <button className={`${inView ? styles.translation : ''}`} onClick={twitHandler}><div><img src='/twitterImage.svg' alt='' width='24' height='24'/>Twitter</div></button>
-              <button className={`${inView ? styles.translation : ''}`} onClick={instHandler}><div><img src='/instagramImage.svg' alt='' width='24' height='24'/>Instagram</div></button>
+              <button onClick={disHandler}><div className={`${inView ? styles.translation : ''}`}><img src='/discordImage.svg' alt='' width='24' height='24'/>Discord</div></button>
+              <button onClick={tikHandler}><div className={`${inView ? styles.translation : ''}`}><img src='/tiktok.svg' alt='' width='24' height='24'/>TikTok</div></button>
+              <button onClick={twitHandler}><div className={`${inView ? styles.translation : ''}`}><img src='/twitterImage.svg' alt='' width='24' height='24'/>Twitter</div></button>
+              <button onClick={instHandler}><div className={`${inView ? styles.translation : ''}`}><img src='/instagramImage.svg' alt='' width='24' height='24'/>Instagram</div></button>
             </div>
             <div className={styles.container}>
                 <div className={styles.text}>

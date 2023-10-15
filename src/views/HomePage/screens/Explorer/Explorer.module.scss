@@ -7,6 +7,7 @@
     // padding-left: rm(64);
     display: flex;
     // width: 100%;
+    margin-bottom: rm(-3);
 
 
 
@@ -21,11 +22,11 @@
             z-index: 10000;
 
             @include lg{
-                top: 70%;
+                top: 60%;
             }
 
             @include md{
-                top: 80%;
+                top: 60%;
             }
 
             @include xsm{

@@ -4,6 +4,8 @@ import Text from '@/components/Text/Text'
 import Icon from '@/components/UI/Icon/Icon'
 import Payment from './Payment/Payment'
 import Graph from './Graph/Graph'
+import Latest from './Activities/Latest/Latest'
+import Activities from './Activities/Activities'
 
 const Dashboard = () => {
 
@@ -21,6 +23,7 @@ const Dashboard = () => {
     <div className={styles.netWorth}>
           <Payment></Payment>
           <Graph></Graph>
+          <Activities></Activities>
     </div>  
   )
 }

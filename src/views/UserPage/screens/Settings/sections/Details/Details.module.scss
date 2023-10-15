@@ -6,10 +6,16 @@
 }
 
 
+.focused > :last-child {
+    transform: translateX(-50%) scale(1) !important;
+    margin-top: rm(-1);
+}
+
 .selectDivider{
     position: relative;
     width: 100%;
     height: 1px;
+
 
     > * {
         position: absolute;
@@ -28,6 +34,12 @@
         background: color(text-brown);
         transform: translateX(-50%) scale(0);
     }
+
+    &:hover{
+        >:last-child{
+            transform: translateX(-50%) scale(1) !important;
+        }        
+    }
 }
 
 .selectStyles{
@@ -39,26 +51,37 @@
     border-color: color(bg);
     cursor: pointer;
 
-    // input:focus{
+    &:hover{
+        ~ .selectDivider > :last-child {
+            transform: translateX(-50%) scale(1);
+        }
+    }
+
+    input:focus{
         
-    //     ~ .selectDivider > :last-child {
-    //         transform: translateX(-50%) scale(1);
-    //     }
-    // }
+        ~ .selectDivider > :last-child {
+            transform: translateX(-50%) scale(1);
+        }
+
+
+        svg{
+            display: none;
+        }
+    }
 
     @include md{
         margin-bottom: rm(10);
     }
 
-    &:hover{
-        >:nth-child(3){
-            >:nth-child(2){
-                >:nth-child(2){
-                    transform: rotate(180deg);
-                }
-            }
-        }
-    }
+    // &:hover{
+    //     >:nth-child(3){
+    //         >:nth-child(2){
+    //             >:nth-child(2){
+    //                 transform: rotate(180deg);
+    //             }
+    //         }
+    //     }
+    // }
 
 
     >:nth-child(3){

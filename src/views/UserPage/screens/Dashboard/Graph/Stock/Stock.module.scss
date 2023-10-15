@@ -1,0 +1,50 @@
+@use '../../../../../../assets/styles/index.scss' as *;
+
+.stock{
+
+    display: flex;
+    flex-direction: column;
+    margin-bottom: rm(48);
+
+    @include xsm{
+        margin-bottom: rm(32);
+    }
+
+    .top{
+        display: flex;
+
+        .amount{
+            font-size: font(24);
+            color: color(text-black);
+            @include font-dune-regular;
+            line-height: 130%;
+            margin-right: rm(16);
+        }
+
+        .percentage{
+            display: flex;
+            align-items: center;
+
+            >:first-child{
+                font-size: font(14);
+                color: color(text-brown);
+                line-height: 140%;
+                @include font-work-regular;
+            }
+
+            span{
+                width: rm(18);
+                height: rm(18);
+                margin-left: rm(4);
+            }
+        }
+
+    }
+
+    .month{
+        font-size: font(16);
+        color: color(text-brown);
+        line-height: 160%;
+        text-transform: uppercase;
+    }
+}

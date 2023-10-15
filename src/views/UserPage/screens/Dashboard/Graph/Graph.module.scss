@@ -4,9 +4,132 @@
     width: 100%;
     display: flex;
 
+    @include xsm{
+        flex-direction: column;
+    }
+
+
+    .calendarContainer{
+        position: absolute;
+        top: 100%;
+        display: none;
+        left: 0;
+        width: 100%;
+    }
+
+    .calendar{
+
+        width: rm(500);
+
+        @include lg{
+            width: rm(600);
+        }
+
+        @include md{
+            width: rm(500);
+        }
+
+        @include xsm{
+            width: rm(470);
+        }
+
+        &:hover{
+
+            .calendarContainer{
+                display: inline-block;
+                padding: rm(10);
+                border: 1px color(text-yellow-90) solid;
+                z-index: 10421;
+                background-color: color(bg);
+                color: color(text-brown);
+
+                >:nth-child(2){
+                    font-size: font(18);
+
+
+
+                    >:nth-child(1){
+
+                        >:nth-child(1){
+
+                            >:nth-child(1){
+
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+
+                                >:nth-child(1){
+                                    display: flex;
+                                    gap: rm(4);
+                                    margin-right: rm(25);
+                                    margin-bottom: rm(20);
+                                    font-size: font(14);
+                                    @include font-dune-regular;
+                                    font-weight: 600;
+
+                                    @include md{
+                                        gap: rm(11);
+                                        margin-right: rm(55);
+                                    }
+                                    
+                                }
+
+                                >:nth-child(2){
+                                    // row-gap: rm(5);
+                                    border-right: 1px solid color(text-yellow-90);
+                                    border-bottom: 1px solid color(text-yellow-90);
+
+
+                                    button{
+                                        border-top: 1px solid color(text-yellow-90) !important;
+                                        border-left: 1px solid color(text-yellow-90) !important;
+
+                                        &:hover{
+                                            background-color: color(text-yellow-90);
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+                >:nth-child(1){
+                    display: flex;
+                    justify-content: space-around;
+                    font-size: font(18);
+                    // align-items: center;
+                    margin-bottom: rm(20);
+
+
+                    >:nth-child(3){
+                        flex-grow: 0;
+                        font-size: font(18) !important;
+                        width: rm(200) !important;
+                        margin-bottom: rm(-8);
+                        @include font-work-regular;
+
+                        span{
+                            width: 100% !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     .left{
         width: 75%;
         padding: rm(64);
+
+        @include md{
+            padding: rm(32);
+        }
+
+        @include xsm{
+            width: 100%;
+        }
 
         .container{
             display: flex;
@@ -14,21 +137,32 @@
             align-items: center;
             margin-bottom: rm(32);
 
+            @include md{
+                flex-direction: column;
+                align-items: flex-start
+            }
+
             .title{
                 @include font-dune-regular;
                 font-size: font(32);
                 color: color(text-black);
                 line-height: 120%;
+
+                @include md{
+                    margin-bottom: rm(32);
+                }
             }
 
             .calendar{
                 color: color(text-brown);
                 @include font-work-regular;
                 display: flex;
+                justify-content: space-between;
                 padding: rm(16);
                 border: 1px color(text-yellow-90) solid;
                 cursor: pointer;
                 transition: background-color .6s ease-in-out;
+                position: relative;
 
 
                 &:hover{
@@ -43,18 +177,49 @@
                 span{
                     width: rm(24);
                     height: rm(24);
+
+                    @include lg{
+                        width: rm(48);
+                        height: rm(48);
+                    }
+
+                    @include md{
+                        width: rm(24);
+                        height: rm(24);
+                    }
                 }
+            }
+        }
+
+        .graphic{
+            @include xsm{
+                overflow-x: scroll;
             }
         }
 
         canvas{
             height: rm(597) !important;
+
+            @include md{
+                height: rm(400) !important;
+            }
+
+            @include xsm{
+                width: rm(3000) !important;
+                max-width: rm(576) !important;
+            }
         }
     }
 
     .right {
         width: 25%;
         position: relative;
+
+        @include xsm{
+            width: rm(576);
+            height: rm(597);
+        }
+
 
         img{
             position: absolute;
@@ -64,6 +229,21 @@
             transform: translate(-50%, -50%);
             width: rm(480);
             height: 100%;
+
+            @include lg{
+                width: rm(320);
+                margin-top: rm(-2);
+            }
+
+            @include md{
+                width: rm(270);
+                margin-top: rm(0);   
+            }
+
+            @include xsm{
+                width: rm(576);
+                height: rm(597);
+            }
         }
     }
 }

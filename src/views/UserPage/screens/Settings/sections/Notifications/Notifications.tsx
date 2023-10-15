@@ -27,7 +27,7 @@ const Notifications = () => {
                 name='notificationEmail'
                 control={control}
                 rules={{required: true}}
-                render={({field}) => <input type='checkbox' {...field}/>}
+                render={({field}) => <CheckBox field={field}></CheckBox>}
             />
             <div>
                 <p className={styles.text}>Email</p>
@@ -36,7 +36,7 @@ const Notifications = () => {
                 name='notificationPhone'
                 control={control}
                 rules={{required: true}}
-                render={({field}) => <input type='checkbox' {...field}/>}
+                render={({field}) => <CheckBox field={field}></CheckBox>}
             />
             <div>
                 <p className={styles.text}>Phone</p>
@@ -52,7 +52,7 @@ const Notifications = () => {
                 name='updatesEmail'
                 control={control}
                 rules={{required: true}}
-                render={({field}) => <input type='checkbox' {...field}/>}
+                render={({field}) => <CheckBox field={field}></CheckBox>}
             />
             <div>
                 <p className={styles.text}>Email</p>
@@ -61,7 +61,7 @@ const Notifications = () => {
                 name='updatesPhone'
                 control={control}
                 rules={{required: true}}
-                render={({field}) => <input type='checkbox' {...field}/>}
+                render={({field}) => <CheckBox field={field}></CheckBox>}
             />
             <div>
                 <p className={styles.text}>Phone</p>
@@ -77,7 +77,7 @@ const Notifications = () => {
                 name='miningEmail'
                 control={control}
                 rules={{required: true}}
-                render={({field}) => <input type='checkbox' {...field}/>}
+                render={({field}) => <CheckBox field={field}></CheckBox>}
             />
             <div>
                 <p className={styles.text}>Email</p>
@@ -86,7 +86,7 @@ const Notifications = () => {
                 name='miningPhone'
                 control={control}
                 rules={{required: true}}
-                render={({field}) => <input type='checkbox' {...field}/>}
+                render={({field}) => <CheckBox field={field}></CheckBox>}
             />
             <div>
                 <p className={styles.text}>Phone</p>

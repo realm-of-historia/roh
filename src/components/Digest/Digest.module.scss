@@ -18,6 +18,7 @@
 
     .translation{
         transform: translateY(rm(0)) !important;
+        opacity: 1 !important;
     }
 
     .loaderContainer{
@@ -271,9 +272,14 @@
             border-left: 0;
             cursor: pointer;
             transition: background-color, transform .7s ease;
-            transform: translateY(rm(40));
             z-index: 1000;
             font-weight: 600;
+
+            div{
+                transform: translateY(rm(40));
+                opacity: 0;
+                transition: background-color, opacity, transform .7s ease;
+            }
 
             &:hover{
                 background-color: rgba(	234,	216,	177, .4);

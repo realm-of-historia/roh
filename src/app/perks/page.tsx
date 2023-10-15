@@ -10,12 +10,31 @@ import Payment from '@/views/UserPage/screens/Dashboard/Payment/Payment'
 import Perks from '@/views/UserPage/screens/Perks/Perks'
 
 export default function PerksPage() {
+
+    const cards = [
+        ['Product 1', '01244009', '25', '51,00', 'Published', 'Actions'],
+        ['Product 1', '01244009', '26', '51,00', 'Published', 'Actions'],
+        ['Product 1', '01244009', '27', '51,00', 'Published', 'Actions'],
+        ['Product 1', '01244009', '28', '51,00', 'Published', 'Actions'],
+        ['Product 1', '01244009', '29', '51,00', 'Published', 'Actions'],
+        ['Product 1', '01244009', '30', '51,00', 'Published', 'Actions'],
+        ['Product 1', '01244009', '31', '51,00', 'Published', 'Actions'],
+        ['Product 1', '01244009', '32', '51,00', 'Published', 'Actions'],
+        ['Product 1', '01244009', '33', '51,00', 'Published', 'Actions'],
+        ['Product 1', '01244009', '34', '51,00', 'Published', 'Actions'],
+        ['Product 1', '01244009', '35', '51,00', 'Published', 'Actions'],
+        ['Product 1', '01244009', '36', '51,00', 'Published', 'Actions'],
+        ['Product 1', '01244009', '37', '51,00', 'Published', 'Actions'],
+        ['Product 1', '01244009', '38', '51,00', 'Published', 'Actions'],
+        ['Product 1', '01244009', '39', '51,00', 'Published', 'Actions'],
+    ]
+
     return(
         <div>
             <Header></Header>
             <UserInfo></UserInfo>
             <UserNavigation></UserNavigation>
-            <Perks></Perks>
+            <Perks cards={cards}></Perks>
             <Digest></Digest>
         </div>
     )
