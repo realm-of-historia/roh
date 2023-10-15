@@ -9,8 +9,8 @@ import Cards from '@/views/UserPage/screens/History/Cards/Cards'
 import SimpleInput from '@/components/UI/SimpleInput/SimpleInput'
 import { useState } from 'react'
 import UserButtonBlack from '@/components/UI/buttons/UserButtonBlack/UserButtonBlack'
-import styles from './page.module.scss'
 import {useForm} from 'react-hook-form'
+import styles from '../../../../app/history/page.module.scss'
 
 export default function HistoryView() {
 
