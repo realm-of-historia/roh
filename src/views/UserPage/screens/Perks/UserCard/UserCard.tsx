@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styles from './UserCard.module.scss'
 import Text from '@/components/Text/Text'
 import Icon from '@/components/UI/Icon/Icon'
@@ -17,6 +17,8 @@ export default function UserCard({isWeight, product, sku, qty, price, status, ac
     ]
 
     const {control, handleSubmit} = useForm()
+    const [selectFocused, setSelectFocused] = useState(false);
+
 
     const selectStyles: any = {
         control: (styles: any) => ({ ...styles, backgroundColor: '#FBF6E8', border: 'none',
@@ -93,7 +95,17 @@ export default function UserCard({isWeight, product, sku, qty, price, status, ac
             </div> 
             }
             <div className={`${isWeight ? styles.weight : ''}`}>
-                {isWeight ? actions : <Select onChange={(element) => console.log(element)} className={styles.selectStyles} placeholder={'Actions'} options={options} styles={selectStyles}/>}
+                {isWeight ? actions : <Select 
+                onFocus={() => {
+                    setSelectFocused(true)
+                }}
+                onBlur={() => {
+                    setSelectFocused(false)
+                }}
+                onChange={(element) => console.log(element)} 
+                className={`${styles.selectStyles} ${selectFocused ? styles.focusSelect : ''}`} 
+                placeholder={'Actions'} 
+                options={options} styles={selectStyles}/>}
             </div>
         </form>
     )

@@ -15,6 +15,9 @@ export default function Option({name, money, amount}: {name: string, money: stri
         useAuthStore.setState({isBuy: true})
     }
 
+    const [selectFocused, setSelectFocused] = useState(false);
+
+
     const clickHandlerSell = () => {
         useAuthStore.setState({isBuy: false})
     }
@@ -62,7 +65,18 @@ export default function Option({name, money, amount}: {name: string, money: stri
                         <p className={styles.name}>
                             Coin Name
                         </p>
-                        <Select  onChange={(element) => console.log(element)} className={styles.selectStyles} placeholder={'Bitcoin/BTC'} options={options} styles={selectStyles}/>
+                        <Select  
+                        onFocus={() => {
+                            setSelectFocused(true)
+                        }}
+                        onBlur={() => {
+                            setSelectFocused(false)
+                        }}
+                        onChange={(element) => console.log(element)} 
+                        className={`${styles.selectStyles} ${selectFocused ? styles.focusSelect : ''}`} 
+                        placeholder={'Bitcoin/BTC'} 
+                        options={options} 
+                        styles={selectStyles}/>
                     </div>
             </div>
             <div className={styles.money}>

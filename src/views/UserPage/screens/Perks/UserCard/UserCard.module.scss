@@ -1,5 +1,15 @@
 @use "../../../../../assets/styles/index.scss" as *;
 
+.focusSelect{
+    >:nth-child(3){
+        >:nth-child(2){
+            >:nth-child(2){
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
 .userCard{
     display: flex;
     width: 100%;
@@ -186,17 +196,6 @@
     }
 
 
-    &:hover{
-        >:nth-child(3){
-            >:nth-child(2){
-                >:nth-child(2){
-                    transform: rotate(180deg);
-                }
-            }
-        }
-    }
-
-
     >:nth-child(3){
         padding-top: rm(5);
         box-shadow: none;
@@ -218,7 +217,7 @@
 
             >:nth-child(2){
                 color: color(text-black);
-                transition: transform .6s ease-in-out;
+                transition: transform .3s ease-in-out;
             }
         }
 
@@ -266,7 +265,7 @@
             div{
                 background-color: transparent;
                 cursor: pointer;
-                transition: background-color .7s ease-in-out;
+                transition: background-color .3s ease-in-out;
                 padding-left: rm(20);
 
                 @include lg{

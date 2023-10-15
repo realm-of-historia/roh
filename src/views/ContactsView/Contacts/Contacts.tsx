@@ -5,7 +5,10 @@ import styles from './Contacts.module.scss';
 import SimpleInput from '@/components/UI/SimpleInput/SimpleInput';
 import Text from '@/components/Text/Text';
 import {useForm} from 'react-hook-form'
+import GoogleMapReact from 'google-map-react';
+import Map from './Map';
 
+const AnyReactComponent = ({text, lat, lng}: {text: any, lat: any, lng: any}) => <div>{text}</div>;
 
 export default function Contacts() {
     const [name, setName] = useState('');
@@ -27,10 +30,12 @@ export default function Contacts() {
     //       mapTypeId: '50e6da863b3a2bcd',
     //     };
       
-    //     const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    //     const map: any = new google.maps.Map(document.getElementById('map'), mapOptions);
     //   }
       
-      
+    const handleApiLoaded = (map: any, maps: any) => {
+        console.log('loaded')
+    };
 
     return (
         <form className={styles.contacts} onSubmit={onSubmit}>
@@ -73,7 +78,19 @@ export default function Contacts() {
             </div>
             <p className={styles.rightContainer}>
                 {/* <iframe className={styles.right} id='map' src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD29cTxkGM8BgG7Yb-4zvpJrcOpKcttvTc&callback=initializeMap" width="1408" height="591" loading='lazy' allowFullScreen style={{border: 0}}></iframe> */}
-                <iframe id='map' src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD29cTxkGM8BgG7Yb-4zvpJrcOpKcttvTc&callback=initializeMap"></iframe>
+                {/* <iframe id='map' src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD29cTxkGM8BgG7Yb-4zvpJrcOpKcttvTc&callback=initializeMap"></iframe> */}
+                {/* <GoogleMapReact
+                bootstrapURLKeys={{key: 'AIzaSyD29cTxkGM8BgG7Yb-4zvpJrcOpKcttvTc'}}
+                yesIWantToUseGoogleMapApiInternals
+                onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
+                >
+                    <AnyReactComponent
+                        lat={59.955413}
+                        lng={30.337844}
+                        text="My Marker"
+                        />
+                </GoogleMapReact> */}
+                <Map></Map>
             </p>
         </form>
     );

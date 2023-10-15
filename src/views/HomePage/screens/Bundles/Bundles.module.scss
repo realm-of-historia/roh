@@ -5,15 +5,15 @@
     width: 100%;
 
     @include lg{
-        height: rm(615);
+        height: rm(602);
     }
 
     @include md{
-        height: rm(585);
+        height: rm(575);
     }
     
     @include xsm{
-        height: rm(750);
+        height: rm(738);
     }
 
     .bundlesContainer{

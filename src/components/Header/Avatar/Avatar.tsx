@@ -29,9 +29,9 @@ const Avatar = () => {
             <div className={styles.divider}></div>
             <div className={styles.options}>
               <Link href='/user/personal'><p>My Profile</p></Link>
-              <p>My Projects</p>
-              <p>My Subscription</p>
-              <p>My Statement</p>
+              <Link href='/lobby'><p>3d Lobby</p></Link>
+              <Link href='/marketplace'><p>Marketplace</p></Link>
+              <Link href='/artists'><p>Artists</p></Link>
             </div>
         </div>
     </div>

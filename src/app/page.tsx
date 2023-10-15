@@ -12,6 +12,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <HomeView></HomeView>
+      <ToastContainer />
     </main>
   )
 }

@@ -2,14 +2,15 @@
 
 import React, { FormEventHandler, useEffect } from 'react'
 import styles from './Digest.module.scss'
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react'
 import Image from 'next/image';
 import Loader from './Loader/Loader';
 import Text from '../Text/Text';
 import Divider from '../Divider/Divider';
 import { InView, useInView } from 'react-intersection-observer';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const Digest = ({reff}: {reff?: any}) => {
@@ -21,11 +22,11 @@ const Digest = ({reff}: {reff?: any}) => {
   const [iconRef, iconRefView] = useInView()
 
   const disHandler = () => {
-    window.open('https://discord.gg/48B3V4Av')
+    window.open('https://www.tiktok.com/@realm.of.historia')
   }
 
-  const tikHandler = () => {
-    window.open('https://www.tiktok.com/@realm.of.historia')
+  const tubeHandler = () => {
+    window.open('https://www.youtube.com/@RealmofHistoria')
   }
 
   const twitHandler = () => {
@@ -37,6 +38,15 @@ const Digest = ({reff}: {reff?: any}) => {
   }
 
 
+  const facebookHandler = () => {
+    window.open('https://www.facebook.com/realmofhistoria')
+  }
+
+  const pintHandler = () => {
+    window.open('https://www.pinterest.com/Realmofhistoria/')
+  }
+
+  
   const validateEmail = (email: any) => {
     const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return pattern.test(email);
@@ -45,7 +55,9 @@ const Digest = ({reff}: {reff?: any}) => {
   const subscribeHandler = (e: any) => {
     e.preventDefault()
 
+
     if (loading) { return }
+
 
 
     if (!validateEmail(email)) {
@@ -55,6 +67,7 @@ const Digest = ({reff}: {reff?: any}) => {
 
 
     setLoading(true);
+    console.log(loading)
 
     const body = JSON.stringify({ email })
     const options = {
@@ -68,6 +81,7 @@ const Digest = ({reff}: {reff?: any}) => {
         .then((response) => response.json())
         .then((data) => {
           setLoading(false);
+          console.log(data)
           if (data.error) {
             if (data.error.toLowerCase().includes('is not a valid email')) {
               toast.error('Not a valid email provided.');
@@ -89,16 +103,17 @@ const Digest = ({reff}: {reff?: any}) => {
     }, 1500);
   };
 
-
   return (
     <div className={styles.main} ref={reff}>
       <div className={styles.mainDivider}></div>
         <div className={styles.subscription}>
             <div className={styles.header} ref={ref}>
-              <button onClick={disHandler}><div className={`${inView ? styles.translation : ''}`}><img src='/discordImage.svg' alt='' width='24' height='24'/>Discord</div></button>
-              <button onClick={tikHandler}><div className={`${inView ? styles.translation : ''}`}><img src='/tiktok.svg' alt='' width='24' height='24'/>TikTok</div></button>
+              <button onClick={disHandler}><div className={`${inView ? styles.translation : ''}`}><img  src='/tiktok.svg' alt='' width='24' height='24'/>TikTok</div></button>
+              <button onClick={tubeHandler}><div className={`${inView ? styles.translation : ''}`}><img src='/youtubeImage.svg' alt='' width='24' height='24'/>YouTube</div></button>
               <button onClick={twitHandler}><div className={`${inView ? styles.translation : ''}`}><img src='/twitterImage.svg' alt='' width='24' height='24'/>Twitter</div></button>
               <button onClick={instHandler}><div className={`${inView ? styles.translation : ''}`}><img src='/instagramImage.svg' alt='' width='24' height='24'/>Instagram</div></button>
+              <button onClick={facebookHandler}><div className={`${inView ? styles.translation : ''}`}><img src='/facebook.svg' alt='' width='24' height='24'/>Facebook</div></button>
+              <button onClick={pintHandler}><div className={`${inView ? styles.translation : ''}`}><img src='/pinterest.svg' alt='' width='24' height='24'/>Pinterest</div></button>
             </div>
             <div className={styles.container}>
                 <div className={styles.text}>
