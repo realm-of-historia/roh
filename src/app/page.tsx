@@ -9,10 +9,10 @@ import {useApiFetch} from '../composable/useApiFetch.js'
 import {useSectionData} from '../composable/useSectionData.js'
 
 export default async function Home() {
-  const data = await useApiFetch('api/home-page?populate=*')
+  const data = await useApiFetch('api/home-page?populate[swiperTop][populate]=*&populate[article][populate]=*&populate[lobby][populate]=*')
   return (
     <main className={styles.main}>
-      <HomeView></HomeView>
+      <HomeView data={data}/>
     </main>
   )
 }

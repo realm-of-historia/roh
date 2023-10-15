@@ -19,11 +19,14 @@ import { NativeUnderpin } from '@/components/NativeUnderpin/NativeUnderpin'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import Layout from '@/components/Layout/Layout'
 import WrapperParallax from './wrapper/WrapperParallax/WrapperParallax.jsx'
+import {useSectionData} from '../../composable/useSectionData.js'
+export interface StandardComponentProps {
+  data?: any
+}
 
-
-
-export default function HomeView() {
-
+export default function HomeView({data} : StandardComponentProps) {
+  const dataExplorer = useSectionData(data, 'swiperTop')
+  console.log(dataExplorer)
   const firstBlock = [
     'ROH',
     'Realm of Historia (RoH) is a unique venture aimed at preserving and immortalizing global cultural heritage through the innovative use of blockchain and metaverse technologies. The project will deliver cultural education, immersive experiences, and profitable NFT opportunities while contributing positively to historical preservation through generous donations and charitable opportunities.',
@@ -41,7 +44,7 @@ export default function HomeView() {
   return (
     <div>
         <Layout>
-            <Explorer></Explorer>
+            <Explorer data={dataExplorer} />
             <Carahunge></Carahunge>
             <NativeUnderpin>
                 <WrapperParallax>
