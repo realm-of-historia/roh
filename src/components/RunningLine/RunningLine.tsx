@@ -13,6 +13,8 @@ const RunningLine = ({ text, image }: { text: string, image?: string }) => {
   const containerRef = useRef(null);
   const currentBackgroundPositionXRef = useRef(0);
   const currentScroll: any = useRef(0)
+  // const content: any = containerRef.current;
+  // content.style.backgroundImage = '/publications.png'
 
   const animateBackgroundPosition = (delta: any) => {
     velocity.current = (speed.current / delta) != 0 ? speed.current * 2 / delta : 1

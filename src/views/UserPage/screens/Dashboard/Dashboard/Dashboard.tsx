@@ -2,10 +2,10 @@ import React from 'react'
 import styles from './Dashboard.module.scss'
 import Text from '@/components/Text/Text'
 import Icon from '@/components/UI/Icon/Icon'
-import Payment from './Payment/Payment'
-import Graph from './Graph/Graph'
-import Latest from './Activities/Latest/Latest'
-import Activities from './Activities/Activities'
+import Payment from '../Payment/Payment'
+import Graph from '../Graph/Graph'
+import Latest from '../Activities/Latest/Latest'
+import Activities from '../Activities/Activities'
 
 const Dashboard = () => {
 

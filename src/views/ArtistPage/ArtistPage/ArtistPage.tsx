@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './ArtistPage.module.scss'
 import Text from "@/components/Text/Text";
-import Creatures from "./Creatures/Creatures";
+import Creatures from "../Creatures/Creatures";
 
 
 export default function Artist({name, spec, text, item}: {name: string | Array<string>, spec: string | Array<string>, text: string | Array<string>, item: string | Array<string>}){

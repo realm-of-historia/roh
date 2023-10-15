@@ -2,7 +2,7 @@ import React from "react";
 import styles from './History.module.scss'
 import SimpleInput from "@/components/UI/SimpleInput/SimpleInput";
 import {useForm} from 'react-hook-form'
-import Cards from "./Cards/Cards";
+import Cards from "../Cards/Cards";
 import UserButtonBlack from "@/components/UI/buttons/UserButtonBlack/UserButtonBlack";
 
 
