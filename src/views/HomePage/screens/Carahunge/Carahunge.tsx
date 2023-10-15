@@ -29,7 +29,7 @@ const Carahunge = () => {
                 </p>
             </Text>
             <Text>
-                <p>
+                <p>    
                     Mint On Aug 11, 2023
                 </p>
             </Text>
