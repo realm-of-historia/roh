@@ -34,7 +34,7 @@ export default function HomeView({data} : StandardComponentProps) {
   const dataBundlesHref = useSectionData(data, 'viewAllOffershref')
   const dataBundlesRibbon = useSectionData(data, 'ribbon')
 
-
+  console.log(dataBundlesRibbon)
   const firstBlock = [
     'ROH',
     'Realm of Historia (RoH) is a unique venture aimed at preserving and immortalizing global cultural heritage through the innovative use of blockchain and metaverse technologies. The project will deliver cultural education, immersive experiences, and profitable NFT opportunities while contributing positively to historical preservation through generous donations and charitable opportunities.',

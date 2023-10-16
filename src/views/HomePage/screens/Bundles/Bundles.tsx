@@ -58,7 +58,7 @@ const Bundles = ({ribbon, data, text, href='/marketplace' }: StandardComponentPr
     }
 
     const swiperRef = useRef<any>(null)
-
+    console.log(ribbon)
     return (
         <div className={styles.bundles} ref={ref}>
             <RunningLine image={ribbon?.data.attributes.url} text='HOTTeST BUNDLeS'></RunningLine>
@@ -69,14 +69,14 @@ const Bundles = ({ribbon, data, text, href='/marketplace' }: StandardComponentPr
                 ref={swiperRef}
                 className={`${styles.mySwiper} ${styles.bundlesContainer}`}
             >
-                {/* {
+                {
                     data?.map((_: any, index: number) => (
                         <SwiperSlide key={index}>
                             <Bundle href={_.href} description={_.description} image={_.img.data.attributes.url}></Bundle>
                         </SwiperSlide>
                     ))
-                } */}
-                <SwiperSlide>
+                }
+                {/* <SwiperSlide>
                     <Bundle title={bundleInfo[0]} price={bundleInfo[1]} image={bundleInfo[2]} href={href}></Bundle>
                 </SwiperSlide>
                 <SwiperSlide>
@@ -84,7 +84,7 @@ const Bundles = ({ribbon, data, text, href='/marketplace' }: StandardComponentPr
                 </SwiperSlide>
                 <SwiperSlide>
                     <Bundle title={bundleInfoThird[0]} price={bundleInfoThird[1]} image={bundleInfoThird[2]} href={href}></Bundle>
-                </SwiperSlide>
+                </SwiperSlide> */}
                 <SwiperSlide>
                     <Link href={href} className={styles.offers}>
                         <div className={`${inView ? styles.diagonal : ''}`}></div>

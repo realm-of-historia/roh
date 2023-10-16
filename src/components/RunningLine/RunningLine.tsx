@@ -10,6 +10,7 @@ const RunningLine = ({ text, image }: { text: string, image?: string }) => {
   const velocity = useRef(1);
   const speed = useRef(1)
   // let isRight = 1
+  console.log(image)
   const containerRef = useRef(null);
   const currentBackgroundPositionXRef = useRef(0);
   const currentScroll: any = useRef(0)
