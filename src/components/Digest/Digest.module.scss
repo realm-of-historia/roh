@@ -299,25 +299,27 @@
                 margin-right: rm(10);
                 width: rm(24);
                 height: rm(24);
-                margin-bottom: rm(-7);
+                // margin-bottom: rm(-7);
 
                 @include lg{
                     margin-right: rm(5);
                     width: rm(15);
                     height: rm(15);
+                    margin-bottom: rm(-2);
                 }
 
                 @include md{
                     margin-right: rm(10);
                     width: rm(24);
                     height: rm(24);
+                    margin-bottom: rm(-7);
                 }
 
                 @include xsm{
                     margin-right: rm(5);
                     width: rm(15);
                     height: rm(15);
-                    margin-top: rm(-8);
+                    margin-bottom: rm(-2);
                 }
             }
         }
