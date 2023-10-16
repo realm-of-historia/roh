@@ -37,6 +37,9 @@ export default function HomeView({data} : StandardComponentProps) {
   const dataVideos = useSectionData(data, 'collectionImg')
   const dataOurVision = useSectionData(data, 'descriptionROH')
   const dataOurVisionTitle = useSectionData(data, 'titleROH')
+  const dataOurVision2 = useSectionData(data, 'descriptionSTAGE')
+  const dataOurVisionTitle2 = useSectionData(data, 'titleSTAGE')
+
 
 
   // console.log(dataOurVision)
@@ -72,9 +75,9 @@ export default function HomeView({data} : StandardComponentProps) {
             </NativeUnderpin>
             <Posts data={dataPosts}/>
             <Videos data={dataVideos}/>
-            <OurVision data={dataOurVision} title={dataOurVisionTitle}></OurVision>
+            <OurVision data={dataOurVision} title={dataOurVisionTitle} />
             <Panegliph isFirst={false}></Panegliph>
-            <OurVision secondText={secondBlock[3]} list={secondBlock[2]} leftSide={secondBlock[0]} text={secondBlock[1]}></OurVision>
+            <OurVision data={dataOurVision2} title={dataOurVisionTitle2}/>
             <Marketplace></Marketplace>
         </Layout>
     </div>
