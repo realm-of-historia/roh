@@ -29,15 +29,16 @@ export default function About({data} : StandardComponentProps) {
         dataaboutUsMarcusLevy
     }
     const dataRunningLine = useSectionData(data, 'ribbon')
+    const dataGreatTeam = useSectionData(data, 'ourGreatTeam')
 
     return(
         <div>
             <Layout>
                 <AboutUs data={dataAboutUs}/>
                 <RunningLine image={dataRunningLine.data.attributes.url} text='PUBLICATIONS'></RunningLine>
-                {/* <Comments></Comments>
-                <GreatTeam></GreatTeam>
-                <Faces></Faces> */}
+                <Comments></Comments>
+                <GreatTeam data={dataGreatTeam}></GreatTeam>
+                {/* <Faces></Faces> */}
             </Layout>
         </div>
     )
