@@ -22,9 +22,6 @@ export default function Option({name, money, amount}: {name: string, money: stri
         useAuthStore.setState({isBuy: false})
     }
 
-    useEffect(() => {
-        console.log(isBuy)
-    })
 
     const options = [
         { value: 'Bitcoin/BTC', label: 'Bitcoin/BTC',},

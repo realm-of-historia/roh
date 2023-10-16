@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import styles from './GetStarted.module.scss'
 import PostInfo from './PostInfo/PostInfo'

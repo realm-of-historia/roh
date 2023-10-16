@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import React from 'react'
 import Panegliph from '@/components/Panegliph/Panegliph'
@@ -18,10 +18,22 @@ import Header from '@/components/Header/Header'
 import { NativeUnderpin } from '@/components/NativeUnderpin/NativeUnderpin'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import Layout from '@/components/Layout/Layout'
+import WrapperParallax from './wrapper/WrapperParallax/WrapperParallax.jsx'
+import {useSectionData} from '../../composable/useSectionData.js'
+export interface StandardComponentProps {
+  data?: any
+}
 
+export default function HomeView({data} : StandardComponentProps) {
+  const dataExplorer = useSectionData(data, 'swiperTop')
+  const dataCarahunge = useSectionData(data, 'article')
+  const dataLobby = useSectionData(data, 'lobby')
+  const dataAncient = useSectionData(data, 'historyWorld')
+  const dataBundles = useSectionData(data, 'cardBundles')
+  const dataBundlesText = useSectionData(data, 'viewAllOffers')
+  const dataBundlesHref = useSectionData(data, 'viewAllOffershref')
+  const dataBundlesRibbon = useSectionData(data, 'ribbon')
 
-
-export default function HomeView() {
 
   const firstBlock = [
     'ROH',
@@ -40,18 +52,18 @@ export default function HomeView() {
   return (
     <div>
         <Layout>
-            <Explorer></Explorer>
-            <Carahunge></Carahunge>
+            <Explorer data={dataExplorer} />
+            <Carahunge data={dataCarahunge} />
             <NativeUnderpin>
-                <ParallaxProvider>
-                <Lobby isCircle={true}></Lobby>
-                </ParallaxProvider>
+                <WrapperParallax>
+                  <Lobby data={dataLobby} isCircle={true} />
+                </WrapperParallax>
             </NativeUnderpin>
             <Start></Start>
-            <Ancient></Ancient>
+            <Ancient data={dataAncient} />
             <Comments></Comments>
             <NativeUnderpin>
-                <Bundles></Bundles>
+                <Bundles ribbon={dataBundlesRibbon} data={dataBundles} text={dataBundlesText} href={dataBundlesHref}></Bundles>
             </NativeUnderpin>
             <Posts></Posts>
             <Videos></Videos>
