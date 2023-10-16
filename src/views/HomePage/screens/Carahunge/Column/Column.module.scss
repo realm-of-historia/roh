@@ -8,7 +8,7 @@
     .section{
         margin-bottom: rm(32);
         display: flex;
-
+        align-items: center;
         p{
             font-size: font(16);
             line-height: 160%;
@@ -151,9 +151,13 @@
 
 
     .details{
+        display: flex;
+        align-items: center;
         cursor: pointer;
         opacity: 1;
-
+        >:nth-child(1){
+            margin-right: rm(10);
+        }
         &:hover{
             opacity: 0.7;
             transition: opacity 0.3s ease-in-out;

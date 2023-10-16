@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import Column from './Column/Column'
 import styles from './OurVision.module.scss'
 import Text from '@/components/Text/Text'

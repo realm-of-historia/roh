@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import styles from './Header.module.scss'
 import Icon from '../UI/Icon/Icon'
@@ -13,7 +15,6 @@ const Header = () => {
 
   const handleAuth = () => {
     useAuthStore.setState({isSignedIn: !isSignedIn})
-    console.log(isSignedIn)
   }
 
 

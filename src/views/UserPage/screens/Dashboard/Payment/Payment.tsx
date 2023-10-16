@@ -8,10 +8,6 @@ export default function Payment() {
 
     const isBuy = useAuthStore((state) => (state.isBuy))
 
-    useEffect(() => {
-        console.log(isBuy)
-    }, [])
-
 
     return(
         <div className={styles.payment}>

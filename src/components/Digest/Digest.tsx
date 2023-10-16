@@ -67,7 +67,6 @@ const Digest = ({reff}: {reff?: any}) => {
 
 
     setLoading(true);
-    console.log(loading)
 
     const body = JSON.stringify({ email })
     const options = {
@@ -81,7 +80,6 @@ const Digest = ({reff}: {reff?: any}) => {
         .then((response) => response.json())
         .then((data) => {
           setLoading(false);
-          console.log(data)
           if (data.error) {
             if (data.error.toLowerCase().includes('is not a valid email')) {
               toast.error('Not a valid email provided.');
@@ -96,7 +94,6 @@ const Digest = ({reff}: {reff?: any}) => {
             }
         })
         .catch((e) => {
-          console.log(e)
           setLoading(false);
           toast.error('Something went wrong. Try again later');
         });
