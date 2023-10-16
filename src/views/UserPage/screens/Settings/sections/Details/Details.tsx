@@ -51,7 +51,7 @@ const DetailsProfile = () => {
 
 
       const selectStyles: any = {
-        control: (styles: any) => ({ ...styles, backgroundColor: '#FBF6E8', border: 'none',
+        control: (styles: any, {isFocused} : {isFocused: boolean}) => ({ ...styles, backgroundColor: '#FBF6E8', border: 'none',
          color: '#583F21 !important', padding: '0px',
         
     }),
@@ -91,6 +91,7 @@ const DetailsProfile = () => {
 
 
 
+
   return (
     <form id='detailsForm' className={styles.details} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.avatar}>
@@ -115,7 +116,17 @@ const DetailsProfile = () => {
                             name={element[5]}
                             control={control}
                             render={({ field: {onChange, value, ref, name}}: any) => (
-                                <Select onFocus={() => handleSelectFocus(element[5])} value={element[4].find((c: any) => c.value === value)} {...register(element[5])} onChange={(val: any) => onChange(val.value)}  className={styles.selectStyles} placeholder={element[1]} options={element[4]} styles={selectStyles}/>
+                                <Select  
+                                onFocus={() => {
+                                    handleSelectFocus(element[5]);
+                                  }}
+                                value={element[4].find((c: any) => c.value === value)} 
+                                {...register(element[5])} 
+                                onChange={(val: any) => onChange(val.value)}  
+                                className={`${styles.selectStyles} ${selectFocused == element[5] ? styles.focusSelect : ''}`} 
+                                placeholder={element[1]} 
+                                options={element[4]} 
+                                styles={selectStyles}/>
                             )}
                             rules={{required: true}}
                         />

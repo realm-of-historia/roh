@@ -52,6 +52,7 @@
 
     .rightContainer{
         height: rm(591);
+        width: 100%;
 
         @include xsm{
             height: rm(640);

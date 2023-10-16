@@ -31,9 +31,9 @@ const Header = () => {
         </picture>
         <div className={styles.navigation}>
            <Link href="/"><p>Home</p></Link>
-           <Link href="/"><p>History Section</p></Link>
-           <Link href="/"><p>Perks</p></Link>
-           <Link href="/"><p>Help</p></Link>
+           <Link href="/about"><p>About Us</p></Link>
+           <Link href="/contacts"><p>Contacts</p></Link>
+           <Link href="/blog"><p>Blog</p></Link>
         </div>
         <div className={styles.right}>
            {!isSignedIn ? <Link href="/"><p className={styles.logIn} onClick={handleAuth}>Log In</p></Link> : <div className={styles.logIn}></div>}

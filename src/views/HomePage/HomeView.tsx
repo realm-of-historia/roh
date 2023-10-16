@@ -50,7 +50,9 @@ export default function HomeView() {
             <Start></Start>
             <Ancient></Ancient>
             <Comments></Comments>
-            <Bundles></Bundles>
+            <NativeUnderpin>
+                <Bundles></Bundles>
+            </NativeUnderpin>
             <Posts></Posts>
             <Videos></Videos>
             <OurVision secondText={firstBlock[3]} list={firstBlock[2]} leftSide={firstBlock[0]} text={firstBlock[1]}></OurVision>

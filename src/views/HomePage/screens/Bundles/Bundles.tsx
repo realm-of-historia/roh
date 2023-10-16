@@ -2,7 +2,6 @@ import React from 'react'
 import styles from './Bundles.module.scss'
 import RunningLine from '@/components/RunningLine/RunningLine'
 import Bundle from '@/components/Bundle/Bundle'
-import { NativeUnderpin } from '@/components/NativeUnderpin/NativeUnderpin'
 import Link from 'next/link'
 import { useRef , useState, useEffect} from 'react'
 import { useInView } from "react-intersection-observer"
@@ -55,7 +54,6 @@ const Bundles = () => {
     const swiperRef = useRef<any>(null)
 
   return (
-    <NativeUnderpin>
         <div className={styles.bundles} ref={ref}>
             <RunningLine text='HOTTeST BUNDLeS'></RunningLine>
                 <Swiper
@@ -90,7 +88,6 @@ const Bundles = () => {
                     </SwiperSlide>
                 </Swiper>
         </div>
-    </NativeUnderpin>
   )
 }
 

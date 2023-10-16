@@ -260,7 +260,7 @@
 
         button{
             height: rm(70);
-            width: 25%;
+            width: 16.8%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -271,14 +271,24 @@
             border: 1px solid #EAD8B1;
             border-left: 0;
             cursor: pointer;
-            transition: background-color, transform .7s ease;
+            transition: background-color .7s ease;
             z-index: 1000;
             font-weight: 600;
+
+            @include xsm{
+                font-size: font(14);
+            }
 
             div{
                 transform: translateY(rm(40));
                 opacity: 0;
                 transition: background-color, opacity, transform .7s ease;
+
+
+                @include xsm{
+                    display: flex;
+                    align-items: center;
+                }
             }
 
             &:hover{
@@ -290,6 +300,25 @@
                 width: rm(24);
                 height: rm(24);
                 margin-bottom: rm(-7);
+
+                @include lg{
+                    margin-right: rm(5);
+                    width: rm(15);
+                    height: rm(15);
+                }
+
+                @include md{
+                    margin-right: rm(10);
+                    width: rm(24);
+                    height: rm(24);
+                }
+
+                @include xsm{
+                    margin-right: rm(5);
+                    width: rm(15);
+                    height: rm(15);
+                    margin-top: rm(-8);
+                }
             }
         }
     
