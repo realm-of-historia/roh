@@ -33,6 +33,8 @@ export default function HomeView({data} : StandardComponentProps) {
   const dataBundlesText = useSectionData(data, 'viewAllOffers')
   const dataBundlesHref = useSectionData(data, 'viewAllOffershref')
   const dataBundlesRibbon = useSectionData(data, 'ribbon')
+  const dataPosts = useSectionData(data, 'lastPost')
+
 
   console.log(dataBundlesRibbon)
   const firstBlock = [
@@ -65,7 +67,7 @@ export default function HomeView({data} : StandardComponentProps) {
             <NativeUnderpin>
                 <Bundles ribbon={dataBundlesRibbon} data={dataBundles} text={dataBundlesText} href={dataBundlesHref}></Bundles>
             </NativeUnderpin>
-            <Posts></Posts>
+            <Posts data={dataPosts}/>
             <Videos></Videos>
             <OurVision secondText={firstBlock[3]} list={firstBlock[2]} leftSide={firstBlock[0]} text={firstBlock[1]}></OurVision>
             <Panegliph isFirst={false}></Panegliph>

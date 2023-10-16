@@ -7,9 +7,11 @@ import {useMemo} from 'react'
 import { useInView } from "react-intersection-observer"
 import Link from 'next/link'
 import { NativeUnderpin } from '@/components/NativeUnderpin/NativeUnderpin'
-
-const Posts = () => {
-
+export interface StandardComponentProps {
+    data?: any
+  }
+const Posts = ({data} : StandardComponentProps) => {
+    console.log(data)
     const { ref, inView } = useInView()
 
 
@@ -50,10 +52,10 @@ const Posts = () => {
                 </div>
             </div>
             <div className={styles.right}>
-                <Link href='/marketplace'>
+                <Link href={data?.href}>
                     <Text>
                         <p>
-                            LATeST INSTAGRAM POSTS
+                            {data?.name}
                         </p>
                     </Text>
                 </Link>
