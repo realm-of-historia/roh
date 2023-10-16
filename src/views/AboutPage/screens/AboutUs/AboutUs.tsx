@@ -48,7 +48,7 @@ const AboutUs = ({data} : StandardComponentProps) => {
         <div className={styles.statistics}>
           {
             data?.dataaboutUsactivity.map((_ : any, i : number) => (
-              <Statistic title={_.title} text={_.meaning}></Statistic>
+              <Statistic key={i + 434} title={_.title} text={_.meaning}></Statistic>
             ))
           }
           {/* <Statistic title='700+' text='BUSINESSES'></Statistic>

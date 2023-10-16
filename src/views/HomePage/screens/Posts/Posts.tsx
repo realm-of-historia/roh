@@ -11,10 +11,7 @@ export interface StandardComponentProps {
     data?: any
   }
 const Posts = ({data} : StandardComponentProps) => {
-    console.log(data)
     const { ref, inView } = useInView()
-
-
   return (
     <NativeUnderpin>
         <div className={styles.posts}>
@@ -52,7 +49,7 @@ const Posts = ({data} : StandardComponentProps) => {
                 </div>
             </div>
             <div className={styles.right}>
-                <Link href={data?.href}>
+                <Link href={data?.href || '/'}>
                     <Text>
                         <p>
                             {data?.name}

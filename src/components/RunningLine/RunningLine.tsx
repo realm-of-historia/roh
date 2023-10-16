@@ -4,10 +4,8 @@ import React from 'react'
 import styles from './RunningLine.module.scss'
 import {useRef, useEffect, useState} from 'react'
 import gsap from 'gsap'
-export interface StandardComponentProps {
-  data?: any
-}
-const RunningLine = ({ text, image }: { text: string, image?: string }) => {
+
+const RunningLine = ({ text, image='' }: { text: string, image?: string }) => {
 
   const isRight = useRef(1);
   const velocity = useRef(1);
@@ -19,8 +17,12 @@ const RunningLine = ({ text, image }: { text: string, image?: string }) => {
   // const content: any = containerRef.current;
   // content.style.backgroundImage = '/publications.png'
   useEffect(() => {
-    if( !containerRef && !image ) return
-    containerRef.current.style.backgroundImage = `url(https://api.realmofhistoria.com${image})`
+    if( !containerRef && !image ){
+      return
+    } else{
+      const refContainer: any = containerRef.current
+      refContainer.style.backgroundImage = `url(https://api.realmofhistoria.com${image})`
+    }
   },[containerRef, image])
 
   

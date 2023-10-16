@@ -18,7 +18,6 @@ export interface StandardComponentProps {
 }
 
 const Digest = ({ reff, data }: StandardComponentProps) => {
-  console.log(data)
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [ref, inView] = useInView()
@@ -60,15 +59,15 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
     setTimeout(() => {
       fetch('https://api.realmofhistoria.com/subscribe', options)
         .then((response) => response.json())
-        .then((data) => {
+        .then((dataMy) => {
           setLoading(false);
-          if (data.error) {
-            if (data.error.toLowerCase().includes('is not a valid email')) {
+          if (dataMy.error) {
+            if (dataMy.error.toLowerCase().includes('is not a valid email')) {
               toast.error('Not a valid email provided.');
             }
-            toast.error(data.error);
+            toast.error(dataMy.error);
           } else
-            if (data.message) {
+            if (dataMy.message) {
               toast.success('Successfully subscribed!');
               setEmail('');
             } else {
@@ -89,7 +88,7 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
         <div className={styles.header} ref={ref}>
           {
             data?.socialNetwork.map((_:any, i:number) => (
-              <button onClick={() => handler(_.href)}><div className={`${inView ? styles.translation : ''}`}><ImageMy src={_.icon.data.attributes.url} alt='' width='24' height='24'/>{_.name}</div></button>
+              <button key={i + 666} onClick={() => handler(_.href)}><div className={`${inView ? styles.translation : ''}`}><ImageMy src={_.icon.data.attributes.url} alt='' width='24' height='24'/>{_.name}</div></button>
             ))
           }
         </div>

@@ -5,7 +5,6 @@ export interface StandardComponentProps {
     data?: any,
 }
 const Column = ({ data }: StandardComponentProps) => {
-    console.log('dds', data)
     return (
         <div className={styles.column}>
             {

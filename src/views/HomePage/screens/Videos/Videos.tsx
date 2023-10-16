@@ -13,7 +13,6 @@ const Videos = ({ data }: StandardComponentProps) => {
   const firstImage = useRef(null)
   const secondImage = useRef(null)
   const thirdImage = useRef(null)
-  console.log(data)
 
   useEffect(() => {
     if (firstImage.current) {

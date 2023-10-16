@@ -14,7 +14,7 @@ import { useWindowWidth } from '@react-hook/window-size'
 import { NativeUnderpin } from '@/components/NativeUnderpin/NativeUnderpin'
 import { useInView } from 'react-intersection-observer'
 export interface StandardComponentProps {
-    title: string,
+    title?: string,
     isMarket?: boolean
     ref?: any
   }

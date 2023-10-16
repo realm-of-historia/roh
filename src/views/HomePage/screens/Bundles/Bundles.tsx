@@ -21,7 +21,7 @@ export interface StandardComponentProps {
     ribbon? : any
 }
 
-const Bundles = ({ribbon, data, text, href='/marketplace' }: StandardComponentProps) => {
+const Bundles = ({ribbon, data =[], text, href='/' }: StandardComponentProps) => {
     const { ref, inView } = useInView()
 
     const windowWidth: any = useWindowWidth()
@@ -58,7 +58,6 @@ const Bundles = ({ribbon, data, text, href='/marketplace' }: StandardComponentPr
     }
 
     const swiperRef = useRef<any>(null)
-    console.log(ribbon)
     return (
         <div className={styles.bundles} ref={ref}>
             <RunningLine image={ribbon?.data.attributes.url} text='HOTTeST BUNDLeS'></RunningLine>
