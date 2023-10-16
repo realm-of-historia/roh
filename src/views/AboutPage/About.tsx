@@ -30,6 +30,7 @@ export default function About({data} : StandardComponentProps) {
     }
     const dataRunningLine = useSectionData(data, 'ribbon')
     const dataGreatTeam = useSectionData(data, 'ourGreatTeam')
+    const dataFaces = useSectionData(data, 'swiperAboutUs')
 
     return(
         <div>
@@ -37,8 +38,8 @@ export default function About({data} : StandardComponentProps) {
                 <AboutUs data={dataAboutUs}/>
                 <RunningLine image={dataRunningLine.data.attributes.url} text='PUBLICATIONS'></RunningLine>
                 <Comments></Comments>
-                <GreatTeam data={dataGreatTeam}></GreatTeam>
-                {/* <Faces></Faces> */}
+                <GreatTeam data={dataGreatTeam} />
+                <Faces data={dataFaces} />
             </Layout>
         </div>
     )
