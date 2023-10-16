@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import React from 'react'
 import Header from '@/components/Header/Header'
@@ -9,16 +9,35 @@ import RunningLine from '@/components/RunningLine/RunningLine'
 import Faces from '@/views/AboutPage/screens/AboutUs/Faces/Faces'
 import GreatTeam from '@/views/AboutPage/screens/AboutUs/GreatTeam/GreatTeam'
 import Layout from '@/components/Layout/Layout'
+import { useSectionData } from '@/composable/useSectionData'
+export interface StandardComponentProps {
+    data?: any
+  }
+export default function About({data} : StandardComponentProps) {
+    const dataAboutUsImg = useSectionData(data, 'aboutUsImg')
+    const dataaboutUsDescription = useSectionData(data, 'aboutUsDescription')
+    const dataaboutUsimg2 = useSectionData(data, 'img')
+    const dataaboutUsDisclaimer = useSectionData(data, 'Disclaimer')
+    const dataaboutUsactivity = useSectionData(data, 'activity')
+    const dataaboutUsMarcusLevy = useSectionData(data, 'MarcusLevy')
+    const dataAboutUs ={
+        dataAboutUsImg,
+        dataaboutUsDescription,
+        dataaboutUsimg2,
+        dataaboutUsDisclaimer,
+        dataaboutUsactivity,
+        dataaboutUsMarcusLevy
+    }
+    const dataRunningLine = useSectionData(data, 'ribbon')
 
-export default function About() {
     return(
         <div>
             <Layout>
-                <AboutUs></AboutUs>
-                <RunningLine text='PUBLICATIONS'></RunningLine>
-                <Comments></Comments>
+                <AboutUs data={dataAboutUs}/>
+                <RunningLine image={dataRunningLine.data.attributes.url} text='PUBLICATIONS'></RunningLine>
+                {/* <Comments></Comments>
                 <GreatTeam></GreatTeam>
-                <Faces></Faces>
+                <Faces></Faces> */}
             </Layout>
         </div>
     )

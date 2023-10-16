@@ -3,49 +3,58 @@ import styles from './AboutUs.module.scss'
 import Text from '@/components/Text/Text'
 import Statistic from './Statistic/Statistic'
 import Divider from '@/components/Divider/Divider'
+import ImageMy from '@/components/Image/ImageMy'
 
-
-const AboutUs = () => {
-
-
+export interface StandardComponentProps {
+  data?: any
+}
+const AboutUs = ({data} : StandardComponentProps) => {
+   console.log(data)
   return (
     <div className={styles.about}>
       <div className={styles.first}>
         <Divider position={'top left'}></Divider>
         <div className={styles.left}>
-          <img src='Graphic.png' alt='' width={488} height={540}/>
+          {/* <img src='Graphic.png' alt='' width={488} height={540}/> */}
+          <ImageMy src={data?.dataAboutUsImg.data.attributes.url} alt='' width={488} height={540}/>
         </div>
         <div className={styles.right}>
           <Text>
-            <p>ABOUT US</p>
+            <p>{data?.dataaboutUsDescription.name}</p>
           </Text>
           <Text>
-            <p>Within the last 10 years, we have sold over 100,000 admin theme copies that have been successfully deployed by small businesses to global enterprises.</p>
+            <p>{data?.dataaboutUsDescription.description}</p>
           </Text>
         </div>
       </div>
       <div className={styles.dividerBottom}></div>
       <div className={styles.second}>
-        <img src='ancectors.png' alt='' width={1920} height={480}/>
+        {/* <img src='ancectors.png' alt='' width={1920} height={480}/> */}
+        <ImageMy src={data?.dataaboutUsimg2.data.attributes.url} alt='' width={488} height={540}/>
       </div>
       <div className={styles.third}>
         <div className={styles.disclaimer}>
           <Text>
             <p>
-              Disclaimer
+              {data?.dataaboutUsDisclaimer.name}
             </p>
           </Text>
           <Divider position={'top right'}></Divider>
           <Text>
             <p>
-              First, a disclaimer – the entire process of writing a blog post often takes more than a couple of hours, even if you can type eighty words per minute and your writing skills are sharp. From the seed of the idea to finally hitting «Publish», you might spend several days or maybe even a week “writing” a blog post, but it’s important to spend those vital hours planning your post and even thinking about Your Post (yes, thinking counts as working if you’re a blogger) before you actually write it.
+            {data?.dataaboutUsDisclaimer.description}
             </p>
           </Text>
         </div>
         <div className={styles.statistics}>
-          <Statistic title='700+' text='BUSINESSES'></Statistic>
+          {
+            data?.dataaboutUsactivity.map((_ : any, i : number) => (
+              <Statistic title={_.title} text={_.meaning}></Statistic>
+            ))
+          }
+          {/* <Statistic title='700+' text='BUSINESSES'></Statistic>
           <Statistic title='80k+' text='Quick Reports'></Statistic>
-          <Statistic title='35M+' text='Payments'></Statistic>
+          <Statistic title='35M+' text='Payments'></Statistic> */}
           <Divider horizontal={true} position={'top left'}></Divider>
           <Divider horizontal={true} position={'bottom left'}></Divider>
         </div>
@@ -53,13 +62,13 @@ const AboutUs = () => {
           <div className={styles.container}>
             <Text>
               <p>
-                «When you care about your topic, you’ll write about it in a more powerful, emotionally expressive way»
+                {data?.dataaboutUsMarcusLevy.description}
               </p>
             </Text>
             <Divider position={'top left'}></Divider>
             <Text>
               <p>
-                Marcus Levy, KeenThemes CEO
+              {data?.dataaboutUsMarcusLevy.name}
               </p>
             </Text>
           </div>

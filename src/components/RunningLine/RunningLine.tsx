@@ -1,9 +1,12 @@
+"use client"
 
 import React from 'react'
 import styles from './RunningLine.module.scss'
 import {useRef, useEffect, useState} from 'react'
 import gsap from 'gsap'
-
+export interface StandardComponentProps {
+  data?: any
+}
 const RunningLine = ({ text, image }: { text: string, image?: string }) => {
 
   const isRight = useRef(1);
@@ -16,10 +19,10 @@ const RunningLine = ({ text, image }: { text: string, image?: string }) => {
   const currentScroll: any = useRef(0)
   // const content: any = containerRef.current;
   // content.style.backgroundImage = '/publications.png'
-  // useEffect(() => {
-  //   if( !containerRef && !image ) return
-  //   containerRef.current.style.backgroundImage = `url(https://api.realmofhistoria.com${image})`
-  // },[containerRef, image])
+  useEffect(() => {
+    if( !containerRef && !image ) return
+    containerRef.current.style.backgroundImage = `url(https://api.realmofhistoria.com${image})`
+  },[containerRef, image])
 
   
   const animateBackgroundPosition = (delta: any) => {
