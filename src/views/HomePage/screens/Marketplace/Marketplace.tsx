@@ -13,8 +13,12 @@ import 'swiper/swiper-bundle.css'
 import { useWindowWidth } from '@react-hook/window-size'
 import { NativeUnderpin } from '@/components/NativeUnderpin/NativeUnderpin'
 import { useInView } from 'react-intersection-observer'
-
-const Marketplace = ({isMarket, ref}: {isMarket?: boolean, ref?: any}) => {
+export interface StandardComponentProps {
+    title: string,
+    isMarket?: boolean
+    ref?: any
+  }
+const Marketplace = ({title, isMarket, ref}: StandardComponentProps) => {
 
     const [reff, inView] = useInView()
 
@@ -68,7 +72,7 @@ const Marketplace = ({isMarket, ref}: {isMarket?: boolean, ref?: any}) => {
         <div className={styles.marketplace} ref={ref}>
             {!isMarket &&         
                 <div className={styles.title}>
-                    <p ref={reff} className={`${inView ? styles.viewAnimation : ''}`}>MARKeTPLACe</p>
+                    <p ref={reff} className={`${inView ? styles.viewAnimation : ''}`}>{title}</p>
                     <Divider position={'left top'}></Divider>
                 </div>
             }

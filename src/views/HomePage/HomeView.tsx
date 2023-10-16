@@ -39,6 +39,8 @@ export default function HomeView({data} : StandardComponentProps) {
   const dataOurVisionTitle = useSectionData(data, 'titleROH')
   const dataOurVision2 = useSectionData(data, 'descriptionSTAGE')
   const dataOurVisionTitle2 = useSectionData(data, 'titleSTAGE')
+  const dataMarketplace = useSectionData(data, 'titleMARKETPLACE')
+  
 
 
 
@@ -78,7 +80,7 @@ export default function HomeView({data} : StandardComponentProps) {
             <OurVision data={dataOurVision} title={dataOurVisionTitle} />
             <Panegliph isFirst={false}></Panegliph>
             <OurVision data={dataOurVision2} title={dataOurVisionTitle2}/>
-            <Marketplace></Marketplace>
+            <Marketplace title={dataMarketplace}/>
         </Layout>
     </div>
   )
