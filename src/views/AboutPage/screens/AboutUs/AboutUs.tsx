@@ -9,7 +9,6 @@ export interface StandardComponentProps {
   data?: any
 }
 const AboutUs = ({data} : StandardComponentProps) => {
-   console.log(data)
   return (
     <div className={styles.about}>
       <div className={styles.first}>
