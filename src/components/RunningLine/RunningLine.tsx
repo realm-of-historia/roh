@@ -15,7 +15,10 @@ const RunningLine = ({ text, image }: { text: string, image?: string }) => {
   const currentScroll: any = useRef(0)
   // const content: any = containerRef.current;
   // content.style.backgroundImage = '/publications.png'
-
+  useEffect(() => {
+    if( !containerRef && !image ) return
+    containerRef.current.style.backgroundImage = `url(https://api.realmofhistoria.com${image})`
+  },[containerRef, image])
   const animateBackgroundPosition = (delta: any) => {
     velocity.current = (speed.current / delta) != 0 ? speed.current * 2 / delta : 1
     

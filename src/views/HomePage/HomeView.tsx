@@ -29,8 +29,13 @@ export default function HomeView({data} : StandardComponentProps) {
   const dataCarahunge = useSectionData(data, 'article')
   const dataLobby = useSectionData(data, 'lobby')
   const dataAncient = useSectionData(data, 'historyWorld')
+  const dataBundles = useSectionData(data, 'cardBundles')
+  const dataBundlesText = useSectionData(data, 'viewAllOffers')
+  const dataBundlesHref = useSectionData(data, 'viewAllOffershref')
+  const dataBundlesRibbon = useSectionData(data, 'ribbon')
 
-  console.log(dataAncient)
+
+  console.log(dataBundlesHref)
   const firstBlock = [
     'ROH',
     'Realm of Historia (RoH) is a unique venture aimed at preserving and immortalizing global cultural heritage through the innovative use of blockchain and metaverse technologies. The project will deliver cultural education, immersive experiences, and profitable NFT opportunities while contributing positively to historical preservation through generous donations and charitable opportunities.',
@@ -52,13 +57,13 @@ export default function HomeView({data} : StandardComponentProps) {
             <Carahunge data={dataCarahunge} />
             <NativeUnderpin>
                 <WrapperParallax>
-                  <Lobby data={dataLobby} isCircle={true}></Lobby>
+                  <Lobby data={dataLobby} isCircle={true} />
                 </WrapperParallax>
             </NativeUnderpin>
             <Start></Start>
-            <Ancient data={dataAncient}></Ancient>
+            <Ancient data={dataAncient} />
             <Comments></Comments>
-            <Bundles></Bundles>
+            <Bundles ribbon={dataBundlesRibbon} data={dataBundles} text={dataBundlesText} href={dataBundlesHref}/>
             <Posts></Posts>
             <Videos></Videos>
             <OurVision secondText={firstBlock[3]} list={firstBlock[2]} leftSide={firstBlock[0]} text={firstBlock[1]}></OurVision>
