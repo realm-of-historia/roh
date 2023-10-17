@@ -18,10 +18,10 @@ export interface StandardComponentProps {
     data?: any,
     text?: string,
     href?: any,
-    ribbon? : any
+    ribbon?: any
 }
 
-const Bundles = ({ribbon, data =[], text, href='/' }: StandardComponentProps) => {
+const Bundles = ({ ribbon, data = [], text, href = '/' }: StandardComponentProps) => {
     const { ref, inView } = useInView()
 
     const windowWidth: any = useWindowWidth()
@@ -87,9 +87,13 @@ const Bundles = ({ribbon, data =[], text, href='/' }: StandardComponentProps) =>
                 <SwiperSlide>
                     <Link href={href} className={styles.offers}>
                         <div className={`${inView ? styles.diagonal : ''}`}></div>
-                        <p className={styles.text}>
-                            {'View all offers'}
-                        </p>
+                        {
+                            text &&
+                            <p className={styles.text}>
+                                {text}
+                            </p>
+                        }
+
                         <div className={`${inView ? styles.bigCircle : ''}`}></div>
                         <div className={`${inView ? styles.firstCircle : ''}`}></div>
                         <div className={`${inView ? styles.secondCircle : ''}`}></div>
@@ -100,7 +104,7 @@ const Bundles = ({ribbon, data =[], text, href='/' }: StandardComponentProps) =>
                 </SwiperSlide>
             </Swiper>
         </div>
-  )
+    )
 }
 
 export default Bundles
