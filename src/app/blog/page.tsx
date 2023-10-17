@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import React from 'react'
 import Start from '../../views/HomePage/screens/Start/Start'
@@ -9,27 +9,37 @@ import Posts from '../../views/HomePage/screens/Posts/Posts'
 import Videos from '../../views/HomePage/screens/Videos/Videos'
 import Digest from '@/components/Digest/Digest'
 import Header from '@/components/Header/Header'
+import Layout from '@/components/Layout/Layout'
+import { useApiFetch } from '@/composable/useApiFetch'
+import { useSectionData } from '@/composable/useSectionData'
 
-export default function BlogPage() {
+export default async function BlogPage() {
+    const data = await useApiFetch('api/blog-page?populate[video][populate]=*&populate[cardBundles][populate]=*&populate[collectionOfPictures][populate]=*')
+    const dataStart = useSectionData(data, 'video')
+    const dataAncient = useSectionData(data, 'video')
+
 
     const comments = [[], [], [], []]
- 
+
     const postsData = (comments.map(
         (item: any, index: number) => ({
             slug: `article-post-${index}`
         })
     ))
 
-    return(
-        <div>
-            <Header></Header>
-            <Start></Start>
-            <Ancient></Ancient>
-            <Comments></Comments>
-            <Bundles></Bundles>
-            <Posts></Posts>
-            <Videos></Videos>
-            <Digest></Digest>
-        </div>
+    return (
+        <Layout>
+            {/* <div> */}
+                {/* <Header></Header> */}
+                <Start data={dataStart.data.attributes.url}></Start>
+                <Ancient></Ancient>
+                <Comments></Comments>
+                <Bundles></Bundles>
+                <Posts></Posts>
+                <Videos></Videos>
+                {/* <Digest></Digest> */}
+            {/* </div> */}
+        </Layout>
+
     )
 }

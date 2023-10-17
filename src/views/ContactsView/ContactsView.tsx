@@ -5,6 +5,7 @@ import styles from './ContactsView.module.scss'
 import Contacts from './Contacts/Contacts'
 import HeadOffice from './HeadOffice/HeadOffice'
 import Header from '@/components/Header/Header'
+// import Layout from '@/components/Layout/Layout'
 
 export default function ContactsView() {
     return(
