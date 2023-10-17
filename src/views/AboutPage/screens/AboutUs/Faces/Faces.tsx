@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import styles from './Faces.module.scss'
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
@@ -6,9 +8,12 @@ import SwiperButton from '@/components/SwiperButton/SwiperButton'
 import 'swiper/css/pagination';
 import 'swiper/swiper-bundle.css'
 import { useWindowWidth } from '@react-hook/window-size'
-import {useRef, useEffect, useState} from 'react'
-
-const Faces = () => {
+import { useRef, useEffect, useState } from 'react'
+import ImageMy from '@/components/Image/ImageMy'
+export interface StandardComponentProps {
+  data?: any
+}
+const Faces = ({ data }: StandardComponentProps) => {
 
   const windowWidth: any = useWindowWidth()
   const [width, setWidth]: any = useState()
@@ -16,33 +21,47 @@ const Faces = () => {
 
   useEffect(() => {
     setWidth(windowWidth)
-  }, [windowWidth])  
+  }, [windowWidth])
 
 
   let slides = 3;
 
   if (width <= 576) {
-      slides = 1.2
+    slides = 1.2
   }
 
   const swiperRef = useRef<any>(null)
 
   return (
     <div className={styles.faces}>
-          <Swiper
-          modules={[Navigation, Scrollbar, A11y, Pagination, Autoplay]}
-          // spaceBetween={24}
-          slidesPerView={slides}
-          ref={swiperRef}
-          autoplay={{
-              delay: 0,
-              pauseOnMouseEnter: true,
-          }}
-          loop={true}
-          speed= {6000}
-          className={styles.mySwiper}
-          >
-            <SwiperSlide>
+      <Swiper
+        modules={[Navigation, Scrollbar, A11y, Pagination, Autoplay]}
+        // spaceBetween={24}
+        slidesPerView={slides}
+        ref={swiperRef}
+        autoplay={{
+          delay: 0,
+          pauseOnMouseEnter: true,
+        }}
+        loop={true}
+        speed={6000}
+        className={styles.mySwiper}
+      >
+        {
+          data?.data.map((_: any, i: number) => (
+            <SwiperSlide key={i + 55}>
+              <ImageMy src={_.attributes.url} alt='' width={640} height={640}/>
+            </SwiperSlide>
+          ))
+        }
+        {
+          data?.data.map((_: any, i: number) => (
+            <SwiperSlide key={i + 56}>
+              <ImageMy src={_.attributes.url} alt='' width={640} height={640}/>
+            </SwiperSlide>
+          ))
+        }
+        {/* <SwiperSlide>
               <img src='/Post-1.png' alt='' width={640} height={640}/>
             </SwiperSlide>
             <SwiperSlide>
@@ -59,8 +78,8 @@ const Faces = () => {
             </SwiperSlide>
             <SwiperSlide>
               <img src='/Post.png' alt='' width={640} height={640}/>
-            </SwiperSlide>
-        </Swiper>
+            </SwiperSlide> */}
+      </Swiper>
     </div>
   )
 }

@@ -33,8 +33,18 @@ export default function HomeView({data} : StandardComponentProps) {
   const dataBundlesText = useSectionData(data, 'viewAllOffers')
   const dataBundlesHref = useSectionData(data, 'viewAllOffershref')
   const dataBundlesRibbon = useSectionData(data, 'ribbon')
+  const dataPosts = useSectionData(data, 'lastPost')
+  const dataVideos = useSectionData(data, 'collectionImg')
+  const dataOurVision = useSectionData(data, 'descriptionROH')
+  const dataOurVisionTitle = useSectionData(data, 'titleROH')
+  const dataOurVision2 = useSectionData(data, 'descriptionSTAGE')
+  const dataOurVisionTitle2 = useSectionData(data, 'titleSTAGE')
+  const dataMarketplace = useSectionData(data, 'titleMARKETPLACE')
+  
 
 
+
+  // console.log(dataOurVision)
   const firstBlock = [
     'ROH',
     'Realm of Historia (RoH) is a unique venture aimed at preserving and immortalizing global cultural heritage through the innovative use of blockchain and metaverse technologies. The project will deliver cultural education, immersive experiences, and profitable NFT opportunities while contributing positively to historical preservation through generous donations and charitable opportunities.',
@@ -65,12 +75,12 @@ export default function HomeView({data} : StandardComponentProps) {
             <NativeUnderpin>
                 <Bundles ribbon={dataBundlesRibbon} data={dataBundles} text={dataBundlesText} href={dataBundlesHref}></Bundles>
             </NativeUnderpin>
-            <Posts></Posts>
-            <Videos></Videos>
-            <OurVision secondText={firstBlock[3]} list={firstBlock[2]} leftSide={firstBlock[0]} text={firstBlock[1]}></OurVision>
+            <Posts data={dataPosts}/>
+            <Videos data={dataVideos}/>
+            <OurVision data={dataOurVision} title={dataOurVisionTitle} />
             <Panegliph isFirst={false}></Panegliph>
-            <OurVision secondText={secondBlock[3]} list={secondBlock[2]} leftSide={secondBlock[0]} text={secondBlock[1]}></OurVision>
-            <Marketplace></Marketplace>
+            <OurVision data={dataOurVision2} title={dataOurVisionTitle2}/>
+            <Marketplace title={dataMarketplace}/>
         </Layout>
     </div>
   )

@@ -10,36 +10,36 @@ export interface StandardComponentProps {
     href: any
 }
                 //{ description, image, href }: StandardComponentProps - заменить на то, что ниже
-const Bundle = ({title, price, image, href}: {title: any, price: any, image: any, href: any}) => {
+const Bundle = ({description, image, href}: StandardComponentProps) => {
 
 
     return (
         <Link href={href}>
             <div className={styles.bundle}>
                 <div className={styles.imageContainer}>
-                    <img src={`${image}.png`} alt='' width={480} height={480} />
-                    {/* <ImageMy src={image} alt='' width={480} height={480} /> */}
+                    {/* <img src={`${image}.png`} alt='' width={480} height={480} /> */}
+                    <ImageMy src={image} alt='' width={480} height={480} />
                     <div className={styles.dividerTop}></div>
                     {/* <div className={styles.dividerBottom}></div> */}
                 </div>
                 <div className={styles.dividerRight}></div>
-                {/* {
-                    description.map((_ : any,i : number) => (
+                {
+                    description?.map((_ : any,i : number) => (
                         <div key={i + 22} className={styles.title}>
                             <Text>
                                 <p className={styles.first}>
-                                    {_.title && 'Price'}
+                                    {_.title}
                                 </p>
                             </Text>
                             <Text>
                                 <p className={styles.second}>
-                                    {_.meaning && '28.00$'}
+                                    {_.meaning}
                                 </p>
                             </Text>
                         </div>
                     ))
-                } */}
-                <div className={styles.title}>
+                }
+                {/* <div className={styles.title}>
                 <Text>
                     <p className={styles.first}>
                         Title
@@ -62,7 +62,7 @@ const Bundle = ({title, price, image, href}: {title: any, price: any, image: any
                         {price}
                     </p>
                 </Text>
-            </div> 
+            </div>  */}
             </div>
         </Link>
     )

@@ -8,8 +8,10 @@ import Link from 'next/link'
 import Text from '../Text/Text'
 import {useAuthStore} from '../../store/store'
 
-
-const Header = () => {
+export interface StandardComponentProps {
+  data?: any
+}
+const Header = ({data} : StandardComponentProps) => {
 
   const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
 
@@ -31,10 +33,15 @@ const Header = () => {
             <Link href="/"><img className={styles.logoImage} alt='' width={92} height={38} src='/Logo (2).svg'/></Link>
         </picture>
         <div className={styles.navigation}>
-           <Link href="/"><p>Home</p></Link>
+           {/* <Link href="/"><p>Home</p></Link>
            <Link href="/about"><p>About Us</p></Link>
            <Link href="/contacts"><p>Contacts</p></Link>
-           <Link href="/blog"><p>Blog</p></Link>
+           <Link href="/blog"><p>Blog</p></Link> */}
+           {
+            data?.map((_ : any, i : number) => (
+              <Link key={i + 321} href={_.href}><p>{_.name}</p></Link>
+            ))
+           }
         </div>
         <div className={styles.right}>
            {!isSignedIn ? <Link href="/"><p className={styles.logIn} onClick={handleAuth}>Log In</p></Link> : <div className={styles.logIn}></div>}

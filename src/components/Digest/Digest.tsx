@@ -10,43 +10,24 @@ import Divider from '../Divider/Divider';
 import { InView, useInView } from 'react-intersection-observer';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ImageMy from '../Image/ImageMy';
 
+export interface StandardComponentProps {
+  data?: any,
+  reff?: any
+}
 
-
-const Digest = ({reff}: {reff?: any}) => {
-
+const Digest = ({ reff, data }: StandardComponentProps) => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
-  const [ref, inView ] = useInView()
+  const [ref, inView] = useInView()
 
   const [iconRef, iconRefView] = useInView()
 
-  const disHandler = () => {
-    window.open('https://www.tiktok.com/@realm.of.historia')
+  const handler= (href : any) => {
+    window.open(href)
   }
 
-  const tubeHandler = () => {
-    window.open('https://www.youtube.com/@RealmofHistoria')
-  }
-
-  const twitHandler = () => {
-    window.open('https://twitter.com/RealmofHistoria')
-  }
-
-  const instHandler = () => {
-    window.open('https://www.instagram.com/realmofhistoria/')
-  }
-
-
-  const facebookHandler = () => {
-    window.open('https://www.facebook.com/realmofhistoria')
-  }
-
-  const pintHandler = () => {
-    window.open('https://www.pinterest.com/Realmofhistoria/')
-  }
-
-  
   const validateEmail = (email: any) => {
     const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return pattern.test(email);
@@ -78,15 +59,15 @@ const Digest = ({reff}: {reff?: any}) => {
     setTimeout(() => {
       fetch('https://api.realmofhistoria.com/subscribe', options)
         .then((response) => response.json())
-        .then((data) => {
+        .then((dataMy) => {
           setLoading(false);
-          if (data.error) {
-            if (data.error.toLowerCase().includes('is not a valid email')) {
+          if (dataMy.error) {
+            if (dataMy.error.toLowerCase().includes('is not a valid email')) {
               toast.error('Not a valid email provided.');
             }
-            toast.error(data.error);
+            toast.error(dataMy.error);
           } else
-            if (data.message) {
+            if (dataMy.message) {
               toast.success('Successfully subscribed!');
               setEmail('');
             } else {
@@ -103,49 +84,48 @@ const Digest = ({reff}: {reff?: any}) => {
   return (
     <div className={styles.main} ref={reff}>
       <div className={styles.mainDivider}></div>
-        <div className={styles.subscription}>
-            <div className={styles.header} ref={ref}>
-              <button onClick={disHandler}><div className={`${inView ? styles.translation : ''}`}><img  src='/tiktok.svg' alt='' width='24' height='24'/>TikTok</div></button>
-              <button onClick={tubeHandler}><div className={`${inView ? styles.translation : ''}`}><img src='/youtubeImage.svg' alt='' width='24' height='24'/>YouTube</div></button>
-              <button onClick={twitHandler}><div className={`${inView ? styles.translation : ''}`}><img src='/twitterImage.svg' alt='' width='24' height='24'/>Twitter</div></button>
-              <button onClick={instHandler}><div className={`${inView ? styles.translation : ''}`}><img src='/instagramImage.svg' alt='' width='24' height='24'/>Instagram</div></button>
-              <button onClick={facebookHandler}><div className={`${inView ? styles.translation : ''}`}><img src='/facebook.svg' alt='' width='24' height='24'/>Facebook</div></button>
-              <button onClick={pintHandler}><div className={`${inView ? styles.translation : ''}`}><img src='/pinterest.svg' alt='' width='24' height='24'/>Pinterest</div></button>
+      <div className={styles.subscription}>
+        <div className={styles.header} ref={ref}>
+          {
+            data?.socialNetwork.map((_:any, i:number) => (
+              <button key={i + 666} onClick={() => handler(_.href)}><div className={`${inView ? styles.translation : ''}`}><ImageMy src={_.icon.data.attributes.url} alt='' width='24' height='24'/>{_.name}</div></button>
+            ))
+          }
+        </div>
+        <div className={styles.container}>
+          <div className={styles.text}>
+            <p className={`${inView ? styles.translation : ''}`}>
+              {data?.titleDescription}
+            </p>
+            <p className={`${inView ? styles.translation : ''}`}>
+              {data?.titleRegistration}
+            </p>
+            <div className={`${styles.input_wrapper} ${inView ? styles.translation : ''}`}>
+              <input
+                placeholder='Email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <div className={styles.input_divider}>
+                <div></div>
+                <div></div>
+              </div>
             </div>
-            <div className={styles.container}>
-                <div className={styles.text}>
-                      <p className={`${inView ? styles.translation : ''}`}>
-                          JOIN OUR WeeKLY DIGeST
-                      </p>
-                      <p className={`${inView ? styles.translation : ''}`}>
-                          Get exclusive promotions & updates straight to your inbox.
-                      </p>
-                    <div className={`${styles.input_wrapper} ${inView ? styles.translation : ''}`}>
-                        <input 
-                        placeholder='Email'
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        />
-                        <div className={styles.input_divider}>
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </div>
-                    <button className={`${styles.loaderContainer} ${inView ? styles.translation : ''}`}
-                    onClick={subscribeHandler}>{loading ? (
-                        <Loader/>
-                        ) : (
-                            'Subscribe'
-                        )}
-                    </button>
-                    <div className={styles.left}></div>
-                    <div className={styles.right}></div>
-                </div>
-            </div>
-            <div className={styles.leftDivider}></div>
+            <button className={`${styles.loaderContainer} ${inView ? styles.translation : ''}`}
+              onClick={subscribeHandler}>{loading ? (
+                <Loader />
+              ) : (
+                'Subscribe'
+              )}
+            </button>
+            <div className={styles.left}></div>
+            <div className={styles.right}></div>
+          </div>
+        </div>
+        <div className={styles.leftDivider}></div>
       </div>
       <div className={styles.promotion}>
-        <Image className={styles.logo} alt='' src={'/ROHlogo.svg.svg'} width={630} height={180}/>
+        <Image className={styles.logo} alt='' src={'/ROHlogo.svg.svg'} width={630} height={180} />
         <p className={styles.footer}>
           Ⓒ ROH 2023
         </p>
@@ -154,7 +134,7 @@ const Digest = ({reff}: {reff?: any}) => {
         <Divider position={'top left'}></Divider>
         <Divider position={'top right'}></Divider>
         <div className={styles.divider}></div>
-        <div className={`${ inView ? styles.mainCircle : ''}`}></div>
+        <div className={`${inView ? styles.mainCircle : ''}`}></div>
         <picture><img className={styles.firstElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
         <picture><img className={styles.secondElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
         <picture><img className={styles.thirdElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>

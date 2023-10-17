@@ -7,11 +7,11 @@ import { useInView } from 'react-intersection-observer';
 export interface StandardComponentProps {
   data?: string
 }
-const Ancient = ({data} : StandardComponentProps) => {
+const Ancient = ({data = "there's nothing here"} : StandardComponentProps) => {
   const textRef = useRef(null);
   const [letters, setLetters] = useState([]);
-  const text =  `Th history of th world is a vast and fascinating subjct that ncompasss countlss vntscivilizationsand dvlopmnts From th arlist rcordd civilizations to th prsnt dayth story of humanity is filld with triumphsconflicts discovrisand innovationsIn this txtw willxplorariouspriodsanda`
-  // const text = data
+  // const text =  `Th history of th world is a vast and fascinating subjct that ncompasss countlss vntscivilizationsand dvlopmnts From th arlist rcordd civilizations to th prsnt dayth story of humanity is filld with triumphsconflicts discovrisand innovationsIn this txtw willxplorariouspriodsanda`
+  const text = data
   const [ref, inView] = useInView();
 
   const splitText = () => {
