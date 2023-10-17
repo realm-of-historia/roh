@@ -8,9 +8,9 @@ export default async function Layout({children}: {children: any}) {
     const dataDigest = await useApiFetch('api/footer?populate[socialNetwork][populate]=*')
     return(
         <div>
-            <Header data={dataHeader.data.attributes.link}/>
+            {/* <Header data={dataHeader.data.attributes.link}/> */}
             {children}
-            <Digest data={dataDigest.data.attributes}></Digest>
+            {/* <Digest data={dataDigest.data.attributes}></Digest> */}
         </div>
     )
 }

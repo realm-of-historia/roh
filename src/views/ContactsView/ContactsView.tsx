@@ -10,7 +10,7 @@ import Header from '@/components/Header/Header'
 export default function ContactsView() {
     return(
         <div className={styles.contactsView}>
-            <Header></Header>
+            {/* <Header></Header> */}
             <Contacts></Contacts>
             <HeadOffice></HeadOffice>
         </div>

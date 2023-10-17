@@ -3,6 +3,9 @@ import type { Metadata } from 'next'
 import Head from 'next/head'
 import LenisScroll from '@/components/LenisScroll/LenisScroll'
 import '@/assets/index.scss'
+import { useApiFetch } from '@/composable/useApiFetch'
+import Header from '@/components/Header/Header'
+import Digest from '@/components/Digest/Digest'
 
 
 export const metadata: Metadata = {
@@ -14,16 +17,16 @@ export const metadata: Metadata = {
   }
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default async function RootLayout({ children, }: { children: React.ReactNode }) {
+  const dataHeader = await useApiFetch('api/header?populate=*')
+  const dataDigest = await useApiFetch('api/footer?populate[socialNetwork][populate]=*')
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-        <LenisScroll/>
+        <LenisScroll />
+        <Header data={dataHeader.data.attributes.link} />
         {children}
+        <Digest data={dataDigest.data.attributes}></Digest>
       </body>
     </html>
   )

@@ -11,6 +11,8 @@ import { InView, useInView } from 'react-intersection-observer';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ImageMy from '../Image/ImageMy';
+import { usePathname  } from "next/navigation";
+// import { useRouter } from 'next/router';
 
 export interface StandardComponentProps {
   data?: any,
@@ -27,7 +29,13 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
   const handler= (href : any) => {
     window.open(href)
   }
-
+  const [active, setActive] = useState(true);
+  const router = usePathname()
+  useEffect(() => {
+    if(router.includes('/contacts')){
+      setActive(false)
+    }
+  },[router])
   const validateEmail = (email: any) => {
     const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return pattern.test(email);
@@ -82,7 +90,7 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
   };
 
   return (
-    <div className={styles.main} ref={reff}>
+    <div className={`${styles.main} ${active ? null : styles.mainNoActive}`} ref={reff}>
       <div className={styles.mainDivider}></div>
       <div className={styles.subscription}>
         <div className={styles.header} ref={ref}>
