@@ -76,22 +76,7 @@ export default function Contacts() {
                 />
                 <button type='submit'>Send</button>
             </div>
-            <p className={styles.rightContainer}>
-                {/* <iframe className={styles.right} id='map' src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD29cTxkGM8BgG7Yb-4zvpJrcOpKcttvTc&callback=initializeMap" width="1408" height="591" loading='lazy' allowFullScreen style={{border: 0}}></iframe> */}
-                {/* <iframe id='map' src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD29cTxkGM8BgG7Yb-4zvpJrcOpKcttvTc&callback=initializeMap"></iframe> */}
-                {/* <GoogleMapReact
-                bootstrapURLKeys={{key: 'AIzaSyD29cTxkGM8BgG7Yb-4zvpJrcOpKcttvTc'}}
-                yesIWantToUseGoogleMapApiInternals
-                onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
-                >
-                    <AnyReactComponent
-                        lat={59.955413}
-                        lng={30.337844}
-                        text="My Marker"
-                        />
-                </GoogleMapReact> */}
-                <Map></Map>
-            </p>
+            <img className={styles.right} src='mapImage.png' width={1408} height={591}/>
         </form>
     );
 }
