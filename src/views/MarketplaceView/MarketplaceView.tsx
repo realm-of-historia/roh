@@ -59,7 +59,8 @@ export default function MarketplaceView() {
                 <div key={index}>{element}</div>
             ))}
             {isLoader && <Loader></Loader>}
-            <Digest reff={ref}></Digest>
+            <div style={{width: '100%', height: '1px'}} ref={ref}></div>
+            <Digest></Digest>
         </div>
     )
 }
