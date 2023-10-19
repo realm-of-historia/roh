@@ -47,12 +47,13 @@ const Start = ({ data }: StandardComponentProps) => {
             <Divider position={"top"}></Divider>
             <Divider position={"bottom"} horizontal={true}></Divider>
             <div className={styles.left}>
-                {
-                    data &&
-                    <video className={styles.player} muted autoPlay playsInline loop>
-                        <source src={`https://api.realmofhistoria.com${data}`} type="video/mp4" />
-                    </video>
-                }
+
+                <video className={styles.player} muted autoPlay playsInline loop>
+                    {
+                        data && <source src={`https://api.realmofhistoria.com${data}`} type="video/mp4" />
+                    }
+
+                </video>
 
                 <span className={styles.loader}></span>
                 {/* <img className={styles.player} src='player.png' alt='' width={960} height={540}/> */}

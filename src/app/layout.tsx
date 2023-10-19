@@ -18,13 +18,13 @@ export const metadata: Metadata = {
 }
 
 export default async function RootLayout({ children, }: { children: React.ReactNode }) {
-  const dataHeader = await useApiFetch('api/header?populate=*')
+  const dataHeader = await useApiFetch('api/header?populate[link][populate]=*&populate[logo][populate]=*')
   const dataDigest = await useApiFetch('api/footer?populate[socialNetwork][populate]=*')
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
         <LenisScroll />
-        <Header data={dataHeader.data.attributes.link} />
+        <Header data={dataHeader.data.attributes} />
         {children}
         <Digest data={dataDigest.data.attributes}></Digest>
       </body>

@@ -40,11 +40,8 @@ export default function HomeView({data} : StandardComponentProps) {
   const dataOurVision2 = useSectionData(data, 'descriptionSTAGE')
   const dataOurVisionTitle2 = useSectionData(data, 'titleSTAGE')
   const dataMarketplace = useSectionData(data, 'titleMARKETPLACE')
-  
-
-
-
-  // console.log(dataOurVision)
+  const dataStartVideo = useSectionData(data, 'videoArticles')
+  console.log('video',data.data.attributes.videoArticles)
   const firstBlock = [
     'ROH',
     'Realm of Historia (RoH) is a unique venture aimed at preserving and immortalizing global cultural heritage through the innovative use of blockchain and metaverse technologies. The project will deliver cultural education, immersive experiences, and profitable NFT opportunities while contributing positively to historical preservation through generous donations and charitable opportunities.',
@@ -69,7 +66,7 @@ export default function HomeView({data} : StandardComponentProps) {
                   <Lobby data={dataLobby} isCircle={true} />
                 </WrapperParallax>
             </NativeUnderpin>
-            <Start></Start>
+            <Start data={dataStartVideo.data.attributes.url}></Start>
             <Ancient data={dataAncient} />
             <Comments></Comments>
             <NativeUnderpin>
