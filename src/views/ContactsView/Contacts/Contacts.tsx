@@ -9,8 +9,11 @@ import GoogleMapReact from 'google-map-react';
 import Map from './Map';
 
 const AnyReactComponent = ({text, lat, lng}: {text: any, lat: any, lng: any}) => <div>{text}</div>;
-
-export default function Contacts() {
+export interface StandardComponentProps {
+    title?: string,
+    button?: string,
+}
+export default function Contacts({title, button} : StandardComponentProps) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
@@ -41,7 +44,12 @@ export default function Contacts() {
         <form className={styles.contacts} onSubmit={onSubmit}>
             <div className={styles.left}>
                 <div className={styles.divider}></div>
-                <div><p>SeND US eMAIL</p></div>
+                <div>
+                    {
+                        title && 
+                        <p>{title}</p>
+                    }
+                </div>
                 <SimpleInput
                     register={register}
                     placeholder='Name'
@@ -74,7 +82,10 @@ export default function Contacts() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                 />
-                <button type='submit'>Send</button>
+                {
+                    button && 
+                    <button type='submit'>{button}</button>
+                }
             </div>
             <img className={styles.right} src='mapImage.png' width={1408} height={591}/>
         </form>

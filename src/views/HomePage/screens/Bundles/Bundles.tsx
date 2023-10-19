@@ -18,10 +18,10 @@ export interface StandardComponentProps {
     data?: any,
     text?: string,
     href?: any,
-    ribbon? : any
+    ribbon?: any
 }
 
-const Bundles = ({ribbon, data, text, href='/marketplace' }: StandardComponentProps) => {
+const Bundles = ({ ribbon, data = [], text, href = '/' }: StandardComponentProps) => {
     const { ref, inView } = useInView()
 
     const windowWidth: any = useWindowWidth()
@@ -58,7 +58,6 @@ const Bundles = ({ribbon, data, text, href='/marketplace' }: StandardComponentPr
     }
 
     const swiperRef = useRef<any>(null)
-
     return (
         <div className={styles.bundles} ref={ref}>
             <RunningLine image={ribbon?.data.attributes.url} text='HOTTeST BUNDLeS'></RunningLine>
@@ -69,14 +68,14 @@ const Bundles = ({ribbon, data, text, href='/marketplace' }: StandardComponentPr
                 ref={swiperRef}
                 className={`${styles.mySwiper} ${styles.bundlesContainer}`}
             >
-                {/* {
+                {
                     data?.map((_: any, index: number) => (
                         <SwiperSlide key={index}>
                             <Bundle href={_.href} description={_.description} image={_.img.data.attributes.url}></Bundle>
                         </SwiperSlide>
                     ))
-                } */}
-                <SwiperSlide>
+                }
+                {/* <SwiperSlide>
                     <Bundle title={bundleInfo[0]} price={bundleInfo[1]} image={bundleInfo[2]} href={href}></Bundle>
                 </SwiperSlide>
                 <SwiperSlide>
@@ -84,13 +83,17 @@ const Bundles = ({ribbon, data, text, href='/marketplace' }: StandardComponentPr
                 </SwiperSlide>
                 <SwiperSlide>
                     <Bundle title={bundleInfoThird[0]} price={bundleInfoThird[1]} image={bundleInfoThird[2]} href={href}></Bundle>
-                </SwiperSlide>
+                </SwiperSlide> */}
                 <SwiperSlide>
                     <Link href={href} className={styles.offers}>
                         <div className={`${inView ? styles.diagonal : ''}`}></div>
-                        <p className={styles.text}>
-                            {'View all offers'}
-                        </p>
+                        {
+                            text &&
+                            <p className={styles.text}>
+                                {text}
+                            </p>
+                        }
+
                         <div className={`${inView ? styles.bigCircle : ''}`}></div>
                         <div className={`${inView ? styles.firstCircle : ''}`}></div>
                         <div className={`${inView ? styles.secondCircle : ''}`}></div>
@@ -101,7 +104,7 @@ const Bundles = ({ribbon, data, text, href='/marketplace' }: StandardComponentPr
                 </SwiperSlide>
             </Swiper>
         </div>
-  )
+    )
 }
 
 export default Bundles

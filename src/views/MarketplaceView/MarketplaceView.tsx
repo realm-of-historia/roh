@@ -50,7 +50,7 @@ export default function MarketplaceView() {
 
     return(
         <div style={{overflowX: 'hidden'}}>
-            <Header></Header>
+            {/* <Header></Header> */}
             <MarketplaceTitle></MarketplaceTitle>
             <Panegliph isFirst={false}></Panegliph>
             <Marketplace isMarket={true}></Marketplace>
@@ -60,7 +60,7 @@ export default function MarketplaceView() {
             ))}
             {isLoader && <Loader></Loader>}
             <div style={{width: '100%', height: '1px'}} ref={ref}></div>
-            <Digest></Digest>
+            {/* <Digest reff={ref}></Digest> */}
         </div>
     )
 }

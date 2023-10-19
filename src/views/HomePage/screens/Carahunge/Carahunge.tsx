@@ -14,12 +14,12 @@ const Carahunge = ({data} : StandardComponentProps) => {
         <div className={styles.left}>
             <Text>
                 <p>
-                    {data.title}
+                    {data?.title}
                 </p>
             </Text>
             <Text>
                 <p>    
-                    {data.date}
+                    {data?.date}
                 </p>
             </Text>
         </div>

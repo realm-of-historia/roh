@@ -10,13 +10,17 @@ import {useAuthStore} from '../../store/store'
 import authConfig from '../../authConfig/authConfig'
 import { useEffect } from 'react'
 import {ADAPTER_EVENTS} from '@web3auth/base'
+import { generateSolAuthJSON, confirmSolAuthJSON } from 'sol-auth-json';
+const solanaWeb3 = require('@solana/web3.js');
 
-
-const Header = () => {
+export interface StandardComponentProps {
+  data?: any
+}
+const Header = ({data} : StandardComponentProps) => {
 
   // const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
   const [isSignedIn, setIsSignedIn] = useState(false)
-  const [keypair, setKeypair] = useState()
+  const [keypair, setKeypair]:any = useState() //Это походу не нужно, перепроверить)
 
 
   useEffect(() => {
@@ -34,9 +38,12 @@ const Header = () => {
     setIsSignedIn(true)
     const privateKey = authConfig.provider?.request({
       method: "solanaPrivateKey"
+    }).then(data => {
+      setKeypair(data)
+
     })
-    console.log(privateKey)
   })
+
 
   authConfig.on(ADAPTER_EVENTS.DISCONNECTED, (data: any) => {
     setIsSignedIn(false)
@@ -46,7 +53,21 @@ const Header = () => {
     console.log("error", error);
   });
 
+  useEffect(() => {
+    if(keypair){
+      console.log(keypair)
 
+
+      const test = solanaWeb3.Keypair.generate()
+      console.log(test)
+
+      const solAuthJSON = generateSolAuthJSON(test);
+      const confirmResult = confirmSolAuthJSON(solAuthJSON);
+  
+      console.log(solAuthJSON);
+      console.log(confirmResult);
+    }
+  }, [keypair])
 
 
   
@@ -61,10 +82,15 @@ const Header = () => {
             <Link href="/"><img className={styles.logoImage} alt='' width={92} height={38} src='/Logo (2).svg'/></Link>
         </picture>
         <div className={styles.navigation}>
-           <Link href="/"><p>Home</p></Link>
+           {/* <Link href="/"><p>Home</p></Link>
            <Link href="/about"><p>About Us</p></Link>
            <Link href="/contacts"><p>Contacts</p></Link>
-           <Link href="/blog"><p>Blog</p></Link>
+           <Link href="/blog"><p>Blog</p></Link> */}
+           {
+            data?.map((_ : any, i : number) => (
+              <Link key={i + 321} href={_.href}><p>{_.name}</p></Link>
+            ))
+           }
         </div>
         <div className={styles.right}>
            {!isSignedIn ? <Link href="/"><p className={styles.logIn} onClick={handleAuth}>Log In</p></Link> : <div className={styles.logIn}></div>}

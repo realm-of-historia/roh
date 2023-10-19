@@ -1,27 +1,29 @@
 import React from 'react'
 import styles from './Column.module.scss'
 import Text from '@/components/Text/Text'
-
-const Column = ({secondText, text, list}: {secondText: string | Array<string> | undefined, text: string | Array<string>, list: Array<string> | string}) => {
-
+export interface StandardComponentProps {
+    data?: any,
+}
+const Column = ({ data }: StandardComponentProps) => {
     return (
         <div className={styles.column}>
-            <div className={styles.firstBlock}>
-                <Text><p>About</p></Text>
-                <Text><p>{text}</p></Text>
-            </div>
-            <div className={styles.secondBlock}>
-                <Text><p className={styles.title}>Our vision</p></Text>
-                <div className={styles.container}>
-                    <Text><p>{secondText}</p></Text>
-                    {Array.isArray(list) ? list.map((element: any) => (
-                        <div className={styles.list} key={element}>
-                            <Text><div className={styles.divider}></div></Text>
-                            <Text><p>{element}</p></Text>
+            {
+                data?.map((_: any, i: number) => {
+                    return(
+                    <div key={i + 44} className={styles.secondBlock}>
+                        <Text><p className={styles.title}>{_.description.name}</p></Text>
+                        <div className={styles.container}>
+                            <Text><p>{_.description.description}</p></Text>
+                            {_.list?.map((element: any) => (
+                                <div className={styles.list} key={element.id + 12}>
+                                    <Text><div className={styles.divider}></div></Text>
+                                    <Text><p>{element.text}</p></Text>
+                                </div>
+                            )) }
                         </div>
-                    )) : <Text><p>{list}</p></Text>}
-                </div>
-            </div>
+                    </div>
+                )})
+            }
         </div>
     )
 }
