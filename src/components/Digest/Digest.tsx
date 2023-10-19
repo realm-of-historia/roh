@@ -23,7 +23,7 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [ref, inView] = useInView()
-
+  console.log(data)
   const [iconRef, iconRefView] = useInView()
 
   const handler= (href : any) => {
@@ -95,7 +95,7 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
       <div className={styles.subscription}>
         <div className={styles.header} ref={ref}>
           {
-            data?.socialNetwork.map((_:any, i:number) => (
+            data?.socialNetwork?.map((_:any, i:number) => (
               <button key={i + 666} onClick={() => handler(_.href)}><div className={`${inView ? styles.translation : ''}`}><ImageMy src={_.icon.data.attributes.url} alt='' width='24' height='24'/>{_.name}</div></button>
             ))
           }
@@ -110,7 +110,7 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
             </p>
             <div className={`${styles.input_wrapper} ${inView ? styles.translation : ''}`}>
               <input
-                placeholder='Email'
+                placeholder={data?.placeholder || 'Email'}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -135,7 +135,7 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
       <div className={styles.promotion}>
         <Image className={styles.logo} alt='' src={'/ROHlogo.svg.svg'} width={630} height={180} />
         <p className={styles.footer}>
-          Ⓒ ROH 2023
+          {data?.rofDate}
         </p>
         <Divider horizontal={true} position={'top left'}></Divider>
         <Divider horizontal={true} position={'bottom left'}></Divider>

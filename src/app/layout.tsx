@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children, }: { children: React.ReactNode }) {
   const dataHeader = await useApiFetch('api/header?populate[link][populate]=*&populate[logo][populate]=*')
-  const dataDigest = await useApiFetch('api/footer?populate[socialNetwork][populate]=*')
+  const dataDigest = await useApiFetch('api/footer?populate[socialNetwork][populate]=*&[populate]=*')
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>

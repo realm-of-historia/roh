@@ -12,8 +12,9 @@ const AnyReactComponent = ({text, lat, lng}: {text: any, lat: any, lng: any}) =>
 export interface StandardComponentProps {
     title?: string,
     button?: string,
+    placeholder?: any
 }
-export default function Contacts({title, button} : StandardComponentProps) {
+export default function Contacts({title, button, placeholder} : StandardComponentProps) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [subject, setSubject] = useState('');
@@ -22,7 +23,7 @@ export default function Contacts({title, button} : StandardComponentProps) {
     const {register, handleSubmit} = useForm()
 
     const onSubmit = (data: any) => console.log(data)
-
+    console.log(placeholder)
 
       
       
@@ -52,14 +53,14 @@ export default function Contacts({title, button} : StandardComponentProps) {
                 </div>
                 <SimpleInput
                     register={register}
-                    placeholder='Name'
+                    placeholder={placeholder?.placeholderContactsName || 'Name'}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     isContacts={false}
                     name='name'
                 />
                 <SimpleInput
-                    placeholder='Email'
+                    placeholder={placeholder?.placeholderContactsEmail || 'Email'}
                     register={register}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -68,14 +69,14 @@ export default function Contacts({title, button} : StandardComponentProps) {
                 />
                 <SimpleInput
                     register={register}
-                    placeholder='Subject'
+                    placeholder={placeholder?.placeholderContactsSubject || 'Subject'}
                     isContacts={false}
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
                     name='subject'
                 />
                 <SimpleInput
-                    placeholder='Message'
+                    placeholder={placeholder?.placeholderContactsMessage || 'Message'}
                     isContacts={false}
                     register={register}
                     name='message'
