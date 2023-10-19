@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import Head from 'next/head'
 import LenisScroll from '@/components/LenisScroll/LenisScroll'
 import '@/assets/index.scss'
+import { useEffect } from 'react'
 
 
 export const metadata: Metadata = {
@@ -19,6 +20,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+
+
+
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>

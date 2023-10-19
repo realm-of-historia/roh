@@ -10,6 +10,8 @@ import {useSectionData} from '../composable/useSectionData.js'
 
 export default async function Home() {
   const data = await useApiFetch('api/home-page?populate[swiperTop][populate]=*&populate[article][populate]=*&populate[lobby][populate]=*&populate[cardBundles][populate]=*')
+  
+
   return (
     <main className={styles.main}>
       <HomeView data={data}></HomeView>

@@ -1,21 +1,51 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './Header.module.scss'
 import Icon from '../UI/Icon/Icon'
 import Avatar from './Avatar/Avatar'
 import Link from 'next/link'
 import Text from '../Text/Text'
 import {useAuthStore} from '../../store/store'
+import authConfig from '../../authConfig/authConfig'
+import { useEffect } from 'react'
+import {ADAPTER_EVENTS} from '@web3auth/base'
 
 
 const Header = () => {
 
-  const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
+  // const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
+  const [isSignedIn, setIsSignedIn] = useState(false)
+  const [keypair, setKeypair] = useState()
+
+
+  useEffect(() => {
+    authConfig.initModal();
+  }, [])
+
 
   const handleAuth = () => {
-    useAuthStore.setState({isSignedIn: !isSignedIn})
+    authConfig.connect();
+    console.log(authConfig.connected)
   }
+
+
+  authConfig.on(ADAPTER_EVENTS.CONNECTED, (data: any) => {
+    setIsSignedIn(true)
+    const privateKey = authConfig.provider?.request({
+      method: "solanaPrivateKey"
+    })
+    console.log(privateKey)
+  })
+
+  authConfig.on(ADAPTER_EVENTS.DISCONNECTED, (data: any) => {
+    setIsSignedIn(false)
+  })
+
+  authConfig.on(ADAPTER_EVENTS.ERRORED, (error) => {
+    console.log("error", error);
+  });
+
 
 
 
