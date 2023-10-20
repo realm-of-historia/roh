@@ -133,7 +133,7 @@
             }
         }
 
-        .talking{
+        img{
             width: 100%;
             height: rm(468);
             margin-bottom: rm(64);
@@ -164,6 +164,7 @@
                 color: color(text-brown);
                 font-size: font(18);
                 line-height: 160%;
+                white-space: pre-wrap;
             }
         }
     }

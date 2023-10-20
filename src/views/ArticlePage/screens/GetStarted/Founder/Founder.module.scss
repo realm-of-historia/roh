@@ -17,16 +17,16 @@
     }
 
     img{
-        width: rm(80);
-        height: rm(80);
-        margin-right: rm(64);
-        margin-left: rm(64);
+        width: rm(80) !important;
+        height: rm(80) !important;
+        margin-right: rm(64) !important;
+        margin-left: rm(64) !important;
 
         @include xsm{
-            width: rm(48);
-            height: rm(48);
-            margin-left: rm(32);
-            margin-right: rm(32);
+            width: rm(48) !important;
+            height: rm(48) !important;
+            margin-left: rm(32) !important;
+            margin-right: rm(32) !important;
         }
     }
 
