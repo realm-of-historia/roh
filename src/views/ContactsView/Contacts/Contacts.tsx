@@ -23,9 +23,6 @@ export default function Contacts({title, button, placeholder} : StandardComponen
     const {register, handleSubmit} = useForm()
 
     const onSubmit = (data: any) => console.log(data)
-    console.log(placeholder)
-
-      
       
     // function initializeMap() {
     //     const mapOptions = {

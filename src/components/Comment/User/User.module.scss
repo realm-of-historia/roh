@@ -10,28 +10,32 @@
     }
 
     .commentImage{
-        width: rm(24);
-        height: rm(24);
-        margin-right: rm(20);
+        img{
+            width: rm(24);
+            height: rm(24);
+            margin-right: rm(20);
+        }
     }
 
     .newsImage{
-        width: rm(48);
-        height: rm(48);
-        margin-right: rm(16);
-        margin-left: rm(32);
-
-        @include md{
-            width: rm(32);
-            height: rm(32);
-            margin-left: rm(24);
-        }
-
-        @include xsm{
+        img{
             width: rm(48);
             height: rm(48);
             margin-right: rm(16);
             margin-left: rm(32);
+    
+            @include md{
+                width: rm(32);
+                height: rm(32);
+                margin-left: rm(24);
+            }
+    
+            @include xsm{
+                width: rm(48);
+                height: rm(48);
+                margin-right: rm(16);
+                margin-left: rm(32);
+            }
         }
     }
 

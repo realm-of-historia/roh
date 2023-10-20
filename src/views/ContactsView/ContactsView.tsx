@@ -26,7 +26,6 @@ export default function ContactsView({data} : StandardComponentProps) {
         placeholderContactsSubject,
         placeholderContactsMessage
     }
-    console.log(data)
     return(
         <div className={styles.contactsView}>
             {/* <Header></Header> */}

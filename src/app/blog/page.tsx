@@ -14,7 +14,7 @@ import { useApiFetch } from '@/composable/useApiFetch'
 import { useSectionData } from '@/composable/useSectionData'
 
 export default async function BlogPage() {
-    const data = await useApiFetch('api/blog-page?populate[video][populate]=*&populate[cardBundles][populate]=*&populate[collectionOfPictures][populate]=*&populate[ribbon][populate]=*&populate[instagramPostText][populate]=*')
+    const data = await useApiFetch('api/blog-page?populate[video][populate]=*&populate[cardBundles][populate]=*&populate[collectionOfPictures][populate]=*&populate[ribbon][populate]=*&populate[instagramPostText][populate]=*&populate[articles][populate]=*')
     const dataStart = useSectionData(data, 'video')
     const dataAncient = useSectionData(data, 'ancientText')
     const dataBundlesRibbon = useSectionData(data, 'ribbon')
@@ -23,6 +23,8 @@ export default async function BlogPage() {
     const dataBundlesHref = useSectionData(data, 'offersHref')
     const dataPosts = useSectionData(data, 'instagramPostText')
     const dataVideos = useSectionData(data, 'collectionOfPictures')
+    const dataStartArticles = useSectionData(data, 'articles')
+
 
     const comments = [[], [], [], []]
 
@@ -33,18 +35,18 @@ export default async function BlogPage() {
     ))
 
     return (
-        <Layout>
-            {/* <div> */}
-                {/* <Header></Header> */}
-                <Start data={dataStart.data.attributes.url}></Start>
-                <Ancient data={dataAncient}></Ancient>
-                <Comments></Comments>
-                <Bundles ribbon={dataBundlesRibbon} data={dataBundles} text={dataBundlesText} href={dataBundlesHref}></Bundles>
-                <Posts data={dataPosts}></Posts>
-                <Videos data={dataVideos}></Videos>
-                {/* <Digest></Digest> */}
-            {/* </div> */}
-        </Layout>
+        // <Layout>
+        <div>
+            {/* <Header></Header> */}
+            <Start data={dataStart.data.attributes.url} articles={dataStartArticles}></Start>
+            <Ancient data={dataAncient}></Ancient>
+            <Comments></Comments>
+            <Bundles ribbon={dataBundlesRibbon} data={dataBundles} text={dataBundlesText} href={dataBundlesHref}></Bundles>
+            <Posts data={dataPosts}></Posts>
+            <Videos data={dataVideos}></Videos>
+            {/* <Digest></Digest> */}
+        </div>
+        // </Layout>
 
     )
 }

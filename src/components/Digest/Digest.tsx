@@ -23,7 +23,6 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [ref, inView] = useInView()
-  console.log(data)
   const [iconRef, iconRefView] = useInView()
 
   const handler= (href : any) => {
