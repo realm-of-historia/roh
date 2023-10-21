@@ -10,11 +10,11 @@ import Layout from '@/components/Layout/Layout'
 export default function LobbyView() {
     return(
         <div style={{overflowX: 'hidden'}}>
-            <Layout>
+            {/* <Layout> */}
                 <ParallaxProvider>
                     <Lobby></Lobby>
                 </ParallaxProvider>
-            </Layout>
+            {/* </Layout> */}
         </div>
     )
 }
