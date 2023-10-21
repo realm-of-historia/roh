@@ -22,7 +22,7 @@ const ImageMy = forwardRef(function ImageMy({ src, width, height, alt = '' }: { 
                         <source src={url} type="video/mp4" />
                     </video>
                     :
-                    <img ref={ref} src={url} width={width} height={height} alt={alt} />
+                    <Image ref={ref} src={url} width={width} height={height} alt={alt} />
             }
 
         </>
