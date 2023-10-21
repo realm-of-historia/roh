@@ -6,13 +6,15 @@ import Lobby from '@/views/HomePage/screens/Lobby/Lobby'
 import Digest from '@/components/Digest/Digest'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import Layout from '@/components/Layout/Layout'
-
-export default function LobbyView() {
+export interface StandardComponentProps {
+    data?: any,
+}
+export default function LobbyView({data} : StandardComponentProps) {
     return(
         <div style={{overflowX: 'hidden'}}>
             {/* <Layout> */}
                 <ParallaxProvider>
-                    <Lobby></Lobby>
+                    <Lobby data={data.data.attributes}></Lobby>
                 </ParallaxProvider>
             {/* </Layout> */}
         </div>
