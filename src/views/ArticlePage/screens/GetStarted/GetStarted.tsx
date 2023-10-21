@@ -95,7 +95,7 @@ const GetStarted = ({data, article, dataArticleLast} : StandardComponentProps) =
                     <Posts dataArticleLast={dataArticleLast} title={recentPostsTitle}></Posts>
                 </div>
             </div>
-            {/* <div className={styles.footer}>
+            <div className={styles.footer}>
                 <div className={styles.block}> <p>Facebook</p></div>
                 <div className={styles.block}><p>Instagram</p></div>
                 <div className={styles.block}><p>GitHub</p></div>
@@ -103,7 +103,7 @@ const GetStarted = ({data, article, dataArticleLast} : StandardComponentProps) =
                 <div className={styles.block}><p>Pinterest</p></div>
                 <div className={styles.block}><p>Twitter</p></div>
                 <div className={styles.block}><p>Dribbble</p></div>
-            </div> */}
+            </div>
         </div>
     )
 }

@@ -16,10 +16,11 @@ const Start = ({ data, articles }: StandardComponentProps) => {
 
     useMemo(() => {
         if (!articles) { return }
-        const articlesFilterR = articles.data.filter((_: any, index: number) => index % 2 != 0)
-        const articlesFilterL = articles.data.filter((_: any, index: number) => index % 2 == 0)
-        setArticlesMyR(articlesFilterR)
-        setArticlesMyL(articlesFilterL)
+        let lengthFirst = Math.floor(articles.data.length / 2) + 1;
+        let firstSubarray = articles.data.slice(0, lengthFirst);
+        let secondSubarray = articles.data.slice(lengthFirst);
+        setArticlesMyR(firstSubarray)
+        setArticlesMyL(secondSubarray)
     }, [articles])
     const firstComment = [
         ['First art real world asset based NFT.', 'How to get started tutorial.'],
