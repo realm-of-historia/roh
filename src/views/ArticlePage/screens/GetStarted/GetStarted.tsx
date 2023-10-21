@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useMemo } from 'react'
 import styles from './GetStarted.module.scss'
 import PostInfo from './PostInfo/PostInfo'
 import Founder from './Founder/Founder'
@@ -21,26 +21,32 @@ export interface StandardComponentProps {
 }
 
 const GetStarted = ({data, article, dataArticleLast} : StandardComponentProps) => {
-    console.log(data)
+    // console.log(data)
     const searchBlog = useSectionData(data, 'searchBlog')
     const searchBlogplaceholder = useSectionData(data, 'searchBlogplaceholder')
     const recentPostsTitle = useSectionData(data, 'recentPostsTitle')
     const categoriesTitle = useSectionData(data, 'categoriesTitle')
     const listOfCategories = useSectionData(data, 'listOfCategories')
-    
-
+    const creationDateIcon = useSectionData(data, 'creationDateIcon')
+    const familiarizationTimeImg = useSectionData(data, 'familiarizationTimeImg')
     const articleData = article?.data[0].attributes
-
+    console.log(articleData)
     const [text, setText] = useState('')
 
     const {register} = useForm()
-
-    const infos = [
-        ['calendar', '06 April, 2021'],
-        ['briefcase', 'Announcements'],
-        ['chat-smile', '24 comments'],
-        ['oclock', '5 mins']
-    ]
+    const newDate = useMemo(() => {
+        if(!articleData.createdAt) {return}
+        const dateMy = new Date(articleData.createdAt);
+        const options : any = { year: 'numeric', month: 'short', day: 'numeric' };
+        const formattedDate = dateMy.toLocaleDateString('en-US', options);
+        return formattedDate
+      },[article])
+    // const infos = [
+    //     ['calendar', '06 April, 2021'],
+    //     ['briefcase', 'Announcements'],
+    //     ['chat-smile', '24 comments'],
+    //     ['oclock', '5 mins']
+    // ]
 
     const categories = [
         'Categories',
@@ -61,9 +67,11 @@ const GetStarted = ({data, article, dataArticleLast} : StandardComponentProps) =
                     <div className={styles.dividerRight}></div>
                     <p className={styles.title}>{articleData?.title}</p>
                     <div className={styles.infos}>
-                        {infos.map((el) => (
+                        {/* {infos.map((el) => (
                             <PostInfo key={el[0]} label={el[0]} text={el[1]}></PostInfo>
-                        ))}
+                        ))} */}
+                        <PostInfo  label={creationDateIcon?.data.attributes.url} text={newDate}></PostInfo>
+                        <PostInfo  label={familiarizationTimeImg?.data.attributes.url} text={articleData.familiarizationTime}></PostInfo>
                     </div>
                     <ImageMy src={articleData?.img.data.attributes.url} height={468} width={1068} alt=''/>
                     <div className={styles.text}>
@@ -95,15 +103,21 @@ const GetStarted = ({data, article, dataArticleLast} : StandardComponentProps) =
                     <Posts dataArticleLast={dataArticleLast} title={recentPostsTitle}></Posts>
                 </div>
             </div>
-            <div className={styles.footer}>
-                <div className={styles.block}> <p>Facebook</p></div>
+            {/* <div className={styles.footer}> */}
+                {/* <div className={styles.block}> <p>Facebook</p></div>
                 <div className={styles.block}><p>Instagram</p></div>
                 <div className={styles.block}><p>GitHub</p></div>
                 <div className={styles.block}><p>Behance</p></div>
                 <div className={styles.block}><p>Pinterest</p></div>
                 <div className={styles.block}><p>Twitter</p></div>
-                <div className={styles.block}><p>Dribbble</p></div>
-            </div>
+                <div className={styles.block}><p>Dribbble</p></div> */}
+                {/* {
+                        articleData?.link &&
+                        articleData?.link.map((_:any, i : number) => (
+                            <Link key={i + 909} href={_.href}  className={styles.block}><p>{_.name}</p></Link>
+                        ))
+                    } */}
+            {/* </div> */}
         </div>
     )
 }

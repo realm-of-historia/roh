@@ -15,15 +15,13 @@ export interface StandardComponentProps {
 }
 export default async function ArticlePage(slug :StandardComponentProps) {
     console.log( slug.params.slug)
-    const data = await useApiFetch('api/blog-article?populate[cardBundles][populate]=*&populate[listOfCategories][populate]=*&populate[ribbon][populate]=*')
+    const data = await useApiFetch('api/blog-article?populate[cardBundles][populate]=*&populate[listOfCategories][populate]=*&populate[ribbon][populate]=*&populate[familiarizationTimeImg][populate]=*&populate[creationDateIcon][populate]=*')
     const dataArticleLast = await useApiFetch(`api/articles?pagination[pageSize]=4&fields[0]=title&fields[1]=uid`)
     const dataArticle = await useApiFetch(`api/articles?filters[uid][$eq]=${slug.params.slug}&populate=*`)
     const cardBundlesText = useSectionData(data, 'cardBundlesText')
     const cardBundlesHref = useSectionData(data, 'cardBundlesHref')
     const cardBundles = useSectionData(data, 'cardBundles')
     const ribbon = useSectionData(data, 'ribbon')
-    console.log(cardBundles)
-    console.log(dataArticle)
     return(
         <div>
             <GetStarted data={data} article={dataArticle} dataArticleLast={dataArticleLast}></GetStarted>
