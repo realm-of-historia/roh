@@ -1,0 +1,25 @@
+@use '../assets/styles/index.scss' as *;
+
+@keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    //   stroke-dasharray: 0;
+    }
+  }
+  
+
+  .loading{
+    display: flex;
+    gap: rm(30);
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .svgContainer {
+  
+    path{
+        animation: dash 4s ease-in-out forwards;
+    }
+  }

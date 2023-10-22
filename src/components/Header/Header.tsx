@@ -11,6 +11,9 @@ import authConfig from '../../authConfig/authConfig'
 import { useEffect } from 'react'
 import {ADAPTER_EVENTS} from '@web3auth/base'
 import { generateSolAuthJSON, confirmSolAuthJSON } from 'sol-auth-json';
+import { redirect, usePathname } from 'next/navigation'
+
+
 const solanaWeb3 = require('@solana/web3.js');
 
 export interface StandardComponentProps {
@@ -21,29 +24,24 @@ const Header = ({data} : StandardComponentProps) => {
   // const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
   const [isSignedIn, setIsSignedIn] = useState(false)
   const [keypair, setKeypair]:any = useState() //Это походу не нужно, перепроверить)
-
-
-  useEffect(() => {
-    authConfig.initModal();
-  }, [])
-
+  const pathname = usePathname()
+  const [token, setToken] = useState()
 
   const handleAuth = () => {
     authConfig.connect();
     console.log(authConfig.connected)
   }
 
+  useEffect(() => {
+    authConfig.initModal();
+  }, [])
+
+
+  //listeners
 
   authConfig.on(ADAPTER_EVENTS.CONNECTED, (data: any) => {
     setIsSignedIn(true)
-    const privateKey = authConfig.provider?.request({
-      method: "solanaPrivateKey"
-    }).then(data => {
-      setKeypair(data)
-
-    })
   })
-
 
   authConfig.on(ADAPTER_EVENTS.DISCONNECTED, (data: any) => {
     setIsSignedIn(false)
@@ -53,23 +51,40 @@ const Header = ({data} : StandardComponentProps) => {
     console.log("error", error);
   });
 
+
+
   useEffect(() => {
-    if(keypair){
-      console.log(keypair)
-
-
+    if(isSignedIn){
       const test = solanaWeb3.Keypair.generate()
-      console.log(test)
 
       const solAuthJSON = generateSolAuthJSON(test);
       const confirmResult = confirmSolAuthJSON(solAuthJSON);
   
-      console.log(solAuthJSON);
-      console.log(confirmResult);
+      fetch('https://api.realmofhistoria.com/api/web3auth/', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(solAuthJSON),
+      })
+        .then(response => response.json())
+        .then(data => {
+          setToken(data.token)
+          console.log(data.token)
+        })
+        .catch(error => {
+          console.error("ошибка:", error);
+        });
     }
-  }, [keypair])
+  }, [isSignedIn])
 
 
+  useEffect(() => {
+    if(pathname.indexOf('/user') === 0 && !isSignedIn) {
+      redirect('/')
+    }
+  }, [pathname])
   
 
 

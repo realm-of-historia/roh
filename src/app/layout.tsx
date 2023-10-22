@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import Head from 'next/head'
 import LenisScroll from '@/components/LenisScroll/LenisScroll'
 import '@/assets/index.scss'
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 import { useApiFetch } from '@/composable/useApiFetch'
 import Header from '@/components/Header/Header'
 import Digest from '@/components/Digest/Digest'
@@ -44,7 +44,9 @@ export default async function RootLayout({ children, }: { children: React.ReactN
       <body suppressHydrationWarning={true}>
         <LenisScroll />
         <Header data={dataHeader.data.attributes.link} />
-        {children}
+        <Suspense fallback>
+          {children}
+        </Suspense>
         <Digest data={dataDigest.data.attributes}></Digest>
       </body>
     </html>
