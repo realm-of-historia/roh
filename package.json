@@ -45,6 +45,7 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
-    "@types/google-map-react": "^2.1.8"
+    "@types/google-map-react": "^2.1.8",
+    "@types/json-schema": "^7.0.14"
   }
 }

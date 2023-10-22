@@ -45,8 +45,7 @@ const Comments = ({ data }: { data?: any }) => {
                             title={_.attributes.title}
                             avatar={_.attributes.avatar.data.attributes.url}
                             name={_.attributes.nameAndAchievements}
-                            date={_.attributes.createdAt}>
-                        </News>
+                            date={_.attributes.createdAt}/>
                     </Link>
                 ))
             }

@@ -9,7 +9,7 @@ const Creatures = ({text, price, image, items}: {text?: string | Array<string>, 
   return (
     <div className={styles.creatures}>
         {Array.isArray(items) ? items.map((element: any, index: number) => (
-            <Item isArtist={true} key={index + 912} image={element.img.data.attributes.url} description={element.description} href={element.href}></Item>
+            <Item isArtist={true} key={index + 912} image={element.img.data.attributes.url} description={element.description} href={element.href}/>
         )) : <></>}
         {}
     </div>

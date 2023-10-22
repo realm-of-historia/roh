@@ -98,8 +98,7 @@ export default function ArtistView({ data }: { data: any }) {
                         avatar={element.attributes.avatar?.data.attributes.url}
                         name={element.attributes.name}
                         spec={element.attributes.class}
-                        text={element.attributes.description}>
-                    </Artist>
+                        text={element.attributes.description}/>
                 ))}
             </Layout>
         </div>

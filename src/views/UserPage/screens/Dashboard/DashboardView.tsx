@@ -10,11 +10,9 @@ import Payment from '@/views/UserPage/screens/Dashboard/Payment/Payment'
 export default function DashboardView() {
     return(
         <div>
-            <Header></Header>
             <UserInfo></UserInfo>
             <UserNavigation></UserNavigation>
             <Payment></Payment>
-            <Digest></Digest>
         </div>
     )
 }

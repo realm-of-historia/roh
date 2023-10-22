@@ -10,8 +10,8 @@ import {useAuthStore} from '../../store/store'
 import authConfig from '../../authConfig/authConfig'
 import { useEffect } from 'react'
 import {ADAPTER_EVENTS} from '@web3auth/base'
-import { generateSolAuthJSON, confirmSolAuthJSON } from 'sol-auth-json';
 import { redirect, usePathname } from 'next/navigation'
+const { generateSolAuthJSON, confirmSolAuthJSON } = require('sol-auth-json');
 const solanaWeb3 = require('@solana/web3.js');
 
 import ImageMy from '../Image/ImageMy'
@@ -23,7 +23,7 @@ const Header = ({data} : StandardComponentProps) => {
 
   // const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
   const [isSignedIn, setIsSignedIn] = useState(false)
-  const [keypair, setKeypair]:any = useState() //Это походу не нужно, перепроверить)
+  const [keypair, setKeypair]:any = useState()
   const pathname = usePathname()
   const [token, setToken] = useState()
 
@@ -96,14 +96,14 @@ const Header = ({data} : StandardComponentProps) => {
         <div className={styles.rightDivider}></div>
         <div className={styles.bottomDivider}></div>
         <picture>
-            {/* <Link href="/" className={styles.logoImage}><ImageMy alt='' width={92} height={38} src={}/></Link> */}
+            <Link href="/" className={styles.logoImage}><ImageMy alt='' width={92} height={38} src={data?.logo.data.attributes.url}/></Link>
         </picture>
         <div className={styles.navigation}>
-           {/* {
+           {
             data?.link.map((_ : any, i : number) => (
               <Link key={i + 321} href={_.href}><p>{_.name}</p></Link>
             ))
-           } */}
+           }
         </div>
         <div className={styles.right}>
            {!isSignedIn ? <Link href="/"><p className={styles.logIn} onClick={handleAuth}>Log In</p></Link> : <div className={styles.logIn}></div>}

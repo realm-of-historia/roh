@@ -85,7 +85,7 @@ const GetStarted = ({data, article, dataArticleLast} : StandardComponentProps) =
                     {
                         articleData?.link &&
                         articleData?.link.map((_:any, i : number) => (
-                            <Link href={_.href}  className={styles.block}><p>{_.name}</p></Link>
+                            <Link key={i} href={_.href}  className={styles.block}><p>{_.name}</p></Link>
                         ))
                     }
                 </div> 

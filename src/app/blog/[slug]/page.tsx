@@ -10,11 +10,11 @@ import Digest from '@/components/Digest/Digest'
 import { useApiFetch } from '@/composable/useApiFetch'
 import { useSectionData } from '@/composable/useSectionData'
 export interface StandardComponentProps {
-    slug?: string,
-    params?: any
+    slug?: any | undefined,
+    params?: any | undefined
 }
-export default async function ArticlePage(slug :StandardComponentProps) {
-    console.log( slug.params.slug)
+export default async function ArticlePage(slug: any) {
+    // console.log( slug.params.slug)
     const data = await useApiFetch('api/blog-article?populate[cardBundles][populate]=*&populate[listOfCategories][populate]=*&populate[ribbon][populate]=*&populate[familiarizationTimeImg][populate]=*&populate[creationDateIcon][populate]=*')
     const dataArticleLast = await useApiFetch(`api/articles?pagination[pageSize]=4&fields[0]=title&fields[1]=uid`)
     const dataArticle = await useApiFetch(`api/articles?filters[uid][$eq]=${slug.params.slug}&populate=*`)

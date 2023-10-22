@@ -9,6 +9,7 @@ import Header from '@/components/Header/Header'
 import Digest from '@/components/Digest/Digest'
 import authConfig from '@/authConfig/authConfig'
 import {ADAPTER_EVENTS} from '@web3auth/base'
+import Loading from './loading'
   
 
 export const metadata: Metadata = {
@@ -24,30 +25,17 @@ export default async function RootLayout({ children, }: { children: React.ReactN
   const dataHeader = await useApiFetch('api/header?populate=*')
   const dataDigest = await useApiFetch('api/footer?populate[socialNetwork][populate]=*')
 
-  // async function getPrivateKey() {
-  //   const privateKey = await authConfig.provider?.request({
-  //     method: "solanaPrivateKey"
-  //   }).then((data: any) => {
-  //     console.log(data)
-  //   })
-  // } 
-
-  //   getPrivateKey()
 
 
-  // authConfig.on(ADAPTER_EVENTS.CONNECTED, (data: any) => {
-  //   getPrivateKey()
-  // })
-  
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
         <LenisScroll />
-        <Header data={dataHeader.data.attributes.link} />
-        <Suspense>
-          {children}
+        <Suspense fallback={<Loading></Loading>}>
+          <Header data={dataHeader.data.attributes} />
+            {children}
+          <Digest data={dataDigest.data.attributes}></Digest>
         </Suspense>
-        <Digest data={dataDigest.data.attributes}></Digest>
       </body>
     </html>
   )

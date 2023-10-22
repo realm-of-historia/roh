@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Text from '@/components/Text/Text'
 import ImageMy from '@/components/Image/ImageMy'
 
-const Item = ({ title, price, image, isText, isArtist, description, href }: { title: string | Array<string>, price: string | Array<string>, image: string | Array<string>, isText?: boolean, isArtist?: boolean, description?: any , href? :any}) => {
+const Item = ({ title, price, image, isText, isArtist, description, href }: { title?: string | Array<string>, price?: string | Array<string>, image: string | Array<string>, isText?: boolean, isArtist?: boolean, description?: any , href? :any}) => {
 
     return (
         <Link href={href || '/marketplace'}>

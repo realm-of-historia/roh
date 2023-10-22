@@ -5,11 +5,11 @@ import styles from './loading.module.scss'
 
 export default function Loading() {
 
-    useEffect(() => {
-        const path: any = document.querySelector('.svg-path');
-        const length = path.getTotalLength();
-        console.log(length)
-    })
+    // useEffect(() => {
+    //     const path: any = document.querySelector('.svg-path');
+    //     const length = path.getTotalLength();
+    //     console.log(length)
+    // })
 
     return(
         <div className={styles.loading}>
@@ -22,7 +22,6 @@ export default function Loading() {
             <svg className={styles.svgContainer} width="166" height="241" viewBox="0 0 166 241" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path className='svg-path' strokeDasharray="890.959228515625" strokeDashoffset="890.959228515625" d="M5 0V120.5M5 241V120.5M5 120.5H161V0V241" stroke="#583F21" stroke-width="9"/>
             </svg>
-
         </div>
     )
 }
