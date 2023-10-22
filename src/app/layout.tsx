@@ -44,7 +44,7 @@ export default async function RootLayout({ children, }: { children: React.ReactN
       <body suppressHydrationWarning={true}>
         <LenisScroll />
         <Header data={dataHeader.data.attributes.link} />
-        <Suspense fallback>
+        <Suspense>
           {children}
         </Suspense>
         <Digest data={dataDigest.data.attributes}></Digest>

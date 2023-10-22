@@ -31,7 +31,7 @@ const Lobby = ({isCircle, data} : StandardComponentProps) => {
 
     const handleAnimation = () =>  {
         if(strokeDashOffset != 332) {
-            router.push(data.href);
+            router.push(data?.href);
         }
     }
 

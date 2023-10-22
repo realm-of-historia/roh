@@ -219,7 +219,7 @@
             line-height: 160%;
             @include font-work-regular;
             position: absolute;
-            bottom: rm(-280);
+            bottom: rm(32);
             z-index: 1000;
 
             @include md{

@@ -12,9 +12,9 @@ import { useEffect } from 'react'
 import {ADAPTER_EVENTS} from '@web3auth/base'
 import { generateSolAuthJSON, confirmSolAuthJSON } from 'sol-auth-json';
 import { redirect, usePathname } from 'next/navigation'
-
-
 const solanaWeb3 = require('@solana/web3.js');
+
+import ImageMy from '../Image/ImageMy'
 
 export interface StandardComponentProps {
   data?: any
@@ -88,24 +88,22 @@ const Header = ({data} : StandardComponentProps) => {
   
 
 
+  console.log(data)
+
   return (
     <div className={styles.header}>
         <div className={styles.leftDivider}></div>
         <div className={styles.rightDivider}></div>
         <div className={styles.bottomDivider}></div>
         <picture>
-            <Link href="/"><img className={styles.logoImage} alt='' width={92} height={38} src='/Logo (2).svg'/></Link>
+            {/* <Link href="/" className={styles.logoImage}><ImageMy alt='' width={92} height={38} src={}/></Link> */}
         </picture>
         <div className={styles.navigation}>
-           {/* <Link href="/"><p>Home</p></Link>
-           <Link href="/about"><p>About Us</p></Link>
-           <Link href="/contacts"><p>Contacts</p></Link>
-           <Link href="/blog"><p>Blog</p></Link> */}
-           {
-            data?.map((_ : any, i : number) => (
+           {/* {
+            data?.link.map((_ : any, i : number) => (
               <Link key={i + 321} href={_.href}><p>{_.name}</p></Link>
             ))
-           }
+           } */}
         </div>
         <div className={styles.right}>
            {!isSignedIn ? <Link href="/"><p className={styles.logIn} onClick={handleAuth}>Log In</p></Link> : <div className={styles.logIn}></div>}

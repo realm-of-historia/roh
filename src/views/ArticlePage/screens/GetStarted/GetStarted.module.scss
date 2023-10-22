@@ -133,7 +133,7 @@
             }
         }
 
-        .talking{
+        img{
             width: 100%;
             height: rm(468);
             margin-bottom: rm(64);
@@ -145,7 +145,26 @@
                 margin-top: rm(32);
             }
         }
-
+        video{
+            position: relative;
+            width: 100%;
+            height: rm(468);
+            margin-bottom: rm(64);
+            margin-top: rm(64);
+            @include xsm{
+                height: rm(286);
+                margin-bottom: rm(32);
+                margin-top: rm(32);
+            }
+            source{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+            
+        }
         .text{
             display: flex;
             flex-direction: column;
@@ -164,6 +183,7 @@
                 color: color(text-brown);
                 font-size: font(18);
                 line-height: 160%;
+                white-space: pre-wrap;
             }
         }
     }

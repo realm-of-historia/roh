@@ -1,10 +1,9 @@
+import { useApiFetch } from "@/composable/useApiFetch"
 import ArtistView from "@/views/ArtistPage/ArtistView"
 
-export default function Artists() {
-
-
-    
+export default async function Artists() {
+    const data = await useApiFetch('api/artists?populate[avatar][populate]=*&populate[work][populate]=*')
     return(
-        <ArtistView></ArtistView>
+        <ArtistView data={data}></ArtistView>
     )
 }

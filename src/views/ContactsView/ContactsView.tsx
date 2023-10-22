@@ -15,11 +15,21 @@ export default function ContactsView({data} : StandardComponentProps) {
     const dataContactsButton = useSectionData(data, 'button')
     const dataHeadOfficeContacts = useSectionData(data, 'contacts')
     const dataHeadOfficeSocialMedia = useSectionData(data, 'socialMedia')
-    console.log(data)
+    const placeholderContactsName = useSectionData(data, 'placeholderName')
+    const placeholderContactsEmail = useSectionData(data, 'placeholderEmail')
+    const placeholderContactsSubject = useSectionData(data, 'placeholderSubject')
+    const placeholderContactsMessage = useSectionData(data, 'placeholderMessage')
+
+    const placeholderContacts ={
+        placeholderContactsName,
+        placeholderContactsEmail,
+        placeholderContactsSubject,
+        placeholderContactsMessage
+    }
     return(
         <div className={styles.contactsView}>
             {/* <Header></Header> */}
-            <Contacts title={dataContactsTitle} button={dataContactsButton}/>
+            <Contacts title={dataContactsTitle} button={dataContactsButton} placeholder={placeholderContacts}/>
             <HeadOffice contacts={dataHeadOfficeContacts} socialMedia={dataHeadOfficeSocialMedia}/>
         </div>
     )

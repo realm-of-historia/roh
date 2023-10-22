@@ -11,12 +11,8 @@ import { useState } from 'react';
 import Loading from './loading';
 
 export default async function Home() {
-//   const data = await useApiFetch('api/home-page?populate[swiperTop][populate]=*&populate[article][populate]=*&populate[lobby][populate]=*&populate[cardBundles][populate]=*')
-  
+  const data = await useApiFetch('api/home-page?&populate[videoArticles][populate]=*&populate[swiperTop][populate]=*&populate[article][populate]=*&populate[lobby][populate]=*&populate[cardBundles][populate]=*&populate[ribbon][populate]=*&populate[lastPost][populate]=*&populate[collectionImg][populate]=*&populate[descriptionROH][populate]=*&populate[descriptionSTAGE][populate]=*&populate[articles][populate]=*&populate[article_populars][populate]=*')
 
-  const data = await useApiFetch('api/home-page?populate[swiperTop][populate]=*&populate[article][populate]=*&populate[lobby][populate]=*&populate[cardBundles][populate]=*&populate[ribbon][populate]=*&populate[lastPost][populate]=*&populate[collectionImg][populate]=*&populate[descriptionROH][populate]=*&populate[descriptionSTAGE][populate]=*')
-  
-  
   return (
     <main className={styles.main}>
       <HomeView data={data}></HomeView>

@@ -1,17 +1,18 @@
 import React from 'react'
 import styles from './News.module.scss'
 import Comment from '@/components/Comment/Comment'
+import ImageMy from '@/components/Image/ImageMy'
 
-const News = ({isNews, link, title, avatar, name, date} : {isNews: boolean ,link: string ,title: string | Array<string>, avatar: string | Array<string>, name: string | Array<string>, date: string | Array<string>}) => {
-
+const News = ({isNews, link, title, avatar, name, date} : {isNews?: boolean | any ,link?: any ,title?: string | any, avatar?: string | any, name?: string | any, date?: string | any}) => {
 
   return (
     <div className={styles.news}>
       <div className={styles.imageContainer}>
         <span className={styles.loader}></span>
-        <video muted playsInline loop autoPlay>
+        {/* <video muted playsInline loop autoPlay>
           <source src={'/' + link + '.mp4'} type="video/mp4" />
-        </video>
+        </video> */}
+        <ImageMy src={link}/>
       </div>
       <Comment isNews={isNews} title={title} avatar={avatar} name={name} date={date}></Comment>
       <div className={styles.divider}></div>

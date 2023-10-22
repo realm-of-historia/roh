@@ -1,12 +1,15 @@
 import styles from './MarketplaceTitle.module.scss';
 import React from 'react';
 
-const MarketplaceTitle = () => {
+const MarketplaceTitle = ({title} : {title : any}) => {
 
 
     return (
         <div className={styles.marketTitle}>
-            MARKeTPLACe
+            {
+                title &&
+                title
+            }
             <div className={styles.dividerBot}></div>
         </div>
     )
