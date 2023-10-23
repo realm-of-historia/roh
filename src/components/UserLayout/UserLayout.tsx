@@ -41,7 +41,7 @@ export default function UserLayout() {
 
     return(
         <div>
-            <UserInfo></UserInfo>
+            <UserInfo lineFirst={91} lineSecond={9}></UserInfo>
             <UserNavigation></UserNavigation>
             {route == 'personal' ? <ProfileLayout title='PROFILe DeTAILS'><Details></Details></ProfileLayout> : <></>}
             {route == 'dashboard' ? <Dashboard></Dashboard> : <></>}

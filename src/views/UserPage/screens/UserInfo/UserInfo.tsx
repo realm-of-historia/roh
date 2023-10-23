@@ -1,10 +1,21 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styles from './UserInfo.module.scss'
 import Text from '@/components/Text/Text'
 import Icon from '@/components/UI/Icon/Icon'
 import Divider from '@/components/Divider/Divider'
 
-export default function UserInfo() {
+
+export default function UserInfo({lineFirst, lineSecond}: {lineFirst: number, lineSecond: number}) {
+    
+    const compilationRefFirst: any = useRef(null)
+    const compilationRefSecond: any = useRef(null)
+
+
+    useEffect(() => {
+        compilationRefFirst.current.style.width = `${lineFirst}%`
+        compilationRefSecond.current.style.width = `${lineSecond}%`
+    })
+    
     return(
         <div className={styles.userInfo}>
             <div className={styles.container}>
@@ -33,13 +44,13 @@ export default function UserInfo() {
                                 </div>
                                 <div>
                                     <p>
-                                        50%
+                                        {lineFirst}%
                                     </p>
                                 </div>
                             </div>
                             <div className={styles.line}>
-                                <div className={styles.leftLine}></div>
-                                <div className={styles.rightLine}></div>
+                                <div ref={compilationRefFirst} className={styles.leftLine}></div>
+                                <div ref={compilationRefSecond} className={styles.rightLine}></div>
                             </div>
                         </div>
                     </div>

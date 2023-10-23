@@ -31,11 +31,8 @@ export default function Perks() {
 
     return(
         <div>
-            <Header></Header>
-            <UserInfo></UserInfo>
             <UserNavigation></UserNavigation>
             <PerksComponent cards={cards}></PerksComponent>
-            <Digest></Digest>
         </div>
     )
 }

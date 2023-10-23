@@ -20,7 +20,6 @@ export default function HistoryView() {
 
     return(
         <div>
-            <UserInfo></UserInfo>
             <UserNavigation></UserNavigation>
             <div style={{display: 'flex'}} className={styles.inputBlock}>
                 <SimpleInput 
