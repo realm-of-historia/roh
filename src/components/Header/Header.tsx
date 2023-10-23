@@ -1,28 +1,102 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './Header.module.scss'
 import Icon from '../UI/Icon/Icon'
 import Avatar from './Avatar/Avatar'
 import Link from 'next/link'
 import Text from '../Text/Text'
 import {useAuthStore} from '../../store/store'
+import authConfig from '../../authConfig/authConfig'
+import { useEffect } from 'react'
+import {ADAPTER_EVENTS} from '@web3auth/base'
+import { redirect, usePathname } from 'next/navigation'
+const { generateSolAuthJSON, confirmSolAuthJSON } = require('sol-auth-json');
+const solanaWeb3 = require('@solana/web3.js');
+
+import ImageMy from '../Image/ImageMy'
 
 export interface StandardComponentProps {
   data?: any
 }
 const Header = ({data} : StandardComponentProps) => {
 
-  const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
+  // const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
+  const [isSignedIn, setIsSignedIn] = useState(false)
+  const [keypair, setKeypair]:any = useState()
+  const pathname = usePathname()
+  const [token, setToken] = useState()
+  const [isInit, setIsInit] = useState(false)
 
   const handleAuth = () => {
-    useAuthStore.setState({isSignedIn: !isSignedIn})
+    authConfig.connect();
+    console.log(authConfig.connected)
   }
 
+  useEffect(() => {
+    setTimeout(() => {
+      if(!isInit) {
+        authConfig.initModal();
+        setIsInit(true)
+        console.log(isInit)
+      }
+    }, 3500)
+  }, [])
 
+
+  //listeners
+
+  authConfig.on(ADAPTER_EVENTS.CONNECTED, (data: any) => {
+    setIsSignedIn(true)
+  })
+
+  authConfig.on(ADAPTER_EVENTS.DISCONNECTED, (data: any) => {
+    setIsSignedIn(false)
+  })
+
+  authConfig.on(ADAPTER_EVENTS.ERRORED, (error) => {
+    console.log("error", error);
+  });
+
+
+
+  useEffect(() => {
+    if(isSignedIn){
+      const test = solanaWeb3.Keypair.generate()
+
+      const solAuthJSON = generateSolAuthJSON(test);
+      const confirmResult = confirmSolAuthJSON(solAuthJSON);
 
   
+      // fetch('https://api.realmofhistoria.com/api/web3auth/', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Authorization': `Bearer`,
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(solAuthJSON),
+      // })
+      //   .then(response => response.json())
+      //   .then(data => {
+      //     setToken(data.token)
+      //     console.log(data.token)
+      //   })
+      //   .catch(error => {
+      //     console.error("ошибка:", error);
+      //   });
+    }
+  }, [isSignedIn])
 
+
+  useEffect(() => {
+    if(pathname.indexOf('/user') === 0 && !isSignedIn) {
+      redirect('/')
+    }
+  }, [pathname])
+  
+
+
+  console.log(data)
 
   return (
     <div className={styles.header}>
@@ -30,15 +104,11 @@ const Header = ({data} : StandardComponentProps) => {
         <div className={styles.rightDivider}></div>
         <div className={styles.bottomDivider}></div>
         <picture>
-            <Link href="/"><img className={styles.logoImage} alt='' width={92} height={38} src='/Logo (2).svg'/></Link>
+            <Link href="/" className={styles.logoImage}><ImageMy alt='' width={92} height={38} src={data?.logo.data.attributes.url}/></Link>
         </picture>
         <div className={styles.navigation}>
-           {/* <Link href="/"><p>Home</p></Link>
-           <Link href="/about"><p>About Us</p></Link>
-           <Link href="/contacts"><p>Contacts</p></Link>
-           <Link href="/blog"><p>Blog</p></Link> */}
            {
-            data?.map((_ : any, i : number) => (
+            data?.link.map((_ : any, i : number) => (
               <Link key={i + 321} href={_.href}><p>{_.name}</p></Link>
             ))
            }

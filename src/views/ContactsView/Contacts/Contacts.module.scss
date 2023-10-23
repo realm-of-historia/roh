@@ -50,13 +50,10 @@
         // background-color: color(text-black);
     }
 
-    .rightContainer{
+    .right{
         height: rm(591);
         width: 100%;
-
-        @include xsm{
-            height: rm(640);
-        }
+        object-fit: cover;
     }
 
     button{

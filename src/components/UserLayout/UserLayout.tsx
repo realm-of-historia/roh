@@ -41,15 +41,13 @@ export default function UserLayout() {
 
     return(
         <div>
-            <Layout>
-                <UserInfo></UserInfo>
-                <UserNavigation></UserNavigation>
-                {route == 'personal' ? <ProfileLayout title='PROFILe DeTAILS'><Details></Details></ProfileLayout> : <></>}
-                {route == 'dashboard' ? <Dashboard></Dashboard> : <></>}
-                {route == 'history' ? <HistoryView></HistoryView> : <></>}
-                {route == 'perks' ? <Perks cards={cards}></Perks> : <></>}
-                {route == 'settings' ? <Settings></Settings> : <></>}
-            </Layout>
+            <UserInfo lineFirst={91} lineSecond={9}></UserInfo>
+            <UserNavigation></UserNavigation>
+            {route == 'personal' ? <ProfileLayout title='PROFILe DeTAILS'><Details></Details></ProfileLayout> : <></>}
+            {route == 'dashboard' ? <Dashboard></Dashboard> : <></>}
+            {route == 'history' ? <HistoryView></HistoryView> : <></>}
+            {route == 'perks' ? <Perks cards={cards}></Perks> : <></>}
+            {route == 'settings' ? <Settings></Settings> : <></>}
         </div>
     )
 }

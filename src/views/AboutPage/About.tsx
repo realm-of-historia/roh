@@ -20,6 +20,7 @@ export default function About({data} : StandardComponentProps) {
     const dataaboutUsDisclaimer = useSectionData(data, 'Disclaimer')
     const dataaboutUsactivity = useSectionData(data, 'activity')
     const dataaboutUsMarcusLevy = useSectionData(data, 'MarcusLevy')
+    const articles = useSectionData(data, 'articles')
     const dataAboutUs ={
         dataAboutUsImg,
         dataaboutUsDescription,
@@ -37,7 +38,7 @@ export default function About({data} : StandardComponentProps) {
             <Layout>
                 <AboutUs data={dataAboutUs}/>
                 <RunningLine image={dataRunningLine.data.attributes.url} text='PUBLICATIONS'></RunningLine>
-                <Comments></Comments>
+                <Comments data={articles} />
                 <GreatTeam data={dataGreatTeam} />
                 <Faces data={dataFaces} />
             </Layout>

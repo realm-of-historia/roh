@@ -14,9 +14,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import {ScrollToPlugin} from 'gsap/ScrollToPlugin'
 
 
-export default function MarketplaceView() {
+export default function MarketplaceView({data} : {data : any}) {
     const { ref, inView } = useInView()
-
+    console.log(data)
     const endRef = useRef(null)
     const firstRef = useRef(null)
     const secondRef = useRef(null)
@@ -50,8 +50,8 @@ export default function MarketplaceView() {
 
     return(
         <div style={{overflowX: 'hidden'}}>
-            <Header></Header>
-            <MarketplaceTitle></MarketplaceTitle>
+            {/* <Header></Header> */}
+            <MarketplaceTitle title={data.data.attributes.title} />
             <Panegliph isFirst={false}></Panegliph>
             <Marketplace isMarket={true}></Marketplace>
             <Marketplace isMarket={true} ></Marketplace>
@@ -59,7 +59,8 @@ export default function MarketplaceView() {
                 <div key={index}>{element}</div>
             ))}
             {isLoader && <Loader></Loader>}
-            <Digest reff={ref}></Digest>
+            <div style={{width: '100%', height: '1px'}} ref={ref}></div>
+            {/* <Digest reff={ref}></Digest> */}
         </div>
     )
 }

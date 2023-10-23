@@ -1,6 +1,8 @@
 @use "../../assets/styles/index.scss" as *;
 
-
+.mainNoActive{
+    display: none !important;
+}
 .main {
     width: 100%;
     height: 100%;
@@ -217,7 +219,7 @@
             line-height: 160%;
             @include font-work-regular;
             position: absolute;
-            bottom: rm(-280);
+            bottom: rm(32);
             z-index: 1000;
 
             @include md{
@@ -305,19 +307,21 @@
                     margin-right: rm(5);
                     width: rm(15);
                     height: rm(15);
+                    margin-bottom: rm(-2);
                 }
 
                 @include md{
                     margin-right: rm(10);
                     width: rm(24);
                     height: rm(24);
+                    margin-bottom: rm(-7);
                 }
 
                 @include xsm{
                     margin-right: rm(5);
                     width: rm(15);
                     height: rm(15);
-                    margin-top: rm(-8);
+                    margin-bottom: rm(-2);
                 }
             }
         }

@@ -6,7 +6,7 @@ import Digest from '@/components/Digest/Digest'
 import Artist from './ArtistPage/ArtistPage'
 import Layout from '@/components/Layout/Layout'
 
-export default function ArtistView() {
+export default function ArtistView({ data }: { data: any }) {
 
 
     const itemsCardFirst = [
@@ -51,7 +51,7 @@ export default function ArtistView() {
             '/rockHoleNFT'
         ],
     ]
-    
+
 
     const itemsCardSecond = [
         [
@@ -87,12 +87,18 @@ export default function ArtistView() {
         ['SVeTA GAS', '', '', itemsCardSecond]
     ]
 
-    
-    return(
+
+    return (
         <div>
             <Layout>
-                {artists.map((element: any, index: number) => (
-                    <Artist item={element[3]} key={index} name={element[0]} spec={element[1]} text={element[2]}></Artist>
+                {data?.data.map((element: any, index: number) => (
+                    <Artist
+                        item={element.attributes.work}
+                        key={index + 831}
+                        avatar={element.attributes.avatar?.data.attributes.url}
+                        name={element.attributes.name}
+                        spec={element.attributes.class}
+                        text={element.attributes.description}/>
                 ))}
             </Layout>
         </div>

@@ -4,7 +4,7 @@ import User from './User/User'
 import Text from '../Text/Text'
 import Divider from '../Divider/Divider'
 
-const Comment = ({ isNews, title, comment, avatar, name, date, isDivider }: { isNews: boolean, title: string | string[], comment?: string | undefined | string | string[], avatar: string | string[], name: string | string[], date: string | string[], isDivider?: boolean }) => {
+const Comment = ({ isNews, title, comment, avatar, name, date, isDivider }: { isNews?: boolean, title: string | string[], comment?: string | undefined | string | string[], avatar: string | string[], name: string | string[], date: string | string[], isDivider?: boolean }) => {
 
   const titleClass = isNews ? styles.titleNews : styles.title;
   const containerClass = isNews ? styles.newsContainer : styles.commentContainer;
