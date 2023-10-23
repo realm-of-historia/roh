@@ -92,7 +92,7 @@ export default function UserCard({isWeight, product, sku, qty, price, status, ac
             </div> 
             }
             <div className={`${isWeight ? styles.weight : ''}`}>
-                {isWeight ? actions : <Select 
+                {isWeight ? actions : <Select
                 onFocus={() => {
                     setSelectFocused(true)
                 }}

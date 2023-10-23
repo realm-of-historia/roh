@@ -9,7 +9,7 @@ import Header from '@/components/Header/Header'
 import Digest from '@/components/Digest/Digest'
 import authConfig from '@/authConfig/authConfig'
 import {ADAPTER_EVENTS} from '@web3auth/base'
-import Loading from './loading'
+import {ProviderDelay} from '../context/ProviderDelay'
   
 
 export const metadata: Metadata = {
@@ -31,11 +31,11 @@ export default async function RootLayout({ children, }: { children: React.ReactN
     <html lang="en">
       <body suppressHydrationWarning={true}>
         <LenisScroll />
-        <Suspense fallback={<Loading></Loading>}>
+        {/* <ProviderDelay> */}
           <Header data={dataHeader.data.attributes} />
             {children}
           <Digest data={dataDigest.data.attributes}></Digest>
-        </Suspense>
+        {/* </ProviderDelay> */}
       </body>
     </html>
   )
