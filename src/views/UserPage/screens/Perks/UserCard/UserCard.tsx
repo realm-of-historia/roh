@@ -38,22 +38,19 @@ export default function UserCard({isWeight, product, sku, qty, price, status, ac
 
       const onSubmit = (data: any) => console.log(data)
 
-      const isAllChecked = useAuthStore((state: any) => (state.isAllChecked))
 
-      const checkAll = () => {
-        useAuthStore.setState({isAllChecked: !isAllChecked})
-      }
+
 
     return(
         <form className={styles.userCard}>
             {
                 isRuler ?
-            <div onClick={checkAll}>
+            <div>
                 <Controller
                     name='perkCheckbox'
                     control={control}
                     rules={{required: true}}
-                    render={({field}) => <CheckBox isChecked={isChecked} field={field}></CheckBox>}
+                    render={({field}) => <CheckBox isRuler={true} isChecked={isChecked} field={field}></CheckBox>}
                 />
             </div>
                 :
