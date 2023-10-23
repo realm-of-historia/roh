@@ -8,7 +8,6 @@ import HomeView from '@/views/HomePage/HomeView';
 import {useApiFetch} from '../composable/useApiFetch.js'
 import {useSectionData} from '../composable/useSectionData.js'
 import { useState } from 'react';
-import Loading from './loading';
 
 export default async function Home() {
   const data = await useApiFetch('api/home-page?&populate[videoArticles][populate]=*&populate[swiperTop][populate]=*&populate[article][populate]=*&populate[lobby][populate]=*&populate[cardBundles][populate]=*&populate[ribbon][populate]=*&populate[lastPost][populate]=*&populate[collectionImg][populate]=*&populate[descriptionROH][populate]=*&populate[descriptionSTAGE][populate]=*&populate[articles][populate]=*&populate[article_populars][populate]=*')
