@@ -5,6 +5,7 @@ import styles from './Start.module.scss'
 import Comment from '../../../../components/Comment/Comment'
 import Divider from '@/components/Divider/Divider'
 import Link from 'next/link'
+import ImageMy from '@/components/Image/ImageMy'
 
 export interface StandardComponentProps {
     data?: string,
@@ -61,12 +62,18 @@ const Start = ({ data, articles }: StandardComponentProps) => {
             <Divider position={"bottom"} horizontal={true}></Divider>
             <div className={styles.left}>
 
-                <video className={styles.player} muted autoPlay playsInline loop>
+                {/* <video className={styles.player} muted autoPlay playsInline loop>
                     {
                         data && <source src={`https://api.realmofhistoria.com${data}`} type="video/mp4" />
                     }
 
-                </video>
+                </video> */}
+                <div className={styles.player}>
+                    {
+                        data && 
+                        <ImageMy src={data} width={960} height={540} alt={''}/>
+                    }
+                </div>
 
                 <span className={styles.loader}></span>
                 <div className={styles.commentsSection}>
