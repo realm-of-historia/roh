@@ -67,6 +67,7 @@ const Bundles = ({ ribbon, data = [], text, href = '/' }: StandardComponentProps
                 slidesPerView={slides}
                 ref={swiperRef}
                 className={`${styles.mySwiper} ${styles.bundlesContainer}`}
+                // className='mySwiper'
             >
                 {
                     data?.map((_: any, index: number) => (
