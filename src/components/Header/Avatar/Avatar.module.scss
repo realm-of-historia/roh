@@ -29,7 +29,7 @@
         position: absolute;
         top: rm(58);
         // right: rm(-114);
-        right: rm(0);
+        right: rm(-64);
         z-index: 1;
         transition: all 0.15s ease-in;
         transform: translateY(rm(-7));
@@ -37,18 +37,19 @@
         background-color: #FBF6E8;
         border: 1px color(text-yellow-90) solid;
 
-        @include lg{
-            right: rm(-135);
-            top: rm(57);
-        }
+        // @include lg{
+        //     right: rm(-135);
+        //     top: rm(57);
+        // }
 
-        @include md{
-            right: rm(-88);
-            top: rm(58);
-        }
+        // @include md{
+        //     right: rm(-88);
+        //     top: rm(58);
+        // }
 
         @include xsm{
-            right: rm(-45);
+            // right: rm(-45);
+            right: rm(-31);
         }
 
         .leftDivider{
