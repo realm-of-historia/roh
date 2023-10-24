@@ -17,7 +17,7 @@ const Column: NextPage<Column> = ({link, description, icon}) => {
   return (
     <div className={styles.main}>
         {
-            description.map((_ : any, index: number) => (
+            description?.map((_ : any, index: number) => (
                 <div key={index} className={styles.description}>
                     <Text><p>{_.name}</p></Text>
                     <Text><p>{_.description}</p></Text>
@@ -27,11 +27,11 @@ const Column: NextPage<Column> = ({link, description, icon}) => {
         <div className={styles.section}>
             <Text>
                 <p>
-                    {link.title}
+                    {link?.title}
                 </p>
             </Text>
             <Text>
-                <Link href={link?.href} className={styles.details}>
+                <Link href={link?.href || '/'} className={styles.details}>
                     {<Icon label={icon}></Icon>} {link?.name}
                 </Link>
             </Text>

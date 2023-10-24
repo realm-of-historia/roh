@@ -82,7 +82,7 @@ const Lobby = ({isCircle, data} : StandardComponentProps) => {
                     </svg>
                 </span>
             </div>
-            <Link href={data?.href}>
+            <Link href={data?.href || '/'}>
                 <div className={`${inView ? styles.translation : ''} ${styles.linkContainer}`}>
                     <p>
                         {data?.description}

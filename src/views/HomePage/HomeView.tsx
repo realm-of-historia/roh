@@ -67,7 +67,7 @@ export default function HomeView({data} : StandardComponentProps) {
                   <Lobby data={dataLobby} isCircle={true} />
                 </WrapperParallax>
             </NativeUnderpin>
-            <Start data={dataStartVideo.data.attributes.url} articles={articles}></Start>
+            <Start data={dataStartVideo?.data.attributes.url} articles={articles}></Start>
             <Ancient data={dataAncient} />
             <Comments data={article_populars}></Comments>
             <NativeUnderpin>

@@ -71,7 +71,7 @@ const Bundles = ({ ribbon, data = [], text, href = '/' }: StandardComponentProps
                 {
                     data?.map((_: any, index: number) => (
                         <SwiperSlide key={index}>
-                            <Bundle href={_.href} description={_.description} image={_.img.data.attributes.url}></Bundle>
+                            <Bundle href={_.href || '/'} description={_.description} image={_.img.data.attributes.url}></Bundle>
                         </SwiperSlide>
                     ))
                 }
@@ -85,7 +85,7 @@ const Bundles = ({ ribbon, data = [], text, href = '/' }: StandardComponentProps
                     <Bundle title={bundleInfoThird[0]} price={bundleInfoThird[1]} image={bundleInfoThird[2]} href={href}></Bundle>
                 </SwiperSlide> */}
                 <SwiperSlide>
-                    <Link href={href} className={styles.offers}>
+                    <Link href={href || '/'} className={styles.offers}>
                         <div className={`${inView ? styles.diagonal : ''}`}></div>
                         {
                             text &&

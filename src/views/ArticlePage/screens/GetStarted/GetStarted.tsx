@@ -75,8 +75,8 @@ const GetStarted = ({data, article, dataArticleLast} : StandardComponentProps) =
                     </div>
                     <ImageMy src={articleData?.img.data.attributes.url} height={468} width={1068} alt=''/>
                     <div className={styles.text}>
-                        { articleData.description &&
-                           <p>{articleData.description}</p>
+                        { articleData?.description &&
+                           <p>{articleData?.description}</p>
                         }
                         </div>
                     <Founder name={articleData?.nameAndAchievements} avatar={articleData?.avatar.data.attributes.url} title={articleData?.additionalComment}></Founder>
@@ -85,7 +85,7 @@ const GetStarted = ({data, article, dataArticleLast} : StandardComponentProps) =
                     {
                         articleData?.link &&
                         articleData?.link.map((_:any, i : number) => (
-                            <Link key={i} href={_.href}  className={styles.block}><p>{_.name}</p></Link>
+                            <Link key={i} href={_.href || '/'}  className={styles.block}><p>{_.name}</p></Link>
                         ))
                     }
                 </div> 

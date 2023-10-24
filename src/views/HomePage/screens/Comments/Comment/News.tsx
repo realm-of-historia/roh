@@ -9,14 +9,11 @@ const News = ({isNews, link, title, avatar, name, date} : {isNews?: boolean | an
     <div className={styles.news}>
       <div className={styles.imageContainer}>
         <span className={styles.loader}></span>
-        {/* <video muted playsInline loop autoPlay>
-          <source src={'/' + link + '.mp4'} type="video/mp4" />
-        </video> */}
-        <ImageMy src={link}/>
+        <ImageMy src={link} width={600} height={334} alt={''}/>
       </div>
       <Comment isNews={isNews} title={title} avatar={avatar} name={name} date={date}></Comment>
-      <div className={styles.divider}></div>
-      <div className={styles.dividerRight}></div>
+      {/* <div className={styles.divider}></div> */}
+      {/* <div className={styles.dividerRight}></div> */}
     </div>
   )
 }

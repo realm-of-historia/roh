@@ -111,7 +111,7 @@ const Header = ({data} : StandardComponentProps) => {
         <div className={styles.navigation}>
            {
             data?.link.map((_ : any, i : number) => (
-              <Link key={i + 321} href={_.href}><p>{_.name}</p></Link>
+              <Link key={i + 321} href={_.href || '/'}><p>{_.name}</p></Link>
             ))
            }
         </div>

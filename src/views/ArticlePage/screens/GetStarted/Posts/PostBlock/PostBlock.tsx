@@ -9,7 +9,7 @@ const PostBlock = ({title, href} : {title: string | Array<string>, href: string 
 
   return (
     <div className={styles.postBlock}>
-        <Link href={href} className={styles.text}>
+        <Link href={href || '/'} className={styles.text}>
             <p>{title}</p>
             {/* <p>{secondText}</p> */}
         </Link>

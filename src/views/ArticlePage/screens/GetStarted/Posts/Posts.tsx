@@ -17,7 +17,7 @@ const Posts = ({ dataArticleLast, title} : {dataArticleLast? : any, title? : any
             {
               dataArticleLast && 
               dataArticleLast?.data.map((_ : any, i : any) => (
-                <PostBlock key={i + 7681} title={_.attributes.title} href={_.attributes.uid}></PostBlock>    
+                <PostBlock key={i + 7681} title={_.attributes.title} href={_?.attributes.uid || '/'}></PostBlock>    
               ))
             }
         </div>
