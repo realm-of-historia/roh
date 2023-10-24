@@ -27,6 +27,12 @@
             left: 0;
         }
     }
+    >:nth-child(n+2){
+        flex: 1;
+    }
+    >:last-child{
+        padding-left: rm(64);
+    }
 
     .divider{
         width: 1px;

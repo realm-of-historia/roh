@@ -58,7 +58,8 @@
 
     .wrapperMedia{
         position: relative;
-        width: 100%;
+        width: rm(1900);
+        max-width: 100%;
         height: rm(720);
         >:nth-child(1){
             position: absolute;

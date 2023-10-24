@@ -31,8 +31,8 @@ const Column: NextPage<Column> = ({link, description, icon}) => {
                 </p>
             </Text>
             <Text>
-                <Link href={link.href} className={styles.details}>
-                    {<Icon label={icon}></Icon>} {link.name}
+                <Link href={link?.href} className={styles.details}>
+                    {<Icon label={icon}></Icon>} {link?.name}
                 </Link>
             </Text>
         </div>
