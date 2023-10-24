@@ -15,6 +15,7 @@ const { generateSolAuthJSON, confirmSolAuthJSON } = require('sol-auth-json');
 const solanaWeb3 = require('@solana/web3.js');
 
 import ImageMy from '../Image/ImageMy'
+import Divider from '../Divider/Divider'
 
 export interface StandardComponentProps {
   data?: any
@@ -68,22 +69,22 @@ const Header = ({data} : StandardComponentProps) => {
       const confirmResult = confirmSolAuthJSON(solAuthJSON);
 
   
-      // fetch('https://api.realmofhistoria.com/api/web3auth/', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Authorization': `Bearer`,
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify(solAuthJSON),
-      // })
-      //   .then(response => response.json())
-      //   .then(data => {
-      //     setToken(data.token)
-      //     console.log(data.token)
-      //   })
-      //   .catch(error => {
-      //     console.error("ошибка:", error);
-      //   });
+      fetch('https://api.realmofhistoria.com/api/web3auth/', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(solAuthJSON),
+      })
+        .then(response => response.json())
+        .then(data => {
+          setToken(data.token)
+          console.log(data.token)
+        })
+        .catch(error => {
+          console.error("ошибка:", error);
+        });
     }
   }, [isSignedIn])
 
@@ -100,11 +101,12 @@ const Header = ({data} : StandardComponentProps) => {
 
   return (
     <div className={styles.header}>
-        <div className={styles.leftDivider}></div>
-        <div className={styles.rightDivider}></div>
+        {/* <div className={styles.leftDivider}></div> */}
+        {/* <div className={styles.rightDivider}></div> */}
         <div className={styles.bottomDivider}></div>
-        <picture>
+        <picture className={styles.wrapperLogo}>
             <Link href="/" className={styles.logoImage}><ImageMy alt='' width={92} height={38} src={data?.logo.data.attributes.url}/></Link>
+            <Divider position={'right top'}/>
         </picture>
         <div className={styles.navigation}>
            {
@@ -113,7 +115,10 @@ const Header = ({data} : StandardComponentProps) => {
             ))
            }
         </div>
+        {/* <div> */}
+
         <div className={styles.right}>
+          <Divider position={'left top'}/>
            {!isSignedIn ? <Link href="/"><p className={styles.logIn} onClick={handleAuth}>Log In</p></Link> : <div className={styles.logIn}></div>}
            {!isSignedIn ? <Link href="/"><p className={styles.signIn} onClick={handleAuth}>Register</p></Link> : <div></div>}
             {/* <div className={styles.icons}>
@@ -123,6 +128,7 @@ const Header = ({data} : StandardComponentProps) => {
             </div> */}
             {isSignedIn ? <Avatar></Avatar> : <div></div>}
         </div>
+        {/* </div> */}
     </div>
   )
 }
