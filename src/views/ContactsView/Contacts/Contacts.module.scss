@@ -74,6 +74,10 @@
         transition: background-color .7s ease;
         z-index: 1000;
 
+        @include xsm{
+            width: 100%;
+        }
+
         &:hover{
             background-color: rgba(	234,	216,	177, .4);
         }
