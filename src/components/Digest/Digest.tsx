@@ -33,6 +33,8 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
   useEffect(() => {
     if(router.includes('/contacts')){
       setActive(false)
+    } else{
+      setActive(true)
     }
   },[router])
   const validateEmail = (email: any) => {

@@ -8,7 +8,7 @@ import { useLayoutEffect } from 'react'
 
 const LenisScroll = () => {
 
-
+  
     const mounted = useRef<boolean>(false)
     useLayoutEffect(() => {
       if (mounted.current) { return }
