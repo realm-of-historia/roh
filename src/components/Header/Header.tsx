@@ -11,8 +11,8 @@ import authConfig from '../../authConfig/authConfig'
 import { useEffect } from 'react'
 import {ADAPTER_EVENTS} from '@web3auth/base'
 import { redirect, usePathname } from 'next/navigation'
-const { generateSolAuthJSON, confirmSolAuthJSON } = require('sol-auth-json');
 const solanaWeb3 = require('@solana/web3.js');
+import {generateSolAuthJSON, confirmSolAuthJSON} from '../../sol-auth-json/index'
 
 import ImageMy from '../Image/ImageMy'
 import Divider from '../Divider/Divider'
@@ -67,6 +67,7 @@ const Header = ({data} : StandardComponentProps) => {
 
       const solAuthJSON = generateSolAuthJSON(test);
       const confirmResult = confirmSolAuthJSON(solAuthJSON);
+
 
   
       fetch('https://api.realmofhistoria.com/api/web3auth/', {
