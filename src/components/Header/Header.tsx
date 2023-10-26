@@ -53,12 +53,12 @@ const Header = ({data} : StandardComponentProps) => {
 
   authConfig.on(ADAPTER_EVENTS.DISCONNECTED, (data: any) => {
     setIsSignedIn(false)
+    console.log('dsds')
   })
 
   authConfig.on(ADAPTER_EVENTS.ERRORED, (error) => {
     console.log("error", error);
   });
-
 
 
   useEffect(() => {
@@ -94,7 +94,7 @@ const Header = ({data} : StandardComponentProps) => {
     if(pathname.indexOf('/user') === 0 && !isSignedIn) {
       redirect('/')
     }
-  }, [pathname])
+  }, [pathname, isSignedIn])
   
 
 

@@ -28,6 +28,8 @@ const Videos = ({ data }: StandardComponentProps) => {
     }
 
   }, []);
+
+  
   return (
     <div className={styles.videos} >
       {

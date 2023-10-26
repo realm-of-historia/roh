@@ -3,7 +3,6 @@
 import React from 'react'
 import styles from './RunningLine.module.scss'
 import {useRef, useEffect, useState} from 'react'
-import gsap from 'gsap'
 
 const RunningLine = ({ text, image='' }: { text: string, image?: string }) => {
 

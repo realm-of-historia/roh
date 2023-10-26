@@ -9,17 +9,29 @@
   
 
   .loading{
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     gap: rm(30);
     height: 100vh;
     align-items: center;
     justify-content: center;
     width: 100%;
+    overflow: hidden;
+    background-color: color(bg);
+    transition: opacity 0.7s ease-in-out;
+    z-index: 10000000;
+    opacity: 0;
   }
   
   .svgContainer {
   
     path{
-        animation: dash 4s ease-in-out forwards;
+        animation: dash 3s ease-in-out forwards;
     }
+  }
+
+  .loaded{
+    opacity: 0 !important;
   }
