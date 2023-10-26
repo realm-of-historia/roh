@@ -66,8 +66,8 @@ const Bundles = ({ ribbon, data = [], text, href = '/' }: StandardComponentProps
                 // spaceBetween={24}
                 slidesPerView={slides}
                 ref={swiperRef}
-                className={`${styles.mySwiper} ${styles.bundlesContainer}`}
-                // className='mySwiper'
+                // className={`${styles.mySwiper} ${styles.bundlesContainer}`}
+                className='mySwiper'
             >
                 {
                     data?.map((_: any, index: number) => (
@@ -95,9 +95,11 @@ const Bundles = ({ ribbon, data = [], text, href = '/' }: StandardComponentProps
                             </p>
                         }
 
-                        <div className={`${inView ? styles.bigCircle : ''}`}></div>
-                        <div className={`${inView ? styles.firstCircle : ''}`}></div>
-                        <div className={`${inView ? styles.secondCircle : ''}`}></div>
+                        <div className={`${inView ? styles.bigCircle : ''} ${styles.wrapper}`}>
+                            <div className={`${inView ? styles.firstCircle : ''}`}></div>
+                            <div className={`${inView ? styles.secondCircle : ''}`}></div>
+                        </div>
+
 
                         {/* <div className={styles.firstLine}></div>
                     <div className={styles.secondLine}></div> */}
