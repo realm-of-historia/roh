@@ -29,7 +29,7 @@ export default async function RootLayout({ children, }: { children: React.ReactN
 
   return (
     <html lang="en">
-      <body suppressHydrationWarning={true}>
+      <body suppressHydrationWarning={true} id='body'>
         <LenisScroll />
         {/* <ProviderDelay> */}
           <Header data={dataHeader?.data.attributes} />

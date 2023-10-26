@@ -19,12 +19,14 @@ const SimpleInput: React.FC<SimpleInputProps> = ({ placeholder, icon, value, onC
     
     return (
         <div className={styles.simpleInput}>
+            <form className={styles.wrapperInput}>
             <Icon label={icon}></Icon>
             <input
                 {...register(name)}
                 placeholder={placeholder}
                 className={padding}
             />
+            </form>
             <div className={styles.inputDivider}>
                 <div></div>
                 <div></div>

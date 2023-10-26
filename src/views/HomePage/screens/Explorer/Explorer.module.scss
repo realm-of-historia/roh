@@ -58,9 +58,20 @@
 
     .wrapperMedia{
         position: relative;
-        width: rm(1900);
-        max-width: 100%;
+        // width: rm(1900);
+        width: 100%;
+        min-width: rm(1980);
         height: rm(720);
+        @include lg{
+            min-width: rm(1440);
+        }
+        @include md{
+            min-width: rm(1080);
+        }
+        @include xsm{
+            min-width: rm(576);
+        }
+        
         >:nth-child(1){
             position: absolute;
             left: 0;

@@ -5,9 +5,10 @@ const useAuthStore = create((set) => ({
   userRoute: 'personal',
   isBuy: true,
   isAllChecked: false,
+  isLenis: true,
   signIn: () => set((state) => ({ isSignedIn: !state.isSignedIn })),
   logIn: () => set((state) => ({ isSignedIn: !state.isSignedIn })),
   changeRoute: (route) => ((state) => ({userRoute: route}))
 }))
-
+  
 export {useAuthStore}

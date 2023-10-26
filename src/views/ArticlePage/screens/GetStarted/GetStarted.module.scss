@@ -193,7 +193,12 @@
         flex-direction: column;
         gap: rm(64);
         padding: rm(64);
-
+        >:nth-child(1){
+            display: none !important;
+        }
+        >:nth-child(2){
+            display: none !important;
+        }
         @include lg{
             align-items: center;
         }
