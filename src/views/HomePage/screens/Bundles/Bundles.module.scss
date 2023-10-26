@@ -1,6 +1,8 @@
 @use "../../../../assets/styles/index.scss" as *;
 
 .bundles{
+    position: relative;
+
     height: rm(800);
     width: 100%;
 
@@ -19,10 +21,13 @@
     .bundlesContainer{
         display: flex;
         height: 100%;
+        // height: auto !important;
 
 
         .offers{
             // height: rm(700);
+            // height: rm(800);
+            // height: auto;
             height: 100%;
             width: 100%;
             display: flex;
@@ -212,4 +217,8 @@
 
         }
     }
+}
+
+.mySwiper.swiper-slide{
+    height: auto !important;
 }

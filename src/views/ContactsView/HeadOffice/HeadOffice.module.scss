@@ -177,7 +177,7 @@
             height: 100%;
             width: 100%;
             position: relative;
-
+            
 
             .first{
                 color: color(text-black);
@@ -370,7 +370,17 @@
             height: 100%;
             width: 100%;
             position: relative;
+            >:nth-child(1){
+                position: relative;
+                width: 50%;
+                text-align: center;
 
+            }
+            >:nth-child(2){
+                position: relative;
+                width: 50%;
+                text-align: center;
+            }
             .first{
                 color: color(text-black);
                 font-size: font(24);

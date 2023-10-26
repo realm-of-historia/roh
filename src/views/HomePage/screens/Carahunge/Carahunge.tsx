@@ -23,7 +23,7 @@ const Carahunge = ({data} : StandardComponentProps) => {
                 </p>
             </Text>
         </div>
-        <Column description={data.description} link={data.link} icon={'globe'}></Column>
+        <Column description={data?.description} link={data?.link} icon={'globe'}></Column>
     </div>
   )
 }
