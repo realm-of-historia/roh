@@ -14,7 +14,7 @@ const Bundle = ({description, image, href}: StandardComponentProps) => {
 
 
     return (
-        <Link href={href}>
+        <Link className={styles.bundleWrapper} href={href || '/'}>
             <div className={styles.bundle}>
                 <div className={styles.imageContainer}>
                     {/* <img src={`${image}.png`} alt='' width={480} height={480} /> */}

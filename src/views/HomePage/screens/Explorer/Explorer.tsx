@@ -25,7 +25,9 @@ const Explorer = ({data} : StandardComponentProps) => {
       >
         {data?.map((item : any, index : number) => (
           <SwiperSlide key={index} className={styles.swiperSlide}>
+            <div className={styles.wrapperMedia}>
               <ImageMy src={item.img.data.attributes.url} alt='' width={1920} height={720}/>
+            </div>
             <Text><p>{item.title}</p></Text>
           </SwiperSlide>
         ) )}

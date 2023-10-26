@@ -1,215 +1,216 @@
 @use "../../../../assets/styles/index.scss" as *;
 
+.wrapper{
+    position: relative;
+}
+
 .bundles{
-    height: rm(800);
+    position: relative;
+
+    // height: rm(800);
+    height: auto;
     width: 100%;
-
-    @include lg{
-        height: rm(602);
-    }
-
-    @include md{
-        height: rm(575);
-    }
-    
-    @include xsm{
-        height: rm(738);
-    }
 
     .bundlesContainer{
         display: flex;
-        height: 100%;
+        // height: 100%;
+        // height: auto;
+        height: auto !important;
 
 
-        .offers{
-            // height: rm(700);
-            height: 100%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            transition: background-color .3s ease-in-out;
-            cursor: pointer;
+        
+    }
+}
+
+.mySwiper.swiper-slide{
+    // height: auto !important;
+}
 
 
-
-            &:hover{
-                background-color: rgba(	234,	216,	177, .2);
-            }
-
-            .text{
-                width: rm(256);
-                text-align: center;
-                font-size: font(32);
-                @include font-dune-regular;
-                line-height: 120%;
-                color: color(text-black);
-                z-index: 10000;
-                margin-bottom: rm(60);
-            }
-
-            .bigCircle{
-                width: rm(465);
-                height: rm(465);
-                position: absolute;
-                top: 44%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                // border: 1px solid color(text-yellow-90);
-                --borderW: 0.1px;
-                display: inline-grid;
-                place-content: center;
-                aspect-ratio: 1;
-                border-radius: 50%;
-
-                @include lg{
-                    width: rm(320);
-                    height: rm(320);
-                }
-
-                @include md{
-                    width: rm(270);
-                    height: rm(270);
-                }
-
-                @include xsm{
-                    width: rm(480);
-                    height: rm(480);
-                }
-            }
-
-            .bigCircle::before {
-                content: "";
-                position: absolute;
-                inset: calc(-1*var(--borderW));
-                clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%);
-                border: 1px solid color(text-yellow-90) ;
-                border-radius: 50%;
-                animation: progress 3s cubic-bezier(.25, .4, .75, .6) paused forwards;
-              }
-              .bigCircle::before {
-                animation-play-state: running;
-              }
+.offers{
+    // height: rm(700);
+    height: 100% !important;
+    // min-height: rm(740);
+    // height: auto;
+    // height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: background-color .3s ease-in-out;
+    cursor: pointer;
 
 
 
-              .firstCircle{
-                width: rm(235);
-                height: rm(235);
-                position: absolute;
-                top: 29.5%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                // border: 1px solid color(text-yellow-90);
-                --borderW: 0.1px;
-                display: inline-grid;
-                place-content: center;
-                aspect-ratio: 1;
-                border-radius: 50%;
+    &:hover{
+        background-color: rgba(	234,	216,	177, .2);
+    }
 
-                @include lg{
-                    width: rm(160);
-                    height: rm(160);
-                    top: 31%;
-                }
+    .text{
+        position: absolute;
+        width: rm(256);
+        text-align: center;
+        font-size: font(32);
+        @include font-dune-regular;
+        line-height: 120%;
+        color: color(text-black);
+        z-index: 10000;
+    }
 
-                @include md{
-                    width: rm(135);
-                    height: rm(135);
-                    top: 32.5%;
-                }
+    .bigCircle{
+        width: rm(480);
+        height: rm(480);
+        position: relative;
+        // top: 30%;
+        // left: 50%;
+        // transform: translate(-50%, -50%);
+        // border: 1px solid color(text-yellow-90);
+        --borderW: 0.1px;
+        display: inline-grid;
+        place-content: center;
+        aspect-ratio: 1;
+        border-radius: 50%;
 
-                @include xsm{
-                    width: rm(240);
-                    height: rm(240);
-                    top: 28%;
-                }
-            }
+        @include lg{
+            width: rm(320);
+            height: rm(320);
+        }
 
-            .firstCircle::before {
-                content: "";
-                position: absolute;
-                inset: calc(-1*var(--borderW));
-                clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%);
-                border: 1px solid color(text-yellow-90) ;
-                border-radius: 50%;
-                animation: progress 3s cubic-bezier(.25, .4, .75, .6) paused forwards;
-              }
-              .firstCircle::before {
-                animation-play-state: running;
-              }
+        @include md{
+            width: rm(270);
+            height: rm(270);
+        }
 
-
-              .secondCircle{
-                width: rm(235);
-                height: rm(235);
-                position: absolute;
-                top: 58.5%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                // border: 1px solid color(text-yellow-90);
-                --borderW: 0.1px;
-                display: inline-grid;
-                place-content: center;
-                aspect-ratio: 1;
-                border-radius: 50%;
-
-                @include lg{
-                    width: rm(160);
-                    height: rm(160);
-                    top: 57%;
-                }
-
-                @include md{
-                    width: rm(135);
-                    height: rm(135);
-                    top: 55.5%;
-                }
-
-                @include xsm{
-                    width: rm(240);
-                    height: rm(240);
-                    top: 60%;
-                }
-            }
-
-            .secondCircle::before {
-                content: "";
-                position: absolute;
-                inset: calc(-1*var(--borderW));
-                clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%);
-                border: 1px solid color(text-yellow-90) ;
-                border-radius: 50%;
-                animation: progress 3s cubic-bezier(.25, .4, .75, .6) paused forwards;
-              }
-              .secondCircle::before {
-                animation-play-state: running;
-              }
-
-
-              @keyframes progress {
-                  0% { clip-path: polygon(50% 50%, 50% -21%, 50% -21%, 50% -21%, 50% -21%, 50% -21%); }
-                 25% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%); }
-                 50% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, 50% 121%, 50% 121%); }
-                 75% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, -21% 50%); }
-                100% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, 50% -21%);}
-              }
-
-
-            //   .firstLine{
-            //     position: absolute;
-            //     top: 60px;
-            //     left: 60px;
-            //     border-top: 10px solid color(text-yellow-90);
-            //     transform: rotate(45deg);
-            //     transform-origin: 50% 50%;
-            //   }
-              
-            //   .secondLine{
-            //     transform: rotate(-45deg);
-            //   }
-
+        @include xsm{
+            width: rm(480);
+            height: rm(480);
         }
     }
+
+    .bigCircle::before {
+        content: "";
+        position: absolute;
+        inset: calc(-1*var(--borderW));
+        clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%);
+        border: 1px solid color(text-yellow-90) ;
+        border-radius: 50%;
+        animation: progress 3s cubic-bezier(.25, .4, .75, .6) paused forwards;
+      }
+      .bigCircle::before {
+        animation-play-state: running;
+      }
+
+
+
+      .firstCircle{
+        width: rm(235);
+        height: rm(235);
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        // border: 1px solid color(text-yellow-90);
+        --borderW: 0.1px;
+        display: inline-grid;
+        place-content: center;
+        aspect-ratio: 1;
+        border-radius: 50%;
+
+        @include lg{
+            width: rm(160);
+            height: rm(160);
+        }
+
+        @include md{
+            width: rm(135);
+            height: rm(135);
+        }
+
+        @include xsm{
+            width: rm(240);
+            height: rm(240);
+        }
+    }
+
+    .firstCircle::before {
+        content: "";
+        position: absolute;
+        inset: calc(-1*var(--borderW));
+        clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%);
+        border: 1px solid color(text-yellow-90) ;
+        border-radius: 50%;
+        animation: progress 3s cubic-bezier(.25, .4, .75, .6) paused forwards;
+      }
+      .firstCircle::before {
+        animation-play-state: running;
+      }
+
+
+      .secondCircle{
+        width: rm(235);
+        height: rm(235);
+        position: absolute;
+        bottom: 0%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        // border: 1px solid color(text-yellow-90);
+        --borderW: 0.1px;
+        display: inline-grid;
+        place-content: center;
+        aspect-ratio: 1;
+        border-radius: 50%;
+
+        @include lg{
+            width: rm(160);
+            height: rm(160);
+        }
+
+        @include md{
+            width: rm(135);
+            height: rm(135);
+        }
+
+        @include xsm{
+            width: rm(240);
+            height: rm(240);
+        }
+    }
+
+    .secondCircle::before {
+        content: "";
+        position: absolute;
+        inset: calc(-1*var(--borderW));
+        clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%);
+        border: 1px solid color(text-yellow-90) ;
+        border-radius: 50%;
+        animation: progress 3s cubic-bezier(.25, .4, .75, .6) paused forwards;
+      }
+      .secondCircle::before {
+        animation-play-state: running;
+      }
+
+
+      @keyframes progress {
+          0% { clip-path: polygon(50% 50%, 50% -21%, 50% -21%, 50% -21%, 50% -21%, 50% -21%); }
+         25% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%); }
+         50% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, 50% 121%, 50% 121%); }
+         75% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, -21% 50%); }
+        100% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, 50% -21%);}
+      }
+
+
+    //   .firstLine{
+    //     position: absolute;
+    //     top: 60px;
+    //     left: 60px;
+    //     border-top: 10px solid color(text-yellow-90);
+    //     transform: rotate(45deg);
+    //     transform-origin: 50% 50%;
+    //   }
+      
+    //   .secondLine{
+    //     transform: rotate(-45deg);
+    //   }
+
 }

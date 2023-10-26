@@ -1,9 +1,16 @@
 @use "../../assets/styles/index.scss" as *;
 
+.bundleWrapper{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
 .bundle{
     position: relative;
     width: rm(480);
     overflow: hidden;
+    height: 100% !important;
 
     &:hover{
         cursor: pointer;

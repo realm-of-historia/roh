@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import styles from './CheckBox.module.scss'
 import Icon from '../Icon/Icon'
 import { useState } from 'react';
@@ -31,21 +31,19 @@ export default function CheckBox({onClick, field, isChecked, isRuler}: {onClick?
       }, [isChecked])
 
       const checkAll = () => {
-        setIsAllChecked(!isAllChecked)
         useAuthStore.setState({isAllChecked: isAllChecked})
         console.log('hhh')
       }
 
-      const handleLabelClick = (e: any) => {
+      const handleLabelClick = useMemo(() => {
         if (isRuler) {
-          e.stopPropagation();
-          checkAll();
+          useAuthStore.setState({isAllChecked: isAllChecked})
         }
-      };
+      }, [isAllChecked])
 
     return(
-        <label className={styles.checkbox} onClick={handleLabelClick} htmlFor={field.id}>
-            <input type="checkbox" {...field} checked={isCheckedState} onChange={handleCheckChange}></input>
+        <label className={styles.checkbox}  htmlFor={field.id}>
+            <input type="checkbox" {...field} onClick={() => {setIsAllChecked(!isAllChecked)}} checked={isCheckedState} onChange={handleCheckChange}></input>
             <span className={styles.checkmark}>
                 <Icon label='checkbox'></Icon>
             </span>

@@ -18,7 +18,7 @@ const Item = ({ title, price, image, isText, isArtist, description, href }: { ti
                 <div className={styles.dividerRight}></div>
                 {
                     description &&
-                    description.map((_: any, i: any) => (
+                    description?.map((_: any, i: any) => (
                         <div key={i + 9112} className={styles.title}>
                             <Text>
                                 <p className={styles.first}>

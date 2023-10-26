@@ -15,6 +15,7 @@ const solanaWeb3 = require('@solana/web3.js');
 import {generateSolAuthJSON, confirmSolAuthJSON} from '../../sol-auth-json/index'
 
 import ImageMy from '../Image/ImageMy'
+import Divider from '../Divider/Divider'
 
 export interface StandardComponentProps {
   data?: any
@@ -101,20 +102,24 @@ const Header = ({data} : StandardComponentProps) => {
 
   return (
     <div className={styles.header}>
-        <div className={styles.leftDivider}></div>
-        <div className={styles.rightDivider}></div>
+        {/* <div className={styles.leftDivider}></div> */}
+        {/* <div className={styles.rightDivider}></div> */}
         <div className={styles.bottomDivider}></div>
-        <picture>
+        <picture className={styles.wrapperLogo}>
             <Link href="/" className={styles.logoImage}><ImageMy alt='' width={92} height={38} src={data?.logo.data.attributes.url}/></Link>
+            <Divider position={'right top'}/>
         </picture>
         <div className={styles.navigation}>
            {
             data?.link.map((_ : any, i : number) => (
-              <Link key={i + 321} href={_.href}><p>{_.name}</p></Link>
+              <Link key={i + 321} href={_.href || '/'}><p>{_.name}</p></Link>
             ))
            }
         </div>
+        {/* <div> */}
+
         <div className={styles.right}>
+          <Divider position={'left top'}/>
            {!isSignedIn ? <Link href="/"><p className={styles.logIn} onClick={handleAuth}>Log In</p></Link> : <div className={styles.logIn}></div>}
            {!isSignedIn ? <Link href="/"><p className={styles.signIn} onClick={handleAuth}>Register</p></Link> : <div></div>}
             {/* <div className={styles.icons}>
@@ -124,6 +129,7 @@ const Header = ({data} : StandardComponentProps) => {
             </div> */}
             {isSignedIn ? <Avatar></Avatar> : <div></div>}
         </div>
+        {/* </div> */}
     </div>
   )
 }

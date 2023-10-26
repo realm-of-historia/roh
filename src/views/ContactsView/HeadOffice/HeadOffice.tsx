@@ -76,7 +76,7 @@ export default function HeadOffice({ contacts, socialMedia }: StandardComponentP
                 <div className={styles.block}><div ><p>Dribbble</p></div></div> */}
                 {
                     socialMedia?.map((_: any, i: number) => (
-                        <Link href={_.href} key={i + 99} className={styles.block}><div ><p>{_.name}</p></div></Link>
+                        <Link href={_.href || '/'} key={i + 99} className={styles.block}><div ><p>{_.name}</p></div></Link>
                     ))
                 }
             </div>

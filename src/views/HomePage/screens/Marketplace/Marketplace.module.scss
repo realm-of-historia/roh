@@ -34,7 +34,8 @@
 
 
         p{
-            width: rm(536);
+            // width: rm(536);
+            width: 45%;
             color: color(text-black);
             font-size: font(48);
             @include font-dune-regular;

@@ -66,12 +66,13 @@ const Bundles = ({ ribbon, data = [], text, href = '/' }: StandardComponentProps
                 // spaceBetween={24}
                 slidesPerView={slides}
                 ref={swiperRef}
-                className={`${styles.mySwiper} ${styles.bundlesContainer}`}
+                // className={`${styles.mySwiper} ${styles.bundlesContainer}`}
+                className='mySwiper'
             >
                 {
                     data?.map((_: any, index: number) => (
                         <SwiperSlide key={index}>
-                            <Bundle href={_.href} description={_.description} image={_.img.data.attributes.url}></Bundle>
+                            <Bundle href={_.href || '/'} description={_.description} image={_.img.data.attributes.url}></Bundle>
                         </SwiperSlide>
                     ))
                 }
@@ -85,7 +86,7 @@ const Bundles = ({ ribbon, data = [], text, href = '/' }: StandardComponentProps
                     <Bundle title={bundleInfoThird[0]} price={bundleInfoThird[1]} image={bundleInfoThird[2]} href={href}></Bundle>
                 </SwiperSlide> */}
                 <SwiperSlide>
-                    <Link href={href} className={styles.offers}>
+                    <Link href={href || '/'} className={styles.offers}>
                         <div className={`${inView ? styles.diagonal : ''}`}></div>
                         {
                             text &&
@@ -94,9 +95,11 @@ const Bundles = ({ ribbon, data = [], text, href = '/' }: StandardComponentProps
                             </p>
                         }
 
-                        <div className={`${inView ? styles.bigCircle : ''}`}></div>
-                        <div className={`${inView ? styles.firstCircle : ''}`}></div>
-                        <div className={`${inView ? styles.secondCircle : ''}`}></div>
+                        <div className={`${inView ? styles.bigCircle : ''} ${styles.wrapper}`}>
+                            <div className={`${inView ? styles.firstCircle : ''}`}></div>
+                            <div className={`${inView ? styles.secondCircle : ''}`}></div>
+                        </div>
+
 
                         {/* <div className={styles.firstLine}></div>
                     <div className={styles.secondLine}></div> */}

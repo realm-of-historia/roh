@@ -46,6 +46,8 @@ const AboutUs = ({data} : StandardComponentProps) => {
           </Text>
         </div>
         <div className={styles.statistics}>
+          <Divider horizontal={true} position={'top left'}></Divider>
+          <Divider horizontal={true} position={'bottom left'}></Divider>
           {
             data?.dataaboutUsactivity.map((_ : any, i : number) => (
               <Statistic key={i + 434} title={_.title} text={_.meaning}></Statistic>
@@ -54,8 +56,7 @@ const AboutUs = ({data} : StandardComponentProps) => {
           {/* <Statistic title='700+' text='BUSINESSES'></Statistic>
           <Statistic title='80k+' text='Quick Reports'></Statistic>
           <Statistic title='35M+' text='Payments'></Statistic> */}
-          <Divider horizontal={true} position={'top left'}></Divider>
-          <Divider horizontal={true} position={'bottom left'}></Divider>
+          
         </div>
         <div className={styles.footer}>
           <div className={styles.container}>
