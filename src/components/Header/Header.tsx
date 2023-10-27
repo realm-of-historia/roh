@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import styles from './Header.module.scss'
 import Icon from '../UI/Icon/Icon'
 import Avatar from './Avatar/Avatar'
@@ -13,7 +13,7 @@ import {ADAPTER_EVENTS} from '@web3auth/base'
 import { redirect, usePathname } from 'next/navigation'
 const solanaWeb3 = require('@solana/web3.js');
 import {generateSolAuthJSON, confirmSolAuthJSON} from '../../sol-auth-json/index'
-
+import { LOGIN_MODAL_EVENTS } from "@web3auth/ui";
 import ImageMy from '../Image/ImageMy'
 import Divider from '../Divider/Divider'
 
@@ -28,18 +28,47 @@ const Header = ({data} : StandardComponentProps) => {
   const pathname = usePathname()
   const [token, setToken] = useState()
   const [isInit, setIsInit] = useState(false)
+  const [activeWindow, setActiveWindow] = useState(false)
+  const isLinis = useAuthStore((state) => (state.isLinis))
 
   const handleAuth = () => {
     authConfig.connect();
-    console.log(authConfig.connected)
+    handleAuths()
   }
+  const handleAuths = () => {
+    setTimeout(() => {
+      let container = document.getElementById("w3a-modal");
+      if(container){
+        container.style.cssText = `z-index: 99999; background-color: rgba(0, 0, 0, 0.479);`
+      } 
+    },1)
+  }
+
+  useEffect(() => {
+    let element = document.getElementById("body");
+    if(activeWindow && element){
+      element.style.cssText = 'overflow: hidden; height: 100vh;'
+    } 
+    if(!activeWindow && element){
+      element.style.cssText = 'overflow: visible; height: auto;'
+    }
+    console.log(element)
+  },[activeWindow])
+  console.log(activeWindow)
+  authConfig.on(LOGIN_MODAL_EVENTS.MODAL_VISIBILITY, (isVisible) => {
+    if(isVisible){
+      setActiveWindow(true)
+    } else{
+      setActiveWindow(false)
+    }
+  });
 
   useEffect(() => {
     setTimeout(() => {
       if(!isInit) {
         authConfig.initModal();
         setIsInit(true)
-        console.log(isInit)
+        // console.log(isInit)
       }
     }, 3500)
   }, [])
@@ -49,6 +78,7 @@ const Header = ({data} : StandardComponentProps) => {
 
   authConfig.on(ADAPTER_EVENTS.CONNECTED, (data: any) => {
     setIsSignedIn(true)
+    console.log(1)
   })
 
   authConfig.on(ADAPTER_EVENTS.DISCONNECTED, (data: any) => {
@@ -58,7 +88,6 @@ const Header = ({data} : StandardComponentProps) => {
   authConfig.on(ADAPTER_EVENTS.ERRORED, (error) => {
     console.log("error", error);
   });
-
 
 
   useEffect(() => {
@@ -94,7 +123,7 @@ const Header = ({data} : StandardComponentProps) => {
     if(pathname.indexOf('/user') === 0 && !isSignedIn) {
       redirect('/')
     }
-  }, [pathname])
+  }, [pathname, isSignedIn])
   
 
 
@@ -120,8 +149,8 @@ const Header = ({data} : StandardComponentProps) => {
 
         <div className={styles.right}>
           <Divider position={'left top'}/>
-           {!isSignedIn ? <Link href="/"><p className={styles.logIn} onClick={handleAuth}>Log In</p></Link> : <div className={styles.logIn}></div>}
-           {!isSignedIn ? <Link href="/"><p className={styles.signIn} onClick={handleAuth}>Register</p></Link> : <div></div>}
+           {!isSignedIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>sign in</p></div> : <div className={styles.logIn}></div>}
+           {/* {!isSignedIn ? <Link href="/"><p className={styles.signIn} onClick={handleAuth}>Register</p></Link> : <div></div>} */}
             {/* <div className={styles.icons}>
                <Icon label='search-icon'></Icon>
                <Icon label='message-icon'></Icon>

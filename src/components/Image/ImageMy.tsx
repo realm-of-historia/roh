@@ -19,7 +19,7 @@ const ImageMy = forwardRef(function ImageMy({ src, width, height, alt = '' }: { 
             {
                 video ?
                     <video ref={ref} muted playsInline loop autoPlay>
-                        <source src={url} type="video/mp4" />
+                        <source src={url} type="video/mp4"/>
                     </video>
                     :
                     <Image ref={ref} src={url} width={width} height={height} alt={alt} />

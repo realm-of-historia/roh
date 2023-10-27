@@ -10,20 +10,25 @@ export const ProviderDelay = ({children}) => {
 
     const pathname = usePathname()
     const [isLoaded, setIsLoaded] = useState(false)
+    const [isOpacity, setIsOpacity] = useState(false)
 
     useEffect(() => {
         setIsLoaded(true)
+        setIsOpacity(true)
+        // setTimeout(() => {
+        //     setIsLoaded(false)
+        //     clearTimeout()
+        // }, 3700)
         setTimeout(() => {
-            setIsLoaded(false)
+            setIsOpacity(false)
             clearTimeout()
-            console.log(isLoaded)
         }, 3000)
-        console.log(isLoaded)
     }, [pathname])
     
     return(
         <DelayContext.Provider>
-            {isLoaded ? <Loading></Loading> : children}
+            <Loading isOpacity={isOpacity}></Loading>
+            {children}
         </DelayContext.Provider>
     )
 }
