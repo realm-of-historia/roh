@@ -23,7 +23,7 @@ export default function Loading({isOpacity}: {isOpacity: any}) {
             setTimeout(() => {
                 loaderRef.current.style.display = 'none'
                 element.style.cssText = 'overflow: visible; height: auto;'
-            }, 3700)
+            }, 2700)
         } else if (!isOpacity && loaderRef.current){
             loaderRef.current.style.opacity = 0
         }
