@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import styles from './loading.module.scss'
+import styles from './Loading.module.scss'
 
 export default function Loading({isOpacity}: {isOpacity: any}) {
 
