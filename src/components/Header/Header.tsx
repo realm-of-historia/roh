@@ -52,9 +52,9 @@ const Header = ({data} : StandardComponentProps) => {
     if(!activeWindow && element){
       element.style.cssText = 'overflow: visible; height: auto;'
     }
-    console.log(element)
+    // console.log(element)
   },[activeWindow])
-  console.log(activeWindow)
+  // console.log(activeWindow)
   authConfig.on(LOGIN_MODAL_EVENTS.MODAL_VISIBILITY, (isVisible) => {
     if(isVisible){
       setActiveWindow(true)
@@ -78,7 +78,7 @@ const Header = ({data} : StandardComponentProps) => {
 
   authConfig.on(ADAPTER_EVENTS.CONNECTED, (data: any) => {
     setIsSignedIn(true)
-    console.log(1)
+    // console.log(1)
   })
 
   authConfig.on(ADAPTER_EVENTS.DISCONNECTED, (data: any) => {
@@ -127,7 +127,7 @@ const Header = ({data} : StandardComponentProps) => {
   
 
 
-  console.log(data)
+  // console.log(data)
 
   return (
     <div className={styles.header}>

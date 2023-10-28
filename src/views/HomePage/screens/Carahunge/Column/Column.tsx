@@ -13,7 +13,7 @@ interface Column {
   }
 
 const Column: NextPage<Column> = ({link, description, icon}) => {
-    console.log(description)
+    // console.log(description)
   return (
     <div className={styles.main}>
         {
