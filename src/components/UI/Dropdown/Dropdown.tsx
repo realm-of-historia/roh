@@ -13,7 +13,7 @@ const Dropdown = ({ options, initialText, isActions }: {options: any, initialTex
     const handleOptionClick = (option: any) => {
       setSelectedOption(option);
       setIsOpen(false);
-      console.log(option)
+      // console.log(option)
     };
   
     return (

@@ -11,7 +11,14 @@ export const ProviderDelay = ({children}) => {
     const pathname = usePathname()
     const [isLoaded, setIsLoaded] = useState(false)
     const [isOpacity, setIsOpacity] = useState(false)
+    const [loaded, setLoaded] = useState(false)
+    const [url, setUrl] = useState(null)
 
+    useEffect(() => {
+        let url = pathname.split('/')
+        setUrl(url[1])
+    },[pathname])
+    
     useEffect(() => {
         setIsLoaded(true)
         setIsOpacity(true)
@@ -22,13 +29,24 @@ export const ProviderDelay = ({children}) => {
         setTimeout(() => {
             setIsOpacity(false)
             clearTimeout()
-        }, 3000)
-    }, [pathname])
-    
+            setLoaded(true)
+        }, 2000)
+        setLoaded(false)
+        console.log(pathname)
+    }, [url])
+    const styleChildren = useMemo(() => {
+        const styles = {
+            opacity: !loaded ? '0' : '',
+            visibility: !loaded ? 'hidden' : 'visible',
+        }
+        return styles
+    },[loaded])
     return(
         <DelayContext.Provider>
             <Loading isOpacity={isOpacity}></Loading>
-            {children}
+            <div style={styleChildren}>
+                {children}
+            </div>
         </DelayContext.Provider>
     )
 }
