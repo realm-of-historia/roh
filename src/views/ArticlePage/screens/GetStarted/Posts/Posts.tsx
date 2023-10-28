@@ -5,7 +5,7 @@ import Text from '@/components/Text/Text'
 
 
 const Posts = ({ dataArticleLast, title} : {dataArticleLast? : any, title? : any}) => {
-  console.log(dataArticleLast)
+  // console.log(dataArticleLast)
 
   return (
     <div className={styles.posts}>

@@ -16,7 +16,7 @@ import {ScrollToPlugin} from 'gsap/ScrollToPlugin'
 
 export default function MarketplaceView({data} : {data : any}) {
     const { ref, inView } = useInView()
-    console.log(data)
+    // console.log(data)
     const endRef = useRef(null)
     const firstRef = useRef(null)
     const secondRef = useRef(null)

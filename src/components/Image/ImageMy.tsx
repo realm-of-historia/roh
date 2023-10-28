@@ -9,7 +9,7 @@ const ImageMy = forwardRef(function ImageMy({ src, width, height, alt = '' }: { 
     useEffect(() => {
         if (!src) { return }
         let pathExamination = src.substring(src.length - 3)
-        console.log(pathExamination)
+        // console.log(pathExamination)
         if (pathExamination !== 'mp4') {
             setVideo(false)
         }
