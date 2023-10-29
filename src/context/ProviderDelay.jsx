@@ -12,12 +12,16 @@ export const ProviderDelay = ({children}) => {
     const [isLoaded, setIsLoaded] = useState(false)
     const [isOpacity, setIsOpacity] = useState(false)
     const [loaded, setLoaded] = useState(false)
-    const [url, setUrl] = useState(null)
+    const [url, setUrl] = useState('.')
 
     useEffect(() => {
         let url = pathname.split('/')
         setUrl(url[1])
     },[pathname])
+
+    useEffect(() =>{
+        setUrl('/')
+    }, [])
     
     useEffect(() => {
         setIsLoaded(true)
@@ -41,6 +45,7 @@ export const ProviderDelay = ({children}) => {
         }
         return styles
     },[loaded])
+
     return(
         <DelayContext.Provider>
             <Loading isOpacity={isOpacity}></Loading>
