@@ -17,15 +17,17 @@ export default function Loading({isOpacity}: {isOpacity: any}) {
     useEffect(() => {
         let element: any = document.getElementById("body");
         if(isOpacity && loaderRef.current){
-            // loaderRef.current.style.display = 'flex'
-            // loaderRef.current.style.opacity = 1
-            //   element.style.cssText = 'overflow: hidden; height: 100vh;'
+            loaderRef.current.style.display = 'flex'
+            loaderRef.current.style.opacity = 1
+              element.style.cssText = 'overflow: hidden; height: 100vh;'
             setTimeout(() => {
                 loaderRef.current.style.display = 'none'
                 element.style.cssText = 'overflow: visible; height: auto;'
             }, 2700)
         } else if (!isOpacity && loaderRef.current){
             loaderRef.current.style.opacity = 0
+            // loaderRef.current.style.display = 'block'
+
         }
     }, [isOpacity, loaderRef])
 
