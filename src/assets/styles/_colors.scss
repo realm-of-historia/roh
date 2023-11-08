@@ -3,6 +3,7 @@
 $colors: (
     white-100: #FFFFFF,
     bg: #FBF6E8,
+    bg-1: #F5F2EB,
     text-brown: #583F21,
     bg-black: #23190F,
     bg-red: #7B2719,
@@ -11,7 +12,10 @@ $colors: (
     text-yellow-80: #F6EDD4,
     text-yellow-70: #F8F1DC,
     text-yellow-60: #FAF5E6,
-    text-black: #171513
+    text-black: #171513,
+    text-brown-88: #887961,
+    text-brown-38: #383727,
+  
 );
 
 @function color($name) {

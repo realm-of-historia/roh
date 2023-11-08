@@ -6,69 +6,76 @@ import Icon from '../UI/Icon/Icon'
 import Avatar from './Avatar/Avatar'
 import Link from 'next/link'
 import Text from '../Text/Text'
-import {useAuthStore} from '../../store/store'
+import { useAuthStore } from '../../store/store'
 import authConfig from '../../authConfig/authConfig'
 import { useEffect } from 'react'
-import {ADAPTER_EVENTS} from '@web3auth/base'
+import { ADAPTER_EVENTS } from '@web3auth/base'
 import { redirect, usePathname } from 'next/navigation'
 const solanaWeb3 = require('@solana/web3.js');
-import {generateSolAuthJSON, confirmSolAuthJSON} from '../../sol-auth-json/index'
+import { generateSolAuthJSON, confirmSolAuthJSON } from '../../sol-auth-json/index'
 import { LOGIN_MODAL_EVENTS } from "@web3auth/ui";
 import ImageMy from '../Image/ImageMy'
 import Divider from '../Divider/Divider'
+import { useWindowSize } from 'rooks';
+import Burger from './Avatar/components/Burger/Burger'
 
 export interface StandardComponentProps {
   data?: any
 }
-const Header = ({data} : StandardComponentProps) => {
-
+const Header = ({ data }: StandardComponentProps) => {
+  console.log(data)
   // const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
   const [isSignedIn, setIsSignedIn] = useState(false)
-  const [keypair, setKeypair]:any = useState()
+  const [keypair, setKeypair]: any = useState()
   const pathname = usePathname()
   const [token, setToken] = useState()
   const [isInit, setIsInit] = useState(false)
   const [activeWindow, setActiveWindow] = useState(false)
   const isLinis = useAuthStore((state) => (state.isLinis))
+  const { innerWidth } : number|any = useWindowSize();
 
   const handleAuth = () => {
     authConfig.connect();
     handleAuths()
   }
+  useEffect(() => {
+    if( innerWidth > 576){
+      useAuthStore.setState({isBurger: false})
+    }
+  },[innerWidth])
   const handleAuths = () => {
     setTimeout(() => {
       let container = document.getElementById("w3a-modal");
-      if(container){
+      if (container) {
         container.style.cssText = `z-index: 99999; background-color: rgba(0, 0, 0, 0.479);`
-      } 
-    },1)
+      }
+    }, 1)
   }
 
   useEffect(() => {
     let element = document.getElementById("body");
-    if(activeWindow && element){
+    if (activeWindow && element) {
       element.style.cssText = 'overflow: hidden; height: 100vh;'
-    } 
-    if(!activeWindow && element){
+    }
+    if (!activeWindow && element) {
       element.style.cssText = 'overflow: visible; height: auto;'
     }
-    // console.log(element)
-  },[activeWindow])
-  // console.log(activeWindow)
+  }, [activeWindow])
+
+
   authConfig.on(LOGIN_MODAL_EVENTS.MODAL_VISIBILITY, (isVisible) => {
-    if(isVisible){
+    if (isVisible) {
       setActiveWindow(true)
-    } else{
+    } else {
       setActiveWindow(false)
     }
   });
 
   useEffect(() => {
     setTimeout(() => {
-      if(!isInit) {
+      if (!isInit) {
         authConfig.initModal();
         setIsInit(true)
-        // console.log(isInit)
       }
     }, 3500)
   }, [])
@@ -78,7 +85,6 @@ const Header = ({data} : StandardComponentProps) => {
 
   authConfig.on(ADAPTER_EVENTS.CONNECTED, (data: any) => {
     setIsSignedIn(true)
-    // console.log(1)
   })
 
   authConfig.on(ADAPTER_EVENTS.DISCONNECTED, (data: any) => {
@@ -91,14 +97,14 @@ const Header = ({data} : StandardComponentProps) => {
 
 
   useEffect(() => {
-    if(isSignedIn){
+    if (isSignedIn) {
       const test = solanaWeb3.Keypair.generate()
 
       const solAuthJSON = generateSolAuthJSON(test);
       const confirmResult = confirmSolAuthJSON(solAuthJSON);
 
 
-  
+
       fetch('https://api.realmofhistoria.com/api/web3auth/', {
         method: 'POST',
         headers: {
@@ -120,45 +126,53 @@ const Header = ({data} : StandardComponentProps) => {
 
 
   useEffect(() => {
-    if(pathname.indexOf('/user') === 0 && !isSignedIn) {
+    if (pathname.indexOf('/user') === 0 && !isSignedIn) {
       redirect('/')
     }
   }, [pathname, isSignedIn])
-  
 
 
-  // console.log(data)
+
+  const handler = (href: any) => {
+    window.open(href)
+  }
 
   return (
     <div className={styles.header}>
-        {/* <div className={styles.leftDivider}></div> */}
-        {/* <div className={styles.rightDivider}></div> */}
-        <div className={styles.bottomDivider}></div>
+      <Burger networks={data?.networks}/>
+      <div className={styles.bottomDivider}></div>
+      <div className={styles.wrapperLogoNetworks}>
         <picture className={styles.wrapperLogo}>
-            <Link href="/" className={styles.logoImage}><ImageMy alt='' width={92} height={38} src={data?.logo.data.attributes.url}/></Link>
-            <Divider position={'right top'}/>
+          <Link href="/" className={styles.logoImage}><ImageMy alt='' width={92} height={38} src={data?.logo.data.attributes.url} /></Link>
+          <Divider position={'right top'} />
         </picture>
-        <div className={styles.navigation}>
-           {
-            data?.link.map((_ : any, i : number) => (
-              <Link key={i + 321} href={_.href || '/'}><p>{_.name}</p></Link>
-            ))
-           }
-        </div>
-        {/* <div> */}
-
-        <div className={styles.right}>
-          <Divider position={'left top'}/>
-           {!isSignedIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>sign in</p></div> : <div className={styles.logIn}></div>}
-           {/* {!isSignedIn ? <Link href="/"><p className={styles.signIn} onClick={handleAuth}>Register</p></Link> : <div></div>} */}
-            {/* <div className={styles.icons}>
-               <Icon label='search-icon'></Icon>
-               <Icon label='message-icon'></Icon>
-               <Icon label='theme-icon'></Icon>
-            </div> */}
-            {isSignedIn ? <Avatar></Avatar> : <div></div>}
-        </div>
-        {/* </div> */}
+        { 
+          data?.networks.map((_: any, i: number) => (
+            <div onClick={() => handler(_.href)} className={styles.iconHeader}>
+              <ImageMy src={_.icon.data.attributes.url} width={24} height={24} alt='' />
+              <Divider position={'right top'} />
+            </div>
+          )) 
+        }     
+      </div>
+      <div className={styles.navigation}>
+        {
+          data?.link.map((_: any, i: number) => (
+            <Link key={i + 321} href={_.href || '/'}><p>{_.name}</p></Link>
+          ))
+        }
+        <button className={styles.button}>{data?.button}</button>
+      </div>
+      <div className={styles.right}>
+        <Divider position={'left top'} />
+          <button className={`${styles.button} ${styles.buttonMob}`}>{data?.button}</button>
+        {!isSignedIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>sign in</p></div> : <div className={styles.logIn}></div>}
+        {isSignedIn ? <Avatar 
+        searchIcon={data?.searchIcon?.data.attributes.url} 
+        support={data?.support?.data.attributes.url} 
+        subject={data?.subject?.data.attributes.url}></Avatar> 
+        : <div></div>}
+      </div>
     </div>
   )
 }

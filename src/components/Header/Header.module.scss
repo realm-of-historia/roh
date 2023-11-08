@@ -18,7 +18,12 @@
         // gap: rm(65);
         // justify-content: center;
     }
-
+    .wrapperLogoNetworks{
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
     .wrapperLogo{
         position: relative;
         height: 100%;
@@ -27,8 +32,8 @@
         align-items: center;
         justify-content: center;
         // padding: rm(16) rm(64);
-        padding-left: rm(64);
-        padding-right: rm(64);
+        padding-left: rm(16);
+        padding-right: rm(16);
         @include xsm{
             padding-left: rm(31);
             padding-right: rm(31);
@@ -117,9 +122,9 @@
     .navigation{
         display: flex;
         align-items: center;
-        gap: rm(24);
+        gap: rm(48);
         // margin-right: rm(327);
-
+       
         @include lg{
             margin-right: rm(0);
         }
@@ -127,17 +132,19 @@
         @include md{
             // margin-right: rm(110);
         }
-
         @include xsm{
-            margin-right: rm(0);
-            margin-left: rm(0);
-            a{
-                display: none;
-            };
-            >:nth-child(-n+3){
-                display: block;
-            }
+            display: none;
         }
+        // @include xsm{
+        //     margin-right: rm(0);
+        //     margin-left: rm(0);
+        //     a{
+        //         display: none;
+        //     };
+        //     >:nth-child(-n+3){
+        //         display: block;
+        //     }
+        // }
        
         // >:first-child{
         //     @include xsm{
@@ -180,8 +187,8 @@
         position: relative;
         height: 100%;
         // padding: rm(16) rm(64);
-        padding-left: rm(64);
-        padding-right: rm(64);
+        padding-left: rm(32);
+        padding-right: rm(32);
         // padding-top: rm(16);
         // padding-bottom: rm(16);
         // padding-right: rm(64);
@@ -196,6 +203,9 @@
 
         @include xsm{
             // width: rm(60);
+            >:nth-child(1){
+                display: none;
+            }
             padding-left: rm(31);
             padding-right: rm(31);
         }
@@ -236,16 +246,16 @@
         }
 
         .logIn{
-            width: rm(90);
+            // width: rm(90);
             // margin-right: rm(24);
 
             @include lg{
-                width: rm(80);
+                // width: rm(80);
             }
 
             @include xsm{
-                width: rm(50);
-                display: none;
+                // width: rm(50);
+                // display: none;
             }
             
         }
@@ -266,4 +276,47 @@
 }
 .signin{
     cursor: pointer;
+    width: fit-content;
+
+}
+
+.iconHeader{
+    position: relative;
+    cursor: pointer;
+    height: 100%;
+    width: rm(80);
+    min-width: rm(80);
+    @include xsm{
+        display: none;
+    }
+    img{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: rm(24);
+        height: rm(24);
+        transform: translate(-50%, -50%);
+        // object-fit: fill;
+    }
+}
+
+.button{
+    position: relative;
+    padding: rm(13) rm(23);
+    color: color(text-brown-88);
+    font-size: font(16);
+    @include font-work-regular();
+    font-weight: 600;
+    line-height: 140%;
+    background-color: color(text-black);
+    border: 1px solid color(text-brown-88);
+    @include xsm {
+        margin-right: rm(25);
+    }
+}
+.buttonMob{
+    display: none;
+    @include xsm {
+        display: block;
+    }
 }
