@@ -20,6 +20,7 @@ import { ParallaxProvider } from 'react-scroll-parallax'
 import Layout from '@/components/Layout/Layout'
 import WrapperParallax from './wrapper/WrapperParallax/WrapperParallax.jsx'
 import {useSectionData} from '../../composable/useSectionData.js'
+import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 export interface StandardComponentProps {
   data?: any
 }
@@ -60,7 +61,9 @@ export default function HomeView({data} : StandardComponentProps) {
   return (
     <div>
         <Layout>
-            <Explorer data={dataExplorer} />
+        <WrapperTexture>
+          <Explorer data={dataExplorer} />
+        </WrapperTexture>
             <Carahunge data={dataCarahunge} />
             <NativeUnderpin>
                 <WrapperParallax>
