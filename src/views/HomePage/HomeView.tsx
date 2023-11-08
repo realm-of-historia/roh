@@ -19,13 +19,14 @@ import { NativeUnderpin } from '@/components/NativeUnderpin/NativeUnderpin'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import Layout from '@/components/Layout/Layout'
 import WrapperParallax from './wrapper/WrapperParallax/WrapperParallax.jsx'
-import {useSectionData} from '../../composable/useSectionData.js'
+import { useSectionData } from '../../composable/useSectionData.js'
 import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
+import Heritage from './screens/Heritage/Heritage'
 export interface StandardComponentProps {
   data?: any
 }
 
-export default function HomeView({data} : StandardComponentProps) {
+export default function HomeView({ data }: StandardComponentProps) {
   const dataExplorer = useSectionData(data, 'swiperTop')
   const dataCarahunge = useSectionData(data, 'article')
   const dataLobby = useSectionData(data, 'lobby')
@@ -44,45 +45,50 @@ export default function HomeView({data} : StandardComponentProps) {
   const dataStartVideo = useSectionData(data, 'videoArticles')
   const articles = useSectionData(data, 'articles')
   const article_populars = useSectionData(data, 'article_populars')
+  const dataHeritage = useSectionData(data, 'selfSustainableHeritage')
+
   const firstBlock = [
     'ROH',
     'Realm of Historia (RoH) is a unique venture aimed at preserving and immortalizing global cultural heritage through the innovative use of blockchain and metaverse technologies. The project will deliver cultural education, immersive experiences, and profitable NFT opportunities while contributing positively to historical preservation through generous donations and charitable opportunities.',
-    ['Expansion of RoH Metaverse with additional global heritage sites' , 'Each site accurately represented in a digital environment', 'Offer a unique and immersive experience for users to interact with history'],
+    ['Expansion of RoH Metaverse with additional global heritage sites', 'Each site accurately represented in a digital environment', 'Offer a unique and immersive experience for users to interact with history'],
     'Realm of Historia (RoH) is a unique venture aimed at preserving and immortalizing global cultural heritage through the innovative use of blockchain and metaverse technologies. The project will deliver cultural education, immersive experiences, and profitable NFT opportunities while contributing positively to historical preservation through generous donations and charitable opportunities.',
   ]
 
   const secondBlock = [
     'STAGe 1',
     'Our vision for Stage II is to expand the Realm of Historia (RoH) Metaverse to include global heritage sites, offering a unique and immersive experience for users. Here are the key aspects of this stage.',
-  ['Expansion of RoH Metaverse with additional global heritage sites' , 'Each site accurately represented in a digital environment', 'Offer a unique and immersive experience for users to interact with history'],
-  'Realm of Historia (RoH) is a unique venture aimed at preserving and immortalizing global cultural heritage through the innovative use of blockchain and metaverse technologies. The project will deliver cultural education, immersive experiences, and profitable NFT opportunities while contributing positively to historical preservation through generous donations and charitable opportunities.',
+    ['Expansion of RoH Metaverse with additional global heritage sites', 'Each site accurately represented in a digital environment', 'Offer a unique and immersive experience for users to interact with history'],
+    'Realm of Historia (RoH) is a unique venture aimed at preserving and immortalizing global cultural heritage through the innovative use of blockchain and metaverse technologies. The project will deliver cultural education, immersive experiences, and profitable NFT opportunities while contributing positively to historical preservation through generous donations and charitable opportunities.',
   ]
 
   return (
     <div>
-        <Layout>
+      <Layout>
         <WrapperTexture>
           <Explorer data={dataExplorer} />
         </WrapperTexture>
-            <Carahunge data={dataCarahunge} />
-            <NativeUnderpin>
-                <WrapperParallax>
-                  <Lobby data={dataLobby} isCircle={true} />
-                </WrapperParallax>
-            </NativeUnderpin>
-            <Start data={dataStartVideo?.data.attributes.url} articles={articles}></Start>
-            <Ancient data={dataAncient} />
-            <Comments data={article_populars}></Comments>
-            <NativeUnderpin>
-                <Bundles ribbon={dataBundlesRibbon} data={dataBundles} text={dataBundlesText} href={dataBundlesHref}></Bundles>
-            </NativeUnderpin>
-            <Posts data={dataPosts}/>
-            <Videos data={dataVideos}/>
-            <OurVision data={dataOurVision} title={dataOurVisionTitle} />
-            <Panegliph isFirst={false}></Panegliph>
-            <OurVision data={dataOurVision2} title={dataOurVisionTitle2}/>
-            <Marketplace title={dataMarketplace}/>
-        </Layout>
+        <WrapperTexture>
+          <Heritage data={dataHeritage}/>
+        </WrapperTexture>
+        <Carahunge data={dataCarahunge} />
+        <NativeUnderpin>
+          <WrapperParallax>
+            <Lobby data={dataLobby} isCircle={true} />
+          </WrapperParallax>
+        </NativeUnderpin>
+        <Start data={dataStartVideo?.data.attributes.url} articles={articles}></Start>
+        <Ancient data={dataAncient} />
+        <Comments data={article_populars}></Comments>
+        <NativeUnderpin>
+          <Bundles ribbon={dataBundlesRibbon} data={dataBundles} text={dataBundlesText} href={dataBundlesHref}></Bundles>
+        </NativeUnderpin>
+        <Posts data={dataPosts} />
+        <Videos data={dataVideos} />
+        <OurVision data={dataOurVision} title={dataOurVisionTitle} />
+        <Panegliph isFirst={false}></Panegliph>
+        <OurVision data={dataOurVision2} title={dataOurVisionTitle2} />
+        <Marketplace title={dataMarketplace} />
+      </Layout>
     </div>
   )
 }

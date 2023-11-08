@@ -15,9 +15,7 @@ $colors: (
     text-black: #171513,
     text-brown-88: #887961,
     text-brown-38: #383727,
-  
 );
-
 @function color($name) {
     @if not map.get($colors, $name) {
         @error '"#{$name}" is not a valid color name';
