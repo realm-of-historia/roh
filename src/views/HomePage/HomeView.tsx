@@ -22,6 +22,8 @@ import WrapperParallax from './wrapper/WrapperParallax/WrapperParallax.jsx'
 import { useSectionData } from '../../composable/useSectionData.js'
 import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 import Heritage from './screens/Heritage/Heritage'
+import AboutTheProject from './screens/AboutTheProject/AboutTheProject'
+import AboutTheProjectWrapper from './screens/AboutTheProject/AboutTheProjectWrapper'
 export interface StandardComponentProps {
   data?: any
 }
@@ -73,11 +75,14 @@ export default function HomeView({ data }: StandardComponentProps) {
         <WrapperTexture>
           <Carahunge data={dataCarahunge} />
         </WrapperTexture>
-        <NativeUnderpin>
+        <WrapperTexture>
+          <AboutTheProjectWrapper />
+        </WrapperTexture>
+        {/* <NativeUnderpin>
           <WrapperParallax>
             <Lobby data={dataLobby} isCircle={true} />
           </WrapperParallax>
-        </NativeUnderpin>
+        </NativeUnderpin> */}
         <Start data={dataStartVideo?.data.attributes.url} articles={articles}></Start>
         <Ancient data={dataAncient} />
         <Comments data={article_populars}></Comments>

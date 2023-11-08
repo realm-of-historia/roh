@@ -16,6 +16,7 @@ $colors: (
     text-brown-88: #887961,
     text-brown-38: #383727,
     text-brown-85: #85836A,
+    burgundyBg: #421713,
 );
 @function color($name) {
     @if not map.get($colors, $name) {
