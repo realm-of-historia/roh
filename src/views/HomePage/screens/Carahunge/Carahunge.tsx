@@ -18,12 +18,12 @@ const Carahunge = ({data} : StandardComponentProps) => {
                 </p>
             </Text>
             <Text>
-                <p>    
+                <button className={styles.button}>    
                     {data?.date}
-                </p>
+                </button>
             </Text>
         </div>
-        <Column description={data?.description} link={data?.link} icon={'globe'}></Column>
+        <Column description={data?.description} iconLink={data?.iconLink} link={data?.link} icon={'globe'}></Column>
     </div>
   )
 }

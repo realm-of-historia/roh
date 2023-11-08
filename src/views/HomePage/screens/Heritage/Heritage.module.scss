@@ -7,7 +7,11 @@
     padding-bottom: rm(240);
     overflow: hidden;
     background-color: color(text-black);
-
+    @include xsm {
+        padding-top: rm(120);
+        padding-bottom: rm(120);
+        min-height: rm(576); 
+    }
     .wrapperInfoText {
         position: relative;
         width: 100%;
@@ -26,6 +30,11 @@
             background: linear-gradient(270deg, rgba(136, 121, 97, 0.25) 0%, #887961 50%, rgba(136, 121, 97, 0.25) 100%);
             top: 0;
             right: 0;
+            z-index: 2;
+            @include xsm{
+                opacity: 0;
+                visibility: hidden;
+            }
         }
 
         &::before {
@@ -38,6 +47,11 @@
             background: linear-gradient(270deg, rgba(136, 121, 97, 0.25) 0%, #887961 50%, rgba(136, 121, 97, 0.25) 100%);
             bottom: 0;
             right: 0;
+            z-index: 2;
+            @include xsm{
+                opacity: 0;
+                visibility: hidden;
+            }
         }
 
         .containerText {
@@ -47,6 +61,9 @@
             flex-direction: column;
             padding-top: rm(65);
             padding-bottom: rm(65);
+            @include xsm{
+                width: 100%;
+            }
             &::after {
                 display: block;
                 width: rm(1);
@@ -57,6 +74,12 @@
                 background: linear-gradient(270deg, rgba(136, 121, 97, 0.25) 0%, #887961 50%, rgba(136, 121, 97, 0.25) 100%);
                 bottom: -100%;
                 left: 0;
+                z-index: 2;
+
+                @include xsm{
+                    opacity: 0;
+                    visibility: hidden;
+                }
             }
             &::before {
                 display: block;
@@ -68,6 +91,11 @@
                 background: linear-gradient(270deg, rgba(136, 121, 97, 0.25) 0%, #887961 50%, rgba(136, 121, 97, 0.25) 100%);
                 top: -100%;
                 right: 0;
+                z-index: 2;
+                @include xsm{
+                    opacity: 0;
+                    visibility: hidden;
+                }
             }
 
            
@@ -91,6 +119,13 @@
                 font-size: font(32);
                 padding-left: rm(60);
                 padding-right: rm(60);
+                
+                @include xsm {
+                    font-size: font(22);
+                    padding-left: rm(32);
+                    padding-right: rm(32);
+                    font-weight: 400;
+                }
             }
 
             p {
@@ -104,6 +139,10 @@
                 font-weight: 400;
                 padding-left: rm(60);
                 padding-right: rm(60);
+                @include xsm {
+                    padding-left: rm(32);
+                    padding-right: rm(32);
+                }
             }
         }
 
@@ -114,17 +153,24 @@
     position: absolute;
     left: 50%;
     top: 0;
-    height: 100%;
+    // height: 100%;
+    height: fit-content;
     width: rm(800);
     transform: translate(-50%, 0);
-
+    @include xsm {
+        top: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+    }
     >:nth-child(1) {
-        position: absolute;
-        left: 0;
-        top: 0;
+        // position: absolute;
+        // left: 0;
+        // top: 0;
+        position: relative;
         width: 100%;
         height: 100%;
         object-fit: fill;
+        
     }
 
     >:nth-child(2) {
@@ -134,6 +180,10 @@
         width: rm(377);
         height: rm(377);
         transform: translate(0, -50%);
+        @include xsm {
+            width: rm(300);
+            height: rm(300);
+        }
     }
 
     >:nth-child(3) {
@@ -143,6 +193,10 @@
         width: rm(377);
         height: rm(377);
         transform: translate(-50%, 0);
+        @include xsm {
+            width: rm(300);
+            height: rm(300);
+        }
     }
 
     >:nth-child(4) {
@@ -152,6 +206,10 @@
         width: rm(377);
         height: rm(377);
         transform: translate(0, -50%);
+        @include xsm {
+            width: rm(300);
+            height: rm(300);
+        }
     }
 
     >:nth-child(5) {
@@ -161,5 +219,9 @@
         width: rm(377);
         height: rm(377);
         transform: translate(-50%, 0);
+        @include xsm {
+            width: rm(300);
+            height: rm(300);
+        }
     }
 }

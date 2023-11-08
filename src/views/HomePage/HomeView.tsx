@@ -68,9 +68,11 @@ export default function HomeView({ data }: StandardComponentProps) {
           <Explorer data={dataExplorer} />
         </WrapperTexture>
         <WrapperTexture>
-          <Heritage data={dataHeritage}/>
+          <Heritage data={dataHeritage} />
         </WrapperTexture>
-        <Carahunge data={dataCarahunge} />
+        <WrapperTexture>
+          <Carahunge data={dataCarahunge} />
+        </WrapperTexture>
         <NativeUnderpin>
           <WrapperParallax>
             <Lobby data={dataLobby} isCircle={true} />

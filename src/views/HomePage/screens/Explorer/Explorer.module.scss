@@ -34,9 +34,9 @@
                 // top: 45%;
                 // left: rm(30);
                 bottom: 0 !important;
-                left: 50%;
-                top: 50% !important;
-                transform: translate(-50%, -50%) !important;
+                left: rm(32);
+                bottom: rm(32) !important;
+                // transform: translate(-50%, -50%) !important;
             }
             
             p{
@@ -49,7 +49,7 @@
         
                 @include xsm{
                     width: rm(520);
-                    text-align: center;
+                    // text-align: center;
                 }
         
             }
