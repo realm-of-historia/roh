@@ -26,6 +26,7 @@ import AboutTheProject from './screens/AboutTheProject/AboutTheProject'
 import AboutTheProjectWrapper from './screens/AboutTheProject/AboutTheProjectWrapper'
 import RunningLine from '@/components/RunningLine/RunningLine'
 import CollectionOfWorks from './screens/CollectionOfWorks/CollectionOfWorks'
+import MapHome from './screens/MapHome/MapHome'
 export interface StandardComponentProps {
   data?: any
 }
@@ -52,6 +53,7 @@ export default function HomeView({ data }: StandardComponentProps) {
   const dataHeritage = useSectionData(data, 'selfSustainableHeritage')
   const carahunge = useSectionData(data, 'carahunge')
   const instagramPost = useSectionData(data, 'instagramPost')
+  const map = useSectionData(data, 'map')
 
   const firstBlock = [
     'ROH',
@@ -90,6 +92,7 @@ export default function HomeView({ data }: StandardComponentProps) {
         </NativeUnderpin> */}
           <Posts data={dataPosts} img={instagramPost} />
           <RunningLine image={dataBundlesRibbon?.data.attributes.url}></RunningLine>
+          <MapHome data={map}/>
           {/* <Videos data={dataVideos} /> */}
           {/* <OurVision data={dataOurVision} title={dataOurVisionTitle} /> */}
           {/* <Panegliph isFirst={false}></Panegliph> */}
