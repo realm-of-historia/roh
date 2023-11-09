@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import styles from './AboutTheProject.module.scss'
 import { useWindowSize } from 'rooks';
 import Divider from '@/components/Divider/Divider';
+import Text from '@/components/Text/Text';
 
 export interface StandardComponentProps {
     data?: any
@@ -32,22 +33,30 @@ const AboutTheProject = ({ data }: StandardComponentProps) => {
                             {
                                 dataNew[0]?.map((_: any, i: number) => (
                                     <div className={styles.cell}>
-                                        <p>{_.name}</p>
-                                        <p>{_.description}</p>
-                                        <Divider position={"top left"} horizontal={true}/>
+                                        <Text>
+                                            <p>{_.name}</p>
+                                        </Text>
+                                        <Text>
+                                            <p>{_.description}</p>
+                                        </Text>
+                                        <Divider position={"top left"} horizontal={true} />
                                     </div>
                                 ))
                             }
                         </div>
                         <div className={styles.wrapperColumn}>
-                            <Divider position={"top right"}/>
-                            <Divider position={"top left"}/>
+                            <Divider position={"top right"} />
+                            <Divider position={"top left"} />
                             {
                                 dataNew[1]?.map((_: any, i: number) => (
                                     <div className={styles.cell}>
-                                        <p>{_.name}</p>
-                                        <p>{_.description}</p>
-                                        <Divider position={"top left"} horizontal={true}/>
+                                        <Text>
+                                            <p>{_.name}</p>
+                                        </Text>
+                                        <Text>
+                                            <p>{_.description}</p>
+                                        </Text>
+                                        <Divider position={"top left"} horizontal={true} />
                                     </div>
                                 ))
                             }
@@ -56,9 +65,13 @@ const AboutTheProject = ({ data }: StandardComponentProps) => {
                             {
                                 dataNew[2]?.map((_: any, i: number) => (
                                     <div className={styles.cell}>
-                                        <p>{_.name}</p>
-                                        <p>{_.description}</p>
-                                        <Divider position={"top left"} horizontal={true}/>
+                                        <Text>
+                                            <p>{_.name}</p>
+                                        </Text>
+                                        <Text>
+                                            <p>{_.description}</p>
+                                        </Text>
+                                        <Divider position={"top left"} horizontal={true} />
                                     </div>
                                 ))
                             }

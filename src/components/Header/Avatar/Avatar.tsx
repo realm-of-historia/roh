@@ -16,7 +16,14 @@ export interface StandardComponentProps {
 
 const Avatar = ({ searchIcon, support, subject }: StandardComponentProps) => {
   const burger: any = useAuthStore((state: any) => (state.isBurger))
-
+  useEffect(() => {
+    let element: any = document.getElementById("body");
+    if (burger) {
+      element.style.cssText = 'overflow: hidden; height: 100vh;'
+    } else {
+      element.style.cssText = 'overflow: visible; height: auto;'
+    }
+  }, [burger])
   const unLogIn = () => {
     if (authConfig.connected) {
       authConfig.logout();
@@ -69,15 +76,15 @@ const Avatar = ({ searchIcon, support, subject }: StandardComponentProps) => {
         </div>
       </div>
       {
-          innerWidth <= 576 ?
-            <div className={styles.containerBurger} onClick={() => useAuthStore.setState({isBurger: !burger})}>
-              <span className={`${styles.burger} ${burger ? styles.burgerActive : null}`} />
-              <span className={`${styles.burger2} ${burger ? styles.burgerActive2 : null}`} />
-              <span className={`${styles.burger3} ${burger ? styles.burgerActive3 : null}`} />
-            </div>
-            :
-            <></>
-        }
+        innerWidth <= 576 ?
+          <div className={styles.containerBurger} onClick={() => useAuthStore.setState({ isBurger: !burger })}>
+            <span className={`${styles.burger} ${burger ? styles.burgerActive : null}`} />
+            <span className={`${styles.burger2} ${burger ? styles.burgerActive2 : null}`} />
+            <span className={`${styles.burger3} ${burger ? styles.burgerActive3 : null}`} />
+          </div>
+          :
+          <></>
+      }
     </div>
   )
 }

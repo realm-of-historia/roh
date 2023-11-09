@@ -5,6 +5,7 @@ import style from './CollectionOfWorks.module.scss'
 import Clock from './components/Clock/Clock'
 import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 import Divider from '@/components/Divider/Divider'
+import Text from '@/components/Text/Text'
 
 const CollectionOfWorks = ({ data }: any) => {
     console.log('CollectionOfWorks', data)
@@ -12,20 +13,26 @@ const CollectionOfWorks = ({ data }: any) => {
         <div className={style.container}>
             <div className={style.wrapperColumnLeft}>
                 <div>
-                    <h2>{data?.header}</h2>
+                    <Text>
+                        <h2>{data?.header}</h2>
+                    </Text>
                     <div className={style.wrapperInfo}>
                         {
                             data?.description.map((_: any, i: number) => (
                                 <div className={style.containerMeaning}>
-                                    <p>{_.title}</p>
-                                    <p>{_.meaning}</p>
+                                    <Text>
+                                        <p>{_.title}</p>
+                                    </Text>
+                                    <Text>
+                                        <p>{_.meaning}</p>
+                                    </Text>
                                 </div>
                             ))
                         }
                     </div>
                 </div>
                 <div className={style.wrapperClock}>
-                    <Divider position={'top right'} horizontal={true}/>
+                    <Divider position={'top right'} horizontal={true} />
                     <Clock />
                 </div>
             </div>

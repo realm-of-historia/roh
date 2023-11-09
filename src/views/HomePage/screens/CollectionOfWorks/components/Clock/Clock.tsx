@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import style from './Clock.module.scss'
+import Text from '@/components/Text/Text';
 
 function Clock() {
     const [time, setTime] = useState(new Date());
@@ -29,10 +30,16 @@ function Clock() {
                 timeArroy.map((_: any, i: number) => (
                     <div className={style.containerDateWrap}>
                         <div className={style.containerDate}>
-                            <p>{_.date}</p>
-                            <p>{_.text}</p>
+                            <Text>
+                                <p>{_.date}</p>
+                            </Text>
+                            <Text>
+                                <p>{_.text}</p>
+                            </Text>
                         </div>
-                        <p>:</p>
+                        <Text>
+                            <p>:</p>
+                        </Text>
                     </div>
                 ))
             }

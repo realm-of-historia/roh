@@ -2,11 +2,12 @@
 import Divider from '@/components/Divider/Divider'
 import stules from './Heritage.module.scss'
 import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
+import Text from '@/components/Text/Text'
 export interface StandardComponentProps {
     data?: any,
     bg?: boolean,
 }
-const Heritage = ({ data, bg=false }: StandardComponentProps) => {
+const Heritage = ({ data, bg = false }: StandardComponentProps) => {
     console.log('Heritage', data)
     return (
         <div className={`${stules.wrapper} ${bg ? stules.bg : ''}`}>
@@ -16,11 +17,18 @@ const Heritage = ({ data, bg=false }: StandardComponentProps) => {
                 <div className={stules.containerText}>
                     {/* <Divider position={"top left"} />
                     <Divider position={"bottom right"} /> */}
-                    <h2>{data?.name}</h2>
-                    <p>{data?.description}</p>
+                    <Text>
+                        <h2>{data?.name}</h2>
+                    </Text>
+                    <Text>
+                        <p>{data?.description}</p>
+                    </Text>
                     {
-                        data?.button && 
-                        <button className={stules.button}>{data?.button}</button>
+                        data?.button &&
+                        <Text>
+                            <button className={stules.button}>{data?.button}</button>
+                        </Text>
+
                     }
                 </div>
             </div>
