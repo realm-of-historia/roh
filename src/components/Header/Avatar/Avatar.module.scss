@@ -152,6 +152,8 @@
     @include xsm{
         display: none;
     }
+    cursor: pointer;
+    transition: width ease 0.3s, height ease 0.3s;
     img{
         position: absolute;
         left: 50%;
@@ -160,6 +162,14 @@
         width: rm(18);
         height: rm(18);
         object-fit: fill;
+    }
+    &:hover{
+        img{
+            width: rm(22);
+            height: rm(22);
+            transition: width ease 0.3s, height ease 0.3s;
+
+        }
     }
   }
 

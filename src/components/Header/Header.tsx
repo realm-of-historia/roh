@@ -18,6 +18,7 @@ import ImageMy from '../Image/ImageMy'
 import Divider from '../Divider/Divider'
 import { useWindowSize } from 'rooks';
 import Burger from './Avatar/components/Burger/Burger'
+import WrapperTexture from '../WrapperTexture/WrapperTexture'
 
 export interface StandardComponentProps {
   data?: any
@@ -32,17 +33,17 @@ const Header = ({ data }: StandardComponentProps) => {
   const [isInit, setIsInit] = useState(false)
   const [activeWindow, setActiveWindow] = useState(false)
   const isLinis = useAuthStore((state) => (state.isLinis))
-  const { innerWidth } : number|any = useWindowSize();
+  const { innerWidth }: number | any = useWindowSize();
 
   const handleAuth = () => {
     authConfig.connect();
     handleAuths()
   }
   useEffect(() => {
-    if( innerWidth > 576){
-      useAuthStore.setState({isBurger: false})
+    if (innerWidth > 576) {
+      useAuthStore.setState({ isBurger: false })
     }
-  },[innerWidth])
+  }, [innerWidth])
   const handleAuths = () => {
     setTimeout(() => {
       let container = document.getElementById("w3a-modal");
@@ -139,21 +140,21 @@ const Header = ({ data }: StandardComponentProps) => {
 
   return (
     <div className={styles.header}>
-      <Burger networks={data?.networks}/>
+        <Burger networks={data?.networks} link={data?.link} button={data?.button} />
       <div className={styles.bottomDivider}></div>
       <div className={styles.wrapperLogoNetworks}>
         <picture className={styles.wrapperLogo}>
           <Link href="/" className={styles.logoImage}><ImageMy alt='' width={92} height={38} src={data?.logo.data.attributes.url} /></Link>
           <Divider position={'right top'} />
         </picture>
-        { 
+        {
           data?.networks.map((_: any, i: number) => (
             <div onClick={() => handler(_.href)} className={styles.iconHeader}>
               <ImageMy src={_.icon.data.attributes.url} width={24} height={24} alt='' />
               <Divider position={'right top'} />
             </div>
-          )) 
-        }     
+          ))
+        }
       </div>
       <div className={styles.navigation}>
         {
@@ -165,13 +166,13 @@ const Header = ({ data }: StandardComponentProps) => {
       </div>
       <div className={styles.right}>
         <Divider position={'left top'} />
-          <button className={`${styles.button} ${styles.buttonMob}`}>{data?.button}</button>
+        <button className={`${styles.button} ${styles.buttonMob}`}>{data?.button}</button>
         {!isSignedIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>sign in</p></div> : <div className={styles.logIn}></div>}
-        {isSignedIn ? <Avatar 
-        searchIcon={data?.searchIcon?.data.attributes.url} 
-        support={data?.support?.data.attributes.url} 
-        subject={data?.subject?.data.attributes.url}></Avatar> 
-        : <div></div>}
+        {isSignedIn ? <Avatar
+          searchIcon={data?.searchIcon?.data.attributes.url}
+          support={data?.support?.data.attributes.url}
+          subject={data?.subject?.data.attributes.url}></Avatar>
+          : <div></div>}
       </div>
     </div>
   )

@@ -5,6 +5,16 @@
     z-index: 999999;
     background-color: color(bg-1);
     overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transform: translate(-100%, 0%);
+    transition: transform ease 0.5s, opacity ease 0.3s, visibility ease 0.3s;
 }
 
 .avatar {
@@ -36,9 +46,13 @@
         color: color(text-brown);
         font-size: font(16);
         line-height: 140%;
+        &:hover {
+            opacity: .7;
+        }
     }
 }
-.button{
+
+.button {
     position: relative;
     padding: rm(20) rm(150);
     color: color(text-brown-88);
@@ -49,15 +63,23 @@
     background-color: color(text-black);
     border: 1px solid color(text-brown-88);
     margin-top: rm(30);
+    cursor: pointer;
+    transition: background-color ease 0.3s;
+    &:hover{
+        background-color: color(burgundyBg);
+        transition: background-color ease 0.3s;
+    }
 }
-.network{
+
+.network {
     position: relative;
     display: grid;
     grid-template: 1fr/1fr 1fr 1fr;
     margin-top: rm(40);
-    >:nth-child(3n){
-        &:before{
-            display: block;                  
+
+    >:nth-child(3n) {
+        &:before {
+            display: block;
             position: absolute;
             content: '';
             width: 500%;
@@ -68,9 +90,10 @@
             right: rm(-40);
         }
     }
-    >:last-child{
-        &::after{
-            display: block;                  
+
+    >:last-child {
+        &::after {
+            display: block;
             position: absolute;
             content: '';
             width: 500%;
@@ -81,11 +104,14 @@
             right: rm(-40);
         }
     }
-    .iconHeader{
+
+    .iconHeader {
         position: relative;
         width: 100%;
         height: rm(70);
-        img{
+        cursor: pointer;
+        transition: width ease 0.3s, height ease 0.3s;
+        img {
             position: absolute;
             left: 50%;
             top: 50%;
@@ -94,5 +120,19 @@
             width: rm(24);
             height: rm(24);
         }
+        &:hover {
+            img {
+                width: rm(30);
+                height: rm(30);
+                transition: width ease 0.3s, height ease 0.3s;
+            }
+        }
     }
+}
+
+.wrapperBurgerActive{
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translate(0%, 0%) !important;
+    transition: transform ease 0.5s, opacity ease 0.3s, visibility ease 0.3s;
 }
