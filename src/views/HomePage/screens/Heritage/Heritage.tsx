@@ -3,12 +3,13 @@ import Divider from '@/components/Divider/Divider'
 import stules from './Heritage.module.scss'
 import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 export interface StandardComponentProps {
-    data?: any
+    data?: any,
+    bg?: boolean,
 }
-const Heritage = ({ data }: StandardComponentProps) => {
+const Heritage = ({ data, bg=false }: StandardComponentProps) => {
     console.log('Heritage', data)
     return (
-        <div className={stules.wrapper}>
+        <div className={`${stules.wrapper} ${bg ? stules.bg : ''}`}>
             <div className={stules.wrapperInfoText}>
                 {/* <Divider position={"top right"} horizontal={true} /> */}
                 {/* <Divider position={"bottom right"} horizontal={true} /> */}
@@ -17,6 +18,10 @@ const Heritage = ({ data }: StandardComponentProps) => {
                     <Divider position={"bottom right"} /> */}
                     <h2>{data?.name}</h2>
                     <p>{data?.description}</p>
+                    {
+                        data?.button && 
+                        <button className={stules.button}>{data?.button}</button>
+                    }
                 </div>
             </div>
             <div className={stules.wpapperCircle}>

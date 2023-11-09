@@ -61,6 +61,7 @@
             flex-direction: column;
             padding-top: rm(65);
             padding-bottom: rm(65);
+            align-items: center;
             @include xsm{
                 width: 100%;
             }
@@ -224,4 +225,22 @@
             height: rm(300);
         }
     }
+}
+
+.button{
+    position: relative;
+    padding: rm(13) rm(30);
+    color: color(text-brown-88);
+    font-size: font(16);
+    @include font-work-regular();
+    font-weight: 600;
+    line-height: 140%;
+    // background-color: color(text-black);
+    border: rm(0.5) solid color(text-brown-88);
+    width: fit-content;
+    margin-top: rm(30);
+}
+
+.bg{
+    background-color: color(burgundyBg) !important;
 }

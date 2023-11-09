@@ -54,6 +54,7 @@ export default function HomeView({ data }: StandardComponentProps) {
   const carahunge = useSectionData(data, 'carahunge')
   const instagramPost = useSectionData(data, 'instagramPost')
   const map = useSectionData(data, 'map')
+  const joinUs = useSectionData(data, 'joinUs')
 
   const firstBlock = [
     'ROH',
@@ -93,6 +94,7 @@ export default function HomeView({ data }: StandardComponentProps) {
           <Posts data={dataPosts} img={instagramPost} />
           <RunningLine image={dataBundlesRibbon?.data.attributes.url}></RunningLine>
           <MapHome data={map}/>
+          <Heritage data={joinUs} bg={true}/>
           {/* <Videos data={dataVideos} /> */}
           {/* <OurVision data={dataOurVision} title={dataOurVisionTitle} /> */}
           {/* <Panegliph isFirst={false}></Panegliph> */}
