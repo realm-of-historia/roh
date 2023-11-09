@@ -24,7 +24,6 @@ export interface StandardComponentProps {
   data?: any
 }
 const Header = ({ data }: StandardComponentProps) => {
-  console.log(data)
   // const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
   const [isSignedIn, setIsSignedIn] = useState(false)
   const [keypair, setKeypair]: any = useState()

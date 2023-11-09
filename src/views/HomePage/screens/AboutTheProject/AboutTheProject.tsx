@@ -27,7 +27,7 @@ const AboutTheProject = ({ data }: StandardComponentProps) => {
     return (
         <div className={styles.container}>
             {
-                innerWidth > 576 && data ?
+             data ?
                     <>
                         <div className={styles.wrapperColumn}>
                             {
