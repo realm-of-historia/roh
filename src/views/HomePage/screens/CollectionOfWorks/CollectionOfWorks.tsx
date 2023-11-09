@@ -19,7 +19,7 @@ const CollectionOfWorks = ({ data }: any) => {
                     <div className={style.wrapperInfo}>
                         {
                             data?.description.map((_: any, i: number) => (
-                                <div className={style.containerMeaning}>
+                                <div key={i + 993} className={style.containerMeaning}>
                                     <Text>
                                         <p>{_.title}</p>
                                     </Text>

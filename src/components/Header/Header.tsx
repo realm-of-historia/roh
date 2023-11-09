@@ -149,7 +149,7 @@ const Header = ({ data }: StandardComponentProps) => {
         </picture>
         {
           data?.networks.map((_: any, i: number) => (
-            <div onClick={() => handler(_.href)} className={styles.iconHeader}>
+            <div key={i + 762} onClick={() => handler(_.href)} className={styles.iconHeader}>
               <ImageMy src={_.icon.data.attributes.url} width={24} height={24} alt='' />
               <Divider position={'right top'} />
             </div>

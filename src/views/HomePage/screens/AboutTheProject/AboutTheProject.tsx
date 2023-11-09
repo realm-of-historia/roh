@@ -32,7 +32,7 @@ const AboutTheProject = ({ data }: StandardComponentProps) => {
                         <div className={styles.wrapperColumn}>
                             {
                                 dataNew[0]?.map((_: any, i: number) => (
-                                    <div className={styles.cell}>
+                                    <div key={i + 861} className={styles.cell}>
                                         <Text>
                                             <p>{_.name}</p>
                                         </Text>
@@ -49,7 +49,7 @@ const AboutTheProject = ({ data }: StandardComponentProps) => {
                             <Divider position={"top left"} />
                             {
                                 dataNew[1]?.map((_: any, i: number) => (
-                                    <div className={styles.cell}>
+                                    <div key={i + 862} className={styles.cell}>
                                         <Text>
                                             <p>{_.name}</p>
                                         </Text>
@@ -64,7 +64,7 @@ const AboutTheProject = ({ data }: StandardComponentProps) => {
                         <div className={styles.wrapperColumn}>
                             {
                                 dataNew[2]?.map((_: any, i: number) => (
-                                    <div className={styles.cell}>
+                                    <div key={i + 864} className={styles.cell}>
                                         <Text>
                                             <p>{_.name}</p>
                                         </Text>

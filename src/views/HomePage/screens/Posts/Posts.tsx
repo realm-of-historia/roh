@@ -53,7 +53,7 @@ const Posts = ({ data, img }: StandardComponentProps) => {
                 </div> */}
                     {
                         img?.data.map((_: any, i: number) => (
-                            <div className={styles.wrapperInstPost}>
+                            <div key={i + 834} className={styles.wrapperInstPost}>
                                 <ImageMy src={_.attributes.url} width={320} height={320} alt='' />
                             </div>
                         ))

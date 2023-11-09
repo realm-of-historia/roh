@@ -51,7 +51,7 @@ const Burger = ({ networks, link, button }: StandardComponentProps) => {
                 <div className={style.network}>
                     {
                         networks?.map((_: any, i: number) => (
-                            <div onClick={() => handler(_.href)} className={style.iconHeader}>
+                            <div key={i + 741} onClick={() => handler(_.href)} className={style.iconHeader}>
                                 <ImageMy src={_.icon.data.attributes.url} width={24} height={24} alt='' />
                                 <Divider position={'right top'} />
                                 <Divider position={'left top'} />

@@ -28,7 +28,7 @@ function Clock() {
         <div className={style.wrapperClock}>
             {
                 timeArroy.map((_: any, i: number) => (
-                    <div className={style.containerDateWrap}>
+                    <div key={i + 428} className={style.containerDateWrap}>
                         <div className={style.containerDate}>
                             <Text>
                                 <p>{_.date}</p>
