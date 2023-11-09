@@ -3,21 +3,25 @@
 import React from 'react'
 import styles from './Posts.module.scss'
 import Text from '@/components/Text/Text'
-import {useMemo} from 'react'
+import { useMemo } from 'react'
 import { useInView } from "react-intersection-observer"
 import Link from 'next/link'
 import { NativeUnderpin } from '@/components/NativeUnderpin/NativeUnderpin'
+import ImageMy from '@/components/Image/ImageMy'
+import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 export interface StandardComponentProps {
-    data?: any
-  }
-const Posts = ({data} : StandardComponentProps) => {
+    data?: any,
+    img?: any
+}
+const Posts = ({ data, img }: StandardComponentProps) => {
     const { ref, inView } = useInView()
-  return (
-    <NativeUnderpin>
-        <div className={styles.posts}>
-            <div className={styles.dividerTop}></div>
-            <div className={styles.left}>
-                <div className={styles.container} ref={ref}>
+    console.log(img)
+    return (
+        <NativeUnderpin>
+            <div className={styles.posts}>
+                <div className={styles.dividerTop}></div>
+                <div className={styles.left}>
+                    {/* <div className={styles.container} ref={ref}>
                     <div className={`${styles.animCircle} ${inView ? styles.animCircleActive : ''}`}></div>
                     <div className={styles.dividerBottom}></div>
                     <div className={styles.dividerRight}></div>
@@ -46,20 +50,29 @@ const Posts = ({data} : StandardComponentProps) => {
                     <div className={`${styles.animCircle} ${inView ? styles.animCircleActive : ''}`}></div>
                     <div className={styles.dividerBottom}></div>
                     <div className={styles.dividerRight}></div>
+                </div> */}
+                    {
+                        img?.data.map((_: any, i: number) => (
+                            <div className={styles.wrapperInstPost}>
+                                <ImageMy src={_.attributes.url} width={320} height={320} alt='' />
+                            </div>
+                        ))
+                    }
                 </div>
+                {/* <WrapperTexture> */}
+                    <div className={styles.right}>
+                        <Link href={data?.href || '/'}>
+                            <Text>
+                                <p>
+                                    {data?.name}
+                                </p>
+                            </Text>
+                        </Link>
+                    </div>
+                {/* </WrapperTexture> */}
             </div>
-            <div className={styles.right}>
-                <Link href={data?.href || '/'}>
-                    <Text>
-                        <p>
-                            {data?.name}
-                        </p>
-                    </Text>
-                </Link>
-            </div>
-        </div>
-    </NativeUnderpin>
-  )
+        </NativeUnderpin>
+    )
 }
 
 export default Posts

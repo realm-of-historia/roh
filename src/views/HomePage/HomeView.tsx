@@ -24,6 +24,8 @@ import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 import Heritage from './screens/Heritage/Heritage'
 import AboutTheProject from './screens/AboutTheProject/AboutTheProject'
 import AboutTheProjectWrapper from './screens/AboutTheProject/AboutTheProjectWrapper'
+import RunningLine from '@/components/RunningLine/RunningLine'
+import CollectionOfWorks from './screens/CollectionOfWorks/CollectionOfWorks'
 export interface StandardComponentProps {
   data?: any
 }
@@ -48,6 +50,8 @@ export default function HomeView({ data }: StandardComponentProps) {
   const articles = useSectionData(data, 'articles')
   const article_populars = useSectionData(data, 'article_populars')
   const dataHeritage = useSectionData(data, 'selfSustainableHeritage')
+  const carahunge = useSectionData(data, 'carahunge')
+  const instagramPost = useSectionData(data, 'instagramPost')
 
   const firstBlock = [
     'ROH',
@@ -68,33 +72,30 @@ export default function HomeView({ data }: StandardComponentProps) {
       <Layout>
         <WrapperTexture>
           <Explorer data={dataExplorer} />
-        </WrapperTexture>
-        <WrapperTexture>
           <Heritage data={dataHeritage} />
-        </WrapperTexture>
-        <WrapperTexture>
           <Carahunge data={dataCarahunge} />
-        </WrapperTexture>
-        <WrapperTexture>
           <AboutTheProjectWrapper />
-        </WrapperTexture>
-        {/* <NativeUnderpin>
+          {/* <NativeUnderpin>
           <WrapperParallax>
             <Lobby data={dataLobby} isCircle={true} />
           </WrapperParallax>
         </NativeUnderpin> */}
-        <Start data={dataStartVideo?.data.attributes.url} articles={articles}></Start>
-        <Ancient data={dataAncient} />
-        <Comments data={article_populars}></Comments>
-        <NativeUnderpin>
+          <RunningLine image={dataBundlesRibbon?.data.attributes.url}></RunningLine>
+          <CollectionOfWorks data={carahunge} />
+          <Start data={dataStartVideo?.data.attributes.url} articles={articles}></Start>
+          {/* <Ancient data={dataAncient} /> */}
+          <Comments data={article_populars}></Comments>
+          {/* <NativeUnderpin>
           <Bundles ribbon={dataBundlesRibbon} data={dataBundles} text={dataBundlesText} href={dataBundlesHref}></Bundles>
-        </NativeUnderpin>
-        <Posts data={dataPosts} />
-        <Videos data={dataVideos} />
-        <OurVision data={dataOurVision} title={dataOurVisionTitle} />
-        <Panegliph isFirst={false}></Panegliph>
-        <OurVision data={dataOurVision2} title={dataOurVisionTitle2} />
-        <Marketplace title={dataMarketplace} />
+        </NativeUnderpin> */}
+          <Posts data={dataPosts} img={instagramPost} />
+          <RunningLine image={dataBundlesRibbon?.data.attributes.url}></RunningLine>
+          {/* <Videos data={dataVideos} /> */}
+          {/* <OurVision data={dataOurVision} title={dataOurVisionTitle} /> */}
+          {/* <Panegliph isFirst={false}></Panegliph> */}
+          {/* <OurVision data={dataOurVision2} title={dataOurVisionTitle2} /> */}
+          {/* <Marketplace title={dataMarketplace} /> */}
+        </WrapperTexture>
       </Layout>
     </div>
   )
