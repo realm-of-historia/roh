@@ -1,0 +1,107 @@
+@use "@/assets/styles/index.scss" as *;
+
+@keyframes rotateRight {
+    from {
+      transform: translate(-50%, 30%) rotate(0);
+    }
+    to {
+      transform: translate(-50%, 30%) rotate(360deg);
+    }
+  }
+
+
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: rm(128);
+    margin-bottom: rm(771);
+    overflow: visible !important;
+
+    @include md{
+        margin-top: rm(240);
+        margin-bottom: rm(600);
+    }
+
+    .text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: color(text-brown);
+        @include font-dune-regular;
+        text-align: center;
+        
+        
+        .first{
+            font-size: font(22);
+            margin-bottom: rm(22);
+            letter-spacing: rm(2.2);
+            opacity: 0.75;
+
+            @include md{
+                font-size: font(16);
+                margin-bottom: rm(15);
+                letter-spacing: 1.563px;
+            }
+        }
+
+        .divider{
+            width: rm(720);
+            height: 1px;
+            background-color: #EAD8B1;
+
+            @include md{
+                width: rm(512);
+            }
+        }
+
+        .second{
+            margin-top: rm(22);
+            font-size: font(55);
+            letter-spacing: 13.74px;
+            margin-bottom: rm(100);
+
+            @include md{
+                font-size: font(40);
+                letter-spacing: 10px;
+                margin-bottom: rm(71);
+            }
+
+            @include xsm{
+                font-size: font(32);
+            }
+        }
+    }
+
+    .logo{
+        width: rm(540);
+        height: rm(540);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 30%);
+
+        @include md{
+            width: rm(390);
+            height: rm(390);
+        }
+    }
+
+    .logoLetter{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 30%);
+        position: absolute;
+        width: rm(540);
+        height: rm(540);
+        animation: rotateRight 100s infinite linear;
+
+        @include md{
+            width: rm(390);
+            height: rm(390);
+        }
+    }
+
+}
