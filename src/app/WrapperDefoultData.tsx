@@ -15,7 +15,7 @@ const WrapperDefoultData = ({ dataAbout, datacarahunges, datajoinUses }: Standar
     const setDataCarahunges = (_: any) => {
         useAuthStore.setState({ carahunges: _ })
     }
-    const setDataJoinUses = (_: any) => {
+    const setDataJoinUsess = (_: any) => {
         useAuthStore.setState({ joinUses: _ })
     }
     useEffect(() => {
@@ -37,7 +37,7 @@ const WrapperDefoultData = ({ dataAbout, datacarahunges, datajoinUses }: Standar
         if (!datajoinUses) {
             return
         } else {
-            setDataJoinUses(datajoinUses?.data[0].attributes.joinUs)
+            setDataJoinUsess(datajoinUses?.data[0].attributes.joinUs)
         }
     }, [datajoinUses])
     return(
