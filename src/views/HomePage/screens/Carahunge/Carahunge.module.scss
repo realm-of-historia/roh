@@ -32,6 +32,9 @@
     }
     >:last-child{
         padding-left: rm(64);
+        @include xsm {
+            padding-left: 0;
+        }
     }
 
     .divider{
@@ -78,8 +81,25 @@
 
             @include xsm{
                 font-size: font(14);
-                margin-bottom: rm(64);
+                margin-bottom: rm(32);
             }
         }
+    }
+}
+
+.button{
+    position: relative;
+    padding: rm(14) rm(30);
+    color: color(text-brown-38);
+    font-size: font(16);
+    @include font-work-regular();
+    line-height: 140%;
+    border: rm(1) solid color(text-brown-85);
+    background-color:transparent;
+    transition: background-color ease 0.3s;
+    cursor: pointer;
+    &:hover{
+        background-color: color(bg-black);
+        transition: background-color ease 0.3s;
     }
 }

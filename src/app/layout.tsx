@@ -10,6 +10,7 @@ import Digest from '@/components/Digest/Digest'
 import authConfig from '@/authConfig/authConfig'
 import {ADAPTER_EVENTS} from '@web3auth/base'
 import {ProviderDelay} from '../context/ProviderDelay'
+import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
   
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 }
 
 export default async function RootLayout({ children, }: { children: React.ReactNode }) {
-  const dataHeader = await useApiFetch('api/header?populate=*')
+  const dataHeader = await useApiFetch('api/header?populate[networks][populate]=*&populate[link][populate]=*&populate[logo][populate]=*&populate[support][populate]=*&populate[subject][populate]=*&populate[searchIcon][populate]=*')
   const dataDigest = await useApiFetch('api/footer?populate[socialNetwork][populate]=*')
 
 
@@ -32,7 +33,9 @@ export default async function RootLayout({ children, }: { children: React.ReactN
       <body suppressHydrationWarning={true} id='body'>
       <ProviderDelay>
         <LenisScroll />
+        <WrapperTexture>
           <Header data={dataHeader?.data.attributes} />
+        </WrapperTexture>
             {children}
           <Digest data={dataDigest?.data.attributes}></Digest>
         </ProviderDelay>

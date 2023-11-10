@@ -4,7 +4,7 @@ import React from 'react'
 import styles from './RunningLine.module.scss'
 import {useRef, useEffect, useState} from 'react'
 
-const RunningLine = ({ text, image='' }: { text: string, image?: string }) => {
+const RunningLine = ({ image='' }: { image?: string }) => {
 
   const isRight = useRef(1);
   const velocity = useRef(1);

@@ -1,21 +1,28 @@
+"use client"
+
 // import React from 'react'
 import styles from './Column.module.scss'
 import { NextPage } from 'next'
 import Icon from '@/components/UI/Icon/Icon'
 import Text from '@/components/Text/Text'
 import Link from 'next/link'
+import ImageMy from '@/components/Image/ImageMy'
+import Divider from '@/components/Divider/Divider'
 
 
 interface Column {
     description: any,
     icon?: string | undefined | Array<string>,
-    link: any
+    link: any,
+    iconLink: any
   }
 
-const Column: NextPage<Column> = ({link, description, icon}) => {
+const Column: NextPage<Column> = ({link, description, icon, iconLink}) => {
     // console.log(description)
+    console.log(iconLink)
   return (
     <div className={styles.main}>
+        <Divider position={"top right"} horizontal={true}/>
         {
             description?.map((_ : any, index: number) => (
                 <div key={index} className={styles.description}>
@@ -32,7 +39,8 @@ const Column: NextPage<Column> = ({link, description, icon}) => {
             </Text>
             <Text>
                 <Link href={link?.href || '/'} className={styles.details}>
-                    {<Icon label={icon}></Icon>} {link?.name}
+                    {/* {<Icon label={icon}></Icon>} {link?.name} */}
+                    {<span className={styles.wrapperIcon}><ImageMy src={iconLink?.data.attributes.url} width={20} height={20} alt = ''/></span>} {link?.name}
                 </Link>
             </Text>
         </div>

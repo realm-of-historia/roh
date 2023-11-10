@@ -37,7 +37,7 @@ export default function About({data} : StandardComponentProps) {
         <div>
             <Layout>
                 <AboutUs data={dataAboutUs}/>
-                <RunningLine image={dataRunningLine.data.attributes.url} text='PUBLICATIONS'></RunningLine>
+                <RunningLine image={dataRunningLine.data.attributes.url}></RunningLine>
                 <Comments data={articles} />
                 <GreatTeam data={dataGreatTeam} />
                 <Faces data={dataFaces} />

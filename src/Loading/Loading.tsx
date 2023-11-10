@@ -26,6 +26,8 @@ export default function Loading({isOpacity}: {isOpacity: any}) {
             }, 2700)
         } else if (!isOpacity && loaderRef.current){
             loaderRef.current.style.opacity = 0
+            // loaderRef.current.style.display = 'block'
+
         }
     }, [isOpacity, loaderRef])
 
