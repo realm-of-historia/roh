@@ -4,7 +4,7 @@ import Problem from "@/components/rohComponents/Problem/Problem"
 import RealmHistory from "@/components/rohComponents/RealmHistory/RealmHistory"
 import { useApiFetch } from "@/composable/useApiFetch"
 import { useSectionData } from "@/composable/useSectionData"
-import AboutTheProjectWrapper from "@/views/HomePage/screens/AboutTheProject/AboutTheProjectWrapper"
+import AboutTheProject from "@/views/HomePage/screens/AboutTheProject/AboutTheProject"
 
 
 export default async function Roh() {
@@ -17,7 +17,7 @@ export default async function Roh() {
         <>
             <WrapperTexture>
                 <RealmHistory header={data?.data.attributes.header} welcome={data?.data.attributes.welcome}/>
-                <AboutTheProjectWrapper />
+                <AboutTheProject/>
                 <HistoriaMission data={missionTable}/>
                 <Problem data={tableProblem} header={headerProblem}/>
             </WrapperTexture>

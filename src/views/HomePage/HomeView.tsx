@@ -23,7 +23,6 @@ import { useSectionData } from '../../composable/useSectionData.js'
 import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 import Heritage from './screens/Heritage/Heritage'
 import AboutTheProject from './screens/AboutTheProject/AboutTheProject'
-import AboutTheProjectWrapper from './screens/AboutTheProject/AboutTheProjectWrapper'
 import RunningLine from '@/components/RunningLine/RunningLine'
 import CollectionOfWorks from './screens/CollectionOfWorks/CollectionOfWorks'
 import MapHome from './screens/MapHome/MapHome'
@@ -77,7 +76,7 @@ export default function HomeView({ data }: StandardComponentProps) {
         <WrapperTexture>
           <Heritage data={dataHeritage} />
           <Carahunge data={dataCarahunge} />
-          <AboutTheProjectWrapper />
+          <AboutTheProject />
           {/* <NativeUnderpin>
           <WrapperParallax>
             <Lobby data={dataLobby} isCircle={true} />
