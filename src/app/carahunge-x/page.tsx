@@ -7,6 +7,9 @@ import RunningLine from "@/components/RunningLine/RunningLine";
 import WrapperTexture from "@/components/WrapperTexture/WrapperTexture";
 import { useApiFetch } from "@/composable/useApiFetch";
 import { useSectionData } from "@/composable/useSectionData";
+import CollectionOfWorks from "@/views/HomePage/screens/CollectionOfWorks/CollectionOfWorks";
+import Heritage from "@/views/HomePage/screens/Heritage/Heritage";
+import HeritageDefault from "@/views/HomePage/screens/Heritage/HeritageDefault";
 
 export default async function CarahungeXPage() {
     const data = await useApiFetch('api/carahunge-x?&populate[table][populate]=*&populate[ribbon][populate]=*&populate[ribbon2][populate]=*&populate[initiationTable][populate]=*&populate[selfSustainableHeritage][populate]=*')
@@ -20,6 +23,7 @@ export default async function CarahungeXPage() {
     const initiationTitle = useSectionData(data, 'initiationTitle')
     const initiationSubtitle = useSectionData(data, 'initiationSubtitle')
     const initiationTable = useSectionData(data, 'initiationTable')
+    const selfSustainableHeritage = useSectionData(data, 'selfSustainableHeritage')
 
     let dataPreserve ={
         preserveHeader, preserveDescription
@@ -40,6 +44,10 @@ export default async function CarahungeXPage() {
                 <TableCarahunge data={table}/>
                 <RunningLine image={ribbon?.data.attributes.url} />
                 <InitiationX data={dataInitiationX}/>
+                <RunningLine image={ribbon2?.data.attributes.url} />
+                <CollectionOfWorks />
+                <Heritage data={selfSustainableHeritage} />
+                <HeritageDefault />
             </WrapperTexture>
         </>
     )
