@@ -8,6 +8,9 @@
     justify-content: flex-start;
     padding: rm(64);
     min-height: rm(800);
+    @include xsm {
+        padding: rm(32);
+    }
     .wrapperInfo {
         position: relative;
         display: flex;

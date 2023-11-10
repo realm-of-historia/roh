@@ -6,9 +6,11 @@ import Problem from "@/components/rohComponents/Problem/Problem"
 import RealmHistory from "@/components/rohComponents/RealmHistory/RealmHistory"
 import Scheme from "@/components/rohComponents/Scheme/Scheme"
 import Solution from "@/components/rohComponents/Solution/Solution"
+import TheAtrium from "@/components/rohComponents/TheAtrium/TheAtrium"
 import { useApiFetch } from "@/composable/useApiFetch"
 import { useSectionData } from "@/composable/useSectionData"
 import AboutTheProject from "@/views/HomePage/screens/AboutTheProject/AboutTheProject"
+import HeritageDefault from "@/views/HomePage/screens/Heritage/HeritageDefault"
 
 
 export default async function Roh() {
@@ -23,7 +25,8 @@ export default async function Roh() {
     const mobailImgScheme = useSectionData(data, 'mobileDiagram')
     const journeyImg = useSectionData(data, 'journeyImg')
     const descriptionTravelPicture = useSectionData(data, 'DescriptionTravelPicture')
-
+    const theAtriumTitle = useSectionData(data, 'TheAtriumTitle')
+    const theAtriumTable = useSectionData(data, 'TheAtriumTable')
     return (
         <>
             <WrapperTexture>
@@ -35,6 +38,8 @@ export default async function Roh() {
                 <RunningLine image={ribbon?.data.attributes.url}></RunningLine>
                 <Scheme img={imgScheme?.data.attributes.url} mobailImg={mobailImgScheme?.data.attributes.url}/>
                 <Journey data={descriptionTravelPicture} img={journeyImg?.data.attributes.url}/>
+                <TheAtrium data={theAtriumTable} header={theAtriumTitle}/>
+                <HeritageDefault />
             </WrapperTexture>
         </>
     )

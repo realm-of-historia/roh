@@ -27,7 +27,7 @@ const Solution = ({ data, header }: any) => {
             <div className={style.wrapperTable}>
                 {
                     data?.table.map((_: any, i: number) => (
-                        <div className={style.cell}>
+                        <div key={i + 4431} className={style.cell}>
                             <p>{_.name}</p>
                             <p>{_.description}</p>
                             <Divider position={'top right'} />

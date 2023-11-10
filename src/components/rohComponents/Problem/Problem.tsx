@@ -30,7 +30,7 @@ const Problem = ({ data, header }: any) => {
                 </div>
                 {
                     data?.table.map((_: any, i: number) => (
-                        <div className={style.tableInfo}>
+                        <div key={i + 6962} className={style.tableInfo}>
                             <div className={style.cellTable}>
                                 <Markdown>{_.What}</Markdown>
                                 <Divider position={'top left'} horizontal={true} />
