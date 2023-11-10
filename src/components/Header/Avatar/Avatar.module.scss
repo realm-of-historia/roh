@@ -183,6 +183,7 @@
     width: rm(17);
     height: rm(17);
     cursor: pointer;
+    overflow: hidden;
     // @include xsm {
     // right:rm(16);
     // }
@@ -220,19 +221,27 @@
 }
 
 .burgerActive{
-    transform: rotate(45deg) !important;
+    // transform: rotate(45deg) !important;
     transition: .3s transform ease;
-    transform-origin: rm(6) rm(0) !important;
-    top: rm(3.2) !important; 
+    transform-origin: center center !important;
+    // top: rm(3.2) !important; 
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%,-50%) rotate(45deg) !important;
+    width: 150% !important;
     
 }
 .burgerActive2{
     display: none !important;
 }
 .burgerActive3{
-    transform: rotate(-45deg) !important;
+    // transform: translate(-50%,-50%) rotate(-45deg) !important;
     transition: .3s transform ease;
-    transform-origin: rm(6) rm(0);
+    transform-origin: center center !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%,-50%) rotate(-45deg) !important;
+    width: 150% !important;
     // top: 100% !important;
 
 }
