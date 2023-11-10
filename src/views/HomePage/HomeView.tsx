@@ -73,8 +73,8 @@ export default function HomeView({ data }: StandardComponentProps) {
   return (
     <div>
       <Layout>
-        <WrapperTexture>
           <Explorer data={dataExplorer} />
+        <WrapperTexture>
           <Heritage data={dataHeritage} />
           <Carahunge data={dataCarahunge} />
           <AboutTheProjectWrapper />
@@ -91,7 +91,9 @@ export default function HomeView({ data }: StandardComponentProps) {
           {/* <NativeUnderpin>
           <Bundles ribbon={dataBundlesRibbon} data={dataBundles} text={dataBundlesText} href={dataBundlesHref}></Bundles>
         </NativeUnderpin> */}
+        </WrapperTexture>
           <Posts data={dataPosts} img={instagramPost} />
+        <WrapperTexture>
           <RunningLine image={dataBundlesRibbon?.data.attributes.url}></RunningLine>
           <MapHome data={map}/>
           <Heritage data={joinUs} bg={true}/>
