@@ -29,9 +29,10 @@ const Burger = ({ networks, link, button }: StandardComponentProps) => {
         window.open(href)
     }
     return (
+        <>
+        <div className={`${style.stub} ${burger ? style.stubActive : ''}`} onClick={() => useAuthStore.setState({ isBurger: false })}></div>
         <div className={`${style.wrapperBurger} ${burger ? style.wrapperBurgerActive : ''}`} >
             <WrapperTexture>
-
                 <div className={style.avatar}>
                     <img src='/Avatar.png' width={38} height={38} />
                 </div>
@@ -61,6 +62,7 @@ const Burger = ({ networks, link, button }: StandardComponentProps) => {
                 </div>
             </WrapperTexture>
         </div>
+        </>
     )
 }
 

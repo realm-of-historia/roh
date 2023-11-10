@@ -59,7 +59,7 @@ const Posts = ({ data, img }: StandardComponentProps) => {
                         ))
                     }
                 </div>
-                {/* <WrapperTexture> */}
+                <WrapperTexture>
                     <div className={styles.right}>
                         <Link href={data?.href || '/'}>
                             <Text>
@@ -69,7 +69,7 @@ const Posts = ({ data, img }: StandardComponentProps) => {
                             </Text>
                         </Link>
                     </div>
-                {/* </WrapperTexture> */}
+                </WrapperTexture>
             </div>
         </NativeUnderpin>
     )

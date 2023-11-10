@@ -23,10 +23,10 @@ import { useSectionData } from '../../composable/useSectionData.js'
 import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 import Heritage from './screens/Heritage/Heritage'
 import AboutTheProject from './screens/AboutTheProject/AboutTheProject'
-import AboutTheProjectWrapper from './screens/AboutTheProject/AboutTheProjectWrapper'
 import RunningLine from '@/components/RunningLine/RunningLine'
 import CollectionOfWorks from './screens/CollectionOfWorks/CollectionOfWorks'
 import MapHome from './screens/MapHome/MapHome'
+import HeritageDefault from './screens/Heritage/HeritageDefault'
 export interface StandardComponentProps {
   data?: any
 }
@@ -73,28 +73,30 @@ export default function HomeView({ data }: StandardComponentProps) {
   return (
     <div>
       <Layout>
-        <WrapperTexture>
           <Explorer data={dataExplorer} />
+        <WrapperTexture>
           <Heritage data={dataHeritage} />
           <Carahunge data={dataCarahunge} />
-          <AboutTheProjectWrapper />
+          <AboutTheProject />
           {/* <NativeUnderpin>
           <WrapperParallax>
             <Lobby data={dataLobby} isCircle={true} />
           </WrapperParallax>
         </NativeUnderpin> */}
           <RunningLine image={dataBundlesRibbon?.data.attributes.url}></RunningLine>
-          <CollectionOfWorks data={carahunge} />
+          <CollectionOfWorks />
           <Start data={dataStartVideo?.data.attributes.url} articles={articles}></Start>
           {/* <Ancient data={dataAncient} /> */}
           <Comments data={article_populars}></Comments>
           {/* <NativeUnderpin>
           <Bundles ribbon={dataBundlesRibbon} data={dataBundles} text={dataBundlesText} href={dataBundlesHref}></Bundles>
         </NativeUnderpin> */}
+        </WrapperTexture>
           <Posts data={dataPosts} img={instagramPost} />
+        <WrapperTexture>
           <RunningLine image={dataBundlesRibbon?.data.attributes.url}></RunningLine>
           <MapHome data={map}/>
-          <Heritage data={joinUs} bg={true}/>
+          <HeritageDefault />
           {/* <Videos data={dataVideos} /> */}
           {/* <OurVision data={dataOurVision} title={dataOurVisionTitle} /> */}
           {/* <Panegliph isFirst={false}></Panegliph> */}

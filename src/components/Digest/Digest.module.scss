@@ -302,7 +302,10 @@
     .header{
         display: flex;
         width: 100%;
-
+        @include xsm {
+            display: grid;
+            grid-template: 1fr/1fr 1fr 1fr;
+        }
 
         button{
             height: rm(70);
@@ -323,6 +326,7 @@
 
             @include xsm{
                 font-size: font(14);
+                width: 100%;
             }
 
             div{

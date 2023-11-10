@@ -6,11 +6,17 @@
     align-items: center;
     position: relative;
     background-color: color(bg);
+    // z-index: 996;
     >:nth-child(2){
         flex: 1;
+       
     }
     >:nth-child(3){
         flex: 1;
+        display: flex;
+        align-self: stretch;
+        justify-content: center;
+        align-items: center;
     }
     @include xsm{
         flex-direction: column;

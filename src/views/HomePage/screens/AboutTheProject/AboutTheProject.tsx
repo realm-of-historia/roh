@@ -1,33 +1,31 @@
 "use client"
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import styles from './AboutTheProject.module.scss'
 import { useWindowSize } from 'rooks';
 import Divider from '@/components/Divider/Divider';
 import Text from '@/components/Text/Text';
+import { useAuthStore } from '@/store/store';
 
-export interface StandardComponentProps {
-    data?: any
-}
-const AboutTheProject = ({ data }: StandardComponentProps) => {
+
+const AboutTheProject = () => {
     const [dataNew, setDataNew]: any = useState([])
-    const { innerWidth }: number | any = useWindowSize();
-
+    const dataTheProject: any = useAuthStore((state: any) => (state.aboutTheProject))
+    
     useMemo(() => {
-        const chunkSize = Math.ceil(data?.length / 3);
+        const chunkSize = Math.ceil(dataTheProject?.length / 3);
         const chunkedArrays: any = [];
-        for (let i = 0; i < data?.length; i += chunkSize) {
-            const chunk = data?.slice(i, i + chunkSize);
+        for (let i = 0; i < dataTheProject?.length; i += chunkSize) {
+            const chunk = dataTheProject?.slice(i, i + chunkSize);
             chunkedArrays.push(chunk);
         }
         setDataNew(chunkedArrays)
-    }, [data])
-    console.log(dataNew)
+    }, [dataTheProject])
 
     return (
         <div className={styles.container}>
             {
-             data ?
+             dataTheProject ?
                     <>
                         <div className={styles.wrapperColumn}>
                             {
