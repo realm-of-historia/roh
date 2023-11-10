@@ -2,6 +2,7 @@ import WrapperTexture from "@/components/WrapperTexture/WrapperTexture"
 import HistoriaMission from "@/components/rohComponents/HistoriaMission/HistoriaMission"
 import Problem from "@/components/rohComponents/Problem/Problem"
 import RealmHistory from "@/components/rohComponents/RealmHistory/RealmHistory"
+import Solution from "@/components/rohComponents/Solution/Solution"
 import { useApiFetch } from "@/composable/useApiFetch"
 import { useSectionData } from "@/composable/useSectionData"
 import AboutTheProject from "@/views/HomePage/screens/AboutTheProject/AboutTheProject"
@@ -12,6 +13,8 @@ export default async function Roh() {
     const missionTable = useSectionData(data, 'missionTable')
     const tableProblem = useSectionData(data, 'tableProblem')
     const headerProblem = useSectionData(data, 'headerProblem')
+    const titleSolution = useSectionData(data, 'TitleSolution')
+    const tableSolution = useSectionData(data, 'tableSolution')
 
     return (
         <>
@@ -20,6 +23,7 @@ export default async function Roh() {
                 <AboutTheProject/>
                 <HistoriaMission data={missionTable}/>
                 <Problem data={tableProblem} header={headerProblem}/>
+                <Solution data={tableSolution} header={titleSolution}/>
             </WrapperTexture>
         </>
     )
