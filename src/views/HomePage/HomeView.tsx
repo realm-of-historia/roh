@@ -26,6 +26,7 @@ import AboutTheProject from './screens/AboutTheProject/AboutTheProject'
 import RunningLine from '@/components/RunningLine/RunningLine'
 import CollectionOfWorks from './screens/CollectionOfWorks/CollectionOfWorks'
 import MapHome from './screens/MapHome/MapHome'
+import HeritageDefault from './screens/Heritage/HeritageDefault'
 export interface StandardComponentProps {
   data?: any
 }
@@ -83,7 +84,7 @@ export default function HomeView({ data }: StandardComponentProps) {
           </WrapperParallax>
         </NativeUnderpin> */}
           <RunningLine image={dataBundlesRibbon?.data.attributes.url}></RunningLine>
-          <CollectionOfWorks data={carahunge} />
+          <CollectionOfWorks />
           <Start data={dataStartVideo?.data.attributes.url} articles={articles}></Start>
           {/* <Ancient data={dataAncient} /> */}
           <Comments data={article_populars}></Comments>
@@ -95,7 +96,7 @@ export default function HomeView({ data }: StandardComponentProps) {
         <WrapperTexture>
           <RunningLine image={dataBundlesRibbon?.data.attributes.url}></RunningLine>
           <MapHome data={map}/>
-          <Heritage data={joinUs} bg={true}/>
+          <HeritageDefault />
           {/* <Videos data={dataVideos} /> */}
           {/* <OurVision data={dataOurVision} title={dataOurVisionTitle} /> */}
           {/* <Panegliph isFirst={false}></Panegliph> */}
