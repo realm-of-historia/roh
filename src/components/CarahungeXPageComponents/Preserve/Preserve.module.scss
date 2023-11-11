@@ -9,6 +9,10 @@
     align-items: center;
     justify-content: center;
     padding: rm(32) rm(630);
+    overflow: hidden;
+    @include xsm{
+        padding: rm(32);
+    }
     >:nth-child(1){
         @include font-dune-regular();
         color: color(text-brown-38);
@@ -18,6 +22,9 @@
         text-transform: uppercase;
         width: rm(700);
         text-align: center;
+        @include xsm{
+            width: rm(576);
+        }
     }
     >:nth-child(2){
         @include font-work-regular();
@@ -28,5 +35,8 @@
         padding-top: rm(32);
         width: rm(700);
         text-align: center;
+        @include xsm{
+            width: rm(576);
+        }
     }
 }

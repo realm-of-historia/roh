@@ -1,5 +1,17 @@
 @use "../../../../../assets/styles/index.scss" as *;
 
+
+.maininitiation{
+    >:nth-child(1){
+        @include xsm{
+            opacity: 0 !important;
+            visibility: hidden !important;
+        }
+    }
+    >:nth-child(2){
+        display: block !important;
+    }
+}
 .main {
     position: relative;
     display: flex;
@@ -8,7 +20,9 @@
     @include xsm {
         padding-top: rm(32);
     }
-
+    >:nth-child(2){
+        display: none;
+    }
     >:nth-child(1) {
         display: none;
 
@@ -205,6 +219,11 @@
     width: fit-content !important;
     padding-left: rm(64) !important;
     padding-right: rm(64) !important;
+    @include xsm {
+        padding-left: rm(32) !important;
+        padding-right: rm(32) !important;
+        max-width: rm(500) !important;
+    }
     div {
         ul{
             width: rm(613) !important;
@@ -222,7 +241,7 @@
             }
 
             @include xsm {
-                width: rm(390) !important;
+                width: rm(360) !important;
             }
         }
         p {
@@ -241,7 +260,7 @@
             }
 
             @include xsm {
-                width: rm(390) !important;
+                width: rm(360) !important;
             }
         }
     }
@@ -258,7 +277,24 @@
         }
 
         @include xsm {
-            width: rm(128);
+            width: rm(100);
         }
     }
 }
+
+.dot{
+    display: none;
+    position: absolute;
+    width: rm(9);
+    height: rm(9);
+    background-color: color(text-brown-38);
+    border-radius: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transform: translate(-50%, 0%);
+    @include xsm{
+        display: block;
+    }
+}
+

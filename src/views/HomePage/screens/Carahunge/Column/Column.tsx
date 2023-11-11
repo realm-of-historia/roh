@@ -23,8 +23,13 @@ const Column: NextPage<Column> = ({ link, description, icon, iconLink, initiatio
     // console.log(description)
     console.log(iconLink)
     return (
-        <div className={styles.main}>
+        <div className={`${styles.main} ${initiation ? styles.maininitiation : ''}`}>
             <Divider position={"top right"} horizontal={true} />
+            <Divider position={"top left"} />
+            {
+                initiation && 
+                <div className={styles.dot}></div>
+            }
             {
                 description?.map((_: any, index: number) => (
                     <div key={index} className={`${styles.description} ${initiation ? styles.descriptioninitiation : ''}`}>

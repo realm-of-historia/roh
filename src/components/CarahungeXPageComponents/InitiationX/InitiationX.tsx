@@ -11,6 +11,7 @@ const InitiationX = ({ data }: any) => {
                 <Divider position={"top right"} />
                 <Divider position={"top left"} />
                 <Divider position={"top right"} />
+                <div className={styles.dot}></div>
                 <div className={styles.left}>
                     <Text>
                         <p>{data?.initiationSubtitle}</p>

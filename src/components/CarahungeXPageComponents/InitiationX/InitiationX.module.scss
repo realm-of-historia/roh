@@ -5,25 +5,43 @@
     width: 100%;
     padding: rm(64);
     overflow: hidden;
+    @include xsm {
+        padding: rm(32);
+    }
     .container {
         position: relative;
         width: 100%;
         display: flex;
         align-items: flex-start;
+        @include xsm {
+            flex-direction: column;
+        }
         >:nth-child(1){
             height: 150% !important;
             top: -30% !important;
+            @include xsm {
+                opacity: 0;
+                visibility: hidden;
+            }
         }
         >:nth-child(2){
             height: 150% !important;
             top: -30% !important;
+            @include xsm {
+                opacity: 0;
+                visibility: hidden;
+            }
         }
         >:nth-child(3){
             height: 150% !important;
             top: -30% !important;
             right: 50% !important;
+            @include xsm {
+                opacity: 0;
+                visibility: hidden;
+            }
         }
-        >:nth-child(4) {
+        >:nth-child(5) {
             flex: 1;
         }
 
@@ -37,7 +55,10 @@
             flex-direction: column;
             align-items: flex-end;
             justify-content: flex-end;
-            
+            @include xsm {
+                align-items: flex-start;
+                padding-left: rm(32);
+            }
             >:nth-child(1) {
                 p {
                     @include font-dune-regular();
@@ -49,7 +70,10 @@
                     font-weight: 400;
                     line-height: 120%;
                     padding-right: rm(64);
-                    // padding-top: rm(64);
+                    @include xsm {
+                        padding-right: rm(32);
+                        font-size: font(14);
+                    }
                 }
             }
             >:nth-child(2) {
@@ -63,9 +87,30 @@
                     line-height: 120%;
                     padding-top: rm(8);
                     padding-right: rm(64);
+                    @include xsm {
+                        padding-right: rm(32);
+                        font-size: font(32);
+
+                    }
                 }
             }
            
         }
+    }
+}
+
+.dot{
+    position: absolute;
+    width: rm(9);
+    height: rm(9);
+    background-color: color(text-brown-38);
+    border-radius: 100%;
+    top: 0;
+    left: 50%;
+    z-index: 100;
+    transform: translate(-50%, 0%);
+    @include xsm {
+        opacity: 0;
+        visibility: hidden;
     }
 }

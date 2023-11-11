@@ -9,19 +9,26 @@
     }
   }
 
-
+.container{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
 .main{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    margin-top: rm(128);
+    padding-top: rm(128);
     margin-bottom: rm(771);
     overflow: visible !important;
-
     @include md{
-        margin-top: rm(240);
+        padding-top: rm(240);
+        margin-bottom: rm(600);
+    }
+    @include xsm {
+        padding-top: rm(240);
         margin-bottom: rm(600);
     }
 
@@ -54,6 +61,9 @@
 
             @include md{
                 width: rm(512);
+            }
+            @include xsm {
+                width: 100%;
             }
         }
 

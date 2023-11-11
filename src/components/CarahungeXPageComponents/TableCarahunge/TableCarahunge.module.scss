@@ -5,47 +5,104 @@
     width: 100%;
     padding-left: rm(64);
     padding-right: rm(64);
-    .containerTable{
+    overflow: hidden;
+
+    @include xsm {
+        padding-left: rm(32);
+        padding-right: rm(32);
+    }
+
+    .containerTable {
         position: relative;
         width: 100%;
         display: grid;
         grid-template: 1fr/1fr 1fr 1fr 1fr;
+
+        @include xsm {
+            grid-template: 1fr/1fr 1fr;
+        }
     }
+
     .cell {
         position: relative;
         overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        width: 100%;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        // flex-direction: column;
         cursor: pointer;
-        
-        img{
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 140%;
-            z-index: 1;
-            object-fit: cover;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity ease 0.5s, visibility ease 0.5s;
-        }
-        &:hover{
-            img{
-                opacity: 1;
-                visibility: visible;
-                transition: opacity ease 1s, visibility ease 0.5s;
+
+        .wtappercell {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: rm(144.25) rm(64);
+            overflow: hidden;
+
+            @include xsm {
+                padding: rm(112) rm(32);
+            }
+
+            .arrow {
+                position: relative;
+                width: rm(12);
+                height: rm(8);
+                object-fit: fill;
+                margin-top: rm(24);
+                display: none;
+
+                @include xsm {
+                    display: block
+                }
+
+            }
+
+            p {
+                @include font-dune-regular();
+                color: color(text-brown-38);
+                font-size: font(20);
+                font-weight: 400;
+                line-height: 120%;
+                text-transform: uppercase;
+                z-index: 999;
+                text-align: center;
+
+
+            }
+
+            .imageHover {
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 140%;
+                z-index: 1;
+                object-fit: cover;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity ease 0.5s, visibility ease 0.5s;
+            }
+
+            &:hover {
+                .imageHover {
+                    opacity: 1;
+                    visibility: visible;
+                    transition: opacity ease 1s, visibility ease 0.5s;
+
+                    @include xsm {
+                        opacity: 0;
+                        visibility: hidden;
+                    }
+                }
             }
         }
-        p {
-            padding: rm(144.25) rm(64);
-            @include font-dune-regular();
-            color: color(text-brown-38);
-            font-size: font(20);
-            font-weight: 400;
-            line-height: 120%;
-            text-transform: uppercase;
-            z-index: 999;
-        }
+
+
+
+
+
+
     }
 }
