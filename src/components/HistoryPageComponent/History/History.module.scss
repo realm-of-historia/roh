@@ -9,14 +9,15 @@
 
 
     @include xsm {
-        padding: rm(64) 0;
+        padding: rm(32) 0;
+        justify-content: flex-start;
     }
 
     .right {
         position: relative;
         padding: 0 rm(128);
 
-        > div {
+        >div {
             position: relative;
             display: flex;
             justify-content: flex-start;
@@ -34,9 +35,13 @@
 
         div {
             margin-bottom: rm(64);
+
+            @include xsm {
+                margin-bottom: rm(32);
+            }
         }
 
-        >div >div:last-child {
+        >div>div:last-child {
             margin-bottom: 0;
         }
 
@@ -52,19 +57,19 @@
 
 
     .left {
-        color: color(text-brown);
+        color: color(text-brown-38);
         will-change: transform;
         margin-bottom: rm(64);
 
         margin-left: rm(128);
-        @include xsm {
-            margin-left: rm(32);
-        }
-
-
 
         @include md {
             margin-bottom: rm(64);
+        }
+
+        @include xsm {
+            margin-left: rm(32);
+            margin-bottom: rm(32);
         }
 
         span {
@@ -74,9 +79,9 @@
         p {
             font-size: font(24);
             line-height: 160%;
-            @include font-work-regular;
+            @include font-work-regular();
             max-width: 50vw;
-
+            font-weight: 400;
             span {
                 font-weight: 400;
             }
@@ -89,6 +94,11 @@
                 font-size: font(24);
                 max-width: 90vw;
             }
+
+            @include xsm {
+                font-size: font(16);
+                max-width: 90vw;
+            }
         }
 
 
@@ -96,8 +106,10 @@
             p:first-child {
                 font-size: font(64);
                 line-height: 140%;
-                @include font-dune-regular;
+                @include font-dune-regular();
                 margin-bottom: rm(32);
+                font-weight: 400;
+                text-transform: uppercase;
                 // margin-bottom: rm(200);
 
                 @include lg {
@@ -106,6 +118,10 @@
 
                 @include md {
                     font-size: font(48);
+                }
+
+                @include xsm {
+                    font-size: font(32);
                 }
             }
         }

@@ -2,6 +2,7 @@
 import ImageMy from '@/components/Image/ImageMy'
 import style from './CarahungeHistory.module.scss'
 import Markdown from 'react-markdown'
+import Divider from '@/components/Divider/Divider'
 
 const CarahungeHistory = ({ data }: any) => {
 
@@ -22,6 +23,7 @@ const CarahungeHistory = ({ data }: any) => {
                     </div>
                 ))
             }
+            <Divider horizontal={true} position={'bottom left'}></Divider>
         </div>
     )
 }

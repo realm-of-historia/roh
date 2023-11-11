@@ -16,7 +16,7 @@
         z-index: 1000;
 
         @include xsm{
-            margin-right: rm(64);
+            // margin-right: rm(64);
         }
     }
 
@@ -54,6 +54,9 @@
             @include md{
                 font-size: font(32);
             }
+            @include xsm {
+                font-size: font(32);
+            }
         }
     }
 
@@ -68,6 +71,9 @@
 
         @include md{
             font-size: font(24);
+        }
+        @include xsm {
+            font-size: font(20);
         }
     }
 

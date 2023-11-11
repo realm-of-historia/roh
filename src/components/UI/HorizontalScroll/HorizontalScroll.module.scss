@@ -4,6 +4,9 @@
     position: relative;
     top: 0;
     overflow: visible !important;
+    @include xsm{
+        height: 100%;
+    }
 }
 
 .container{
@@ -13,6 +16,9 @@
     @include lvh(100);
     width: 100%;
     overflow: hidden;
+    @include xsm{
+        height: 100% !important;
+    }
 }
 
 .wrapper{
