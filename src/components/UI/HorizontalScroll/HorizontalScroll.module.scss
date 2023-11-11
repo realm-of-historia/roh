@@ -1,0 +1,24 @@
+@use '../../../assets/styles/index.scss' as *;
+
+.pin {
+    position: relative;
+    top: 0;
+    overflow: visible !important;
+}
+
+.container{
+    position: sticky;
+    left: 0;
+    top: 0;
+    @include lvh(100);
+    width: 100%;
+    overflow: hidden;
+}
+
+.wrapper{
+    width:fit-content;
+	display:flex;
+	flex-wrap:nowrap;
+    height: 100%;
+    will-change: transform;
+}

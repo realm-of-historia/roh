@@ -1,0 +1,77 @@
+@use "../../../../assets/styles/index.scss" as *;
+
+
+
+.main{
+    color: color(text-brown);
+    display: flex;
+    align-items: flex-start;
+
+    .divider{
+        margin-top: rm(70);
+        width: rm(9);
+        height: rm(9);
+        border-radius: rm(50);
+        background-color: color(text-brown);
+        z-index: 1000;
+
+        @include xsm{
+            margin-right: rm(64);
+        }
+    }
+
+    .text{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: rm(304);
+
+        @include lg{
+            width: rm(304);
+        }
+    
+        @include md{
+            width: rm(704);
+        }
+
+        @include xsm{
+            width: rm(450);
+        }
+    }
+
+    div:first-child{
+        p:first-child{
+            font-size: font(32);
+            @include font-dune-regular;
+            line-height: 140%;
+            // text-transform: uppercase;
+            margin-bottom: rm(30);
+    
+            @include lg{
+                font-size: rm(24);
+            }
+    
+            @include md{
+                font-size: font(32);
+            }
+        }
+    }
+
+    p{
+        font-size: font(20);
+        line-height: 160%;
+        @include font-work-regular;
+
+        @include lg{
+            font-size: rm(16);
+        }
+
+        @include md{
+            font-size: font(24);
+        }
+    }
+
+    span{
+        font-weight: 600;
+    }
+}
