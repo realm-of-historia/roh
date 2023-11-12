@@ -4,6 +4,7 @@ import ImageMy from '@/components/Image/ImageMy'
 import style from './Scheme.module.scss'
 import { useWindowSize } from 'rooks';
 import { useMemo, useState } from 'react';
+import Divider from '@/components/Divider/Divider';
 
 interface Panegliph {
     img?: string,
@@ -22,6 +23,7 @@ const Scheme = ({img, mobailImg} : Panegliph) => {
 
     return(
         <div className={style.container}>
+            <Divider position={'top left'} horizontal={true} />
             <ImageMy src={mob ? img : mobailImg} width={mob ? 1920 : 640} height={mob ? 457 : 1168} alt = ''/>
         </div>
     )
