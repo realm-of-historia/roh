@@ -1,16 +1,32 @@
-@use "../../../../assets/styles/index.scss" as *;
+@use "../../../assets/styles/index.scss" as *;
 
 .wrapper {
     position: relative;
     width: 100%;
     // padding-top: rm(240);
     // padding-bottom: rm(240);
+    overflow: hidden;
+    background-color: color(burgundyBg);
+    height: rm(630);
     display: flex;
     align-items: center;
     justify-content: center;
-    height: rm(800);
-    overflow: hidden;
-    background-color: color(text-black);
+    >:last-child{
+        opacity: 0.5 !important;
+    }
+    // >:nth-child(1){
+    //     opacity: 0.5 !important;
+    // }
+    &:hover{
+        .activeHover{
+            opacity: 1 !important;
+            transition: opacity ease 0.3s;
+        }
+    }
+    .activeHover{
+        opacity: 0.5;
+        transition: opacity ease 0.3s;
+    }
     @include xsm {
         // padding-top: rm(120);
         // padding-bottom: rm(120);
@@ -23,7 +39,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
+        overflow: hidden;
         &::after {
             display: block;
             width: 100%;
@@ -121,12 +137,12 @@
                 text-align: center;
                 text-transform: uppercase;
                 line-height: 120%;
-                font-size: font(32);
+                font-size: font(48);
                 padding-left: rm(60);
                 padding-right: rm(60);
                 
                 @include xsm {
-                    font-size: font(22);
+                    font-size: font(32);
                     padding-left: rm(32);
                     padding-right: rm(32);
                     font-weight: 400;
@@ -160,7 +176,7 @@
     top: 0;
     // height: 100%;
     height: fit-content;
-    width: rm(800);
+    width: rm(630);
     transform: translate(-50%, 0);
     pointer-events: none; 
     @include xsm {
@@ -183,8 +199,8 @@
         position: absolute;
         left: 0;
         top: 50%;
-        width: rm(377);
-        height: rm(377);
+        width: rm(300);
+        height: rm(300);
         transform: translate(0, -50%);
         @include xsm {
             width: rm(300);
@@ -196,8 +212,8 @@
         position: absolute;
         left: 50%;
         bottom: 0;
-        width: rm(377);
-        height: rm(377);
+        width: rm(300);
+        height: rm(300);
         transform: translate(-50%, 0);
         @include xsm {
             width: rm(300);
@@ -209,8 +225,8 @@
         position: absolute;
         right: 0;
         top: 50%;
-        width: rm(377);
-        height: rm(377);
+        width: rm(300);
+        height: rm(300);
         transform: translate(0, -50%);
         @include xsm {
             width: rm(300);
@@ -222,8 +238,8 @@
         position: absolute;
         left: 50%;
         top: 0;
-        width: rm(377);
-        height: rm(377);
+        width: rm(300);
+        height: rm(300);
         transform: translate(-50%, 0);
         @include xsm {
             width: rm(300);
@@ -254,6 +270,3 @@
     }
 }
 
-.bg{
-    background-color: color(burgundyBg) !important;
-}
