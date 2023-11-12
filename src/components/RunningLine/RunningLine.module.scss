@@ -31,7 +31,7 @@
     width: rm(234);
     height: 100%;
 
-    @include lg{
+    @include xsm{
         width: rm(64);
     }
 
@@ -42,6 +42,6 @@
         height: 100%;
         // background-image: url('/publications.png');
         background-repeat: repeat-y;
-        background-size: cover;
+        background-size: 100%;
     }
 }

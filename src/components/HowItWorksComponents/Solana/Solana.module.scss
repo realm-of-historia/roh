@@ -15,12 +15,17 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
+        @include xsm{
+            padding: rm(32);
+        }
         .wrapperImg {
             position: relative;
             width: rm(200);
             height: rm(30);
-
+            @include xsm{
+                width: rm(100);
+                height: rm(15);
+            }
             img {
                 position: absolute;
                 left: 0;
@@ -40,6 +45,9 @@
             text-transform: uppercase;
             text-align: center;
             margin-top: rm(64);
+            @include xsm{
+                margin-top: rm(32);
+            }
         }
 
         p {
@@ -51,6 +59,7 @@
             text-align: center;
             white-space: pre-wrap;
             margin-top: rm(32);
+            
         }
     }
 }
