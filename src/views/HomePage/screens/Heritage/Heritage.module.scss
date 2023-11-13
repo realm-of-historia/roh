@@ -44,7 +44,7 @@
 
         &::before {
             display: block;
-            width: 85%;
+            width: 100%;
             height: 1px;
             content: '';
             position: absolute;
@@ -261,5 +261,11 @@
         &::before {
             width: 100% !important;
         }
+        .containerText{
+            h2{
+                text-transform: none !important;
+            }
+        }
     }
+
 }

@@ -23,7 +23,7 @@ const Scheme = ({img, mobailImg} : Panegliph) => {
 
     return(
         <div className={style.container}>
-            <Divider position={'top left'} horizontal={true} />
+            <Divider position={'top left'} horizontal={true} noAnim={true}/>
             <ImageMy src={mob ? img : mobailImg} width={mob ? 1920 : 640} height={mob ? 457 : 1168} alt = ''/>
         </div>
     )

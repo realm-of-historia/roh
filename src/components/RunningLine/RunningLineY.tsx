@@ -30,7 +30,8 @@ const RunningLineY = ({ image='', height } : any) => {
 
     const content: any = containerRef.current;
     if (content) {
-      currentBackgroundPositionXRef.current += 1 * isRight.current; //(velocity.current < 0 ? velocity.current * -1 : velocity.current)
+      // currentBackgroundPositionXRef.current += 1 * isRight.current; //(velocity.current < 0 ? velocity.current * -1 : velocity.current)
+      currentBackgroundPositionXRef.current += 0.2
       content.style.backgroundPositionY = `${currentBackgroundPositionXRef.current}px`;
     }
 

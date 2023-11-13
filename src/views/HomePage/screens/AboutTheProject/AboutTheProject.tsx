@@ -24,7 +24,7 @@ const AboutTheProject = () => {
 
     return (
         <div className={styles.container}>
-            <Divider position={"bottom right"} horizontal={true}/>
+            <Divider position={"bottom right"} horizontal={true} noAnim={true}/>
             {
              dataTheProject ?
                     <>

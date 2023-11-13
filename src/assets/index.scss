@@ -40,6 +40,19 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    .example {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+    
+}
+body{
+    
 }
 
 .mySwiper {

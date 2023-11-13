@@ -77,10 +77,10 @@ const Avatar = ({ searchIcon, support, subject }: StandardComponentProps) => {
             <Link href='/lobby'><p>3d Lobby</p></Link>
             <Link href='/marketplace'><p>Marketplace</p></Link>
             <Link href='/artists'><p>Artists</p></Link>
-            <Link href='/carahunge-x'><p>carahunge-x</p></Link>
-            <Link href='/history'><p>history</p></Link>
-            <Link href='/mission'><p>mission</p></Link>
-            <Link href='/how-it-works'><p>how-it-works</p></Link>
+            <Link href='/carahunge-x'><p>Carahunge X</p></Link>
+            <Link href='/history'><p>History</p></Link>
+            <Link href='/mission'><p>Mission</p></Link>
+            <Link href='/how-it-works'><p>How It Works</p></Link>
             <p onClick={unLogIn}>Log Out</p>
           </div>
         </div>
