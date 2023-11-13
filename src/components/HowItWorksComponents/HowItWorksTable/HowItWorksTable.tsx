@@ -14,7 +14,7 @@ const HowItWorksTable = ({ data }: any) => {
         <div className={style.container}>
             {
                 data?.map((_: any, i: number) => (
-                    <HowItWorksTableInfo data={_} />
+                    <HowItWorksTableInfo key={i + 4342} data={_} />
                 ))
             }
         </div>

@@ -11,7 +11,7 @@ import Markdown from 'react-markdown'
 
 const History = ({data} : any) => {
 
-    const triggerRef = React.useRef()
+    const triggerRef : any = React.useRef()
     const titleRef = React.useRef()
     const listRef = React.useRef()
     React.useEffect(() => {
@@ -40,6 +40,7 @@ const History = ({data} : any) => {
 
   return (
     <HorizontalScroll
+        // @ts-expect-error
         ref={triggerRef}
     >
         <div className={styles.main}>
