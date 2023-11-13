@@ -27,12 +27,13 @@ const RunningLine = ({ image='' }: { image?: string }) => {
 
 
   const animateBackgroundPosition = (delta: any) => {
-    velocity.current = (speed.current / delta) != 0 ? speed.current * 2 / delta : 1
+    // velocity.current = (speed.current / delta) != 0 ? speed.current * 2 / delta : 1
     
 
     const content: any = containerRef.current;
     if (content) {
-      currentBackgroundPositionXRef.current += 1 * isRight.current; //(velocity.current < 0 ? velocity.current * -1 : velocity.current)
+      // currentBackgroundPositionXRef.current += 1 * isRight.current; //(velocity.current < 0 ? velocity.current * -1 : velocity.current)
+      currentBackgroundPositionXRef.current += 0.3
       content.style.backgroundPositionX = `${currentBackgroundPositionXRef.current}px`;
     }
     // if(inView){
@@ -50,9 +51,9 @@ const RunningLine = ({ image='' }: { image?: string }) => {
 
   useEffect(() => {
     if(inView){
-      window.addEventListener('scroll', handleScroll);
+      // window.addEventListener('scroll', handleScroll);
       requestAnimationFrame(animateBackgroundPosition);
-      return () => { window.removeEventListener('scroll', handleScroll)}
+      // return () => { window.removeEventListener('scroll', handleScroll)}
     }
     //  else{
     //   cancelAnimationFrame(animateBackgroundPosition)

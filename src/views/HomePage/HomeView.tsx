@@ -116,7 +116,9 @@ export default function HomeView({ data }: StandardComponentProps) {
         <WrapperTexture>
           <MapHome data={map}/>
         </WrapperTexture>
-          {/* <HeritageDefault /> */}
+        <WrapperTexture>
+          <HeritageDefault />
+        </WrapperTexture>
           {/* <Videos data={dataVideos} /> */}
           {/* <OurVision data={dataOurVision} title={dataOurVisionTitle} /> */}
           {/* <Panegliph isFirst={false}></Panegliph> */}
