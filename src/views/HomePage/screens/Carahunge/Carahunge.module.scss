@@ -96,10 +96,11 @@
     line-height: 140%;
     border: rm(1) solid color(text-brown-85);
     background-color:transparent;
-    transition: background-color ease 0.3s;
+    transition: background-color ease 0.3s, color ease 0.3s;
     cursor: pointer;
     &:hover{
+        color: color(bg-1);
         background-color: color(bg-black);
-        transition: background-color ease 0.3s;
+        transition: background-color ease 0.3s, color ease 0.3s;
     }
 }

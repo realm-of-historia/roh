@@ -2,6 +2,7 @@ import InitiationX from "@/components/CarahungeXPageComponents/InitiationX/Initi
 import Preserve from "@/components/CarahungeXPageComponents/Preserve/Preserve";
 import RealmOfHistory from "@/components/CarahungeXPageComponents/RealmOfHistory/RealmOfHistory";
 import TableCarahunge from "@/components/CarahungeXPageComponents/TableCarahunge/TableCarahunge";
+import HashAnchor from "@/components/HashAnchor/HashAnchor";
 import Panegliph from "@/components/Panegliph/Panegliph";
 import RunningLine from "@/components/RunningLine/RunningLine";
 import WrapperTexture from "@/components/WrapperTexture/WrapperTexture";
@@ -38,6 +39,7 @@ export default async function CarahungeXPage() {
     return(
         <>
             <WrapperTexture>
+                <HashAnchor />
                 <RealmOfHistory data={dataRealmOfHistory}/>
                 <Preserve data={dataPreserve}/>
                 <Panegliph isFirst={false}/>

@@ -1,3 +1,4 @@
+import HashAnchor from "@/components/HashAnchor/HashAnchor"
 import RunningLine from "@/components/RunningLine/RunningLine"
 import WrapperTexture from "@/components/WrapperTexture/WrapperTexture"
 import HistoriaMission from "@/components/rohComponents/HistoriaMission/HistoriaMission"
@@ -30,6 +31,7 @@ export default async function Roh() {
     return (
         <>
             <WrapperTexture>
+            <HashAnchor />
                 <RealmHistory header={data?.data.attributes.header} welcome={data?.data.attributes.welcome}/>
                 <AboutTheProject/>
                 <HistoriaMission data={missionTable}/>

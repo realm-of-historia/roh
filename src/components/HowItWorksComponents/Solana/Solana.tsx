@@ -27,6 +27,7 @@ const Solana = ({data} : any) => {
                 <Divider position={'bottom right'} />
             </div>
             <RunningLineY image={data?.ribbon.data.attributes.url} height={height}/>
+            <Divider position={'bottom left'} noAnim={true} horizontal={true}/>
         </div>
     )
 }

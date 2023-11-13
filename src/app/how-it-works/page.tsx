@@ -1,3 +1,4 @@
+import HashAnchor from "@/components/HashAnchor/HashAnchor";
 import HowItWorksTable from "@/components/HowItWorksComponents/HowItWorksTable/HowItWorksTable";
 import Solana from "@/components/HowItWorksComponents/Solana/Solana";
 import WrapperTexture from "@/components/WrapperTexture/WrapperTexture";
@@ -29,6 +30,7 @@ export default async function HowItWorks() {
     return(
         <>
             <WrapperTexture>
+                <HashAnchor />
                 <Heritage data={header} />
                 <Scheme img={scheme?.data.attributes.url} mobailImg={mobileDiagram?.data.attributes.url}/>
                 <HowItWorksTable data={table} />

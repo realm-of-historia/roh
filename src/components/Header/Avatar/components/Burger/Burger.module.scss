@@ -1,7 +1,6 @@
 @use "../../../../../assets/styles/index.scss" as *;
 
 .wrapperBurger {
-    padding: rm(32);
     z-index: 999999;
     background-color: color(bg-1);
     overflow: hidden;
@@ -15,9 +14,13 @@
     flex-direction: column;
     transform: translate(-100%, 0%);
     transition: transform ease 0.5s, opacity ease 0.3s, visibility ease 0.3s;
+    >:nth-child(1){
+        height: 100vh;
+    }
 }
 
 .avatar {
+    margin: rm(32);
     position: relative;
     width: rm(64);
     height: rm(64);
@@ -35,6 +38,7 @@
 }
 
 .link {
+    padding: rm(0) rm(32) rm(32) rm(32);
     margin-top: rm(30);
     display: flex;
     flex-direction: column;
@@ -55,6 +59,8 @@
 .button {
     position: relative;
     padding: rm(20) rm(150);
+    margin-left: rm(32);
+    margin-right: rm(32);
     color: color(text-brown-88);
     font-size: font(16);
     @include font-work-regular();
@@ -62,7 +68,7 @@
     line-height: 140%;
     background-color: color(text-black);
     border: 1px solid color(text-brown-88);
-    margin-top: rm(30);
+    // margin-top: rm(30);
     cursor: pointer;
     transition: background-color ease 0.3s;
     &:hover{
@@ -76,7 +82,8 @@
     display: grid;
     grid-template: 1fr/1fr 1fr 1fr;
     margin-top: rm(40);
-
+    padding-left: rm(32);
+    padding-right: rm(32);
     >:nth-child(3n) {
         &:before {
             display: block;

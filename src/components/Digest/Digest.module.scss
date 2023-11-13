@@ -12,7 +12,7 @@
     overflow: hidden;
     background-color: color(bg);
     position: relative;
-    z-index: 10000000;
+    z-index: 1;
 
     @include md{
         flex-direction: column;

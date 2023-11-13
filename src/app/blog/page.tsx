@@ -12,6 +12,7 @@ import Header from '@/components/Header/Header'
 import Layout from '@/components/Layout/Layout'
 import { useApiFetch } from '@/composable/useApiFetch'
 import { useSectionData } from '@/composable/useSectionData'
+import HashAnchor from '@/components/HashAnchor/HashAnchor'
 
 export default async function BlogPage() {
     const data = await useApiFetch('api/blog-page?populate[video][populate]=*&populate[cardBundles][populate]=*&populate[collectionOfPictures][populate]=*&populate[ribbon][populate]=*&populate[instagramPostText][populate]=*&populate[articles][populate]=*&populate[articlesPopular][populate]=*')
@@ -40,6 +41,7 @@ export default async function BlogPage() {
         // <Layout>
         <div>
             {/* <Header></Header> */}
+            <HashAnchor />
             <Start data={dataStart.data.attributes.url} articles={dataStartArticles}></Start>
             <Ancient data={dataAncient}></Ancient>
             <Comments data={articlesPopular} />

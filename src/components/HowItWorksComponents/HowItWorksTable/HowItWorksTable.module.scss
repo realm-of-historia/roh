@@ -12,6 +12,13 @@
         width: 100%;
         display: flex;
         background-color: color(bg-1);
+        .mainTop{
+            position: absolute;
+            left: 0;
+            height: rm(70);
+            width: 100%;
+            bottom: 100%;
+        }
         .wrapperInfo {
             position: relative;
             width: 100%;

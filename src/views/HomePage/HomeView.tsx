@@ -27,6 +27,7 @@ import RunningLine from '@/components/RunningLine/RunningLine'
 import CollectionOfWorks from './screens/CollectionOfWorks/CollectionOfWorks'
 import MapHome from './screens/MapHome/MapHome'
 import HeritageDefault from './screens/Heritage/HeritageDefault'
+import HashAnchor from '@/components/HashAnchor/HashAnchor'
 export interface StandardComponentProps {
   data?: any
 }
@@ -55,6 +56,7 @@ export default function HomeView({ data }: StandardComponentProps) {
   const instagramPost = useSectionData(data, 'instagramPost')
   const map = useSectionData(data, 'map')
   const joinUs = useSectionData(data, 'joinUs')
+  const ribbon2 = useSectionData(data, 'ribbon2')
 
   const firstBlock = [
     'ROH',
@@ -73,6 +75,7 @@ export default function HomeView({ data }: StandardComponentProps) {
   return (
     <div>
       <Layout>
+        {/* <HashAnchor /> */}
           <Explorer data={dataExplorer} />
         <WrapperTexture>
           <Heritage data={dataHeritage} />
@@ -94,9 +97,9 @@ export default function HomeView({ data }: StandardComponentProps) {
         </WrapperTexture>
           <Posts data={dataPosts} img={instagramPost} />
         <WrapperTexture>
-          <RunningLine image={dataBundlesRibbon?.data.attributes.url}></RunningLine>
+          <RunningLine image={ribbon2?.data.attributes.url}></RunningLine>
           <MapHome data={map}/>
-          <HeritageDefault />
+          {/* <HeritageDefault /> */}
           {/* <Videos data={dataVideos} /> */}
           {/* <OurVision data={dataOurVision} title={dataOurVisionTitle} /> */}
           {/* <Panegliph isFirst={false}></Panegliph> */}

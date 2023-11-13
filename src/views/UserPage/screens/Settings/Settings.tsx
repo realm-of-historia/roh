@@ -14,11 +14,13 @@ import Accounts from './sections/Accounts/Accounts'
 import Preferences from './sections/Preferences/Preferences'
 import Notifications from './sections/Notifications/Notifications'
 import Deactivation from './sections/Deactivation/Deactivation'
+import HashAnchor from '@/components/HashAnchor/HashAnchor'
 
 
 const Settings = () => {
     return(
         <div>
+            <HashAnchor />
             <ProfileLayout title='PROFILe DeTAILS'><DetailsProfile></DetailsProfile></ProfileLayout>
             <ProfileLayout title='SIGN-IN MeTHOD'><SignIn></SignIn></ProfileLayout>
             <ProfileLayout title='CONNeCTeD ACCOUNTS'><Accounts></Accounts></ProfileLayout>

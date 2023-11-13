@@ -19,7 +19,7 @@ const HeritageDefault = () => {
             {
                 data ?
                     <div className={`${stules.wrapper} ${stules.bg}`}>
-                        <div className={stules.wrapperInfoText}>
+                        <div className={`${stules.wrapperInfoText}`}>
                             <div className={stules.containerText}>
                                 <Text>
                                     <h2>{data?.name}</h2>

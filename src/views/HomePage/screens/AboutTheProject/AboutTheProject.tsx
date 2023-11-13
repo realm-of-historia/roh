@@ -38,14 +38,14 @@ const AboutTheProject = () => {
                                         <Text>
                                             <p>{_.description}</p>
                                         </Text>
-                                        <Divider position={"top left"} horizontal={true} />
+                                        <Divider position={"top left"} horizontal={true}  noAnim={true}/>
                                     </div>
                                 ))
                             }
                         </div>
                         <div className={styles.wrapperColumn}>
-                            <Divider position={"top right"} />
-                            <Divider position={"top left"} />
+                            <Divider position={"top right"} noAnim={true}/>
+                            <Divider position={"top left"} noAnim={true}/>
                             {
                                 dataNew[1]?.map((_: any, i: number) => (
                                     <div key={i + 862} className={styles.cell}>
@@ -55,7 +55,7 @@ const AboutTheProject = () => {
                                         <Text>
                                             <p>{_.description}</p>
                                         </Text>
-                                        <Divider position={"top left"} horizontal={true} />
+                                        <Divider position={"top left"} horizontal={true} noAnim={true}/>
                                     </div>
                                 ))
                             }
@@ -70,7 +70,7 @@ const AboutTheProject = () => {
                                         <Text>
                                             <p>{_.description}</p>
                                         </Text>
-                                        <Divider position={"top left"} horizontal={true} />
+                                        <Divider position={"top left"} horizontal={true} noAnim={true}/>
                                     </div>
                                 ))
                             }

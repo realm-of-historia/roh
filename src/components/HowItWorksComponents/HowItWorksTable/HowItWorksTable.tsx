@@ -24,6 +24,7 @@ const HowItWorksTable = ({ data }: any) => {
 
 const HowItWorksTableInfo = ({ data }: any) => {
     const columnRef = useRef(null)
+    const activ = useRef(null)
 
     useEffect(() => {
         if (columnRef.current) {
@@ -44,12 +45,12 @@ const HowItWorksTableInfo = ({ data }: any) => {
                 <div className={style.wrapperInfoContainer}>
                     <h2>{data.name}</h2>
                     <p>{data.description}</p>
-                    <Divider position={'bottom right'}  />
-                <Divider position={'bottom left'}  />
+                    <Divider position={'bottom right'}  noAnim={true}/>
+                <Divider position={'bottom left'} noAnim={true} />
                 </div>
             </div>
             {/* <Divider position={'bottom left'} horizontal={true} /> */}
-            <Divider position={'top left'} horizontal={true} />
+            <Divider position={'top left'} horizontal={true} noAnim={true}/>
         </div>
     )
 }
