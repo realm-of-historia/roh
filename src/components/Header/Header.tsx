@@ -139,6 +139,7 @@ const Header = ({ data }: StandardComponentProps) => {
 
   return (
     <div className={styles.header}>
+        <img src="/texture.png" className={styles.texture} width={1920} height={800} alt="" />
         <Burger networks={data?.networks} link={data?.link} button={data?.button} />
       <div className={styles.bottomDivider}></div>
       <div className={styles.wrapperLogoNetworks}>

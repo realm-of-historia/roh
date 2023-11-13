@@ -5,6 +5,7 @@ import Header from '@/components/Header/Header'
 import Digest from '@/components/Digest/Digest'
 import Artist from './ArtistPage/ArtistPage'
 import Layout from '@/components/Layout/Layout'
+import HashAnchor from '@/components/HashAnchor/HashAnchor'
 
 export default function ArtistView({ data }: { data: any }) {
 
@@ -90,6 +91,7 @@ export default function ArtistView({ data }: { data: any }) {
 
     return (
         <div>
+            <HashAnchor />
             <Layout>
                 {data?.data.map((element: any, index: number) => (
                     <Artist

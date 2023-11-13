@@ -3,8 +3,10 @@
 import React, { useMemo } from 'react'
 import styles from './RunningLine.module.scss'
 import {useRef, useEffect, useState} from 'react'
+import { useInView } from 'react-intersection-observer'
 
 const RunningLineY = ({ image='', height } : any) => {
+  const { ref, inView } = useInView()
 
   const isRight = useRef(1);
   const velocity = useRef(1);
@@ -37,19 +39,21 @@ const RunningLineY = ({ image='', height } : any) => {
 
   const handleScroll = () => {
     const truth = currentScroll.current <= window.scrollY
-    isRight.current = (truth ? 1 : -1);
+    // isRight.current = (truth ? 1 : -1);
     speed.current = window.scrollY - currentScroll.current
     currentScroll.current = window.scrollY || window.pageXOffset
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    requestAnimationFrame(animateBackgroundPosition);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+    if(inView){
+      window.addEventListener('scroll', handleScroll);
+      requestAnimationFrame(animateBackgroundPosition);
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, [inView]);
 
   let heightrunningLineY = useMemo(() =>{
     return{
@@ -57,7 +61,7 @@ const RunningLineY = ({ image='', height } : any) => {
     }
   },[height])
   return (
-    <div className={`${styles.runningLineY}`} style={heightrunningLineY}>
+    <div ref={ref} className={`${styles.runningLineY}`} style={heightrunningLineY}>
         <div className={styles.content} ref={containerRef}></div>
     </div>
   )

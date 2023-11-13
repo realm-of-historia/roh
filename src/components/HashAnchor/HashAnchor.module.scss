@@ -1,0 +1,17 @@
+
+@use "../../assets/styles/index.scss" as *;
+
+.HashAnchor {
+    position: relative;
+    visibility: hidden;
+    opacity: 0;
+    // left: 50%;
+    // top: 0;
+    // transform: translateX(-50%);
+    // transform: translateY(-100%);
+    height: rm(70);
+
+    // @include xsm {
+    //     height: rm(72);
+    // }
+}

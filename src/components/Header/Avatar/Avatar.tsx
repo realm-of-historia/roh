@@ -19,9 +19,15 @@ const Avatar = ({ searchIcon, support, subject }: StandardComponentProps) => {
   useEffect(() => {
     let element: any = document.getElementById("body");
     if (burger) {
-      element.style.cssText = 'overflow: hidden; height: 100vh;'
+      document.documentElement.style.overflow = 'hidden';
+            document.documentElement.style.height = '100%';
+            document.documentElement.style.position = 'relative';
+      // element.style.cssText = 'overflow: hidden; height: 100vh;'
     } else {
-      element.style.cssText = 'overflow: visible; height: auto;'
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.height = '';
+      document.documentElement.style.position = '';
+      // element.style.cssText = 'overflow: visible; height: auto;'
     }
   }, [burger])
   const unLogIn = () => {
@@ -71,6 +77,10 @@ const Avatar = ({ searchIcon, support, subject }: StandardComponentProps) => {
             <Link href='/lobby'><p>3d Lobby</p></Link>
             <Link href='/marketplace'><p>Marketplace</p></Link>
             <Link href='/artists'><p>Artists</p></Link>
+            <Link href='/carahunge-x'><p>carahunge-x</p></Link>
+            <Link href='/history'><p>history</p></Link>
+            <Link href='/mission'><p>mission</p></Link>
+            <Link href='/how-it-works'><p>how-it-works</p></Link>
             <p onClick={unLogIn}>Log Out</p>
           </div>
         </div>

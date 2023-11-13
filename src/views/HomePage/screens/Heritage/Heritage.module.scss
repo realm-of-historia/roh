@@ -16,6 +16,7 @@
         // padding-bottom: rm(120);
         height: rm(576); 
     }
+    
     .wrapperInfoText {
         position: relative;
         width: 100%;
@@ -27,7 +28,7 @@
         &::after {
             display: block;
             width: 100%;
-            height: rm(1);
+            height: 1px;
             content: '';
             position: absolute;
             opacity: 0.5;
@@ -44,7 +45,7 @@
         &::before {
             display: block;
             width: 85%;
-            height: rm(1);
+            height: 1px;
             content: '';
             position: absolute;
             opacity: 0.5;
@@ -71,7 +72,7 @@
             }
             &::after {
                 display: block;
-                width: rm(1);
+                width: 1px;
                 height: 100vh;
                 content: '';
                 position: absolute;
@@ -88,7 +89,7 @@
             }
             &::before {
                 display: block;
-                width: rm(1);
+                width: 1px;
                 height: 100vh;
                 content: '';
                 position: absolute;
@@ -256,4 +257,9 @@
 
 .bg{
     background-color: color(burgundyBg) !important;
+    .wrapperInfoText{
+        &::before {
+            width: 100% !important;
+        }
+    }
 }

@@ -23,7 +23,7 @@ const CarahungeHistory = ({ data }: any) => {
                     </div>
                 ))
             }
-            <Divider horizontal={true} position={'bottom left'}></Divider>
+            <Divider horizontal={true} position={'bottom right'}></Divider>
         </div>
     )
 }

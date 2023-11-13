@@ -1,3 +1,4 @@
+import HashAnchor from "@/components/HashAnchor/HashAnchor";
 import OurGoals from "@/components/MissionComponents/OurGoals/OurGoals";
 import WrapperTexture from "@/components/WrapperTexture/WrapperTexture";
 import { useApiFetch } from "@/composable/useApiFetch";
@@ -21,6 +22,7 @@ export default async function Mission() {
     return(
         <>
             <WrapperTexture>
+                <HashAnchor />
                 <Heritage data={missionHeader} />
                 <OurGoals data={dataOurGoals}/>
                 <AboutTheProject/>

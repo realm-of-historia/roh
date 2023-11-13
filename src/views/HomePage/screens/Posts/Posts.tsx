@@ -16,8 +16,11 @@ export interface StandardComponentProps {
 const Posts = ({ data, img }: StandardComponentProps) => {
     const { ref, inView } = useInView()
     console.log(img)
+    const handler= (href : any) => {
+        window.open(href)
+      }
     return (
-        <NativeUnderpin>
+        // <NativeUnderpin>
             <div className={styles.posts}>
                 <div className={styles.dividerTop}></div>
                 <div className={styles.left}>
@@ -53,7 +56,7 @@ const Posts = ({ data, img }: StandardComponentProps) => {
                 </div> */}
                     {
                         img?.data.map((_: any, i: number) => (
-                            <div key={i + 834} className={styles.wrapperInstPost}>
+                            <div key={i + 834} onClick={() => handler('https://www.instagram.com/realmofhistoria/')} className={styles.wrapperInstPost}>
                                 <ImageMy src={_.attributes.url} width={320} height={320} alt='' />
                             </div>
                         ))
@@ -71,7 +74,7 @@ const Posts = ({ data, img }: StandardComponentProps) => {
                     </div>
                 </WrapperTexture>
             </div>
-        </NativeUnderpin>
+        // </NativeUnderpin>
     )
 }
 

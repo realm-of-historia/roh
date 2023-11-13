@@ -1,4 +1,5 @@
 import CarahungeX from "@/components/CollectionsComponents/CarahungeX/CarahungeX"
+import HashAnchor from "@/components/HashAnchor/HashAnchor"
 import RunningLine from "@/components/RunningLine/RunningLine"
 import WrapperTexture from "@/components/WrapperTexture/WrapperTexture"
 import { useApiFetch } from "@/composable/useApiFetch"
@@ -19,6 +20,7 @@ export default async function Сollections() {
     return (
         <>
             <WrapperTexture>
+                <HashAnchor />
                 <RunningLine image={ribbon?.data.attributes.url}/>
                 <CarahungeX data={dataCarahungeX}/>
                 <HeritageDefault />

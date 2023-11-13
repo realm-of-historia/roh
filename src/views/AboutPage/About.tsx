@@ -10,6 +10,7 @@ import Faces from '@/views/AboutPage/screens/AboutUs/Faces/Faces'
 import GreatTeam from '@/views/AboutPage/screens/AboutUs/GreatTeam/GreatTeam'
 import Layout from '@/components/Layout/Layout'
 import { useSectionData } from '@/composable/useSectionData'
+import HashAnchor from '@/components/HashAnchor/HashAnchor'
 export interface StandardComponentProps {
     data?: any
   }
@@ -36,6 +37,7 @@ export default function About({data} : StandardComponentProps) {
     return(
         <div>
             <Layout>
+                <HashAnchor />
                 <AboutUs data={dataAboutUs}/>
                 <RunningLine image={dataRunningLine.data.attributes.url}></RunningLine>
                 <Comments data={articles} />
