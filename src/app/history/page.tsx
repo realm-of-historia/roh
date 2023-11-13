@@ -19,7 +19,7 @@ export default async function HistoryPage() {
     const carahunge = useSectionData(data, 'carahunge')
     const carahungeHistory = useSectionData(data, 'carahungeHistory')
     const carahungeHistorySubtitle = useSectionData(data, 'carahungeHistorySubtitle')
-    const dataHistory ={
+    const dataHistory = {
         carahunge, carahungeHistory, carahungeHistorySubtitle
     }
     const dataHeaderHistory = {
@@ -30,9 +30,17 @@ export default async function HistoryPage() {
         <>
             <WrapperTexture>
                 <HashAnchor />
+            </WrapperTexture>
+            <WrapperTexture>
                 <HeaderHistory data={dataHeaderHistory} />
-                <CarahungeHistory data={historyTable}/>
-                <History data={dataHistory}/>
+            </WrapperTexture>
+            <WrapperTexture>
+                <CarahungeHistory data={historyTable} />
+            </WrapperTexture>
+            <WrapperTexture>
+                <History data={dataHistory} />
+            </WrapperTexture>
+            <WrapperTexture>
                 <HeritageDefault />
             </WrapperTexture>
         </>

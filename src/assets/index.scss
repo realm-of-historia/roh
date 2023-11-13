@@ -35,7 +35,7 @@ html {
     @include font-work-regular;
     font-size: var(--breakpoint-font-xlg);
     @include generate-grid;
-    background-color: color(bg);
+    background-color: color(bg-1);
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

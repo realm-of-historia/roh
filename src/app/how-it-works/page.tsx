@@ -27,17 +27,30 @@ export default async function HowItWorks() {
         ribbon, solanaLogo, solana
     }
 
-    return(
+    return (
         <>
             <WrapperTexture>
                 <HashAnchor />
+            </WrapperTexture>
+            <WrapperTexture>
                 <Heritage data={header} />
-                <Scheme img={scheme?.data.attributes.url} mobailImg={mobileDiagram?.data.attributes.url}/>
+            </WrapperTexture>
+            <WrapperTexture>
+                <Scheme img={scheme?.data.attributes.url} mobailImg={mobileDiagram?.data.attributes.url} />
+            </WrapperTexture>
+            <WrapperTexture>
                 <HowItWorksTable data={table} />
-                <Solution data={tableSolution} header={titleSolution}/>
+            </WrapperTexture>
+            <WrapperTexture>
+                <Solution data={tableSolution} header={titleSolution} />
+            </WrapperTexture>
+            <WrapperTexture>
                 <Solana data={dataSolana} />
+            </WrapperTexture>
+            <WrapperTexture>
                 <HeritageDefault />
             </WrapperTexture>
+
         </>
     )
 }

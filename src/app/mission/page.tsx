@@ -14,18 +14,26 @@ export default async function Mission() {
     const missionHeader = useSectionData(data, 'missionHeader')
     const ourGoals = useSectionData(data, 'ourGoals')
     const descriptionOurGoals = useSectionData(data, 'descriptionOurGoals')
-    let dataOurGoals ={
+    let dataOurGoals = {
         ourGoals, descriptionOurGoals
     }
 
 
-    return(
+    return (
         <>
             <WrapperTexture>
                 <HashAnchor />
+            </WrapperTexture>
+            <WrapperTexture>
                 <Heritage data={missionHeader} />
-                <OurGoals data={dataOurGoals}/>
-                <AboutTheProject/>
+            </WrapperTexture>
+            <WrapperTexture>
+                <OurGoals data={dataOurGoals} />
+            </WrapperTexture>
+            <WrapperTexture>
+                <AboutTheProject />
+            </WrapperTexture>
+            <WrapperTexture>
                 <HeritageDefault />
             </WrapperTexture>
         </>

@@ -79,33 +79,49 @@ export default function HomeView({ data }: StandardComponentProps) {
           <Explorer data={dataExplorer} />
         <WrapperTexture>
           <Heritage data={dataHeritage} />
+        </WrapperTexture>
+        <WrapperTexture>
           <Carahunge data={dataCarahunge} />
+        </WrapperTexture>
+        <WrapperTexture>
           <AboutTheProject />
+        </WrapperTexture>
           {/* <NativeUnderpin>
           <WrapperParallax>
             <Lobby data={dataLobby} isCircle={true} />
           </WrapperParallax>
         </NativeUnderpin> */}
+        <WrapperTexture>
           <RunningLine image={dataBundlesRibbon?.data.attributes.url}></RunningLine>
+        </WrapperTexture>
+        <WrapperTexture>
           <CollectionOfWorks />
+        </WrapperTexture>
+        <WrapperTexture>
           <Start data={dataStartVideo?.data.attributes.url} articles={articles}></Start>
+        </WrapperTexture>
           {/* <Ancient data={dataAncient} /> */}
+        <WrapperTexture>
           <Comments data={article_populars}></Comments>
+        </WrapperTexture>
           {/* <NativeUnderpin>
           <Bundles ribbon={dataBundlesRibbon} data={dataBundles} text={dataBundlesText} href={dataBundlesHref}></Bundles>
         </NativeUnderpin> */}
-        </WrapperTexture>
+        <WrapperTexture>
           <Posts data={dataPosts} img={instagramPost} />
+        </WrapperTexture>
         <WrapperTexture>
           <RunningLine image={ribbon2?.data.attributes.url}></RunningLine>
+        </WrapperTexture>
+        <WrapperTexture>
           <MapHome data={map}/>
+        </WrapperTexture>
           {/* <HeritageDefault /> */}
           {/* <Videos data={dataVideos} /> */}
           {/* <OurVision data={dataOurVision} title={dataOurVisionTitle} /> */}
           {/* <Panegliph isFirst={false}></Panegliph> */}
           {/* <OurVision data={dataOurVision2} title={dataOurVisionTitle2} /> */}
           {/* <Marketplace title={dataMarketplace} /> */}
-        </WrapperTexture>
       </Layout>
     </div>
   )

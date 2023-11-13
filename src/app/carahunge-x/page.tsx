@@ -26,29 +26,49 @@ export default async function CarahungeXPage() {
     const initiationTable = useSectionData(data, 'initiationTable')
     const selfSustainableHeritage = useSectionData(data, 'selfSustainableHeritage')
 
-    let dataPreserve ={
+    let dataPreserve = {
         preserveHeader, preserveDescription
     }
-    let dataRealmOfHistory={
-        header, 
+    let dataRealmOfHistory = {
+        header,
         subtitle,
     }
-    let dataInitiationX ={
+    let dataInitiationX = {
         initiationTitle, initiationSubtitle, initiationTable
     }
-    return(
+    return (
         <>
             <WrapperTexture>
                 <HashAnchor />
-                <RealmOfHistory data={dataRealmOfHistory}/>
-                <Preserve data={dataPreserve}/>
-                <Panegliph isFirst={false}/>
-                <TableCarahunge data={table}/>
+            </WrapperTexture>
+            <WrapperTexture>
+                <RealmOfHistory data={dataRealmOfHistory} />
+            </WrapperTexture>
+            <WrapperTexture>
+                <Preserve data={dataPreserve} />
+            </WrapperTexture>
+            <WrapperTexture>
+                <Panegliph isFirst={false} />
+            </WrapperTexture>
+            <WrapperTexture>
+                <TableCarahunge data={table} />
+            </WrapperTexture>
+            <WrapperTexture>
                 <RunningLine image={ribbon?.data.attributes.url} />
-                <InitiationX data={dataInitiationX}/>
+            </WrapperTexture>
+            <WrapperTexture>
+                <InitiationX data={dataInitiationX} />
+            </WrapperTexture>
+            <WrapperTexture>
                 <RunningLine image={ribbon2?.data.attributes.url} />
+            </WrapperTexture>
+            <WrapperTexture>
                 <CollectionOfWorks />
+            </WrapperTexture>
+            <WrapperTexture>
                 <Heritage data={selfSustainableHeritage} />
+            </WrapperTexture>
+            <WrapperTexture>
                 <HeritageDefault />
             </WrapperTexture>
         </>
