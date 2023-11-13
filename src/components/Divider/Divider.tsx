@@ -12,8 +12,8 @@ const Divider = ({ position, horizontal, animation, style = {}, duration = '2.4s
             position: 'absolute',
             width: isHorizontal ? (inView  ? '100%' : '0%') : '.0625rem',
             height: isHorizontal ? '.0625rem' : (inView  ? '100%' : '0%'),
-            backgroundColor: '#EAD8B1',
-            opacity: '1',
+            backgroundColor: '#85836A',
+            opacity: '0.5',
             transition: inView ? `width ${duration} ease, height ${duration} ease` : '1s',
         }
 

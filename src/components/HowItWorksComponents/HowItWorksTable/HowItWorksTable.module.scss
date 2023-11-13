@@ -1,0 +1,53 @@
+@use "../../../assets/styles/index.scss" as *;
+
+
+.container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .main {
+        position: relative;
+        width: 100%;
+        display: flex;
+        background-color: color(bg-1);
+        .wrapperInfo {
+            position: relative;
+            width: 100%;
+            padding-left: rm(360);
+            padding-right: rm(360);
+            @include xsm{
+                padding-left: rm(32);
+                padding-right: rm(32);
+            }
+            .wrapperInfoContainer {
+                position: relative;
+                width: 100%;
+                padding: rm(64);
+                display: flex;
+                flex-direction: column;
+                @include xsm{
+                    padding: rm(32);
+                }
+                h2 {
+                    font-size: font(32);
+                    color: color(text-brown-38);
+                    @include font-dune-regular();
+                    font-weight: 400;
+                    line-height: 120%;
+                }
+
+                p {
+                    font-size: font(18);
+                    color: color(text-brown-38);
+                    @include font-work-regular();
+                    font-weight: 400;
+                    line-height: 160%;
+                    margin-top: rm(32);
+                    white-space: pre-wrap;
+                }
+            }
+        }
+    }
+}
