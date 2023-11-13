@@ -16,7 +16,7 @@ const Heritage = ({ data, bg = false }: StandardComponentProps) => {
                 {/* <Divider position={"bottom right"} horizontal={true} /> */}
                 <div className={stules.containerText}>
                     {/* <Divider position={"top left"} />
-                    <Divider position={"bottom right"} /> */}
+                    <Divider position={"top right"} /> */}
                     <Text>
                         <h2>{data?.name}</h2>
                     </Text>
