@@ -7,7 +7,6 @@ import style from './HowItWorksTable.module.scss'
 import Divider from '@/components/Divider/Divider'
 
 
-
 const HowItWorksTable = ({ data }: any) => {
 
     return (
@@ -24,23 +23,25 @@ const HowItWorksTable = ({ data }: any) => {
 
 const HowItWorksTableInfo = ({ data }: any) => {
     const columnRef = useRef(null)
-    const activ = useRef(null)
-
+    const topRef = useRef(null)
     useEffect(() => {
-        if (columnRef.current) {
+        if (columnRef.current && topRef.current) {
+            const topContain = topRef.current
             const timeline = gsap.timeline({
                 scrollTrigger: {
                     trigger: columnRef.current,
-                    start: 'top top',
+                    // start: 'top center',
+                    start: () => `top+=${-topContain.getBoundingClientRect().height} top`,
                     toggleActions: 'play none none reverse',
                     scrub: true,
                     pin: true,
                 },
             });
-        }
-    }, [columnRef])
+        } 
+    }, [columnRef, topRef])
     return (
         <div ref={columnRef} className={style.main}>
+            <div ref={topRef} className={style.mainTop}></div>
             <div className={style.wrapperInfo}>
                 <div className={style.wrapperInfoContainer}>
                     <h2>{data.name}</h2>
