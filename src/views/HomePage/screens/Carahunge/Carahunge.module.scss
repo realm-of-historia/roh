@@ -63,7 +63,9 @@
             color: color(text-black);
             font-size: font(48);
             margin-bottom: rm(16);
-
+            @include lg{
+                font-size: font(40);
+            }
             @include md{
                 font-size: font(40);
             }

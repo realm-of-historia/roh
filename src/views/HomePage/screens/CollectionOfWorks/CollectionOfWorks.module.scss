@@ -13,7 +13,8 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        flex: 1;
+        // flex: 1;
+        width: 50%;
         // padding: rm(64);
         justify-content: space-between;
 
@@ -22,65 +23,74 @@
             width: 100%;
             flex: none;
         }
-
-        h2 {
-            @include font-dune-regular();
-            font-size: font(48);
-            color: color(text-brown-38);
-            line-height: 120%;
-            text-transform: uppercase;
-            padding: rm(64) rm(64) rm(0) rm(64);
-
-            @include xsm {
-                font-size: font(30);
-                padding: rm(32) rm(32) rm(0) rm(32);
-            }
-        }
-
-        .wrapperInfo {
+        .wrapperText{
             position: relative;
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: rm(30);
-            row-gap: rm(20);
-            padding: rm(0) rm(64) rm(0) rm(64);
-
-            @include xsm {
-                padding: rm(0) rm(32) rm(32) rm(32);
-            }
-
-            .containerMeaning {
-                display: flex;
-                align-items: center;
-
-                >:nth-child(1) {
-                    width: rm(128);
-                    color: color(text-black);
-                    @include font-work-regular();
-                    font-size: font(16);
-                    font-weight: 600;
-                    line-height: 160%;
-                    text-transform: capitalize;
+            width: 100%;
+            .textHeader {
+                @include font-dune-regular();
+                font-size: font(48);
+                color: color(text-brown-38);
+                line-height: 120%;
+                text-transform: uppercase;
+                padding: rm(64) rm(64) rm(0) rm(64);
+                @include lg{
+                    font-size: font(40);
                 }
-
-                >:nth-child(2) {
-                    width: rm(272);
-                    color: color(text-brown-38);
-                    @include font-work-regular();
-                    font-size: font(16);
-                    font-weight: 400;
-                    line-height: 160%
+                @include xsm {
+                    font-size: font(30);
+                    padding: rm(32) rm(32) rm(0) rm(32);
+                }
+            }
+    
+            .wrapperInfo {
+                position: relative;
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: rm(30);
+                row-gap: rm(20);
+                padding: rm(0) rm(64) rm(0) rm(64);
+    
+                @include xsm {
+                    padding: rm(0) rm(32) rm(32) rm(32);
+                }
+    
+                .containerMeaning {
+                    display: flex;
+                    align-items: center;
+    
+                    >:nth-child(1) {
+                        width: rm(128);
+                        color: color(text-black);
+                        @include font-work-regular();
+                        font-size: font(16);
+                        font-weight: 600;
+                        line-height: 160%;
+                        text-transform: capitalize;
+                    }
+    
+                    >:nth-child(2) {
+                        width: rm(272);
+                        color: color(text-brown-38);
+                        @include font-work-regular();
+                        font-size: font(16);
+                        font-weight: 400;
+                        line-height: 160%
+                    }
                 }
             }
         }
+        
     }
 
     .wrapperImage {
         position: relative;
         display: flex;
-        flex: 1;
+        // flex: 1;
+        width: 50%;
         height: rm(960);
-
+        @include lg {
+            height: rm(720);
+        }
         @include xsm {
             order: 1;
             height: rm(640);
