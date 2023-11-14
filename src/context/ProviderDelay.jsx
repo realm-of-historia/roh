@@ -47,7 +47,7 @@ export const ProviderDelay = ({children}) => {
     },[loaded])
 
     return(
-        <DelayContext.Provider>
+        <DelayContext.Provider value={{ loaded, setLoaded}}>
             <Loading isOpacity={isOpacity}></Loading>
             <div style={styleChildren}>
                 {children}
