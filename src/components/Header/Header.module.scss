@@ -125,54 +125,21 @@
             height: 100%;
             object-fit: cover;
         }
-
-        @include lg {
-            // margin-right: rm(100);
-        }
-
-        @include md {
-            // margin-right: rm(150);
-        }
-
-        @include xsm {
-            // margin-right: rm(0);
-        }
     }
 
     .navigation {
         display: flex;
         align-items: center;
         gap: rm(48);
-        // margin-right: rm(327);
 
         @include lg {
             margin-right: rm(0);
         }
 
-        @include md {
-            // margin-right: rm(110);
-        }
 
         @include xsm {
             display: none;
         }
-
-        // @include xsm{
-        //     margin-right: rm(0);
-        //     margin-left: rm(0);
-        //     a{
-        //         display: none;
-        //     };
-        //     >:nth-child(-n+3){
-        //         display: block;
-        //     }
-        // }
-
-        // >:first-child{
-        //     @include xsm{
-        //         display: none;
-        //     }
-        // }
 
         p {
             opacity: 1;
@@ -187,42 +154,16 @@
 
         }
 
-
-        >:nth-child(2) {
-
-            // @include lg{
-            //     width: rm(120);
-            // }
-
-            // @include md{
-            //     width: rm(120);
-            //     margin-right: rm(0);
-            // }
-
-            // @include xsm{
-            //     width: rm(95);
-            // }
-        }
-
     }
 
     .right {
         position: relative;
         height: 100%;
-        // padding: rm(16) rm(64);
         padding-left: rm(32);
         padding-right: rm(32);
-        // padding-top: rm(16);
-        // padding-bottom: rm(16);
-        // padding-right: rm(64);
         display: flex;
         align-items: center;
-        // width: rm(240);
         justify-content: flex-end;
-
-        @include md {
-            // width: rm(160);
-        }
 
         @include xsm {
 
