@@ -30,17 +30,35 @@ export default async function Roh() {
     const theAtriumTable = useSectionData(data, 'TheAtriumTable')
     return (
         <>
-            <WrapperTexture>
             <HashAnchor />
-                <RealmHistory header={data?.data.attributes.header} welcome={data?.data.attributes.welcome}/>
-                <AboutTheProject/>
-                <HistoriaMission data={missionTable}/>
-                <Problem data={tableProblem} header={headerProblem}/>
-                <Solution data={tableSolution} header={titleSolution}/>
+            <WrapperTexture>
+                <RealmHistory header={data?.data.attributes.header} welcome={data?.data.attributes.welcome} />
+            </WrapperTexture>
+            <WrapperTexture>
+                <AboutTheProject />
+            </WrapperTexture>
+            <WrapperTexture>
+                <HistoriaMission data={missionTable} />
+            </WrapperTexture>
+            <WrapperTexture>
+                <Problem data={tableProblem} header={headerProblem} />
+            </WrapperTexture>
+            <WrapperTexture>
+                <Solution data={tableSolution} header={titleSolution} />
+            </WrapperTexture>
+            <WrapperTexture>
                 <RunningLine image={ribbon?.data.attributes.url}></RunningLine>
-                <Scheme img={imgScheme?.data.attributes.url} mobailImg={mobailImgScheme?.data.attributes.url}/>
-                <Journey data={descriptionTravelPicture} img={journeyImg?.data.attributes.url}/>
-                <TheAtrium data={theAtriumTable} header={theAtriumTitle}/>
+            </WrapperTexture>
+            <WrapperTexture>
+                <Scheme img={imgScheme?.data.attributes.url} mobailImg={mobailImgScheme?.data.attributes.url} />
+            </WrapperTexture>
+            <WrapperTexture>
+                <Journey data={descriptionTravelPicture} img={journeyImg?.data.attributes.url} />
+            </WrapperTexture>
+            <WrapperTexture>
+                <TheAtrium data={theAtriumTable} header={theAtriumTitle} />
+            </WrapperTexture>
+            <WrapperTexture>
                 <HeritageDefault />
             </WrapperTexture>
         </>

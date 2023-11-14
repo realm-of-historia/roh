@@ -9,7 +9,7 @@ import HeritageDefault from "@/views/HomePage/screens/Heritage/HeritageDefault"
 
 export default async function Сollections() {
     const data = await useApiFetch('api/collections-page?populate=*')
-    const ribbon = useSectionData(data, 'ribbon')   
+    const ribbon = useSectionData(data, 'ribbon')
     const header = useSectionData(data, 'header')
     const date = useSectionData(data, 'date')
     const href = useSectionData(data, 'href')
@@ -21,8 +21,14 @@ export default async function Сollections() {
         <>
             <WrapperTexture>
                 <HashAnchor />
-                <RunningLine image={ribbon?.data.attributes.url}/>
-                <CarahungeX data={dataCarahungeX}/>
+            </WrapperTexture>
+            <WrapperTexture>
+                <RunningLine image={ribbon?.data.attributes.url} />
+            </WrapperTexture>
+            <WrapperTexture>
+                <CarahungeX data={dataCarahungeX} />
+            </WrapperTexture>
+            <WrapperTexture>
                 <HeritageDefault />
             </WrapperTexture>
         </>
