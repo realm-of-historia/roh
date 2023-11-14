@@ -1,0 +1,16 @@
+@use "../../../../assets/styles/index.scss" as *;
+
+.container{
+    position: relative;
+    width: 100%;
+    height: rm(700);
+    background-color: color(bg-1);
+    img{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        object-fit: cover;
+    }
+}

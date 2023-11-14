@@ -1,13 +1,18 @@
+
+
 import React from 'react'
 import styles from './Carahunge.module.scss'
 import Column from './Column/Column'
 import Avatar from '@/components/Header/Avatar/Avatar'
 import Text from '@/components/Text/Text'
 import Divider from '@/components/Divider/Divider'
+import { useAuthStore } from '@/store/store'
 export interface StandardComponentProps {
     data?: any
   }
 const Carahunge = ({data} : StandardComponentProps) => {
+    
+
   return (
     <div className={styles.carahunge}>
         <Divider position={"top right"}/>
@@ -18,12 +23,12 @@ const Carahunge = ({data} : StandardComponentProps) => {
                 </p>
             </Text>
             <Text>
-                <p>    
+                <button className={styles.button}>    
                     {data?.date}
-                </p>
+                </button>
             </Text>
         </div>
-        <Column description={data?.description} link={data?.link} icon={'globe'}></Column>
+        <Column description={data?.description} iconLink={data?.iconLink} link={data?.link} icon={'globe'}></Column>
     </div>
   )
 }

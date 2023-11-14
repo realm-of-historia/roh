@@ -1,0 +1,56 @@
+@use "../../../assets/styles/index.scss" as *;
+
+
+.container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .header{
+        position: relative;
+        width: 100%;
+        padding: rm(64);
+        @include xsm {
+            padding: rm(32);
+        }
+        h2{
+            @include font-dune-regular();
+            color: color(text-brown-38);
+            font-size: font(48);
+            text-transform: uppercase;
+            @include xsm{
+                font-size: font(32);
+            }
+        }
+    }
+    .table{
+        position: relative;
+        width: 100%;
+        overflow-y: auto;
+        >:nth-child(1){
+            p{
+                font-size: font(32) !important;
+                line-height: 140% !important;
+                text-transform: uppercase !important;
+            }
+        }
+        .tableInfo{
+            position: relative;
+            display: grid;
+            grid-template: 1fr/rm(360) 1fr rm(512);
+            @include xsm {
+                 grid-template: 1fr/rm(300) rm(900) rm(400);
+            }
+            .cellTable{
+                position: relative;
+                padding: rm(32) rm(64);
+                p{
+                    color: color(text-brown-38);
+                    @include font-work-regular();
+                    font-size: font(16);
+                    line-height: 160%;
+                }
+            }
+        }
+    }
+}

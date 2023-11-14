@@ -1,0 +1,92 @@
+@use "../../../assets/styles/index.scss" as *;
+
+.container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    @include xsm{
+        flex-direction: column;
+    }
+    .leftColumn {
+        position: relative;
+        // width: rm(725);
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: rm(64);
+        @include xsm{
+            margin: rm(0);
+            padding: rm(32);
+            flex: none;
+            width: 100%;
+        }
+        h2 {
+            font-size: font(56);
+            color: color(text-brown-38);
+            @include font-dune-regular();
+            font-weight: 400;
+            line-height: 120%;
+            text-transform: uppercase;
+            @include xsm {
+                font-size: font(32);
+            }
+        }
+        p {
+            font-size: font(16);
+            color: color(text-brown-38);
+            @include font-work-regular();
+            font-weight: 400;
+            line-height: 160%;
+            margin-top: rm(32);
+            white-space: pre-wrap;
+            @include xsm {
+                margin-top: rm(16);
+            }
+        }
+    }
+    .description{
+        position: relative;
+        // width: 100%;
+        flex: 2;
+        padding: rm(64);
+        >:nth-child(2){
+            @include xsm {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        >:last-child{
+            opacity: 0;
+            visibility: hidden;
+            @include xsm{
+                opacity: 1;
+            visibility: visible;
+            }
+        }
+        ol{
+            >:nth-child(1){
+                margin-top: rm(0);
+            }
+        }
+        @include xsm{
+            padding: rm(32);
+            padding-left: rm(56) !important;
+            flex: none;
+            width: 100%;
+            
+        }
+        
+            li{
+                font-size: font(16);
+                color: color(text-brown-38);
+                @include font-work-regular();
+                font-weight: 600;
+                line-height: 160%;
+                margin-top: rm(32);
+                white-space: pre-wrap;
+            }
+        
+    }
+}

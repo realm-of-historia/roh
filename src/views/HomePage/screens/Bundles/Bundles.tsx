@@ -60,7 +60,7 @@ const Bundles = ({ ribbon, data = [], text, href = '/' }: StandardComponentProps
     const swiperRef = useRef<any>(null)
     return (
         <div className={styles.bundles} ref={ref}>
-            <RunningLine image={ribbon?.data.attributes.url} text='HOTTeST BUNDLeS'></RunningLine>
+            <RunningLine image={ribbon?.data.attributes.url}></RunningLine>
             <Swiper
                 modules={[Navigation, Scrollbar, A11y, Pagination, Autoplay]}
                 // spaceBetween={24}

@@ -6,7 +6,21 @@
     align-items: center;
     position: relative;
     background-color: color(bg);
-
+    // z-index: 996;
+    >:nth-child(2){
+        flex: 1;
+       
+    }
+    >:nth-child(3){
+        flex: 1;
+        display: flex;
+        align-self: stretch;
+        justify-content: center;
+        align-items: center;
+    }
+    @include xsm{
+        flex-direction: column;
+    }
     .dividerTop{
         position: absolute;
         width: 100%;
@@ -18,12 +32,19 @@
     }
 
     .left{
-        width: 53%;
-        display: flex;
-        flex-wrap: wrap;
-
+        // width: 53%;
+        // flex: 1;
+        position: relative;
+        // display: flex;
+        // flex-wrap: wrap;
+        display: grid;
+        grid-template: 1fr/1fr 1fr 1fr;
         @include xsm{
-            display: none;
+            order: 2;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            // display: none;
         }
 
         .container{
@@ -102,7 +123,8 @@
     }
 
     .right{
-        width: 50%;
+        // width: 50%;
+        // flex: 1;
         // height: 100%;
         display: flex;
         justify-content: center;
@@ -143,5 +165,24 @@
                 opacity: 0.7;
             }
         }
+    }
+}
+
+.wrapperInstPost{
+    position: relative;
+    width: 100%;
+    height: rm(320);
+    cursor: pointer;
+    @include xsm {
+     height: rm(640);
+    }
+    img{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 999;
     }
 }

@@ -12,10 +12,14 @@
     overflow: hidden;
     background-color: color(bg);
     position: relative;
-    z-index: 10000000;
+    z-index: 1;
 
     @include md{
         flex-direction: column;
+    }
+    @include xsm {
+        flex-direction: column;
+
     }
 
     .translation{
@@ -46,18 +50,24 @@
         flex-direction: column;
         position: relative;
 
-        @include md{
+        // @include md{
+        //     height: rm(420);
+        //     width: 100%;
+        // }
+        @include xsm {
             height: rm(420);
             width: 100%;
         }
-
         div{
             background-color: #EAD8B1;
             height: 1px;
             width: 100%;
             position: absolute;
 
-            @include md{
+            // @include md{
+            //     width: 200%;
+            // }
+            @include xsm{
                 width: 200%;
             }
         }
@@ -66,10 +76,12 @@
             left: 0 !important;
             top: rm(260) !important;
 
-            @include md{
+            // @include md{
+            //     top: rm(150) !important;
+            // }
+            @include xsm{
                 top: rm(150) !important;
             }
-
 
 
         }
@@ -78,7 +90,10 @@
             left: 0 !important;
             bottom: rm(260) !important;
 
-            @include md{
+            // @include md{
+            //     bottom: rm(150) !important;
+            // }
+            @include xsm{
                 bottom: rm(150) !important;
             }
 
@@ -130,7 +145,11 @@
             aspect-ratio: 1;
             border-radius: 50%;
 
-            @include md{
+            // @include md{
+            //     width: rm(420);
+            //     height: rm(420);
+            // }
+            @include xsm{
                 width: rm(420);
                 height: rm(420);
             }
@@ -167,7 +186,11 @@
             left: 50%;
             transform: translate(-50%, -50%);
 
-            @include md{
+            // @include md{
+            //     width: rm(198);
+            //     height: rm(198);
+            // }
+            @include xsm{
                 width: rm(198);
                 height: rm(198);
             }
@@ -194,7 +217,11 @@
             width: rm(630);
             height: rm(180);
 
-            @include md{
+            // @include md{
+            //     width: rm(420);
+            //     height: rm(120);
+            // }
+            @include xsm{
                 width: rm(420);
                 height: rm(120);
             }
@@ -203,7 +230,15 @@
         .divider{
             display: none;
 
-            @include md{
+            // @include md{
+            //     display: inline-block;
+            //     width: rm(630);
+            //     height: 1px;
+            //     background-color: #EAD8B1;
+            //     position: absolute;
+            //     top: rm(0);
+            // }
+            @include xsm{
                 display: inline-block;
                 width: rm(630);
                 height: 1px;
@@ -222,7 +257,10 @@
             bottom: rm(32);
             z-index: 1000;
 
-            @include md{
+            // @include md{
+            //     bottom: rm(40);
+            // }
+            @include xsm{
                 bottom: rm(40);
             }
         }
@@ -237,7 +275,10 @@
         justify-content: center;
         align-items: center;
 
-        @include md{
+        // @include md{
+        //     width: 100%;
+        // }
+        @include xsm{
             width: 100%;
         }
 
@@ -249,7 +290,10 @@
             right: rm(0);
             top: 0;
 
-            @include md{
+            // @include md{
+            //     display: none;
+            // }
+            @include xsm{
                 display: none;
             }
         }
@@ -258,7 +302,10 @@
     .header{
         display: flex;
         width: 100%;
-
+        @include xsm {
+            display: grid;
+            grid-template: 1fr/1fr 1fr 1fr;
+        }
 
         button{
             height: rm(70);
@@ -279,6 +326,7 @@
 
             @include xsm{
                 font-size: font(14);
+                width: 100%;
             }
 
             div{
