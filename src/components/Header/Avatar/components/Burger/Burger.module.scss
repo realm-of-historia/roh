@@ -43,7 +43,12 @@
     display: flex;
     flex-direction: column;
     gap: rm(15);
-
+    @include lg {
+        gap: rm(25);
+    }
+    @include xsm {
+        gap: rm(15);
+    }
     p {
         cursor: pointer;
         @include font-work-regular;
@@ -52,6 +57,12 @@
         line-height: 140%;
         &:hover {
             opacity: .7;
+        }
+        @include lg {
+            font-size: font(20);
+        }
+        @include xsm {
+            font-size: font(16);
         }
     }
 }
@@ -71,6 +82,12 @@
     // margin-top: rm(30);
     cursor: pointer;
     transition: background-color ease 0.3s;
+    @include lg {
+        font-size: font(20);
+    }
+    @include xsm {
+        font-size: font(16);
+    }
     &:hover{
         background-color: color(burgundyBg);
         transition: background-color ease 0.3s;

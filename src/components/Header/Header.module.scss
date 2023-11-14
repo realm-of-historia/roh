@@ -153,6 +153,12 @@
 
         @include md {
             // margin-right: rm(110);
+            a{
+                display: none;
+            }
+            >:last-child{
+                display: block !important;
+            }
         }
 
         @include xsm {
@@ -224,6 +230,12 @@
 
         @include md {
             // width: rm(160);
+            >:nth-child(1) {
+                display: none;
+            }
+
+            padding-left: rm(31);
+            padding-right: rm(31);
         }
 
         @include xsm {
@@ -319,6 +331,9 @@
         width: rm(56);
         min-width: rm(48);
     }
+    @include md {
+        display: none;
+    }
     @include xsm {
         display: none;
     }
@@ -362,6 +377,9 @@
     @include lg {
         padding: rm(9.8) rm(16);
     }
+    // @include md {
+    //     margin-right: rm(25);
+    // }
     @include xsm {
         margin-right: rm(25);
     }
@@ -369,7 +387,9 @@
 
 .buttonMob {
     display: none;
-
+    // @include md {
+    //     display: block;
+    // }
     @include xsm {
         display: block;
     }

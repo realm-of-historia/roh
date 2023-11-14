@@ -86,7 +86,7 @@ const Avatar = ({ searchIcon, support, subject }: StandardComponentProps) => {
         </div>
       </div>
       {
-        innerWidth <= 576 ?
+        innerWidth <= 1080 ?
           <div className={styles.containerBurger} onClick={() => useAuthStore.setState({ isBurger: !burger })}>
             <span className={`${styles.burger} ${burger ? styles.burgerActive : null}`} />
             <span className={`${styles.burger2} ${burger ? styles.burgerActive2 : null}`} />

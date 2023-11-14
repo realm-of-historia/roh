@@ -39,7 +39,7 @@ const Header = ({ data }: StandardComponentProps) => {
     handleAuths()
   }
   useEffect(() => {
-    if (innerWidth > 576) {
+    if (innerWidth > 1080) {
       useAuthStore.setState({ isBurger: false })
     }
   }, [innerWidth])
