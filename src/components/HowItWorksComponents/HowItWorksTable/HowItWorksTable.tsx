@@ -5,7 +5,7 @@ import { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
 import style from './HowItWorksTable.module.scss'
 import Divider from '@/components/Divider/Divider'
-
+import { ReactElement } from "react";
 
 const HowItWorksTable = ({ data }: any) => {
 
@@ -26,7 +26,7 @@ const HowItWorksTableInfo = ({ data }: any) => {
     const topRef = useRef(null)
     useEffect(() => {
         if (columnRef.current && topRef.current) {
-            const topContain = topRef.current
+            const topContain : ReactElement | any = topRef.current
             const timeline = gsap.timeline({
                 scrollTrigger: {
                     trigger: columnRef.current,

@@ -60,8 +60,8 @@ const History = ({data} : any) => {
             <div ref={listRef as any} className={styles.right}>
                 <div>
                     <div className={styles.divider}></div>
-                        {data?.carahunge.map((list: any) => (
-                            <List key={list.title} title={list.title} message={list.meaning}/>
+                        {data?.carahunge.map((list: any, i : number) => (
+                            <List key={i + 8823} title={list.title} message={list.meaning}/>
                         ))}
                 </div>
             </div>
