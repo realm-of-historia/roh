@@ -38,6 +38,9 @@
             position: relative;
             display: grid;
             grid-template: 1fr/rm(360) 1fr rm(512);
+            @include md{
+                grid-template: 1fr/1fr 1fr 1fr;
+            }
             @include xsm {
                  grid-template: 1fr/rm(300) rm(900) rm(400);
             }

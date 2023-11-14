@@ -15,9 +15,9 @@ const Solution = ({ data, header }: any) => {
                 <Divider position={'bottom left'} horizontal={true} />
             </div>
             <div className={style.wrapperHeaderTable}>
+                <Divider position={'top right'} />
                 <div className={style.headerTableCell}>
                     <p>{data?.leftName}</p>
-                    <Divider position={'top right'} />
                 </div>
                 <div className={style.headerTableCell}>
                     <p>{data?.rightName}</p>
