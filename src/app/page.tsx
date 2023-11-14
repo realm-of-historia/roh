@@ -15,7 +15,6 @@ export default async function Home() {
   return (
     <main className={styles.main}>
       <HomeView data={data}></HomeView>
-      <ToastContainer />
     </main>
   )
 }
