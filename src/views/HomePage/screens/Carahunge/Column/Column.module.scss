@@ -3,13 +3,16 @@
 
 .maininitiation{
     >:nth-child(1){
-        @include xsm{
+        @include md{
             opacity: 0 !important;
             visibility: hidden !important;
         }
     }
     >:nth-child(2){
-        display: block !important;
+        @include md{
+            display: block !important;
+
+        }
     }
 }
 .main {
@@ -17,7 +20,7 @@
     display: flex;
     flex-direction: column;
 
-    @include xsm {
+    @include md {
         padding-top: rm(32);
     }
     >:nth-child(2){
@@ -224,52 +227,47 @@
         padding-right: rm(32) !important;
         max-width: rm(500) !important;
     }
-    div {
+    >:nth-child(2) {
         ul{
             width: rm(613) !important;
 
             @include lg {
-                width: rm(400);
+                // width: rm(400) !important;
+                width: 100% !important;
             }
 
             @include md {
-                width: rm(325);
+                // width: rm(325) !important;
             }
 
             @include xsm {
-                width: rm(360);
-            }
-
-            @include xsm {
-                width: rm(360) !important;
+                // width: rm(360) !important;
             }
         }
         p {
             width: rm(613) !important;
 
             @include lg {
-                width: rm(400);
+                width: 100% !important;
+
+                // width: rm(400) !important;
             }
 
             @include md {
-                width: rm(325);
+                // width: rm(325) !important;
             }
 
             @include xsm {
-                width: rm(360);
-            }
-
-            @include xsm {
-                width: rm(360) !important;
+                // width: rm(360) !important;
             }
         }
     }
 
     >:first-child {
-        width: rm(155);
+        width: rm(155) !important;
 
         @include lg {
-            width: rm(130);
+            width: rm(130) !important;
         }
 
         @include md {
@@ -293,7 +291,7 @@
     left: 0;
     z-index: 100;
     transform: translate(-50%, 0%);
-    @include xsm{
+    @include md{
         display: block;
     }
 }

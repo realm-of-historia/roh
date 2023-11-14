@@ -10,6 +10,9 @@
     justify-content: center;
     padding: rm(32) rm(630);
     overflow: hidden;
+    @include lg{
+        padding: rm(32) rm(64);
+    }
     @include xsm{
         padding: rm(32);
     }
