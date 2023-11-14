@@ -20,7 +20,7 @@
             @include font-dune-regular();
             color: color(text-brown-38);
             font-size: font(48);
-            text-transform: uppercase;
+            // text-transform: uppercase;
 
             @include xsm {
                 font-size: font(32);

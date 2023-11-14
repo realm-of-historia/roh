@@ -31,7 +31,7 @@
                 font-size: font(48);
                 color: color(text-brown-38);
                 line-height: 120%;
-                text-transform: uppercase;
+                // text-transform: uppercase;
                 padding: rm(64) rm(64) rm(0) rm(64);
                 @include lg{
                     font-size: font(40);
@@ -88,6 +88,7 @@
         // flex: 1;
         width: 50%;
         height: rm(960);
+        z-index: 999;
         @include lg {
             height: rm(720);
         }

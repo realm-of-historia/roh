@@ -19,7 +19,10 @@ const CarahungeX = ({ data }: any) => {
                 data ?
                     <Link href={data?.href || '/'} onClick={(e) => linkNo(e)} className={styles.wrapper}>
                         {/* <Divider horizontal={true} position={'bottom left'}></Divider> */}
+                        
                         <span className={styles.wrapperInfoText}>
+                        <Divider  position={'top left'} noAnim={true}></Divider>
+                        <Divider  position={'top right'} noAnim={true}></Divider>
                             <span className={styles.containerText}>
                                 <Text>
                                     <h2>{data?.header}</h2>

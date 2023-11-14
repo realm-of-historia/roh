@@ -134,7 +134,7 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
         <div className={styles.leftDivider}></div>
       </div>
       <div className={styles.promotion}>
-        <Image className={styles.logo} alt='' src={'/ROHlogo.svg.svg'} width={630} height={180} />
+        <Image className={styles.logo} alt='' src={'/RoHlogoFooter.svg'} width={630} height={180} />
         <p className={styles.footer}>
           {data?.rofDate}
         </p>

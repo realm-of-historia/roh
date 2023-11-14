@@ -63,8 +63,16 @@
                 color: color(text-brown-38);
                 @include font-work-regular();
                 font-size: font(16);
-                font-weight: 600;
+                font-weight: 400;
                 line-height: 160%
+                
+            }
+            strong{
+                color: color(text-brown-38);
+                @include font-work-regular();
+                font-size: font(16);
+                font-weight: 700;
+                line-height: 160% 
             }
         }
     }

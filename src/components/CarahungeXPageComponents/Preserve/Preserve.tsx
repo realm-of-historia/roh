@@ -9,6 +9,7 @@ const Preserve = ({data} : any) => {
             <p>{data?.preserveHeader}</p>
             <p>{data?.preserveDescription}</p>
             <Divider position={'bottom left'} horizontal={true}></Divider>
+            <Divider position={'top left'} horizontal={true}></Divider>
         </div>
     )
 }

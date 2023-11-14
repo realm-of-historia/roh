@@ -21,7 +21,7 @@
             color: color(text-brown-88);
             font-size: font(32);
             line-height: 120%;
-            text-transform: uppercase;
+            // text-transform: uppercase;
             text-align: center;
             @include xsm {
                 font-size: font(24);
@@ -32,7 +32,7 @@
             color: color(text-brown-88);
             font-size: font(56);
             line-height: 120%;
-            text-transform: uppercase;
+            // text-transform: uppercase;
             padding-top: rm(20);
             text-align: center;
             @include xsm {
