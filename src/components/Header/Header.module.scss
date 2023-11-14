@@ -51,7 +51,7 @@
         // padding: rm(16) rm(64);
         padding-left: rm(16);
         padding-right: rm(16);
-
+        
         @include xsm {
             padding-left: rm(31);
             padding-right: rm(31);
@@ -128,6 +128,8 @@
 
         @include lg {
             // margin-right: rm(100);
+            width: rm(76);
+            height: rm(22);
         }
 
         @include md {
@@ -146,7 +148,7 @@
         // margin-right: rm(327);
 
         @include lg {
-            margin-right: rm(0);
+            gap: rm(24);
         }
 
         @include md {
@@ -312,7 +314,11 @@
     height: 100%;
     width: rm(80);
     min-width: rm(80);
-
+    @include lg {
+        // margin-right: rm(100);
+        width: rm(56);
+        min-width: rm(48);
+    }
     @include xsm {
         display: none;
     }
@@ -352,6 +358,9 @@
     &:hover{
         background-color: color(burgundyBg);
         transition: background-color ease 0.3s;
+    }
+    @include lg {
+        padding: rm(9.8) rm(16);
     }
     @include xsm {
         margin-right: rm(25);
