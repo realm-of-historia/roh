@@ -238,8 +238,22 @@
     }
 
     >:nth-child(2) {
-        ul {
+        ul{
+            margin-left: rm(22);
+            @include lg{
+                margin-left: rm(15);
+            }
+            @include md{
+                margin-left: rm(20);
+            }
+        }
+        li {
             width: rm(613) !important;
+            color: color(text-brown-38);
+            @include font-work-regular();
+            font-weight: 400;
+            line-height: 160%;
+            font-size: font(16);
 
             @include lg {
                 // width: rm(400) !important;

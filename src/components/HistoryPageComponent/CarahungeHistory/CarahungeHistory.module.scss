@@ -40,7 +40,7 @@
                     @include font-dune-regular();
                     font-weight: 400;
                     line-height: 120%;
-                    text-transform: uppercase;
+                    // text-transform: uppercase;
                     @include md{
                         font-size: font(32);
                     }
