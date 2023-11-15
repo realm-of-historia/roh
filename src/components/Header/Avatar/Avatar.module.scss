@@ -38,6 +38,9 @@
 
   }
   .wraperAvatar{
+    @include md {
+        display: none;
+    }
     @include xsm {
         display: none;
     }

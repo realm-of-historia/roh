@@ -27,30 +27,50 @@
         position: relative;
         width: 100%;
         overflow-y: auto;
-        >:nth-child(1){
-            p{
-                font-size: font(32) !important;
-                line-height: 140% !important;
-                text-transform: uppercase !important;
-            }
-        }
+        // >:nth-child(1){
+        //     p{
+        //         font-size: font(32) !important;
+        //         line-height: 140% !important;
+        //         // text-transform: uppercase !important;
+        //         @include  font-dune-regular()
+        //     }
+        // }
+        
         .tableInfo{
             position: relative;
             display: grid;
             grid-template: 1fr/rm(360) 1fr rm(512);
+            overflow: hidden;
+            @include lg{
+                grid-template: 1fr/1fr rm(500) 1fr;
+            }
+            @include md{
+                grid-template: 1fr/rm(360) rm(360) rm(360);
+
+            }
             @include xsm {
                  grid-template: 1fr/rm(300) rm(900) rm(400);
             }
             .cellTable{
                 position: relative;
                 padding: rm(32) rm(64);
-                p{
+                // p{
                     color: color(text-brown-38);
                     @include font-work-regular();
                     font-size: font(16);
                     line-height: 160%;
-                }
+                // }
             }
         }
+    }
+}
+
+.headerTableText{
+    @include  font-dune-regular();
+    font-size: font(32) !important;
+    line-height: 140% !important;
+    color: color(text-brown-38);
+    @include md{
+        font-size: font(28) !important;
     }
 }

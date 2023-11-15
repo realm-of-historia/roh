@@ -9,7 +9,7 @@ import Divider from '@/components/Divider/Divider';
 const CarahungeX = ({ data }: any) => {
     const { innerWidth }: number | any = useWindowSize();
     const linkNo = (e: any) => {
-        if (innerWidth <= 576) {
+        if (innerWidth <= 1080) {
             e.preventDefault()
         }
     }
@@ -19,19 +19,22 @@ const CarahungeX = ({ data }: any) => {
                 data ?
                     <Link href={data?.href || '/'} onClick={(e) => linkNo(e)} className={styles.wrapper}>
                         {/* <Divider horizontal={true} position={'bottom left'}></Divider> */}
+                        
                         <span className={styles.wrapperInfoText}>
+                        <Divider  position={'top left'} noAnim={true}></Divider>
+                        <Divider  position={'top right'} noAnim={true}></Divider>
                             <span className={styles.containerText}>
                                 <Text>
                                     <h2>{data?.header}</h2>
                                 </Text>
                                 {
-                                    innerWidth > 576 &&
+                                    innerWidth > 1080 &&
                                     <Text>
                                         <p>{data?.date}</p>
                                     </Text>
                                 }
                                 {
-                                    data?.button && innerWidth <= 576 &&
+                                    data?.button && innerWidth <= 1080 &&
                                     <Text>
                                         <button className={styles.button}>{data?.button}</button>
                                     </Text>

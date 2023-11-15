@@ -250,7 +250,7 @@
 
         .footer{
             font-size: font(12);
-            color: color(text-brown);
+            color: color(text-brown-38);
             line-height: 160%;
             @include font-work-regular;
             position: absolute;
@@ -313,7 +313,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: color(text-brown);
+            color: color(text-brown-38);
             font-size: font(16);
             line-height: 140%;
             @include font-work-regular;
@@ -411,7 +411,7 @@
             position: relative;
 
             >p:first-child{
-                color: color(text-black);
+                color: color(text-brown-38);
                 font-size: font(32);
                 line-height: 120%;
                 margin-bottom: rm(16);
@@ -421,7 +421,7 @@
             }
 
             >p:nth-child(2){
-                color: color(text-brown);
+                color: color(text-brown-38);
                 font-size: font(14);
                 line-height: 120%;
                 margin-bottom: rm(48);
@@ -472,7 +472,7 @@
             input{
                 margin-top: rm(16);
                 font-size: font(16);
-                color: color(text-brown);
+                color: color(text-brown-38);
                 @include font-work-regular;
                 line-height: 140%;
                 display: flex;
@@ -506,7 +506,7 @@
             button{
                 font-size: font(16);
                 position: relative;
-                color: color(text-brown);
+                color: color(text-brown-38);
                 @include font-work-regular;
                 line-height: 140%;
                 display: flex;

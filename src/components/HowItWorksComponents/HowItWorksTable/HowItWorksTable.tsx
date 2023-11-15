@@ -40,7 +40,7 @@ const HowItWorksTableInfo = ({ data }: any) => {
         } 
     }, [columnRef, topRef])
     return (
-        <div ref={columnRef} className={style.main}>
+        <div className={style.main}>
             <div ref={topRef} className={style.mainTop}></div>
             <div className={style.wrapperInfo}>
                 <div className={style.wrapperInfoContainer}>

@@ -173,6 +173,9 @@
     width: 100%;
     height: rm(320);
     cursor: pointer;
+    @include lg {
+         height: rm(210); 
+    }
     @include xsm {
      height: rm(640);
     }

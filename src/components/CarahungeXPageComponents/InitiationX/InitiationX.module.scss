@@ -13,13 +13,13 @@
         width: 100%;
         display: flex;
         align-items: flex-start;
-        @include xsm {
+        @include md {
             flex-direction: column;
         }
         >:nth-child(1){
             height: 150% !important;
             top: -30% !important;
-            @include xsm {
+            @include md {
                 opacity: 0;
                 visibility: hidden;
             }
@@ -27,7 +27,7 @@
         >:nth-child(2){
             height: 150% !important;
             top: -30% !important;
-            @include xsm {
+            @include md {
                 opacity: 0;
                 visibility: hidden;
             }
@@ -36,7 +36,7 @@
             height: 150% !important;
             top: -30% !important;
             right: 50% !important;
-            @include xsm {
+            @include md {
                 opacity: 0;
                 visibility: hidden;
             }
@@ -55,6 +55,11 @@
             flex-direction: column;
             align-items: flex-end;
             justify-content: flex-end;
+            @include md{
+                align-items: flex-start;
+                padding-left: rm(64);
+
+            }
             @include xsm {
                 align-items: flex-start;
                 padding-left: rm(32);
@@ -109,7 +114,7 @@
     left: 50%;
     z-index: 100;
     transform: translate(-50%, 0%);
-    @include xsm {
+    @include md {
         opacity: 0;
         visibility: hidden;
     }

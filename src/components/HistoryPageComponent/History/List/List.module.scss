@@ -3,7 +3,7 @@
 
 
 .main{
-    color: color(text-brown);
+    color: color(text-brown-38);
     display: flex;
     align-items: flex-start;
 
@@ -46,6 +46,7 @@
             line-height: 140%;
             // text-transform: uppercase;
             margin-bottom: rm(30);
+            margin-top: rm(0) !important;
     
             @include lg{
                 font-size: rm(24);
@@ -64,7 +65,7 @@
         font-size: font(20);
         line-height: 160%;
         @include font-work-regular;
-
+        margin-top: rm(30);
         @include lg{
             font-size: rm(16);
         }

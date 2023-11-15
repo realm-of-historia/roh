@@ -23,7 +23,7 @@
         @include font-dune-regular();
         font-weight: 400;
         line-height: 120%;
-        text-transform: uppercase;
+        // text-transform: uppercase;
         text-align: center;
         width: rm(840);
         @include xsm {

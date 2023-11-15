@@ -24,6 +24,10 @@
             font-size: font(48);
             line-height: 120%;
             padding: rm(64);
+            @include lg{
+                font-size: font(40);
+                padding-right: rm(48) !important;
+            }
             @include xsm {
                 font-size: font(32);
                 padding: rm(32);
@@ -59,8 +63,16 @@
                 color: color(text-brown-38);
                 @include font-work-regular();
                 font-size: font(16);
-                font-weight: 600;
+                font-weight: 400;
                 line-height: 160%
+                
+            }
+            strong{
+                color: color(text-brown-38);
+                @include font-work-regular();
+                font-size: font(16);
+                font-weight: 700;
+                line-height: 160% 
             }
         }
     }

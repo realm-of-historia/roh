@@ -23,10 +23,10 @@ const CollectionOfWorks = () => {
                 data ?
                 <div className={style.container}>
                     <div className={style.wrapperColumnLeft}>
-                        <div>
-                            <Text>
-                                <h2>{data?.header}</h2>
-                            </Text>
+                        <div className={style.wrapperText}>
+                            {/* <Text> */}
+                                <p className={style.textHeader}>{data?.header}</p>
+                            {/* </Text> */}
                             <div className={style.wrapperInfo}>
                                 {
                                     data?.description.map((_: any, i: number) => (

@@ -14,7 +14,7 @@ const OurGoals = ({ data }: any) => {
             </div>
             <div className={style.description}>
                 <Markdown>{data?.descriptionOurGoals}</Markdown>
-                <Divider position={'bottom left'} />
+                <Divider position={'top left'} />
                 <Divider position={'top left'} horizontal={true} />
             </div>
         </div>
