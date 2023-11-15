@@ -76,7 +76,9 @@ export default function HomeView({ data }: StandardComponentProps) {
     <div>
       <Layout>
         {/* <HashAnchor /> */}
+        <WrapperTexture>
           <Explorer data={dataExplorer} />
+        </WrapperTexture>
         <WrapperTexture>
           <Heritage data={dataHeritage} />
         </WrapperTexture>

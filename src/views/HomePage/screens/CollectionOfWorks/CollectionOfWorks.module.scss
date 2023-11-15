@@ -46,11 +46,15 @@
                 position: relative;
                 display: flex;
                 flex-wrap: wrap;
-                margin-top: rm(30);
-                row-gap: rm(20);
+                margin-top: rm(64);
+                row-gap: rm(16);
                 padding: rm(0) rm(64) rm(0) rm(64);
-    
+                @include md{
+                    row-gap: rm(32);
+
+                }
                 @include xsm {
+                    margin-top: rm(32);
                     padding: rm(0) rm(32) rm(32) rm(32);
                 }
     
@@ -114,9 +118,19 @@
 .wrapperClock {
     position: relative;
     width: 100%;
-    padding: rm(64) rm(64) rm(64) rm(64);
-    @include xsm {
-        padding: rm(32) rm(32) rm(32) rm(32);
+    // padding-right: rm(64);
+    // @include xsm{
+    //     padding-right: rm(0);
+    // }
+    // padding: rm(64) rm(64) rm(64) rm(64);
+    // @include xsm {
+    //     padding: rm(32) rm(32) rm(32) rm(32);
+    // }
+    >:nth-child(2) {
+        margin-right: rm(64) !important;
+        @include md{
+            display: none;
+        }
     }
     >:nth-child(1) {
         width: 130% !important;

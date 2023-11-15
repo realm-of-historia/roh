@@ -62,7 +62,7 @@
             @include font-dune-regular;
             color: color(text-black);
             font-size: font(48);
-            margin-bottom: rm(16);
+            margin-bottom: rm(32);
             @include lg{
                 font-size: font(40);
             }
@@ -71,6 +71,7 @@
             }
 
             @include xsm{
+                margin-bottom: rm(16);
                 font-size: font(32);
             }
         }

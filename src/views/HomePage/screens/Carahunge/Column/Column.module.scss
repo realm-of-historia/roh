@@ -83,7 +83,7 @@
             width: rm(155);
 
             p {
-                color: color(text-black);
+                color: color(text-brown-38);
                 font-weight: 600;
             }
 
@@ -104,7 +104,7 @@
             width: rm(314);
 
             p {
-                color: color(text-brown);
+                color: color(text-brown-38);
             }
 
 
@@ -141,7 +141,7 @@
 
             p {
                 font-weight: 600;
-                color: color(text-black);
+                color: color(text-brown-38);
             }
 
             @include lg {
@@ -164,7 +164,7 @@
 
             p {
                 width: rm(677);
-                color: color(text-brown);
+                color: color(text-brown-38);
 
                 @include lg {
                     width: rm(400);
