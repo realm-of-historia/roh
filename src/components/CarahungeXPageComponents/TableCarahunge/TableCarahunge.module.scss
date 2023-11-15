@@ -39,9 +39,12 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            height: 100%;
             padding: rm(144.25) rm(64);
-            overflow: hidden;
-
+            // overflow: hidden;
+            @include lg {
+                padding: rm(100) rm(64);
+            }
             @include xsm {
                 padding: rm(112) rm(32);
             }
@@ -76,21 +79,25 @@
             .imageHover {
                 position: absolute;
                 left: 0;
+                top: 50%;
+                transform: translate(0, -50%);
                 width: 100%;
                 height: 140%;
                 z-index: 1;
                 object-fit: cover;
                 opacity: 0;
                 visibility: hidden;
-                transition: opacity ease 0.5s, visibility ease 0.5s;
+                transition: opacity ease 0.3s, visibility ease 0.3s;
             }
 
             &:hover {
                 .imageHover {
                     opacity: 1;
                     visibility: visible;
-                    transition: opacity ease 1s, visibility ease 0.5s;
-
+                    transition: opacity ease 0.3s, visibility ease 0.3s;
+                    @include lg{
+                        object-fit: fill;
+                    }
                     @include xsm {
                         opacity: 0;
                         visibility: hidden;

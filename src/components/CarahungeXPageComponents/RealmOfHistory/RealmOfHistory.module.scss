@@ -46,6 +46,7 @@
             margin-bottom: rm(22);
             letter-spacing: rm(2.2);
             opacity: 0.75;
+            color:  #000000;
 
             @include md{
                 font-size: font(16);
@@ -72,7 +73,7 @@
             font-size: font(55);
             letter-spacing: 13.74px;
             margin-bottom: rm(100);
-
+            color: color(text-brown-38);
             @include md{
                 font-size: font(40);
                 letter-spacing: 10px;

@@ -2,8 +2,8 @@ import React from 'react'
 import styles from './RealmOfHistory.module.scss'
 import Image from 'next/image'
 import Text from '@/components/Text/Text'
-import logoIcon from '../../../../public/LinkedPathGroupLogo.png'
-import logoLetter from '../../../../public/LinkedPathGroup.png'
+import logoIcon from '../../../../public/LinkedPathGroupLogo.svg'
+import logoLetter from '../../../../public/LinkedPathGroupD.svg'
 
 
 const RealmOfHistory = ({ data }: any) => {

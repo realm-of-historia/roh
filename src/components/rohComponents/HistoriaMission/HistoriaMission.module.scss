@@ -45,9 +45,9 @@
             p {
                 color: color(text-brown-38);
                 @include font-work-regular();
-                font-size: font(18);
+                font-size: font(18) !important;
                 text-transform: uppercase;
-                font-weight: 600;
+                font-weight: 600 !important;
                 line-height: 160%
             }
         }
