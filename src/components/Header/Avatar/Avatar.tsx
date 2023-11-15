@@ -58,6 +58,7 @@ const Avatar = ({ searchIcon, support, subject }: StandardComponentProps) => {
           <img src='/Avatar.png' alt='' width={38} height={38} />
         </picture>
         <div className={styles.dropdown}>
+          <img src="/texture.png" className={styles.texture} width={1920} height={800} alt="" />
           <div className={styles.userInfo}>
             {/* <div className={styles.leftDivider}></div> */}
             {/* <div className={styles.bottomDivider}></div> */}

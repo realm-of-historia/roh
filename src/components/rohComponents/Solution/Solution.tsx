@@ -11,7 +11,7 @@ const Solution = ({ data, header }: any) => {
                 <Text>
                     <h2>{header}</h2>
                 </Text>
-                <Divider position={'top left'} horizontal={true} />
+                <Divider position={'top left'} horizontal={true} noAnim={true}/>
                 <Divider position={'bottom left'} horizontal={true} />
             </div>
             <div className={style.wrapperHeaderTable}>

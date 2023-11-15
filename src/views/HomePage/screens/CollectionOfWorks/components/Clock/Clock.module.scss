@@ -4,7 +4,10 @@
     position: relative;
     display: flex;
     align-items: center;
-
+    padding: rm(64) rm(64) rm(64) rm(64);
+    @include xsm {
+        padding: rm(32) rm(32) rm(32) rm(32);
+    }
     >:last-child {
         >:last-child {
             display: none;
