@@ -154,12 +154,13 @@
 
         @include md {
             // margin-right: rm(110);
-            a{
-                display: none;
-            }
-            >:last-child{
-                display: block !important;
-            }
+            display: none;
+            // a{
+            //     display: none;
+            // }
+            // >:last-child{
+            //     display: block !important;
+            // }
         }
 
         @include xsm {
@@ -381,7 +382,7 @@
     // @include md {
     //     margin-right: rm(25);
     // }
-    @include xsm {
+    @include md {
         margin-right: rm(25);
     }
 }
@@ -391,7 +392,7 @@
     // @include md {
     //     display: block;
     // }
-    @include xsm {
+    @include md {
         display: block;
     }
 }
