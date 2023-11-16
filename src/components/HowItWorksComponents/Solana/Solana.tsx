@@ -23,8 +23,8 @@ const Solana = ({data} : any) => {
                 </div>
                 <h2>{data?.solana?.name}</h2>
                 <p>{data?.solana?.description}</p>
-                <Divider position={'bottom left'} />
-                <Divider position={'bottom right'} />
+                <Divider position={'top left'} />
+                <Divider position={'top right'} />
             </div>
             <RunningLineY image={data?.ribbon?.data.attributes.url} height={height}/>
             <Divider position={'bottom left'} noAnim={true} horizontal={true}/>

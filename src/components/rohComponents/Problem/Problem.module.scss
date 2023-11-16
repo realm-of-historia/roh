@@ -40,7 +40,7 @@
             position: relative;
             display: grid;
             grid-template: 1fr/rm(360) 1fr rm(512);
-            overflow: hidden;
+            // overflow: hidden;
             @include lg{
                 grid-template: 1fr/1fr rm(500) 1fr;
             }
@@ -60,6 +60,9 @@
                     font-size: font(16);
                     line-height: 160%;
                 // }
+                @include xsm {
+                    padding: rm(36) rm(32);
+                }
             }
         }
     }

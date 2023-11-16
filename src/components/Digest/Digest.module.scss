@@ -318,8 +318,22 @@
         @include xsm {
             display: grid;
             grid-template: 1fr/1fr 1fr 1fr;
+            >:nth-child(3){
+                border-right: transparent;
+            }
+            >:nth-child(4){
+                border-top: transparent;
+            }
+            >:nth-child(5){
+                border-top: transparent;
+            }
+            >:nth-child(6){
+                border-top: transparent;
+            }
         }
-
+        >:last-child{
+            border-right: transparent;
+        }
         button{
             height: rm(70);
             width: 16.8%;
@@ -327,7 +341,7 @@
             justify-content: center;
             align-items: center;
             color: color(text-brown-38);
-            font-size: font(16);
+            font-size: font(15);
             line-height: 140%;
             @include font-work-regular;
             border: 1px solid color(text-brown-85);
@@ -336,7 +350,28 @@
             transition: background-color .7s ease;
             z-index: 1000;
             font-weight: 600;
-
+            @include lg{
+                font-size: font(14);
+                padding-left: rm(20);
+                padding-right: rm(20);
+                >div{
+                    gap: rm(10);
+                    align-items: center;
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+            @include md{
+                >div{
+                    gap: rm(0);
+                    align-items: center;
+                    display: flex;
+                    flex-direction: row;
+                    img{
+                        margin-bottom: 0;
+                    }
+                }
+            }
             @include xsm{
                 font-size: font(14);
                 width: 100%;

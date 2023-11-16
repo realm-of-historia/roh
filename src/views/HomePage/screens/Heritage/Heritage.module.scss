@@ -192,8 +192,8 @@
         height: rm(377);
         transform: translate(0, -50%);
         @include xsm {
-            width: rm(300);
-            height: rm(300);
+            width: rm(270);
+            height: rm(270);
         }
     }
 
@@ -205,8 +205,8 @@
         height: rm(377);
         transform: translate(-50%, 0);
         @include xsm {
-            width: rm(300);
-            height: rm(300);
+            width: rm(270);
+            height: rm(270);
         }
     }
 
@@ -218,8 +218,8 @@
         height: rm(377);
         transform: translate(0, -50%);
         @include xsm {
-            width: rm(300);
-            height: rm(300);
+            width: rm(270);
+            height: rm(270);
         }
     }
 
@@ -231,8 +231,8 @@
         height: rm(377);
         transform: translate(-50%, 0);
         @include xsm {
-            width: rm(300);
-            height: rm(300);
+            width: rm(270);
+            height: rm(270);
         }
     }
 }

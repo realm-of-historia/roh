@@ -138,43 +138,49 @@ const Header = ({ data }: StandardComponentProps) => {
   }
 
   return (
-    <div className={styles.header}>
-        <img src="/texture.png" className={styles.texture} width={1920} height={800} alt="" />
-        <Burger networks={data?.networks} link={data?.link} button={data?.button} />
-      <div className={styles.bottomDivider}></div>
-      <div className={styles.wrapperLogoNetworks}>
-        <picture className={styles.wrapperLogo}>
-          <Link href="/" className={styles.logoImage}><ImageMy alt='' width={92} height={38} src={data?.logo.data.attributes.url} /></Link>
-          <Divider position={'right top'} />
-        </picture>
-        {
-          data?.networks.map((_: any, i: number) => (
-            <div key={i + 762} onClick={() => handler(_.href)} className={styles.iconHeader}>
-              <ImageMy src={_.icon.data.attributes.url} width={24} height={24} alt='' />
+    <>
+      {
+        data?.networks &&
+        <div className={styles.header}>
+          <img src="/texture.png" className={styles.texture} width={1920} height={800} alt="" />
+          <Burger networks={data?.networks} link={data?.link} button={data?.button} />
+          <div className={styles.bottomDivider}></div>
+          <div className={styles.wrapperLogoNetworks}>
+            <picture className={styles.wrapperLogo}>
+              <Link href="/" className={styles.logoImage}><ImageMy alt='' width={92} height={38} src={data?.logo.data.attributes.url} priority={true} /></Link>
               <Divider position={'right top'} />
-            </div>
-          ))
-        }
-      </div>
-      <div className={styles.navigation}>
-        {
-          data?.link.map((_: any, i: number) => (
-            <Link key={i + 321} href={_.href || '/'}><p>{_.name}</p></Link>
-          ))
-        }
-        <button className={styles.button}>{data?.button}</button>
-      </div>
-      <div className={styles.right}>
-        <Divider position={'left top'} />
-        <button className={`${styles.button} ${styles.buttonMob}`}>{data?.button}</button>
-        {!isSignedIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>Sign in</p></div> : <div className={styles.logIn}></div>}
-        {isSignedIn ? <Avatar
-          searchIcon={data?.searchIcon?.data.attributes.url}
-          support={data?.support?.data.attributes.url}
-          subject={data?.subject?.data.attributes.url}></Avatar>
-          : <div></div>}
-      </div>
-    </div>
+            </picture>
+            {
+              data?.networks.map((_: any, i: number) => (
+                <div key={i + 762} onClick={() => handler(_.href)} className={styles.iconHeader}>
+                  <ImageMy src={_.icon.data.attributes.url} width={24} height={24} alt='' priority={true} />
+                  <Divider position={'right top'} />
+                </div>
+              ))
+            }
+          </div>
+          <div className={styles.navigation}>
+            {
+              data?.link.map((_: any, i: number) => (
+                <Link key={i + 321} href={_.href || '/'}><p>{_.name}</p></Link>
+              ))
+            }
+            <button className={styles.button}>{data?.button}</button>
+          </div>
+          <div className={styles.right}>
+            <Divider position={'left top'} />
+            <button className={`${styles.button} ${styles.buttonMob}`}>{data?.button}</button>
+            {!isSignedIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>Sign in</p></div> : <div className={styles.logIn}></div>}
+            {isSignedIn ? <Avatar
+              searchIcon={data?.searchIcon?.data.attributes.url}
+              support={data?.support?.data.attributes.url}
+              subject={data?.subject?.data.attributes.url}></Avatar>
+              : <div></div>}
+          </div>
+        </div>
+      }
+    </>
+
   )
 }
 
