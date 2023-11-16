@@ -17,8 +17,10 @@ const RealmOfHistory = ({ data }: any) => {
           <div className={styles.divider}></div>
           <Text><p className={styles.second}>{data?.header}</p></Text>
         </div>
+        <div className={styles.wrapperImg}>
         <Image alt='' className={styles.logo} src={logoIcon} />
         <Image alt='' className={styles.logoLetter} src={logoLetter} />
+        </div>
       </div>
     </div>
   )

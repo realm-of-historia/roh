@@ -12,7 +12,7 @@ const TableCarahunge = ({ data }: any) => {
         <div className={style.container}>
             <Divider position={'top left'} horizontal={true}></Divider>
             <div className={style.containerTable}>
-                <Divider position={'bottom left'}></Divider>
+                <Divider position={'top left'}></Divider>
                 {
                     data?.map((_: any, i: number) => (
                         <div key={i + 3342} className={style.cell}>
@@ -23,7 +23,7 @@ const TableCarahunge = ({ data }: any) => {
                                 <Image className={style.arrow} src={arrow} width={12} height={10} alt='' />
                                 <Image className={style.imageHover} src={img} width={448} height={448} alt='' />
                             </div>
-                            <Divider position={'bottom right'}></Divider>
+                            <Divider position={'top right'}></Divider>
                             <Divider position={'bottom left'} horizontal={true}></Divider>
                         </div>
                     ))
