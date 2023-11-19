@@ -51,7 +51,7 @@
             @include font-work-regular;
             display: flex;
             align-items: center;
-
+            padding-right: rm(16);
             @include md {
                 font-size: font(15);
             }
@@ -142,6 +142,8 @@
             p {
                 font-weight: 600;
                 color: color(text-brown-38);
+                width: 100% !important;
+                padding-right: rm(16);
             }
 
             @include lg {
