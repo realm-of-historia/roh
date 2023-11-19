@@ -143,6 +143,9 @@
     }
 
     .navigation {
+        position: relative;
+        padding-left: rm(16);
+        padding-right: rm(16);
         display: flex;
         align-items: center;
         gap: rm(48);

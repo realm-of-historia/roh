@@ -12,9 +12,11 @@ export interface StandardComponentProps {
   searchIcon?: any,
   support?: any,
   subject?: any,
+  data?: any,
+  logOut?: any
 }
 
-const Avatar = ({ searchIcon, support, subject }: StandardComponentProps) => {
+const Avatar = ({ searchIcon, support, subject, data, logOut }: StandardComponentProps) => {
   const burger: any = useAuthStore((state: any) => (state.isBurger))
   useEffect(() => {
     let element: any = document.getElementById("body");
@@ -74,15 +76,20 @@ const Avatar = ({ searchIcon, support, subject }: StandardComponentProps) => {
           </div>
           <div className={styles.divider}></div>
           <div className={styles.options}>
-            <Link href='/user/personal'><p>My Profile</p></Link>
+            {
+              data?.map((_ : any, i : number) => (
+                <Link key={i + 8348} href={_.href}><p>{_.name}</p></Link>
+              ))
+            }
+            {/* <Link href='/user/personal'><p>My Profile</p></Link>
             <Link href='/lobby'><p>3d Lobby</p></Link>
             <Link href='/marketplace'><p>Marketplace</p></Link>
             <Link href='/artists'><p>Artists</p></Link>
             <Link href='/carahunge-x'><p>Carahunge X</p></Link>
             <Link href='/history'><p>History</p></Link>
             <Link href='/mission'><p>Mission</p></Link>
-            <Link href='/how-it-works'><p>How It Works</p></Link>
-            <p onClick={unLogIn}>Log Out</p>
+            <Link href='/how-it-works'><p>How It Works</p></Link> */}
+            <p onClick={unLogIn}>{logOut}</p>
           </div>
         </div>
       </div>
