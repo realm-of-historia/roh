@@ -85,10 +85,12 @@ const Header = ({ data }: StandardComponentProps) => {
 
   authConfig.on(ADAPTER_EVENTS.CONNECTED, (data: any) => {
     setIsSignedIn(true)
+    useAuthStore.setState(({isSignedIn: true}))
   })
 
   authConfig.on(ADAPTER_EVENTS.DISCONNECTED, (data: any) => {
     setIsSignedIn(false)
+    useAuthStore.setState(({isSignedIn: false}))
   })
 
   authConfig.on(ADAPTER_EVENTS.ERRORED, (error) => {
