@@ -45,6 +45,8 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
   const subscribeHandler = (e: any) => {
     e.preventDefault()
 
+    
+
 
     if (loading) { return }
 
@@ -52,6 +54,7 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
 
     if (!validateEmail(email)) {
       toast.error('Please enter a valid email');
+      
       return;
     }
 
@@ -64,6 +67,11 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
       headers: { 'Content-Type': 'application/json' },
       body,
     }
+
+    
+
+
+
 
     setTimeout(() => {
       fetch('https://api.realmofhistoria.com/subscribe', options)

@@ -1,0 +1,52 @@
+.button {
+    padding: 8px 24px;
+    border-radius: 4px;
+    background-color: rgba(var(--tile-end-rgb), 0.5);
+    border: 1px solid rgba(var(--tile-start-rgb), 1);
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .button:hover {
+    background-color: rgba(var(--tile-end-rgb), 1);
+  }
+  
+  .button:active {
+    background-color: rgba(var(--tile-start-rgb), 0.8);
+  }
+  
+
+  .nfts {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+
+  .nft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 4px;
+    width: 100px;
+    height: 124px;
+    border-radius: 4px;
+    gap: 4px;
+    background-color: rgba(var(--tile-end-rgb), 0.5);
+    border: 1px solid rgba(var(--tile-start-rgb), 1);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .nft:hover {
+    background-color: rgba(var(--tile-start-rgb), 0.8);
+  }
+
+  .nft img {
+    width: 90px;
+    height: 90px;
+    border-radius: 4px;
+  }

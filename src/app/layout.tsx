@@ -13,6 +13,7 @@ import {ProviderDelay} from '../context/ProviderDelay'
 import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 import WrapperDefoultData from './WrapperDefoultData'
 import { useSectionData } from '@/composable/useSectionData'
+import { ToastContainer } from 'react-toastify'
   
 
 export const metadata: Metadata = {
@@ -34,17 +35,18 @@ export default async function RootLayout({ children, }: { children: React.ReactN
   return (
     <html lang="en">
       <body suppressHydrationWarning={true} id='body'>
-      <ProviderDelay>
-        <LenisScroll />
-        <WrapperDefoultData dataAbout={dataAboutProject} datacarahunges={datacarahunges} datajoinUses={datajoinUses}/>
-        {/* <WrapperTexture> */}
-          <Header data={dataHeader?.data.attributes} />
-        {/* </WrapperTexture> */}
-            {children}
-        <WrapperTexture>
-          <Digest data={dataDigest?.data.attributes}></Digest>
-        </WrapperTexture>
+        <ProviderDelay>
+          <LenisScroll />
+          <WrapperDefoultData dataAbout={dataAboutProject} datacarahunges={datacarahunges} datajoinUses={datajoinUses}/>
+          {/* <WrapperTexture> */}
+            <Header data={dataHeader?.data.attributes} />
+          {/* </WrapperTexture> */}
+              {children}
+          <WrapperTexture>
+            <Digest data={dataDigest?.data.attributes}></Digest>
+          </WrapperTexture>
         </ProviderDelay>
+        <ToastContainer />
       </body>
     </html>
   )

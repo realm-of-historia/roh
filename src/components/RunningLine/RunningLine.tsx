@@ -63,24 +63,6 @@ const RunningLine = ({ image='' }: { image?: string }) => {
   }, [inView]);
 
 
-    // const direction = useRef(1) // calc direction somewhere, fo example onScroll event
-  //   const velocity = useRef(1) // calc velocity onScroll event
-  //   useEffect(() => {
-  //     const rq = null
-  //   let tr = 0
-      
-
-  //   render()
-  //   function render() {
-  //     tr += 0.1 * velocity.current
-  //     linkRef.current.style.transformX = tr * direction.current
-  //     rq = requestAnimationFrame(render)
-  //   }
-
-  //   return () => cancelRequestAnimationFrame(rq)
-  //   },[])
-  
-
   return (
     <div className={`${styles.runningLine}`} ref={ref}>
         <div className={styles.content} ref={containerRef}></div>

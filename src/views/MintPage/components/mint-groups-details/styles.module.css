@@ -1,0 +1,10 @@
+
+.phase {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px 16px;
+    padding: 1rem;
+    background-color: rgba(var(--callout-rgb), 0.5);
+    border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+    border-radius: 12px;
+  }
