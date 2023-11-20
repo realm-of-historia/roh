@@ -26,13 +26,12 @@ export interface StandardComponentProps {
 const Header = ({ data }: StandardComponentProps) => {
   // const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
   const [isSignedIn, setIsSignedIn] = useState(false)
-  const [keypair, setKeypair]: any = useState()
   const pathname = usePathname()
   const [token, setToken] = useState()
   const [isInit, setIsInit] = useState(false)
   const [activeWindow, setActiveWindow] = useState(false)
-  const isLinis = useAuthStore((state) => (state.isLinis))
   const { innerWidth }: number | any = useWindowSize();
+  const isMint = useAuthStore((state: any) => (state.isMint))
 
   const handleAuth = () => {
     authConfig.connect();
@@ -134,6 +133,14 @@ const Header = ({ data }: StandardComponentProps) => {
   }, [pathname, isSignedIn])
 
 
+  useEffect(() => {
+    if(pathname === '/mint') {
+      useAuthStore.setState({isMint: true})
+    } else{
+      useAuthStore.setState({isMint: false})
+    }
+    console.log(pathname, isMint)
+  })
 
   const handler = (href: any) => {
     window.open(href)
@@ -167,11 +174,11 @@ const Header = ({ data }: StandardComponentProps) => {
                 <Link key={i + 321} href={_.href || '/'}><p>{_.name}</p></Link>
               ))
             }
-            <button className={styles.button}>{data?.button}</button>
+            {!isMint && <Link href='/mint'><button className={styles.button}>{data?.button}</button></Link>}
           </div>
           <div className={styles.right}>
             <Divider position={'left top'} />
-            <button className={`${styles.button} ${styles.buttonMob}`}>{data?.button}</button>
+            {!isMint && <Link href='/mint'><button className={`${styles.button} ${styles.buttonMob}`}>{data?.button}</button></Link>}
             {!isSignedIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>{data?.buttonSignIn}</p></div> : <div className={styles.logIn}></div>}
             {isSignedIn ? <Avatar
               data={data?.authorizedUserMenu}

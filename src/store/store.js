@@ -2,6 +2,7 @@ import { create } from 'zustand'
 
 const useAuthStore = create((set) => ({
   isSignedIn: false,
+  isMint: false,
   userRoute: 'personal',
   isBuy: true,
   isAllChecked: false,
