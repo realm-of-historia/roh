@@ -170,8 +170,10 @@ const Header = ({ data }: StandardComponentProps) => {
           <div className={styles.right}>
             <Divider position={'left top'} />
             <button className={`${styles.button} ${styles.buttonMob}`}>{data?.button}</button>
-            {!isSignedIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>Sign in</p></div> : <div className={styles.logIn}></div>}
+            {!isSignedIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>{data?.buttonSignIn}</p></div> : <div className={styles.logIn}></div>}
             {isSignedIn ? <Avatar
+              data={data?.authorizedUserMenu}
+              logOut={data?.bottonLogOut}
               searchIcon={data?.searchIcon?.data.attributes.url}
               support={data?.support?.data.attributes.url}
               subject={data?.subject?.data.attributes.url}></Avatar>

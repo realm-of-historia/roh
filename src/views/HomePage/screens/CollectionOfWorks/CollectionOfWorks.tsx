@@ -50,6 +50,7 @@ const CollectionOfWorks = () => {
                     </div>
                     <div className={style.wrapperImage}>
                         <ImageMy src={data?.img.data.attributes.url} width={960} height={960} alt='' poster={data?.placeholder.data.attributes.url} />
+                        <Divider position={'top left'}/>
                     </div>
                 </div>
                 :

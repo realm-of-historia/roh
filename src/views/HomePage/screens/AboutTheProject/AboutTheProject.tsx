@@ -16,10 +16,12 @@ const AboutTheProject = () => {
         const chunkSize = Math.ceil(dataTheProject?.length / 3);
         const chunkedArrays: any = [];
         for (let i = 0; i < dataTheProject?.length; i += chunkSize) {
-            const chunk = dataTheProject?.slice(i, i + chunkSize);
-            chunkedArrays.push(chunk);
+                const chunk = dataTheProject?.slice(i, i + chunkSize);
+                chunkedArrays.push(chunk);
+            
         }
         setDataNew(chunkedArrays)
+        console.log(chunkedArrays)
     }, [dataTheProject])
 
     return (
