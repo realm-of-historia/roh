@@ -4,6 +4,10 @@
     padding-left: rm(64);
     background-color: color(bg);
 
+    @include lg{
+        padding-left: rm(32);
+    }
+
     @include md{
         padding-left: 0;
     }
@@ -18,6 +22,7 @@
 
         img{
             width: 50%;
+            z-index: 1000;
 
             @include md{
                 width: 100%;
@@ -25,11 +30,21 @@
         }
 
         .right{
+            padding-bottom: rm(32);
+
+            @include xsm{
+                padding-bottom: rm(0);
+            }
 
             .third{
                 padding-left: rm(64);
                 padding-right: rm(64);
                 padding-top: rm(48);
+
+                @include lg{
+                    padding-left: rm(32);
+                    padding-right: rm(32);
+                }
 
                 @include md{
                     padding-top: rm(24);
@@ -41,39 +56,65 @@
                     padding-right: rm(32);
                 }
                 
-
-                .wrapper{
-                    width: 100%;
-                    display: flex;
+                .wrapperOption{
+                    cursor: pointer;
                     padding: rm(30) rm(20);
-                    justify-content: space-between;
-                    background-color: color(text-brown);
-                    color: color(text-brown-88);
-                    align-items: center;
+                    transition: color .7s ease-in-out;
 
                     .signInOption{
                         width: 100%;
-                        font-size: font(32);
+                        font-size: font(20);
                         @include font-dune-regular;
-                        text-align: center;
-                        cursor: pointer;
+                        margin-bottom: rm(-5);
                     }
+
+                    &:hover{
+                        color: color(text-brown-88) !important;
+                    }
+                }
+
+                .wrapper, .wrapperOption{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    background-color: #171513;
+                    color: color(text-brown-38);
+                    align-items: center;
+
 
                     .amount{
                         font-size: font(32);
                         display: flex;
                         align-items: center;
+                        justify-content: flex-end;
                         gap: rm(15);
                         @include font-dune-regular;
+                        width: 50%;
+                        padding: rm(30) rm(20);
 
                         p{
-                            pointer-events: none;
+                            user-select: none;
+                        }
+
+                        div{
+                            cursor: pointer;
+
+                            
+                            &:hover{
+                                svg{
+                                    color: color(text-brown-88) !important;
+                                }
+                            }
                         }
 
                         span{
-                            cursor: pointer;
                             width: rm(32);
                             height: rm(32);
+
+                            svg{
+                                color: color(text-brown-38);
+                                transition: color .7s ease-in-out;
+                            }
                         }
                     }
 
@@ -81,6 +122,14 @@
                         display: flex;
                         flex-direction: column;
                         cursor: pointer;
+                        width: 50%;
+                        padding: rm(30) rm(20);
+                        transition: color .7s ease-in-out;
+
+
+                        &:hover{
+                            color: color(text-brown-88) !important;
+                        }
 
                         >p:first-child{
                             font-size: font(32);
@@ -111,6 +160,11 @@
                 padding-right: rm(64);
                 padding-top: rm(48);
 
+                @include lg{
+                    padding-left: rm(32);
+                    padding-right: rm(32);
+                }
+
                 @include xsm{
                     padding-left: rm(32);
                     padding-right: rm(32);
@@ -130,7 +184,7 @@
                         @include font-dune-regular;
                         text-transform: uppercase;
                         line-height: 160%;
-                        color: color(text-brown);
+                        color: color(text-brown-38);
 
                         @include xsm{
                             font-size: font(24);
@@ -148,7 +202,7 @@
                     display: flex;
     
                     .leftLine{
-                        background-color: color(text-brown);
+                        background-color: color(text-brown-38);
                     }
     
                     .rightLine{
@@ -166,6 +220,12 @@
                 position: relative;
                 padding-left: rm(64);
                 padding-right: rm(64);
+
+                @include lg{
+                    padding-left: rm(32);
+                    padding-right: rm(32);
+                    margin-top: rm(100);
+                }
 
                 @include md{
                     margin-top: rm(64);
@@ -189,7 +249,7 @@
 
                 >p:first-child{
                     @include font-dune-regular;
-                    color: color(text-brown);
+                    color: color(text-brown-38);
                     font-size: font(48);
                     margin-bottom: rm(30);
 
@@ -200,7 +260,7 @@
                 
                 >p:nth-child(2){
                     @include font-work-regular;
-                    color: color(text-brown);
+                    color: color(text-brown-38);
                     font-size: font(16);
                     margin-bottom: rm(30);
                 }

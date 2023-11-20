@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useMemo} from 'react'
 import styles from './MintPage.module.scss'
 import Icon from '@/components/UI/Icon/Icon'
 import MintGroupsDetails from './components/mint-groups-details/MintGroupsDetails';
@@ -20,6 +20,22 @@ import MintProvider from '@/components/MintProvider/MintProvider';
 import { useAuthStore } from '@/store/store';
 import { useWalletMultiButton } from '@solana/wallet-adapter-base-ui';
 
+type CandyDisplayInfo = {
+    totalSupply: number,
+    supplyMinted: number,
+    price: number,
+    startDate: Date | null,
+    endDate: Date | null,
+    groups: CandyDisplayGroup[]
+  }
+  
+  type CandyDisplayGroup = {
+    label: string,
+    totalSupply: number,
+    price: number,
+    startDate: Date | null,
+    endDate: Date | null,
+  } 
 
 export default function MintPage() {
 
@@ -66,6 +82,47 @@ export default function MintPage() {
         compilationRefSecond.current.style.width = `${lineSecond}%`
     })
 
+    const candyDisplay: CandyDisplayInfo = useMemo(() => {
+        const totalSupply = Number(candy?.guard.guards.redeemedAmount.__option === "Some" ? candy?.guard.guards.redeemedAmount.value.maximum.toString() : candy?.candy.data.itemsAvailable.toString())
+        const supplyMinted = Number(candy?.candy.itemsRedeemed.toString())
+        const price = candy?.guard.guards.solPayment.__option === "Some" ? Number(candy?.guard.guards.solPayment.value.lamports.basisPoints.toString()) / 1_000_000_000 : 0
+        const startDate = candy?.guard.guards.startDate.__option === "Some" ? new Date(Number(candy?.guard.guards.startDate.value.date.toString()) * 1000) : null
+        const endDate = candy?.guard.guards.endDate.__option === "Some" ? new Date(Number(candy?.guard.guards.endDate.value.date.toString()) * 1000) : null
+
+        const groups: CandyDisplayGroup[] = []
+
+        candy?.guard.groups.forEach((g: any) => {
+
+            const groupTotalSupply = Number(g.guards.redeemedAmount.__option === "Some" ? g.guards.redeemedAmount.value.maximum.toString() : totalSupply)
+            const groupPrice = g.guards.solPayment.__option === "Some" ? Number(g.guards.solPayment.value.lamports.basisPoints.toString()) / 1_000_000_000 : price
+            const groupStartDate = g.guards.startDate.__option === "Some" ? new Date(Number(g.guards.startDate.value.date.toString()) * 1000) : startDate
+            const groupEndDate = g.guards.endDate.__option === "Some" ? new Date(Number(g.guards.endDate.value.date.toString()) * 1000) : endDate
+            
+            groups.push({
+            label: g.label,
+            price: groupPrice,
+            totalSupply: groupTotalSupply,
+            endDate: groupEndDate,
+            startDate: groupStartDate
+            })
+        })
+
+        return {
+            totalSupply,
+            supplyMinted,
+            price,
+            endDate,
+            startDate,
+            groups
+        }
+    }, [candy?.guard])
+
+    // useEffect(() => {
+    //     if(candy?.guard) {
+    //         console.log(candy?.guard)
+    //     }
+    // }, [candy])
+
     return(
         <div className={styles.mint}>
             <div className={styles.container}>
@@ -81,7 +138,7 @@ export default function MintPage() {
                                     Total Items
                                 </p>
                                 <p>
-                                    count
+                                {candy ? candy?.guard.guards.redeemedAmount.__option === "Some" ? candy?.guard.guards.redeemedAmount.value.maximum.toString() : candy.candy.itemsLoaded.toString() : '-'}
                                 </p>
                             </div>
                             <div>
@@ -89,7 +146,7 @@ export default function MintPage() {
                                     Price
                                 </p>
                                 <p>
-                                    count
+                                    {candyDisplay.price} SOL
                                 </p>
                             </div>
                         </div>
@@ -100,7 +157,7 @@ export default function MintPage() {
                                 <p>
                                     TOTAL MINTeD {candy ? candy.candy.itemsRedeemed.toString() : '-'} 
                                     /
-                                    {candy ? candy.guard.guards.redeemedAmount.__option === "Some" ? candy.guard.guards.redeemedAmount.value.maximum.toString() : candy.candy.itemsLoaded.toString() : '-'}
+                                    {candy ? candy?.guard.guards.redeemedAmount.__option === "Some" ? candy?.guard.guards.redeemedAmount.value.maximum.toString() : candy.candy.itemsLoaded.toString() : '-'}
                                 </p>
                             </div>
                         </div>
@@ -110,7 +167,6 @@ export default function MintPage() {
                         </div>
                     </div>
                     <div className={styles.third}>
-                        <WalletMultiButton style={{marginBottom: '10px'}}/>
                         {isSignedIn ? <div className={styles.wrapper}>
                             <div className={styles.costs} onClick={onMint}>
                                 <p>
@@ -118,10 +174,10 @@ export default function MintPage() {
                                 </p>
                                 <div>
                                     <p>
-                                        Estimated costs:
+                                        Cost:
                                     </p>
                                     <p>
-                                        0.112 SOL
+                                        {candyDisplay.price * params.length} SOL
                                     </p>
                                 </div>
                             </div>
@@ -133,8 +189,8 @@ export default function MintPage() {
                                 <div onClick={() => setParams(prev => [...prev, {}])}><Icon label='plus'></Icon></div>
                             </div>
                         </div> : 
-                        <div className={styles.wrapper}>
-                            <p onClick={auth} className={styles.signInOption}>Sign In to Mint</p>
+                        <div onClick={auth} className={styles.wrapperOption}>
+                            <p className={styles.signInOption}>Sign In</p>
                         </div>
                         }
                     </div>
