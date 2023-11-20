@@ -1,5 +1,5 @@
-import { CandyPhase } from "@/types/candy_info"
-import { NftWithImage } from "@/types/nft"
+import { CandyPhase } from "./candy_info"
+import { NftWithImage } from "./nft"
 import { TokenStandard } from "@metaplex-foundation/mpl-token-metadata"
 import { KeypairSigner, PublicKey, Transaction, TransactionBuilder } from "@metaplex-foundation/umi"
 

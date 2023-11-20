@@ -6,7 +6,7 @@ import Icon from '@/components/UI/Icon/Icon'
 import MintGroupsDetails from './components/mint-groups-details/MintGroupsDetails';
 import { useAuth } from './hooks/useAuth';
 import { useCandy } from './hooks/useCandy';
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import { WalletMultiButton, useWalletModal } from '@solana/wallet-adapter-react-ui';
 import '@solana/wallet-adapter-react-ui/styles.css';
 import { createSignerFromWalletAdapter } from '@metaplex-foundation/umi-signer-wallet-adapters';
 import { useWallet } from '@solana/wallet-adapter-react';
@@ -18,14 +18,22 @@ import { TokenStandard } from '@metaplex-foundation/mpl-token-metadata';
 import MintingResultDisplay from './components/minting-result/MintingResult';
 import MintProvider from '@/components/MintProvider/MintProvider';
 import { useAuthStore } from '@/store/store';
+import { useWalletMultiButton } from '@solana/wallet-adapter-base-ui';
 
 
 export default function MintPage() {
 
     const { authConfig } = useAuth()
     const isSignedIn = useAuthStore((state: any) => (state.isSignedIn))
-  
+    const {setVisible: setModalVisible} = useWalletModal();
 
+    const {publicKey} = useWalletMultiButton({
+        onSelectWallet() {
+            setModalVisible(true);
+        },
+    });
+
+    console.log(publicKey)
 
     const compilationRefFirst: any = useRef(null)
     const compilationRefSecond: any = useRef(null)
@@ -33,18 +41,21 @@ export default function MintPage() {
     const walletAdapter = useWallet()
     const {auth} = useAuth()
 
-    console.log(candy)
 
     const [params, setParams] = useState<CreateMintTransactionParams[]>([{}])
     const [mintResult, setMintResult] = useState<MintingResult | null>(null)
 
 
     const onMint = async () => {
-        if (!walletAdapter.publicKey) return
-        const txs = params.map(p => createMintTransaction(umiPubkeyFromWalletAdapterPubkey(walletAdapter.publicKey!), p))
-        const results = await sendAndConfirmAllMints(umiSignerFromSolanaWalletAdapter(walletAdapter), txs)
-        setMintResult(results)
-        setParams([{}])
+        if(!publicKey && !walletAdapter.publicKey) {
+            setModalVisible(true)
+            return
+        } else{
+            const txs = params.map(p => createMintTransaction(umiPubkeyFromWalletAdapterPubkey(walletAdapter.publicKey!), p))
+            const results = await sendAndConfirmAllMints(umiSignerFromSolanaWalletAdapter(walletAdapter), txs)
+            setMintResult(results)
+            setParams([{}])
+        }
       }
 
     const lineFirst = 3
