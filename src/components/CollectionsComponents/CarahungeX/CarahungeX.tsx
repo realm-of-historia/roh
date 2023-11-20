@@ -9,7 +9,7 @@ import Divider from '@/components/Divider/Divider';
 const CarahungeX = ({ data }: any) => {
     const { innerWidth }: number | any = useWindowSize();
     const linkNo = (e: any) => {
-        if (innerWidth <= 576) {
+        if (innerWidth <= 1080) {
             e.preventDefault()
         }
     }
@@ -17,27 +17,30 @@ const CarahungeX = ({ data }: any) => {
         <>
             {
                 data ?
-                    <Link href={data?.href || '/'} onClick={(e) => linkNo(e)} className={styles.wrapper}>
+                    <div className={styles.wrapper }>
                         {/* <Divider horizontal={true} position={'bottom left'}></Divider> */}
-                        <span className={styles.wrapperInfoText}>
+                        
+                        <Link href={data?.href || '/'} onClick={(e) => linkNo(e)}  className={styles.wrapperInfoText}>
+                        <Divider  position={'top left'} noAnim={true}></Divider>
+                        <Divider  position={'top right'} noAnim={true}></Divider>
                             <span className={styles.containerText}>
                                 <Text>
                                     <h2>{data?.header}</h2>
                                 </Text>
                                 {
-                                    innerWidth > 576 &&
+                                    innerWidth > 1080 &&
                                     <Text>
                                         <p>{data?.date}</p>
                                     </Text>
                                 }
                                 {
-                                    data?.button && innerWidth <= 576 &&
+                                    data?.button && innerWidth <= 1080 &&
                                     <Text>
                                         <button className={styles.button}>{data?.button}</button>
                                     </Text>
                                 }
                             </span>
-                        </span>
+                        </Link>
                         <span className={styles.wpapperCircle}>
                             <svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle className={styles.activeHover} opacity="0.5" cx="400" cy="400" r="399.5" stroke="#887961" />
@@ -57,7 +60,7 @@ const CarahungeX = ({ data }: any) => {
 
                         </span>
                         <Divider horizontal={true} position={'bottom left'}></Divider>
-                    </Link>
+                    </div>
                     :
                     <></>
             }

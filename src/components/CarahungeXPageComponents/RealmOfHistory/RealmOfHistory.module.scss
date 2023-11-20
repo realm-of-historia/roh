@@ -1,14 +1,21 @@
 @use "@/assets/styles/index.scss" as *;
 
+// @keyframes rotateRight {
+//     from {
+//       transform: translate(-50%, 30%) rotate(0);
+//     }
+//     to {
+//       transform: translate(-50%, 30%) rotate(360deg);
+//     }
+//   }
 @keyframes rotateRight {
     from {
-      transform: translate(-50%, 30%) rotate(0);
+      transform:  rotate(0);
     }
     to {
-      transform: translate(-50%, 30%) rotate(360deg);
+      transform:  rotate(360deg);
     }
   }
-
 .container{
     position: relative;
     width: 100%;
@@ -20,23 +27,28 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    padding-top: rm(128);
-    margin-bottom: rm(771);
+    // padding-top: rm(128);
+    // margin-bottom: rm(771);
+    margin-top: rm(152);
+    margin-bottom: rm(64);
     overflow: visible !important;
     @include md{
-        padding-top: rm(240);
-        margin-bottom: rm(600);
+        // padding-top: rm(240);
+        margin-bottom: rm(64);
     }
     @include xsm {
-        padding-top: rm(240);
-        margin-bottom: rm(600);
+        // padding-top: rm(240);
+        // margin-bottom: rm(600);
+        margin-top: rm(0);
+        margin-bottom: rm(0);
+        height: 100vh;
     }
 
     .text{
         display: flex;
         flex-direction: column;
         align-items: center;
-        color: color(text-brown);
+        color: color(text-brown-38);
         @include font-dune-regular;
         text-align: center;
         
@@ -46,6 +58,7 @@
             margin-bottom: rm(22);
             letter-spacing: rm(2.2);
             opacity: 0.75;
+            color:  #000000;
 
             @include md{
                 font-size: font(16);
@@ -72,7 +85,7 @@
             font-size: font(55);
             letter-spacing: 13.74px;
             margin-bottom: rm(100);
-
+            color: color(text-brown-38);
             @include md{
                 font-size: font(40);
                 letter-spacing: 10px;
@@ -80,38 +93,55 @@
             }
 
             @include xsm{
+                margin-bottom: rm(40);
                 font-size: font(32);
             }
         }
     }
-
-    .logo{
+    .wrapperImg{
+        position: relative;
         width: rm(540);
         height: rm(540);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, 30%);
-
-        @include md{
-            width: rm(390);
-            height: rm(390);
+        @include xsm{
+            width: rm(320);
+            height: rm(320);
         }
+    }
+    .logo{
+        // width: rm(540);
+        // height: rm(540);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        // top: 50%;
+        // left: 50%;
+        // transform: translate(-50%, 30%);
+
+        // @include md{
+        //     width: rm(390);
+        //     height: rm(390);
+        // }
     }
 
     .logoLetter{
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, 30%);
+        // top: 50%;
+        // left: 50%;
+        // transform: translate(-50%, 30%);
         position: absolute;
-        width: rm(540);
-        height: rm(540);
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        // width: rm(540);
+        // height: rm(540);
         animation: rotateRight 100s infinite linear;
 
-        @include md{
-            width: rm(390);
-            height: rm(390);
-        }
+        // @include md{
+        //     width: rm(390);
+        //     height: rm(390);
+        // }
     }
 
 }

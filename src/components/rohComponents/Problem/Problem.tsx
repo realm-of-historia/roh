@@ -17,15 +17,15 @@ const Problem = ({ data, header }: any) => {
             <div className={style.table}>
                 <div className={style.tableInfo}>
                     <div className={style.cellTable}>
-                        <p>{data?.What}</p>
+                        <p className={style.headerTableText}>{data?.What}</p>
                     </div>
                     <div className={style.cellTable}>
-                        <p>{data?.Description}</p>
+                        <p className={style.headerTableText}>{data?.Description}</p>
                         <Divider position={'bottom left'} />
                         <Divider position={'bottom right'} />
                     </div>
                     <div className={style.cellTable}>
-                        <p>{data?.Effect}</p>
+                        <p className={style.headerTableText}>{data?.Effect}</p>
                     </div>
                 </div>
                 {

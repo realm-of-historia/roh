@@ -58,6 +58,8 @@ const HorizontalScroll: NextPage<scroll> = forwardRef(function HorizontalScroll(
                     }
                 );
             }
+        } else {
+            return
         }
         
 

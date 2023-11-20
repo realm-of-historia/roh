@@ -3,18 +3,23 @@
 
 
 .main{
-    color: color(text-brown);
+    color: color(text-brown-38);
     display: flex;
     align-items: flex-start;
 
     .divider{
-        margin-top: rm(70);
+        margin-top: rm(80);
         width: rm(9);
         height: rm(9);
-        border-radius: rm(50);
+        border-radius: rm(50); 
         background-color: color(text-brown);
         z-index: 1000;
-
+        @include lg{
+            margin-top: rm(65.6); 
+        }
+        @include md{ 
+            margin-top: rm(80); 
+        }
         @include xsm{
             // margin-right: rm(64);
         }
@@ -45,7 +50,8 @@
             @include font-dune-regular;
             line-height: 140%;
             // text-transform: uppercase;
-            margin-bottom: rm(30);
+            margin-bottom: rm(37);
+            margin-top: rm(0) !important;
     
             @include lg{
                 font-size: rm(24);
@@ -64,7 +70,7 @@
         font-size: font(20);
         line-height: 160%;
         @include font-work-regular;
-
+        margin-top: rm(37);
         @include lg{
             font-size: rm(16);
         }

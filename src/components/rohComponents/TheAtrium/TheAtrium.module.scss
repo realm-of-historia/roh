@@ -20,7 +20,7 @@
             @include font-dune-regular();
             color: color(text-brown-38);
             font-size: font(48);
-            text-transform: uppercase;
+            // text-transform: uppercase;
 
             @include xsm {
                 font-size: font(32);
@@ -33,6 +33,14 @@
         width: 100%;
         padding-left: rm(320);
         padding-right: rm(320);
+        @include lg{
+            padding-left: rm(200);
+            padding-right: rm(200);
+        }
+        @include md{
+            padding-left: rm(64);
+            padding-right: rm(64);
+        }
         @include xsm {
             padding: 0;
         }

@@ -23,6 +23,9 @@
             justify-content: flex-start;
             gap: rm(120);
             width: fit-content;
+            @include xsm {
+                margin-bottom: rm(32);
+            }
         }
 
         @include xsm {
@@ -36,9 +39,9 @@
         div {
             // margin-bottom: rm(64);
 
-            @include xsm {
-                margin-bottom: rm(32);
-            }
+            // @include xsm {
+            //     margin-bottom: rm(32);
+            // }
         }
 
         >div>div:last-child {
@@ -50,8 +53,14 @@
             width: 100%;
             background-color: #EAD8B1;
             height: rm(1);
-            top: rm(73);
-            left: rm(3);
+            top: rm(83.2);
+            left: rm(3); 
+            @include lg{
+                top: rm(68.8); 
+            }
+            @include md{ 
+                top: rm(83.2); 
+            }
         }
     }
 
@@ -80,8 +89,10 @@
             font-size: font(24);
             line-height: 160%;
             @include font-work-regular();
-            max-width: 50vw;
+            // max-width: rm(900);
+            width: 100%;
             font-weight: 400;
+            white-space: pre-wrap;
             span {
                 font-weight: 400;
             }
@@ -91,8 +102,9 @@
             }
 
             @include md {
-                font-size: font(24);
-                max-width: 90vw;
+                font-size: font(20);
+                white-space: inherit;
+                max-width: 80vw;
             }
 
             @include xsm {
@@ -109,7 +121,7 @@
                 @include font-dune-regular();
                 margin-bottom: rm(32);
                 font-weight: 400;
-                text-transform: uppercase;
+                // text-transform: uppercase;
                 // margin-bottom: rm(200);
 
                 @include lg {

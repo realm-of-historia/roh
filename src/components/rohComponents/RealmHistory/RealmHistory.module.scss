@@ -8,8 +8,8 @@
     justify-content: center;
     padding-top: rm(300);
     padding-bottom: rm(300);
-    padding-left: rm(15);
-    padding-right: rm(15);
+    padding-left: rm(32);
+    padding-right: rm(32);
     background-color: color(text-black);
     .wrapperInfo{
         position: relative;
@@ -21,7 +21,7 @@
             color: color(text-brown-88);
             font-size: font(32);
             line-height: 120%;
-            text-transform: uppercase;
+            // text-transform: uppercase;
             text-align: center;
             @include xsm {
                 font-size: font(24);
@@ -32,11 +32,11 @@
             color: color(text-brown-88);
             font-size: font(56);
             line-height: 120%;
-            text-transform: uppercase;
+            // text-transform: uppercase;
             padding-top: rm(20);
             text-align: center;
             @include xsm {
-                font-size: font(36);
+                font-size: font(34);
             }
         }
     }

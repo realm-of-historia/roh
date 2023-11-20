@@ -21,7 +21,7 @@
             @include font-dune-regular();
             color: color(text-brown-38);
             font-size: font(48);
-            text-transform: uppercase;
+            // text-transform: uppercase;
 
             @include xsm {
                 font-size: font(32);
@@ -34,12 +34,17 @@
         width: 100%;
         display: flex;
         align-items: center;
-
+        overflow: hidden;
         @include xsm {
             flex-direction: column;
         }
-
-        >:nth-child(1) {
+        >:nth-child(1){
+            right: 50% !important;
+            @include xsm{
+                display: none;
+            }
+        }
+        >:nth-child(2) {
             p {
                 text-transform: uppercase;
                 font-size: font(24) !important;
@@ -47,12 +52,16 @@
                 font-weight: 600 !important;
                 padding-right: rm(300) !important;
 
+                @include lg {
+                    padding-right: rm(0) !important;
+                }
+
                 @include xsm {
                     padding-right: rm(0) !important;
                 }
             }
 
-            @include xsm{
+            @include xsm {
                 padding-bottom: rm(0) !important;
 
             }
@@ -62,9 +71,11 @@
             position: relative;
             flex: 1;
             padding: rm(32) rm(64);
+
             @include xsm {
                 padding: rm(32);
             }
+
             p {
                 color: color(text-brown-38);
                 @include font-work-regular();
@@ -80,16 +91,22 @@
         width: 100%;
         display: grid;
         grid-template: 1fr/1fr 1fr 1fr 1fr;
-        @include xsm{
+        @include lg{
+            grid-template: 1fr/1fr 1fr;
+        }
+        @include xsm {
             display: flex;
             flex-direction: column;
         }
+
         .cell {
             position: relative;
             padding: rm(64);
-            @include xsm{
+
+            @include xsm {
                 padding: rm(32);
             }
+
             >:nth-child(1) {
                 color: color(text-brown-38);
                 @include font-work-regular();
@@ -107,14 +124,19 @@
                 white-space: pre-wrap;
                 padding-top: rm(32);
             }
-            >:nth-child(3){
-                @include xsm{
+
+            >:nth-child(3) {
+                @include xsm {
                     display: none;
                 }
             }
-            >:nth-child(4){
+
+            >:nth-child(4) {
                 display: none;
-                @include xsm{
+                @include lg{
+                    display: block;
+                }
+                @include xsm {
                     display: block;
                 }
             }

@@ -26,6 +26,7 @@
         mix-blend-mode: overlay;
         width: 100%;
         height: 100%;
+        object-fit: cover;
         pointer-events: none;
         z-index: 994;
     }
@@ -51,7 +52,7 @@
         // padding: rm(16) rm(64);
         padding-left: rm(16);
         padding-right: rm(16);
-
+        
         @include xsm {
             padding-left: rm(31);
             padding-right: rm(31);
@@ -125,17 +126,44 @@
             height: 100%;
             object-fit: cover;
         }
+
+        @include lg {
+            // margin-right: rm(100);
+            width: rm(76);
+            height: rm(22);
+        }
+
+        @include md {
+            // margin-right: rm(150);
+        }
+
+        @include xsm {
+            // margin-right: rm(0);
+        }
     }
 
     .navigation {
+        position: relative;
+        padding-left: rm(16);
+        padding-right: rm(16);
         display: flex;
         align-items: center;
         gap: rm(48);
 
         @include lg {
-            margin-right: rm(0);
+            gap: rm(24);
         }
 
+        @include md {
+            // margin-right: rm(110);
+            display: none;
+            // a{
+            //     display: none;
+            // }
+            // >:last-child{
+            //     display: block !important;
+            // }
+        }
 
         @include xsm {
             display: none;
@@ -164,6 +192,16 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
+
+        @include md {
+            // width: rm(160);
+            >:nth-child(1) {
+                display: none;
+            }
+
+            padding-left: rm(31);
+            padding-right: rm(31);
+        }
 
         @include xsm {
 
@@ -253,7 +291,14 @@
     height: 100%;
     width: rm(80);
     min-width: rm(80);
-
+    @include lg {
+        // margin-right: rm(100);
+        width: rm(56);
+        min-width: rm(48);
+    }
+    @include md {
+        display: none;
+    }
     @include xsm {
         display: none;
     }
@@ -294,15 +339,23 @@
         background-color: color(burgundyBg);
         transition: background-color ease 0.3s;
     }
-    @include xsm {
+    @include lg {
+        padding: rm(9.8) rm(16);
+    }
+    // @include md {
+    //     margin-right: rm(25);
+    // }
+    @include md {
         margin-right: rm(25);
     }
 }
 
 .buttonMob {
     display: none;
-
-    @include xsm {
+    // @include md {
+    //     display: block;
+    // }
+    @include md {
         display: block;
     }
 }

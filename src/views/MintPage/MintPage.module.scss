@@ -4,7 +4,7 @@
     padding-left: rm(64);
     background-color: color(bg);
 
-    @include xsm{
+    @include md{
         padding-left: 0;
     }
 
@@ -19,7 +19,7 @@
         img{
             width: 50%;
 
-            @include xsm{
+            @include md{
                 width: 100%;
             }
         }
@@ -31,11 +31,14 @@
                 padding-right: rm(64);
                 padding-top: rm(48);
 
+                @include md{
+                    padding-top: rm(24);
+                    padding-bottom: rm(24);
+                }
+
                 @include xsm{
                     padding-left: rm(32);
                     padding-right: rm(32);
-                    padding-top: rm(24);
-                    padding-bottom: rm(24);
                 }
                 
 
@@ -163,6 +166,10 @@
                 position: relative;
                 padding-left: rm(64);
                 padding-right: rm(64);
+
+                @include md{
+                    margin-top: rm(64);
+                }
 
                 @include xsm{
                     padding-left: rm(32);

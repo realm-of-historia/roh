@@ -129,6 +129,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        padding-top: rm(32);
+        padding-bottom: rm(32);
         // transition: background-color .3s ease-in-out;
         
         // &:hover{
@@ -173,6 +175,9 @@
     width: 100%;
     height: rm(320);
     cursor: pointer;
+    @include lg {
+         height: rm(210); 
+    }
     @include xsm {
      height: rm(640);
     }

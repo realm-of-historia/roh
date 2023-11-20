@@ -2,8 +2,8 @@ import React from 'react'
 import styles from './RealmOfHistory.module.scss'
 import Image from 'next/image'
 import Text from '@/components/Text/Text'
-import logoIcon from '../../../../public/logoRealm.svg'
-import logoLetter from '../../../../public/logoRealmText.svg'
+import logoIcon from '../../../../public/LinkedPathGroupLogo.svg'
+import logoLetter from '../../../../public/LinkedPathGroupD.svg'
 
 
 const RealmOfHistory = ({ data }: any) => {
@@ -17,8 +17,10 @@ const RealmOfHistory = ({ data }: any) => {
           <div className={styles.divider}></div>
           <Text><p className={styles.second}>{data?.header}</p></Text>
         </div>
+        <div className={styles.wrapperImg}>
         <Image alt='' className={styles.logo} src={logoIcon} />
         <Image alt='' className={styles.logoLetter} src={logoLetter} />
+        </div>
       </div>
     </div>
   )

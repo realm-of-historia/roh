@@ -24,6 +24,14 @@
             width: 100%;
             padding-left: rm(360);
             padding-right: rm(360);
+            @include lg{
+                padding-left: rm(150);
+                padding-right: rm(150);
+            }
+            @include md{
+                padding-left: rm(64);
+                padding-right: rm(64);
+            }
             @include xsm{
                 padding-left: rm(32);
                 padding-right: rm(32);

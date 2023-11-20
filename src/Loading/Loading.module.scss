@@ -26,7 +26,9 @@
   }
   
   .svgContainer {
-  
+    @include md{
+      width: 50%;
+    }
     path{
         animation: dash 1.5s ease-in-out forwards;
     }

@@ -27,9 +27,9 @@ export default async function Mission() {
             <WrapperTexture>
                 <Heritage data={missionHeader} />
             </WrapperTexture>
-            <WrapperTexture>
-                <OurGoals data={dataOurGoals} />
-            </WrapperTexture>
+            {/* <WrapperTexture> */}
+                {/* <OurGoals data={dataOurGoals} /> */}
+            {/* </WrapperTexture> */}
             <WrapperTexture>
                 <AboutTheProject />
             </WrapperTexture>

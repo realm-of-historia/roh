@@ -40,7 +40,10 @@
                     @include font-dune-regular();
                     font-weight: 400;
                     line-height: 120%;
-                    text-transform: uppercase;
+                    // text-transform: uppercase;
+                    @include md{
+                        font-size: font(32);
+                    }
                     @include xsm{
                         font-size: font(32);
                     }
@@ -67,6 +70,9 @@
                 left: 0;
                 top: 0;
                 object-fit: cover;
+            } 
+            @include md {
+                min-height: rm(544);
             }
             @include xsm {
                 min-height: rm(427);

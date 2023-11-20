@@ -62,28 +62,31 @@
             @include font-dune-regular;
             color: color(text-black);
             font-size: font(48);
-            margin-bottom: rm(16);
-
+            margin-bottom: rm(32);
+            @include lg{
+                font-size: font(40);
+            }
             @include md{
                 font-size: font(40);
             }
 
             @include xsm{
+                margin-bottom: rm(16);
                 font-size: font(32);
             }
         }
 
-        >:last-child{
-            @include font-work-regular;
-            font-size: font(16);
-            color: color(text-brown);
-            font-style: italic;
+        // >:last-child{
+        //     @include font-work-regular;
+        //     font-size: font(16);
+        //     color: color(text-brown);
+        //     font-style: italic;
 
-            @include xsm{
-                font-size: font(14);
-                margin-bottom: rm(32);
-            }
-        }
+        //     @include xsm{
+        //         font-size: font(14);
+        //         margin-bottom: rm(32);
+        //     }
+        // }
     }
 }
 

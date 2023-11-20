@@ -16,17 +16,17 @@ const CollectionOfWorks = () => {
         if(!carahunge) return
         setData(carahunge)
     },[carahunge])
-    
+    console.log(data)
     return (
         <>
             {
                 data ?
                 <div className={style.container}>
                     <div className={style.wrapperColumnLeft}>
-                        <div>
-                            <Text>
-                                <h2>{data?.header}</h2>
-                            </Text>
+                        <div className={style.wrapperText}>
+                            {/* <Text> */}
+                                <p className={style.textHeader}>{data?.header}</p>
+                            {/* </Text> */}
                             <div className={style.wrapperInfo}>
                                 {
                                     data?.description.map((_: any, i: number) => (
@@ -44,11 +44,13 @@ const CollectionOfWorks = () => {
                         </div>
                         <div className={style.wrapperClock}>
                             <Divider position={'top right'} horizontal={true} />
+                            <Divider position={'top right'}/>
                             <Clock />
                         </div>
                     </div>
                     <div className={style.wrapperImage}>
-                        <ImageMy src={data?.img.data.attributes.url} width={960} height={960} alt='' />
+                        <ImageMy src={data?.img.data.attributes.url} width={960} height={960} alt='' poster={data?.placeholder.data.attributes.url} />
+                        <Divider position={'top left'}/>
                     </div>
                 </div>
                 :

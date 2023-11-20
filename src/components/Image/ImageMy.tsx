@@ -3,8 +3,9 @@
 import Image from "next/image"
 import { forwardRef, useEffect, useState } from "react"
 
-const ImageMy = forwardRef(function ImageMy({ src, width, height, alt = '' }: { src: any, width?: any, height?: any, alt?: any }, ref: any) {
+const ImageMy = forwardRef(function ImageMy({ src, width, height, alt = '', poster, priority=false }: { src: any, width?: any, height?: any, alt?: any, poster?: any, priority?: boolean }, ref: any) {
     const url = 'https://api.realmofhistoria.com' + src
+    const urlposter = 'https://api.realmofhistoria.com' + poster
     const [video, setVideo] = useState(true)
     useEffect(() => {
         if (!src) { return }
@@ -18,11 +19,11 @@ const ImageMy = forwardRef(function ImageMy({ src, width, height, alt = '' }: { 
         <>
             {
                 video ?
-                    <video ref={ref} muted playsInline loop autoPlay>
+                    <video ref={ref} muted playsInline loop autoPlay poster={poster? urlposter : ''}>
                         <source src={url} type="video/mp4"/>
                     </video>
                     :
-                    <Image ref={ref} src={url} width={width} height={height} alt={alt} />
+                    <Image ref={ref} src={url} width={width} priority={priority} height={height} alt={alt} />
             }
 
         </>

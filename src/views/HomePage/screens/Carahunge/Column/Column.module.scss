@@ -1,28 +1,35 @@
 @use "../../../../../assets/styles/index.scss" as *;
 
 
-.maininitiation{
-    >:nth-child(1){
-        @include xsm{
+.maininitiation {
+    >:nth-child(1) {
+        @include md {
             opacity: 0 !important;
             visibility: hidden !important;
         }
     }
-    >:nth-child(2){
-        display: block !important;
+
+    >:nth-child(2) {
+        @include md {
+            display: block !important;
+
+        }
     }
 }
+
 .main {
     position: relative;
     display: flex;
     flex-direction: column;
 
-    @include xsm {
+    @include md {
         padding-top: rm(32);
     }
-    >:nth-child(2){
+
+    >:nth-child(2) {
         display: none;
     }
+
     >:nth-child(1) {
         display: none;
 
@@ -44,7 +51,7 @@
             @include font-work-regular;
             display: flex;
             align-items: center;
-
+            padding-right: rm(16);
             @include md {
                 font-size: font(15);
             }
@@ -76,7 +83,7 @@
             width: rm(155);
 
             p {
-                color: color(text-black);
+                color: color(text-brown-38);
                 font-weight: 600;
             }
 
@@ -97,17 +104,17 @@
             width: rm(314);
 
             p {
-                color: color(text-brown);
+                color: color(text-brown-38);
             }
 
 
-            @include xsm {
-                width: rm(448);
-            }
+            // @include xsm {
+            //     width: rm(448);
+            // }
         }
     }
 
-    
+
 
     .description {
         margin-bottom: rm(32);
@@ -134,7 +141,9 @@
 
             p {
                 font-weight: 600;
-                color: color(text-black);
+                color: color(text-brown-38);
+                width: 100% !important;
+                padding-right: rm(16);
             }
 
             @include lg {
@@ -157,7 +166,7 @@
 
             p {
                 width: rm(677);
-                color: color(text-brown);
+                color: color(text-brown-38);
 
                 @include lg {
                     width: rm(400);
@@ -188,6 +197,10 @@
         align-items: center;
         cursor: pointer;
         opacity: 1;
+        color: color(text-brown-38);
+        @include font-work-regular();
+        font-weight: 400;
+        line-height: 160%;
 
         >:nth-child(1) {
             margin-right: rm(10);
@@ -219,57 +232,69 @@
     width: fit-content !important;
     padding-left: rm(64) !important;
     padding-right: rm(64) !important;
+
     @include xsm {
         padding-left: rm(32) !important;
         padding-right: rm(32) !important;
         max-width: rm(500) !important;
     }
-    div {
+
+    >:nth-child(2) {
         ul{
+            margin-left: rm(22);
+            @include lg{
+                margin-left: rm(15);
+            }
+            @include md{
+                margin-left: rm(20);
+            }
+        }
+        li {
             width: rm(613) !important;
+            color: color(text-brown-38);
+            @include font-work-regular();
+            font-weight: 400;
+            line-height: 160%;
+            font-size: font(16);
 
             @include lg {
-                width: rm(400);
+                // width: rm(400) !important;
+                width: 100% !important;
             }
 
             @include md {
-                width: rm(325);
+                // width: rm(325) !important;
             }
 
             @include xsm {
-                width: rm(360);
-            }
-
-            @include xsm {
-                width: rm(360) !important;
+                // width: rm(360) !important;
             }
         }
+
         p {
             width: rm(613) !important;
 
             @include lg {
-                width: rm(400);
+                width: 100% !important;
+
+                // width: rm(400) !important;
             }
 
             @include md {
-                width: rm(325);
+                // width: rm(325) !important;
             }
 
             @include xsm {
-                width: rm(360);
-            }
-
-            @include xsm {
-                width: rm(360) !important;
+                // width: rm(360) !important;
             }
         }
     }
 
     >:first-child {
-        width: rm(155);
+        width: rm(155) !important;
 
         @include lg {
-            width: rm(130);
+            width: rm(130) !important;
         }
 
         @include md {
@@ -282,7 +307,7 @@
     }
 }
 
-.dot{
+.dot {
     display: none;
     position: absolute;
     width: rm(9);
@@ -293,8 +318,8 @@
     left: 0;
     z-index: 100;
     transform: translate(-50%, 0%);
-    @include xsm{
+
+    @include md {
         display: block;
     }
 }
-

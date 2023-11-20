@@ -19,7 +19,7 @@ const TheAtrium = ({ header, data }: Panegliph) => {
             </div>
             <div className={style.wrapperTable}>
                 <div className={style.wrapperTablecell}>
-                    <Divider position={'bottom left'} />
+                    <Divider position={'top left'} />
                     {
                         data?.map((_: any, i: number) => (
                             <div key={i + 883} className={style.cell}>
