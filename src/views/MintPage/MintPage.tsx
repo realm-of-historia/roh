@@ -19,6 +19,9 @@ import MintingResultDisplay from './components/minting-result/MintingResult';
 import MintProvider from '@/components/MintProvider/MintProvider';
 import { useAuthStore } from '@/store/store';
 import { useWalletMultiButton } from '@solana/wallet-adapter-base-ui';
+import { useSectionData } from '@/composable/useSectionData';
+import ImageMy from '@/components/Image/ImageMy';
+import HashAnchor from '@/components/HashAnchor/HashAnchor';
 
 type CandyDisplayInfo = {
     totalSupply: number,
@@ -37,9 +40,8 @@ type CandyDisplayInfo = {
     endDate: Date | null,
   } 
 
-export default function MintPage() {
+export default function MintPage({data}: {data: any}) {
 
-    const { authConfig } = useAuth()
     const isSignedIn = useAuthStore((state: any) => (state.isSignedIn))
     const {setVisible: setModalVisible} = useWalletModal();
 
@@ -125,17 +127,20 @@ export default function MintPage() {
 
     return(
         <div className={styles.mint}>
+            <HashAnchor></HashAnchor>
             <div className={styles.container}>
-                <img src='/1.png'/>
+                <div className={styles.videoWrapper}>
+                    <ImageMy src={data?.data.attributes.gif.data.attributes.url} poster={data?.data.attributes.preloader.data.attributes.url}/>
+                </div>
                 <div className={styles.right}>
                     <div className={styles.first}>
-                        <p>Chapter: Carahunge X</p>
-                        <p>This digital asset is a mark. You are a Steward of Historia. Whilst the artwork itself features original pieces embedded within from renowned Armenian artists, creating a fusion of art and history as they come together to represent the ancient heritage site of Armenia - Carahunge. Stewards directly impact heritage sites around the world, contributing to their preservation and research.</p>
+                        <p>{data?.data.attributes.header}</p>
+                        <p>{data?.data.attributes.description}</p>
                         <div className={styles.divider}></div>
                         <div className={styles.info}>
                             <div>
                                 <p>
-                                    Total Items
+                                    {data?.data.attributes.nameTotalItems}
                                 </p>
                                 <p>
                                 {candy ? candy?.guard.guards.redeemedAmount.__option === "Some" ? candy?.guard.guards.redeemedAmount.value.maximum.toString() : candy.candy.itemsLoaded.toString() : '-'}
@@ -143,7 +148,7 @@ export default function MintPage() {
                             </div>
                             <div>
                                 <p>
-                                    Price
+                                    {data?.data.attributes.namePrice}
                                 </p>
                                 <p>
                                     {candyDisplay.price} SOL
@@ -155,7 +160,7 @@ export default function MintPage() {
                         <div className={styles.complition}>
                             <div>
                                 <p>
-                                    TOTAL MINTeD {candy ? candy.candy.itemsRedeemed.toString() : '-'} 
+                                    {data?.data.attributes.titleTotalMinted} {candy ? candy.candy.itemsRedeemed.toString() : '-'} 
                                     /
                                     {candy ? candy?.guard.guards.redeemedAmount.__option === "Some" ? candy?.guard.guards.redeemedAmount.value.maximum.toString() : candy.candy.itemsLoaded.toString() : '-'}
                                 </p>
@@ -170,11 +175,11 @@ export default function MintPage() {
                         {isSignedIn ? <div className={styles.wrapper}>
                             <div className={styles.costs} onClick={onMint}>
                                 <p>
-                                    MINT    
+                                    {data?.data.attributes.mint}
                                 </p>
                                 <div>
                                     <p>
-                                        Cost:
+                                        {data?.data.attributes.estimatedCosts}
                                     </p>
                                     <p>
                                         {candyDisplay.price * params.length} SOL
