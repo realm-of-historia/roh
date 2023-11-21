@@ -15,7 +15,7 @@
 
     .right {
         position: relative;
-        padding: 0 rm(128);
+        padding: 0 rm(64);
 
         >div {
             position: relative;
@@ -70,14 +70,16 @@
         will-change: transform;
         margin-bottom: rm(64);
 
-        margin-left: rm(128);
-
+        padding-left: rm(64);
+        width: 100vw;
+        padding-right: rm(64);
         @include md {
             margin-bottom: rm(64);
+            padding-right: rm(32);
         }
 
         @include xsm {
-            margin-left: rm(32);
+            padding-left: rm(32);
             margin-bottom: rm(32);
         }
 

@@ -105,6 +105,10 @@
                     line-height: 120%;
                     padding-top: rm(8);
                     padding-right: rm(64);
+                    padding-left: rm(64);
+                    @include md {
+                        padding-left: rm(0);
+                    }
                     @include xsm {
                         padding-right: rm(32);
                         font-size: font(32);
