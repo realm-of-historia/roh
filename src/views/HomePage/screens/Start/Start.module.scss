@@ -3,7 +3,7 @@
 .start{
     display: flex;
     position: relative;
-    background-color: color(bg);
+    background-color: color(bg-1);
 
     @include xsm{
         flex-direction: column;
@@ -39,12 +39,12 @@
 
     >:nth-child(1){
         position: absolute;
-        background-color: color(text-yellow-90);
+        // background-color: color(text-yellow-90);
         width: 1px;
         height: 100%;
         top: 0;
         left: 50%;
-
+        opacity: 1 !important;
         @include xsm{
             display: none;
         }

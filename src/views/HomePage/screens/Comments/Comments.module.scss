@@ -4,7 +4,7 @@
     display: flex;
     padding: rm(0) rm(64) rm(0) rm(64);
     position: relative;
-    background-color: color(bg);
+    background-color: color(bg-1);
 
     @include xsm{
         flex-direction: column;
@@ -22,6 +22,9 @@
 }
 .linkArticles{
     position: relative;
+    @include xsm{
+        padding-bottom: rm(32);
+    }
     &:hover{
         background-color: rgba(	234,	216,	177, .4);
     }

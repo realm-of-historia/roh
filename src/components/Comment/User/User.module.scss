@@ -6,7 +6,7 @@
     // justify-content: center;
     
     @include xsm{
-        margin-bottom: rm(32);
+        // margin-bottom: rm(32);
     }
 
     .commentImage{
@@ -34,7 +34,7 @@
                 width: rm(48);
                 height: rm(48);
                 margin-right: rm(16);
-                margin-left: rm(32);
+                margin-left: rm(0);
             }
         }
     }
@@ -42,7 +42,7 @@
     p{
         text-transform: uppercase;
         font-size: font(14);
-        color: color(text-brown);
+        color: color(text-brown-38);
         @include font-work-regular;
         font-weight: 600;
 
@@ -52,7 +52,7 @@
     }
 
     .titleNews{
-        color: color(text-black);
+        color: color(text-brown-38);
         text-transform: none;
         font-size: font(18);
         @include font-work-regular;

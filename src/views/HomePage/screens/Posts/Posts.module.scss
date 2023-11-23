@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     position: relative;
-    background-color: color(bg);
+    background-color: color(bg-1);
     // z-index: 996;
     >:nth-child(2){
         flex: 1;
@@ -159,8 +159,8 @@
             @include xsm{
                 width: rm(500);
                 font-size: font(32);
-                margin-top: rm(32);
-                margin-bottom: rm(32);
+                // margin-top: rm(32);
+                // margin-bottom: rm(32);
             }
 
             &:hover{
