@@ -21,7 +21,7 @@ import Burger from './Avatar/components/Burger/Burger'
 import WrapperTexture from '../WrapperTexture/WrapperTexture'
 
 export interface StandardComponentProps {
-  data?: any
+  data?: any,
 }
 const Header = ({ data }: StandardComponentProps) => {
   // const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
