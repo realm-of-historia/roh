@@ -9,7 +9,7 @@
 
     >:nth-child(2){
         position: absolute;
-        background-color: color(text-yellow-90);
+        background-color: color(text-brown-85);
         top: 0 !important;
         width: 1px;
         height: 100%;
@@ -18,7 +18,7 @@
 
     >:nth-child(3){
         position: absolute;
-        background-color: color(text-yellow-90);
+        background-color: color(text-brown-85);
         top: 0 !important;
         width: 1px;
         height: 100%;
@@ -45,7 +45,7 @@
     :last-child{
         width: rm(747);
         p{
-            color: color(text-brown);
+            color: color(text-brown-38);
             line-height: 160%;
             font-size: font(18);
             @include font-work-regular;
