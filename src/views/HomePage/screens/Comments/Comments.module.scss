@@ -23,7 +23,7 @@
 .linkArticles{
     position: relative;
     @include xsm{
-        padding-bottom: rm(32);
+        padding-bottom: rm(16);
     }
     &:hover{
         background-color: rgba(	234,	216,	177, .4);
