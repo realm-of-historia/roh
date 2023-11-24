@@ -19,7 +19,7 @@ import Divider from '../Divider/Divider'
 import { useWindowSize } from 'rooks';
 import Burger from './Avatar/components/Burger/Burger'
 import WrapperTexture from '../WrapperTexture/WrapperTexture'
-
+import fs from '../../../public/fsVww.svg'
 export interface StandardComponentProps {
   data?: any,
 }
@@ -44,10 +44,26 @@ const Header = ({ data }: StandardComponentProps) => {
   }, [innerWidth])
   const handleAuths = () => {
     setTimeout(() => {
-      let container = document.getElementById("w3a-modal");
-      if (container) {
+      let container : any = document.getElementById("w3a-modal");
+      let icon : any = document.querySelector(".w3a-modal__inner");
+      let header : any = document.querySelector(".w3a-modal__header");
+      let headerTitle : any = document.querySelector(".w3a-header__title");
+      let w3a_header : any = document.querySelector(".w3a-header");
+      let w3a_header__subtitle : any = document.querySelector(".w3a-header__subtitle");
+      let w3a_header__subtitleLast : any = document.querySelector(".w3a-header__subtitle > div:last-child");
+      let image_icon : any = document.querySelector(".w3a-button--primary img");
+      if(!container && !icon && !header && !headerTitle && !w3a_header && !w3a_header__subtitle){return}
+      console.log(image_icon.src)
         container.style.cssText = `z-index: 99999; background-color: rgba(0, 0, 0, 0.479);`
-      }
+        icon.style.cssText = `background-color: #F5F2EB; border-radius: 0 ;`
+        header.style.cssText = `padding: 4rem 4rem 2rem 4rem;` 
+        headerTitle.style.cssText = `font-family: 'Dune Rise', sans-serif; color: #171513; font-size: 2rem; padding-bottom: 1rem;` 
+        w3a_header__subtitle.style.cssText = `font-family: 'Work Sans', sans-serif; color: #383727;` 
+        w3a_header.style.cssText = `padding: 0 ;` 
+        w3a_header__subtitleLast.style.cssText = `display: none ;` 
+        image_icon.src = '/fsVww.svg'
+        image_icon.style.cssText = `width: 1.5rem; height: 1.5rem;`
+
     }, 1)
   }
 
