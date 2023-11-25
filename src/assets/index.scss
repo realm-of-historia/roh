@@ -6,7 +6,7 @@
 
 @import "./fonts/stylesheet.css";
 @import "./styles/_normalize";
-
+@import "./styles/authModal";
 
 :root {
 
@@ -51,12 +51,24 @@ html {
     }
     
 }
-body{
-    
-}
+
 
 .mySwiper {
     .swiper-slide {
         height: auto !important;
     }
+}
+
+.mySwiper{
+    // display: none;
+    // .swiper-slide{
+    //     height: auto !important;
+    // }
+    div{
+        transition-timing-function: linear;
+    }
+}
+
+.react-select__menu-list{
+    background-color: red !important;
 }
