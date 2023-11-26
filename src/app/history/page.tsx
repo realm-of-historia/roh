@@ -37,9 +37,7 @@ export default async function HistoryPage() {
             <WrapperTexture>
                 <CarahungeHistory data={historyTable} />
             </WrapperTexture>
-            <WrapperTexture>
                 <History data={dataHistory} />
-            </WrapperTexture>
             <WrapperTexture>
                 <HeritageDefault />
             </WrapperTexture>

@@ -16,7 +16,6 @@ const CollectionOfWorks = () => {
         if(!carahunge) return
         setData(carahunge)
     },[carahunge])
-    console.log(data)
     return (
         <>
             {
@@ -45,7 +44,7 @@ const CollectionOfWorks = () => {
                         <div className={style.wrapperClock}>
                             <Divider position={'top right'} horizontal={true} />
                             <Divider position={'top right'}/>
-                            <Clock />
+                            <Clock data={data.date}/>
                         </div>
                     </div>
                     <div className={style.wrapperImage}>
