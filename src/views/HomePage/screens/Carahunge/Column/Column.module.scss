@@ -9,12 +9,12 @@
         }
     }
 
-    >:nth-child(2) {
-        @include md {
-            display: block !important;
+    // >:nth-child(2) {
+    //     @include md {
+    //         display: block !important;
 
-        }
-    }
+    //     }
+    // }
 }
 
 .main {
@@ -142,20 +142,20 @@
             p {
                 font-weight: 600;
                 color: color(text-brown-38);
-                width: 100% !important;
+                // width: 100% !important;
                 padding-right: rm(16);
             }
 
             @include lg {
-                width: rm(130);
+                // width: rm(130);
             }
 
             @include md {
-                width: rm(110);
+                // width: rm(110);
             }
 
             @include xsm {
-                width: rm(128);
+                // width: rm(128);
             }
         }
 
@@ -229,6 +229,8 @@
 }
 
 .descriptioninitiation {
+    margin-bottom: rm(32);
+        display: flex;
     width: fit-content !important;
     padding-left: rm(64) !important;
     padding-right: rm(64) !important;
@@ -238,7 +240,12 @@
         padding-right: rm(32) !important;
         max-width: rm(500) !important;
     }
-
+    p{
+        font-size: font(16);
+            line-height: 160%;
+            white-space: pre-wrap;
+            @include font-work-regular;
+    }
     >:nth-child(2) {
         ul{
             margin-left: rm(22);
@@ -270,7 +277,7 @@
                 // width: rm(360) !important;
             }
         }
-
+        
         p {
             width: rm(613) !important;
 
@@ -291,19 +298,22 @@
     }
 
     >:first-child {
-        width: rm(155) !important;
-
-        @include lg {
-            width: rm(130) !important;
+        p{
+            width: rm(155) !important;
+            padding-right: rm(8);
+            @include lg {
+                width: rm(130) !important;
+            }
+    
+            @include md {
+                width: rm(110);
+            }
+    
+            @include xsm {
+                width: rm(100);
+            }
         }
-
-        @include md {
-            width: rm(110);
-        }
-
-        @include xsm {
-            width: rm(100);
-        }
+        
     }
 }
 
