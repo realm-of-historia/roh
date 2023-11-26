@@ -48,11 +48,13 @@ const Header = ({ data }: StandardComponentProps) => {
       // let image_iconHover : any = document.querySelector(".w3a-button--primary :nth-child(2)");
       let image_iconH : any = document.querySelector(".w3a-button--primary :nth-child(2)");
       let image_iconH2 : any = document.querySelector(".w3a-button--primary :nth-child(1)");
-      if(!image_icon && !image_iconH){return}
+      let subtitle : any = document.querySelector(".w3a-header__subtitle");
+      if(!image_icon && !image_iconH && !subtitle){return}
         image_icon.src = '/fsVww.svg'
         // image_iconHover.src = '/fsVww.svg'
         image_iconH.src = image_iconH2.src
-        console.log(image_iconH2)
+        subtitle.innerText = 'Embark on a journey of discovery.'
+        console.log(subtitle)
 
 
     }, 1)
