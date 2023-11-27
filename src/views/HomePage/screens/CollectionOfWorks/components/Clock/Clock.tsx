@@ -5,7 +5,7 @@ import style from './Clock.module.scss'
 import Text from '@/components/Text/Text';
 
 function Clock({data} : any) {
-    const [time, setTime] = useState(new Date());
+    const [time, setTime] : any = useState(new Date());
     const [dataCms, setDataCms] : any = useState(null)
     const [newData, setNewData] : any = useState()
     
@@ -14,24 +14,25 @@ function Clock({data} : any) {
         let formattedDate : any = new Date(data)
         setDataCms(formattedDate.getTime())
     },[data])
+    // console.log(data)
+    // console.log(time)
     useEffect(() => {
         const interval = setInterval(() => {
-            setTime(new Date());
+            let date = new Date()
+            setTime(date);
         }, 1000);
         return () => clearInterval(interval);
     }, []);
     useEffect(() => {
         if(!dataCms && !time){return}
         let date = dataCms - time.getTime()
-
-
         if(date <= 0){
             setNewData(0)
         } else{
-            setNewData(new Date(date))
+            let newDat : any = new Date(date)
+            setNewData(new Date(newDat.valueOf() + newDat.getTimezoneOffset() * 60000))
         }
     },[dataCms,time])
-    console.log(newData)
     const date =!newData || newData?.getDate() ===1 ? 0 : newData?.getDate() - 1;
     const hours = newData ? newData?.getHours() : 0;
     const minutes = newData ? newData?.getMinutes() : 0;

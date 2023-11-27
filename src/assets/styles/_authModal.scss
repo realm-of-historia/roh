@@ -113,8 +113,18 @@ line-height: 160% !important;
 
 .w3a-button--login {
     height: auto !important;
+    &:hover{
+        >:nth-child(1){
+            display: block !important;
+        }
+        >:nth-child(2){
+            display: none !important;
+        }
+    }
 }
-
+.w3a-parent-container :disabled {
+opacity: 0.9 !important;
+}
 .w3a-adapter-list {
     grid-template-columns: none;
     column-gap: rm(4) !important;
@@ -177,7 +187,9 @@ line-height: 160% !important;
         background-color: color(text-brown-38);
     }
 }
-
+.text-right{
+    text-align: start !important;
+}
 .w3a-parent-container :before {
     border: none;
 }

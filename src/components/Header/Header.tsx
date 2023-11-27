@@ -49,12 +49,16 @@ const Header = ({ data }: StandardComponentProps) => {
       let image_iconH : any = document.querySelector(".w3a-button--primary :nth-child(2)");
       let image_iconH2 : any = document.querySelector(".w3a-button--primary :nth-child(1)");
       let subtitle : any = document.querySelector(".w3a-header__subtitle");
-      if(!image_icon && !image_iconH && !subtitle){return}
+      let input : any = document.querySelector(".w3a-text-field");
+      let cross : any = document.querySelector(".w3ajs-close-btn img");
+      if(!image_icon && !image_iconH && !subtitle && !input && !cross){return}
         image_icon.src = '/fsVww.svg'
         // image_iconHover.src = '/fsVww.svg'
         image_iconH.src = image_iconH2.src
         subtitle.innerText = 'Embark on a journey of discovery.'
-        console.log(subtitle)
+        input.placeholder = 'name@example.com'
+        cross.src = '/radix-icons_cross-1.svg'
+        console.log(cross)
 
 
     }, 1)
