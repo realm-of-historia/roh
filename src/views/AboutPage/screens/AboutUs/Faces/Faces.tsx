@@ -10,6 +10,7 @@ import 'swiper/swiper-bundle.css'
 import { useWindowWidth } from '@react-hook/window-size'
 import { useRef, useEffect, useState } from 'react'
 import ImageMy from '@/components/Image/ImageMy'
+import Divider from '@/components/Divider/Divider'
 export interface StandardComponentProps {
   data?: any
 }
@@ -18,7 +19,7 @@ const Faces = ({ data }: StandardComponentProps) => {
   const windowWidth: any = useWindowWidth()
   const [width, setWidth]: any = useState()
 
-
+  console.log(data)
   useEffect(() => {
     setWidth(windowWidth)
   }, [windowWidth])
@@ -34,7 +35,7 @@ const Faces = ({ data }: StandardComponentProps) => {
 
   return (
     <div className={styles.faces}>
-      <Swiper
+      {/* <Swiper
         modules={[Navigation, Scrollbar, A11y, Pagination, Autoplay]}
         // spaceBetween={24}
         slidesPerView={slides}
@@ -46,22 +47,31 @@ const Faces = ({ data }: StandardComponentProps) => {
         loop={true}
         speed={6000}
         className={styles.mySwiper}
-      >
-        {
+      > */}
+      {/* {
           data?.data.map((_: any, i: number) => (
             <SwiperSlide key={i + 55}>
               <ImageMy src={_.attributes.url} alt='' width={640} height={640}/>
             </SwiperSlide>
           ))
-        }
+        } */}
+      <div className={styles.wrapper}>
+        <Divider position={'top left'} noAnim={true} />
         {
-          data?.data.map((_: any, i: number) => (
-            <SwiperSlide key={i + 56}>
-              <ImageMy src={_.attributes.url} alt='' width={640} height={640}/>
-            </SwiperSlide>
+          data?.map((_: any, i: number) => (
+            <div className={styles.wrapperCard}>
+              <ImageMy src={_.img.data.attributes.url} alt='' width={640} height={640} />
+              <div className={styles.text}>
+                <p className={styles.titleCard}>{_.name}</p>
+                <p>{_.title}</p>
+                <ImageMy src={_.icon.data.attributes.url} alt='' width={32} height={32} />
+              </div>
+              <Divider position={'top right'} noAnim={true}/>
+            </div>
           ))
         }
-        {/* <SwiperSlide>
+      </div>
+      {/* <SwiperSlide>
               <img src='/Post-1.png' alt='' width={640} height={640}/>
             </SwiperSlide>
             <SwiperSlide>
@@ -79,7 +89,7 @@ const Faces = ({ data }: StandardComponentProps) => {
             <SwiperSlide>
               <img src='/Post.png' alt='' width={640} height={640}/>
             </SwiperSlide> */}
-      </Swiper>
+      {/* </Swiper> */}
     </div>
   )
 }

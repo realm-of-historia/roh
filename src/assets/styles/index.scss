@@ -3,16 +3,3 @@
 @forward '_grid' hide $breakpoints, $grid, generate-grid, $breakpoints-fonts;
 @forward '_functions' hide $font-base;
 
-.mySwiper{
-    // display: none;
-    // .swiper-slide{
-    //     height: auto !important;
-    // }
-    div{
-        transition-timing-function: linear;
-    }
-}
-
-.react-select__menu-list{
-    background-color: red !important;
-}

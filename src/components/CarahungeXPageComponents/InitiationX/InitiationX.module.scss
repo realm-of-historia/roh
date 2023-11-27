@@ -88,6 +88,7 @@
                     font-weight: 400;
                     line-height: 120%;
                     padding-right: rm(64);
+
                     @include xsm {
                         padding-right: rm(32);
                         font-size: font(14);
@@ -105,6 +106,14 @@
                     line-height: 120%;
                     padding-top: rm(8);
                     padding-right: rm(64);
+                    padding-left: rm(64);
+                    text-align: end;
+                    @include lg{
+                        font-size: font(48);
+                    }
+                    @include md {
+                        padding-left: rm(0);
+                    }
                     @include xsm {
                         padding-right: rm(32);
                         font-size: font(32);
@@ -130,5 +139,23 @@
     @include md {
         opacity: 0;
         visibility: hidden;
+    }
+}
+
+.dot2{
+    width: rm(9);
+    height: rm(9);
+    background-color: color(text-brown-88);
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 100%;
+    z-index: 100;
+    transform: translate(-50%, 0%);
+
+    display: none;
+    @include md{
+        display: block;
+
     }
 }

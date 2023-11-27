@@ -7,6 +7,7 @@ import { gsap } from 'gsap'
 import HorizontalScroll from '@/components/UI/HorizontalScroll/HorizontalScroll'
 import List from './List/List'
 import Markdown from 'react-markdown'
+import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 
 
 const History = ({data} : any) => {

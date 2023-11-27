@@ -32,6 +32,7 @@ export default async function RootLayout({ children, }: { children: React.ReactN
   const dataAboutProject = useSectionData(generalData, 'about_the_projects')
   const datacarahunges = useSectionData(generalData, 'carahunges')
   const datajoinUses = useSectionData(generalData, 'join_uses')
+
   return (
     <html lang="en">
       <body suppressHydrationWarning={true} id='body'>

@@ -13,6 +13,8 @@ import Layout from '@/components/Layout/Layout'
 import { useApiFetch } from '@/composable/useApiFetch'
 import { useSectionData } from '@/composable/useSectionData'
 import HashAnchor from '@/components/HashAnchor/HashAnchor'
+import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
+import HeritageDefault from '@/views/HomePage/screens/Heritage/HeritageDefault'
 
 export default async function BlogPage() {
     const data = await useApiFetch('api/blog-page?populate[video][populate]=*&populate[cardBundles][populate]=*&populate[collectionOfPictures][populate]=*&populate[ribbon][populate]=*&populate[instagramPostText][populate]=*&populate[articles][populate]=*&populate[articlesPopular][populate]=*&populate[instagramImg][populate]=*')
@@ -25,7 +27,7 @@ export default async function BlogPage() {
     const dataPosts = useSectionData(data, 'instagramPostText')
     const dataVideos = useSectionData(data, 'collectionOfPictures')
     const dataStartArticles = useSectionData(data, 'articles')
-    const articlesPopular = useSectionData(data, 'articlesPopular') 
+    const articlesPopular = useSectionData(data, 'articlesPopular')
     const instagramImg = useSectionData(data, 'instagramImg')
 
 
@@ -43,12 +45,20 @@ export default async function BlogPage() {
         <div>
             {/* <Header></Header> */}
             <HashAnchor />
-            <Start data={dataStart.data.attributes.url} articles={dataStartArticles}></Start>
-            <Ancient data={dataAncient}></Ancient>
+            <WrapperTexture>
+                <Start data={dataStart.data.attributes.url} articles={dataStartArticles}></Start>
+            </WrapperTexture>
+            {/* <Ancient data={dataAncient}></Ancient> */}
+            <WrapperTexture>
             <Comments data={articlesPopular} />
-            <Bundles ribbon={dataBundlesRibbon} data={dataBundles} text={dataBundlesText} href={dataBundlesHref}></Bundles>
+            </WrapperTexture>
+
+            {/* <Bundles ribbon={dataBundlesRibbon} data={dataBundles} text={dataBundlesText} href={dataBundlesHref}></Bundles> */}
             <Posts data={dataPosts} img={instagramImg}></Posts>
-            <Videos data={dataVideos}></Videos>
+            <WrapperTexture>
+                <HeritageDefault />
+            </WrapperTexture>
+            {/* <Videos data={dataVideos}></Videos> */}
             {/* <Digest></Digest> */}
         </div>
         // </Layout>

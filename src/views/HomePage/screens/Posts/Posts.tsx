@@ -15,7 +15,7 @@ export interface StandardComponentProps {
 }
 const Posts = ({ data, img }: StandardComponentProps) => {
     const { ref, inView } = useInView()
-    console.log(img)
+    console.log(data)
     const handler= (href : any) => {
         window.open(href)
       }

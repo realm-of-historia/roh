@@ -7,6 +7,7 @@ import { forwardRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from './HorizontalScroll.module.scss'
 import { NextPage } from 'next';
+import WrapperTexture from "@/components/WrapperTexture/WrapperTexture";
 
 interface scroll {
     children?: any,

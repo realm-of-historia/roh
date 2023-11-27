@@ -3,11 +3,13 @@ import styles from './Item.module.scss'
 import Link from 'next/link'
 import Text from '@/components/Text/Text'
 import ImageMy from '@/components/Image/ImageMy'
+import Divider from '@/components/Divider/Divider'
 
 const Item = ({ title, price, image, isText, isArtist, description, href }: { title?: string | Array<string>, price?: string | Array<string>, image: string | Array<string>, isText?: boolean, isArtist?: boolean, description?: any , href? :any}) => {
 
     return (
         <Link href={href || '/marketplace'}>
+            <Divider position={"top right"} noAnim={true} />
             <div className={styles.item}>
                 <div className={styles.imageContainer}>
                     {/* <img src={`${image}.png`} alt='' width={360} height={360} /> */}

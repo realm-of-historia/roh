@@ -16,23 +16,27 @@ interface Column {
     icon?: string | undefined | Array<string>,
     link?: any,
     iconLink?: any,
-    initiation?: boolean
+    initiation?: boolean,
+    road?: boolean
 }
 
-const Column: NextPage<Column> = ({ link, description, icon, iconLink, initiation=false }) => {
+const Column: NextPage<Column> = ({ link, description, icon, iconLink, initiation = false, road = false }) => {
     // console.log(description)
     console.log(iconLink)
     return (
         <div className={`${styles.main} ${initiation ? styles.maininitiation : ''}`}>
             <Divider position={"top right"} horizontal={true} />
-            <Divider position={"top left"} />
             {
-                initiation && 
+                !road &&
+                <Divider position={"top left"} />
+            }
+            {
+                initiation && !road &&
                 <div className={styles.dot}></div>
             }
             {
                 description?.map((_: any, index: number) => (
-                    <div key={index} className={`${styles.description} ${initiation ? styles.descriptioninitiation : ''}`}>
+                    <div key={index} className={` ${initiation ? styles.descriptioninitiation : styles.description}`}>
                         <Text><p>{_.name}</p></Text>
                         <Text><Markdown>{_.description}</Markdown></Text>
                     </div>

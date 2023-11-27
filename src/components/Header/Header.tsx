@@ -19,9 +19,9 @@ import Divider from '../Divider/Divider'
 import { useWindowSize } from 'rooks';
 import Burger from './Avatar/components/Burger/Burger'
 import WrapperTexture from '../WrapperTexture/WrapperTexture'
-
+import fs from '../../../public/fsVww.svg'
 export interface StandardComponentProps {
-  data?: any
+  data?: any,
 }
 const Header = ({ data }: StandardComponentProps) => {
   // const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
@@ -44,10 +44,19 @@ const Header = ({ data }: StandardComponentProps) => {
   }, [innerWidth])
   const handleAuths = () => {
     setTimeout(() => {
-      let container = document.getElementById("w3a-modal");
-      if (container) {
-        container.style.cssText = `z-index: 99999; background-color: rgba(0, 0, 0, 0.479);`
-      }
+      let image_icon : any = document.querySelector(".w3a-button--primary img");
+      // let image_iconHover : any = document.querySelector(".w3a-button--primary :nth-child(2)");
+      let image_iconH : any = document.querySelector(".w3a-button--primary :nth-child(2)");
+      let image_iconH2 : any = document.querySelector(".w3a-button--primary :nth-child(1)");
+      let subtitle : any = document.querySelector(".w3a-header__subtitle");
+      if(!image_icon && !image_iconH && !subtitle){return}
+        image_icon.src = '/fsVww.svg'
+        // image_iconHover.src = '/fsVww.svg'
+        image_iconH.src = image_iconH2.src
+        subtitle.innerText = 'Embark on a journey of discovery.'
+        console.log(subtitle)
+
+
     }, 1)
   }
 
