@@ -22,10 +22,9 @@ export default function ArtistView({ data }: { data: any }) {
                 <Heritage data={dataHeritage} />
             </WrapperTexture>
             {data?.data.attributes.artists.data.map((element: any, index: number) => (
-                <WrapperTexture>
+                <WrapperTexture key={index + 342112}>
                     <Artist
                         item={element.attributes.work}
-                        key={index + 831}
                         avatar={element.attributes.avatar?.data.attributes.url}
                         name={element.attributes.name}
                         spec={element.attributes.class}
