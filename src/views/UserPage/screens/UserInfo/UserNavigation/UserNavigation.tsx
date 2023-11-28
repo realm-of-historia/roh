@@ -19,7 +19,8 @@ const UserNavigation = () => {
     <div className={styles.navigation}>
           <div className={styles.dividerTop}></div>
           <div className={styles.dividerBottom}></div>
-          <Link href='/user/personal' onClick={() => routeHandler('personal')} className={`${styles.link} ${route == 'personal' ? styles.active : ''}`}><NavButton text='Personal'></NavButton></Link>
+          {/* <Link href='/user/personal' onClick={() => routeHandler('personal')} className={`${styles.link} ${route == 'personal' ? styles.active : ''}`}><NavButton text='Personal'></NavButton></Link> */}
+          <Link href='/user/myRealm' onClick={() => routeHandler('myRealm')} className={`${styles.link} ${route == 'myRealm' ? styles.active : ''}`}><NavButton text='My Realm'></NavButton></Link>
           <Link href='/user/dashboard' onClick={() => routeHandler('dashboard')} className={`${styles.link} ${route == 'dashboard' ? styles.active : ''}`}><NavButton text='Dashboard'></NavButton></Link>
           <Link href='/user/history' onClick={() => routeHandler('history')} className={`${styles.link} ${route == 'history' ? styles.active : ''}`}><NavButton text='History'></NavButton></Link>
           <Link href='/user/perks' onClick={() => routeHandler('perks')} className={`${styles.link} ${route == 'perks' ? styles.active : ''}`}><NavButton text='Perks'></NavButton></Link>

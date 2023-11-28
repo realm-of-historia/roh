@@ -1,21 +1,31 @@
-import React, { useEffect, useRef } from 'react'
+'use client'
+// import React, { useEffect, useRef } from 'react'
 import styles from './UserInfo.module.scss'
 import Text from '@/components/Text/Text'
 import Icon from '@/components/UI/Icon/Icon'
 import Divider from '@/components/Divider/Divider'
 
 
-export default function UserInfo({lineFirst, lineSecond}: {lineFirst: number, lineSecond: number}) {
+export default function UserInfo({lineFirst, lineSecond}: {lineFirst?: number, lineSecond: number}) {
     
-    const compilationRefFirst: any = useRef(null)
-    const compilationRefSecond: any = useRef(null)
+    // const compilationRefFirst: any = useRef(null)
+    // const compilationRefSecond: any = useRef(null)
 
 
-    useEffect(() => {
-        compilationRefFirst.current.style.width = `${lineFirst}%`
-        compilationRefSecond.current.style.width = `${lineSecond}%`
-    })
-    
+    // useEffect(() => {
+    //     // compilationRefFirst.current.style.width = `${lineFirst}%`
+    //     // compilationRefSecond.current.style.width = `${lineSecond}%`
+    // })
+    const contacts = [
+        {
+            name: 'Email',
+            title: 'vasya.pupkin@1507.io',
+        },
+        {
+            name: 'Newsletter',
+            title: 'Allowed / Not allowed',
+        }
+    ]
     return(
         <div className={styles.userInfo}>
             <div className={styles.container}>
@@ -30,12 +40,12 @@ export default function UserInfo({lineFirst, lineSecond}: {lineFirst: number, li
                                         Vasya Pupkin
                                     </p>
                                 <div className={styles.verification}>
-                                    <div><Icon label='checked'></Icon></div>
-                                    <div><p>Verified</p></div>
+                                    {/* <div><Icon label='checked'></Icon></div> */}
+                                    <div><p>Steward of Historia / Traveller / Hand of Historia</p></div>
                                 </div>
                             </div>
                         </div>
-                        <div className={styles.progress}>
+                        {/* <div className={styles.progress}>
                             <div className={styles.first}>
                                 <div>
                                     <p>
@@ -52,9 +62,9 @@ export default function UserInfo({lineFirst, lineSecond}: {lineFirst: number, li
                                 <div ref={compilationRefFirst} className={styles.leftLine}></div>
                                 <div ref={compilationRefSecond} className={styles.rightLine}></div>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
-                    <div className={styles.bottom}>
+                    {/* <div className={styles.bottom}>
                         <div className={styles.section}>
                             <div className={styles.profit}>
                                 <div><Icon label='arrow-down'></Icon></div>
@@ -70,10 +80,20 @@ export default function UserInfo({lineFirst, lineSecond}: {lineFirst: number, li
                             </div>
                             <p className={styles.cost}>NFT&apos;S</p>
                         </div>
+                    </div> */}
+                    <div className={styles.contactsUser}>
+                        {
+                            contacts.map((_ : any, i : number) => (
+                                <div className={styles.wrapperInfoContacts}>
+                                    <p>{_.name}</p>
+                                    <p>{_.title}</p>
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
             </div>
-            <div className={styles.bottomSecond}>
+            {/* <div className={styles.bottomSecond}>
                 <div className={styles.section}>
                     <div className={styles.profit}>
                         <div><Icon label='arrow-down'></Icon></div>
@@ -89,7 +109,7 @@ export default function UserInfo({lineFirst, lineSecond}: {lineFirst: number, li
                     </div>
                     <p className={styles.cost}>NFT&apos;S</p>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

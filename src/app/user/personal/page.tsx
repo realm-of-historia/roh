@@ -8,11 +8,17 @@ import ProfileLayout from '@/components/ProfileLayout/ProfileLayout'
 import Digest from '@/components/Digest/Digest'
 import Details from '@/views/UserPage/screens/UserInfo/sections/Details/Details'
 import UserLayout from '@/components/UserLayout/UserLayout'
+import HashAnchor from '@/components/HashAnchor/HashAnchor'
+import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 
 export default function page() {
-    return(
+    return (
         <div>
-            <UserLayout></UserLayout>
+            <HashAnchor />
+            
+            <WrapperTexture>
+                <UserLayout />
+            </WrapperTexture>
         </div>
     )
 }
