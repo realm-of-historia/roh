@@ -14,6 +14,7 @@ import Dashboard from '@/views/UserPage/screens/Dashboard/Dashboard/Dashboard'
 import Layout from '../Layout/Layout'
 import MyRealm from '@/views/UserPage/screens/MyRealm/MyRealm'
 import WrapperTexture from '../WrapperTexture/WrapperTexture'
+import TheVault from '@/views/UserPage/screens/TheVault/TheVault'
 
 
 export default function UserLayout() {
@@ -58,37 +59,40 @@ export default function UserLayout() {
     ]
     return (
         <div>
-            {/* <WrapperTexture> */}
+            <WrapperTexture>
                 <UserInfo lineFirst={91} lineSecond={9}></UserInfo>
-            {/* </WrapperTexture> */}
-            {/* <WrapperTexture> */}
+            </WrapperTexture>
+            <WrapperTexture>
                 <UserNavigation></UserNavigation>
-            {/* </WrapperTexture> */}
+            </WrapperTexture>
             {/* {route == 'personal' ? <ProfileLayout title='PROFILe DeTAILS'><Details></Details></ProfileLayout> : <></>} */}
-            {route == 'myRealm' ?
-                // <WrapperTexture>
-                    <MyRealm data={dataMyRealm} />
-                // </WrapperTexture>
-                : <></>}
-            {route == 'dashboard' ?
-                // <WrapperTexture>
+            {/* {route == 'dashboard' ?
                     <Dashboard />
-                // </WrapperTexture>
+                : <></>} */}
+            {route == 'myRealm' ?
+                <WrapperTexture>
+                    <MyRealm data={dataMyRealm} />
+                </WrapperTexture>
+                : <></>}
+            {route == 'theVault' ?
+                <WrapperTexture>
+                    <TheVault />
+                </WrapperTexture>
                 : <></>}
             {route == 'history' ?
-                // <WrapperTexture>
+                <WrapperTexture>
                     <HistoryView />
-                // </WrapperTexture>
+                </WrapperTexture>
                 : <></>}
             {route == 'perks' ?
-                // <WrapperTexture>
+                <WrapperTexture>
                     <Perks cards={cards} />
-                // </WrapperTexture>
+                </WrapperTexture>
                 : <></>}
             {route == 'settings' ?
-                // <WrapperTexture>
+                <WrapperTexture>
                     <Settings />
-                // </WrapperTexture>
+                </WrapperTexture>
                 : <></>}
         </div>
     )
