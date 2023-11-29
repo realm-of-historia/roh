@@ -51,8 +51,8 @@ const DetailsProfile = () => {
 
 
       const selectStyles: any = {
-        control: (styles: any, {isFocused} : {isFocused: boolean}) => ({ ...styles, backgroundColor: '#FBF6E8', border: 'none',
-         color: '#583F21 !important', padding: '0px',
+        control: (styles: any, {isFocused} : {isFocused: boolean}) => ({ ...styles, backgroundColor: '#F5F2EB', border: 'none',
+         color: '#383727 !important', padding: '0px', minHeight: '0 !important',
         
     }),
         option: (styles: any, { data, isDisabled, isFocused, isSelected } : {data: any, isDisabled: boolean, isFocused: boolean, isSelected: boolean}) => {
@@ -60,7 +60,7 @@ const DetailsProfile = () => {
           return {
             ...styles,
             backgroundColor: '#FBF6E8',
-            color: '#583F21 !important',
+            color: '#383727 !important',
             cursor: isDisabled ? 'not-allowed' : 'default',
           };
         },
@@ -78,13 +78,13 @@ const DetailsProfile = () => {
 
     const detailsText = [
         ['Full Name *', 'Vasya', 'firstName', false, 'Pupkin', 'secondName', setSecondName],
-        ['Contact Phone *', '044 3276 454 935', 'phone', false],
-        ['Company Site', 'vasya.pupkin@1507.io', 'companySite', false],
+        ['Contact Phone *', '054 544 325', 'phone', false],
+        // ['Company Site', 'vasya.pupkin@1507.io', 'companySite', false],
         ['Country *', 'Select country', 'country', true, countryOptions, 'country'],
         ['Language *', 'Select language', 'language', true, languageOptions, 'language'],
-        ['Time Zone *', 'Select timezone...', 'time zone', true, timeOptions, 'timeZone'],
-        ['Currency', 'Select a currency...', 'currency', true, currencyOptions, 'currency'],
-        ['Communication', '', '', '', '', '', '', 'Email', 'Phone'],
+        // ['Time Zone *', 'Select timezone...', 'time zone', true, timeOptions, 'timeZone'],
+        // ['Currency', 'Select a currency...', 'currency', true, currencyOptions, 'currency'],
+        // ['Communication', '', '', '', '', '', '', 'Email', 'Phone'],
     ]
 
     const onSubmit: any = (data: any) => console.log(data)
@@ -117,23 +117,20 @@ const DetailsProfile = () => {
                             control={control}
                             render={({ field: {onChange, value, ref, name}}: any) => (
                                 <Select  
-                                onFocus={() => {
-                                    handleSelectFocus(element[5]);
-                                  }}
                                 value={element[4].find((c: any) => c.value === value)} 
                                 {...register(element[5])} 
                                 onChange={(val: any) => onChange(val.value)}  
-                                className={`${styles.selectStyles} ${selectFocused == element[5] ? styles.focusSelect : ''}`} 
+                                className={`${styles.selectStyles} `} 
                                 placeholder={element[1]} 
                                 options={element[4]} 
                                 styles={selectStyles}/>
                             )}
                             rules={{required: true}}
                         />
-                        <div className={`${styles.selectDivider} ${selectFocused == element[5] ? styles.focused : ''}`}>
+                        {/* <div className={`${styles.selectDivider} ${selectFocused == element[5] ? styles.focused : ''}`}>
                             <div></div>
                             <div></div>
-                        </div>
+                        </div> */}
                         {/* <input className={styles.dividerDetector}/> */}
                     </div>
                     :
@@ -166,8 +163,8 @@ const DetailsProfile = () => {
             <SwitchBox></SwitchBox>
         </div>
         <div className={styles.footer}>
-            <button className={styles.buttonWhite}>Discard</button>
-            <UserButtonBlack formId='detailsForm' text='Save Changes'></UserButtonBlack>
+            <button className={styles.buttonWhite}>Save Changes</button>
+            {/* <UserButtonBlack formId='detailsForm' text='Save Changes'></UserButtonBlack> */}
         </div>
     </form>
   )

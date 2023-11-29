@@ -27,10 +27,10 @@ const SimpleInput: React.FC<SimpleInputProps> = ({ placeholder, icon, value, onC
                 className={padding}
             />
             </form>
-            <div className={styles.inputDivider}>
+            {/* <div className={styles.inputDivider}>
                 <div></div>
                 <div></div>
-            </div>
+            </div> */}
         </div>
     )
 }

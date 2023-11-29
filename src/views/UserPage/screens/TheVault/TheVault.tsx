@@ -1,7 +1,7 @@
 'use clients'
 import CarahungeX from '@/components/CollectionsComponents/CarahungeX/CarahungeX'
 import style from './TheVault.module.scss'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import TheVaultTable from './components/TheVaultTable'
 
 const TheVault = () => {
@@ -10,7 +10,7 @@ const TheVault = () => {
             date: 'Mint on Aug 11, 2023',
             button: 'Show more',
     }
-    const [active, setActive] = useState(false)
+    const [active, setActive] : any = useState(false)
     let funActive = () => {
         setActive(true)
     }
