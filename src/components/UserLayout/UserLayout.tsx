@@ -79,11 +79,11 @@ export default function UserLayout() {
                     <TheVault />
                 </WrapperTexture>
                 : <></>}
-            {route == 'history' ?
+            {/* {route == 'history' ?
                 <WrapperTexture>
                     <HistoryView />
                 </WrapperTexture>
-                : <></>}
+                : <></>} */}
             {route == 'perks' ?
                 <WrapperTexture>
                     <Perks cards={cards} />
