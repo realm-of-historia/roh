@@ -6,6 +6,7 @@ import { useWindowSize } from 'rooks';
 import Divider from '@/components/Divider/Divider';
 import Text from '@/components/Text/Text';
 import { useAuthStore } from '@/store/store';
+import Markdown from 'react-markdown';
 
 
 const AboutTheProject = () => {
@@ -38,7 +39,7 @@ const AboutTheProject = () => {
                                             <p>{_.name}</p>
                                         </Text>
                                         <Text>
-                                            <p>{_.description}</p>
+                                            <Markdown>{_.description}</Markdown>
                                         </Text>
                                         <Divider position={"top left"} horizontal={true}  noAnim={true}/>
                                     </div>
@@ -55,7 +56,7 @@ const AboutTheProject = () => {
                                             <p>{_.name}</p>
                                         </Text>
                                         <Text>
-                                            <p>{_.description}</p>
+                                            <Markdown>{_.description}</Markdown>
                                         </Text>
                                         <Divider position={"top left"} horizontal={true} noAnim={true}/>
                                     </div>
@@ -70,7 +71,7 @@ const AboutTheProject = () => {
                                             <p>{_.name}</p>
                                         </Text>
                                         <Text>
-                                            <p>{_.description}</p>
+                                            <Markdown>{_.description}</Markdown>
                                         </Text>
                                         <Divider position={"top left"} horizontal={true} noAnim={true}/>
                                     </div>
