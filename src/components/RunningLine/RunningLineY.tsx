@@ -46,15 +46,13 @@ const RunningLineY = ({ image='', height } : any) => {
   };
 
   useEffect(() => {
-    if(inView){
       window.addEventListener('scroll', handleScroll);
       requestAnimationFrame(animateBackgroundPosition);
   
       return () => {
         window.removeEventListener('scroll', handleScroll);
       };
-    }
-  }, [inView]);
+  }, []);
 
   let heightrunningLineY = useMemo(() =>{
     return{

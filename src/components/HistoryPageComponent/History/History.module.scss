@@ -9,7 +9,9 @@
     padding: rm(136) 0;
     background-color: color(bg-1);
     // z-index: 999;
-    
+    strong{
+        font-weight: 600;
+    }
 
     @include xsm {
         padding: rm(32) 0;
@@ -145,3 +147,4 @@
 
     }
 }
+

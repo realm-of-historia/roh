@@ -49,6 +49,7 @@
             font-size: font(16);
             line-height: 160%;
             @include font-work-regular;
+            color: color(text-brown-38);
             display: flex;
             align-items: center;
             padding-right: rm(16);
@@ -124,6 +125,7 @@
             font-size: font(16);
             line-height: 160%;
             white-space: pre-wrap;
+            color: color(text-brown-38);
             @include font-work-regular;
 
             @include md {
@@ -245,6 +247,7 @@
             line-height: 160%;
             white-space: pre-wrap;
             @include font-work-regular;
+            color: color(text-brown-38);
     }
     >:nth-child(2) {
         ul{
