@@ -15,7 +15,7 @@
 
         .dividerLeft{
             position: absolute;
-            background-color: color(text-yellow-90);
+            background-color: color(text-brown-85);
             right: 0;
             top: 0;
             width: 1px;
@@ -72,7 +72,7 @@
         img{
             width: rm(480);
             height: rm(480);
-
+            z-index: 999;
             @include xsm{
                 width: rm(576);
                 height: rm(576);
@@ -87,7 +87,7 @@
         display: flex;
         flex-direction: column;
         >:nth-child(2){
-            z-index: 444;
+            // z-index: 444;
             opacity: 1 !important;
         }
     }
