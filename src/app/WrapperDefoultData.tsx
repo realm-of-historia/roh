@@ -48,7 +48,7 @@ const WrapperDefoultData = ({ dataAbout, datacarahunges, datajoinUses,dataInstag
         if (!datajoinUses) {
             return
         } else {
-            setDataJoinUsess(datajoinUses?.data[0].attributes.joinUs)
+            setDataJoinUsess(datajoinUses?.data[0].attributes)
         }
     }, [datajoinUses])
     return(

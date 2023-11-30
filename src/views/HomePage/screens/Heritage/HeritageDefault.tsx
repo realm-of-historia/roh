@@ -6,6 +6,7 @@ import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 import Text from '@/components/Text/Text'
 import { useEffect, useState } from 'react'
 import { useAuthStore } from '@/store/store'
+import Link from 'next/link'
 
 const HeritageDefault = () => {
     const joinUses: any = useAuthStore((state: any) => (state.joinUses))
@@ -14,6 +15,7 @@ const HeritageDefault = () => {
         if (!joinUses) return
         setData(joinUses)
     }, [joinUses])
+    console.log(data)
     return (
         <>
             {
@@ -22,15 +24,15 @@ const HeritageDefault = () => {
                         <div className={`${stules.wrapperInfoText}`}>
                             <div className={stules.containerText}>
                                 <Text>
-                                    <h2>{data?.name}</h2>
+                                    <h2>{data?.joinUs.name}</h2>
                                 </Text>
                                 <Text>
-                                    <p>{data?.description}</p>
+                                    <p>{data?.joinUs.description}</p>
                                 </Text>
                                 {
-                                    data?.button &&
+                                    data?.joinUs.button &&
                                     <Text>
-                                        <button className={stules.button}>{data?.button}</button>
+                                        <Link href={data?.href || '/'} className={stules.button}>{data?.joinUs.button}</Link>
                                     </Text>
 
                                 }

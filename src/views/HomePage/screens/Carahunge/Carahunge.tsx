@@ -7,6 +7,7 @@ import Avatar from '@/components/Header/Avatar/Avatar'
 import Text from '@/components/Text/Text'
 import Divider from '@/components/Divider/Divider'
 import { useAuthStore } from '@/store/store'
+import Link from 'next/link'
 export interface StandardComponentProps {
     data?: any
 }
@@ -25,9 +26,9 @@ const Carahunge = ({ data }: StandardComponentProps) => {
                 {
                     data?.date &&
                     <Text>
-                        <button className={styles.button}>
+                        <Link href={data?.buttonHref || '/'} className={styles.button}>
                             {data?.date}
-                        </button>
+                        </Link>
                     </Text>
                 }
 
