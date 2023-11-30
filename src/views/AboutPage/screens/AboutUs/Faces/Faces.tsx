@@ -11,6 +11,7 @@ import { useWindowWidth } from '@react-hook/window-size'
 import { useRef, useEffect, useState } from 'react'
 import ImageMy from '@/components/Image/ImageMy'
 import Divider from '@/components/Divider/Divider'
+import Link from 'next/link'
 export interface StandardComponentProps {
   data?: any
 }
@@ -59,7 +60,7 @@ const Faces = ({ data }: StandardComponentProps) => {
         <Divider position={'top left'} noAnim={true} />
         {
           data?.map((_: any, i: number) => (
-            <div key={i + 345576} className={styles.wrapperCard}>
+            <Link href={_.href || '/about'} key={i + 345576} className={styles.wrapperCard}>
               <ImageMy src={_.img.data.attributes.url} alt='' width={640} height={640} />
               <div className={styles.text}>
                 <p className={styles.titleCard}>{_.name}</p>
@@ -67,7 +68,7 @@ const Faces = ({ data }: StandardComponentProps) => {
                 <ImageMy src={_.icon.data.attributes.url} alt='' width={32} height={32} />
               </div>
               <Divider position={'top right'} noAnim={true}/>
-            </div>
+            </Link>
           ))
         }
       </div>

@@ -11,6 +11,7 @@ const useAuthStore = create((set) => ({
   aboutTheProject: [],
   carahunges: [],
   joinUses: [],
+  instagram: {},
   signIn: () => set((state) => ({ isSignedIn: !state.isSignedIn })),
   logIn: () => set((state) => ({ isSignedIn: !state.isSignedIn })),
   changeRoute: (route) => ((state) => ({userRoute: route}))

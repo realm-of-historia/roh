@@ -29,16 +29,16 @@ export default async function RootLayout({ children, }: { children: React.ReactN
   const dataHeader = await useApiFetch('api/header?populate[networks][populate]=*&populate[link][populate]=*&populate[logo][populate]=*&populate[support][populate]=*&populate[subject][populate]=*&populate[searchIcon][populate]=*&populate[authorizedUserMenu][populate]=*') 
   const dataDigest = await useApiFetch('api/footer?populate[socialNetwork][populate]=*')
   const generalData = await useApiFetch('api/general-content?populate[about_the_projects][populate]=*&populate[carahunges][populate]=*&populate[join_uses][populate]=*')
+  const instagramData = await useApiFetch('api/instagram-post?populate[post][populate]=*')
   const dataAboutProject = useSectionData(generalData, 'about_the_projects')
   const datacarahunges = useSectionData(generalData, 'carahunges')
   const datajoinUses = useSectionData(generalData, 'join_uses')
-
   return (
     <html lang="en">
       <body suppressHydrationWarning={true} id='body'>
         <ProviderDelay>
           <LenisScroll />
-          <WrapperDefoultData dataAbout={dataAboutProject} datacarahunges={datacarahunges} datajoinUses={datajoinUses}/>
+          <WrapperDefoultData dataAbout={dataAboutProject} datacarahunges={datacarahunges} datajoinUses={datajoinUses} dataInstagram={instagramData?.data.attributes}/>
           {/* <WrapperTexture> */}
             <Header data={dataHeader?.data.attributes} />
           {/* </WrapperTexture> */}

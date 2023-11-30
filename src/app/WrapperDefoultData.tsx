@@ -6,8 +6,9 @@ export interface StandardComponentProps {
     dataAbout?: any,
     datacarahunges?: any,
     datajoinUses?: any,
+    dataInstagram? :any
 }
-const WrapperDefoultData = ({ dataAbout, datacarahunges, datajoinUses }: StandardComponentProps) => {
+const WrapperDefoultData = ({ dataAbout, datacarahunges, datajoinUses,dataInstagram }: StandardComponentProps) => {
    
     const setDataAbout = (_: any) => {
         useAuthStore.setState({ aboutTheProject: _ })
@@ -18,6 +19,16 @@ const WrapperDefoultData = ({ dataAbout, datacarahunges, datajoinUses }: Standar
     const setDataJoinUsess = (_: any) => {
         useAuthStore.setState({ joinUses: _ })
     }
+    const setDataInsta = (_: any) => {
+        useAuthStore.setState({ instagram: _ })
+    }
+    useEffect(() => {
+        if (!dataInstagram) {
+            return
+        } else {
+            setDataInsta(dataInstagram)
+        }
+    }, [dataInstagram])
     useEffect(() => {
         if (!dataAbout) {
             return

@@ -5,6 +5,7 @@ import Divider from '@/components/Divider/Divider'
 import img from '../../../../public/graphicHoverB.png'
 import arrow from '../../../../public/arrowTr.svg'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const TableCarahunge = ({ data }: any) => {
 
@@ -15,17 +16,17 @@ const TableCarahunge = ({ data }: any) => {
                 <Divider position={'top left'}></Divider>
                 {
                     data?.map((_: any, i: number) => (
-                        <div key={i + 3342} className={style.cell}>
+                        <Link href={_.href || '/'} key={i + 3342} className={style.cell}>
                             <div className={style.wtappercell}>
                                 <Text>
-                                    <p>{_.text}</p>
+                                    <p>{_.name}</p>
                                 </Text>
                                 <Image className={style.arrow} src={arrow} width={12} height={10} alt='' />
                                 <Image className={style.imageHover} src={img} width={448} height={448} alt='' />
                             </div>
                             <Divider position={'top right'}></Divider>
                             <Divider position={'bottom left'} horizontal={true}></Divider>
-                        </div>
+                        </Link>
                     ))
                 }
             </div>
