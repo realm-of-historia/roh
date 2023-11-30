@@ -1,4 +1,4 @@
-'use clients'
+'use client'
 import CarahungeX from '@/components/CollectionsComponents/CarahungeX/CarahungeX'
 import style from './TheVault.module.scss'
 import { useEffect, useState } from 'react'

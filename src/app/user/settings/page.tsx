@@ -9,12 +9,15 @@ import Digest from '@/components/Digest/Digest'
 import Details from '@/views/UserPage/screens/UserInfo/sections/Details/Details'
 import UserLayout from '@/components/UserLayout/UserLayout'
 import HashAnchor from '@/components/HashAnchor/HashAnchor'
+import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
+import Settings from '@/views/UserPage/screens/Settings/Settings'
 
 export default function page() {
     return(
-        <div>
-            <HashAnchor />
-            <UserLayout></UserLayout>
-        </div>
+        <>
+             <WrapperTexture>
+                <Settings />
+            </WrapperTexture>
+        </>
     )
 }

@@ -14,11 +14,11 @@ import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 export default function page() {
     return (
         <div>
-            <HashAnchor />
+            {/* <HashAnchor />
             
             <WrapperTexture>
                 <UserLayout />
-            </WrapperTexture>
+            </WrapperTexture> */}
         </div>
     )
 }
