@@ -6,6 +6,7 @@ import { gsap } from 'gsap'
 import style from './HowItWorksTable.module.scss'
 import Divider from '@/components/Divider/Divider'
 import { ReactElement } from "react";
+import Text from '@/components/Text/Text'
 
 const HowItWorksTable = ({ data }: any) => {
 
@@ -44,8 +45,12 @@ const HowItWorksTableInfo = ({ data }: any) => {
             <div ref={topRef} className={style.mainTop}></div>
             <div className={style.wrapperInfo}>
                 <div className={style.wrapperInfoContainer}>
-                    <h2>{data.name}</h2>
-                    <p>{data.description}</p>
+                    <Text>
+                        <h2>{data.name}</h2>
+                    </Text>
+                    <Text>
+                        <p>{data.description}</p>
+                    </Text>
                     <Divider position={'bottom right'}  noAnim={true}/>
                 <Divider position={'bottom left'} noAnim={true} />
                 </div>

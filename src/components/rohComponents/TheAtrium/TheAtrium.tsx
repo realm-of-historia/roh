@@ -14,12 +14,12 @@ const TheAtrium = ({ header, data }: Panegliph) => {
                 <Text>
                     <h2>{header}</h2>
                 </Text>
-                <Divider position={'top left'} horizontal={true} />
-                <Divider position={'bottom left'} horizontal={true} />
+                <Divider position={'top left'} horizontal={true} noAnim={true}/>
+                <Divider position={'bottom left'} horizontal={true} noAnim={true}/>
             </div>
             <div className={style.wrapperTable}>
                 <div className={style.wrapperTablecell}>
-                    <Divider position={'top left'} />
+                    <Divider position={'top left'} noAnim={true}/>
                     {
                         data?.map((_: any, i: number) => (
                             <div key={i + 883} className={style.cell}>
@@ -29,8 +29,8 @@ const TheAtrium = ({ header, data }: Panegliph) => {
                                 <Text>
                                     <p>{_.description}</p>
                                 </Text>
-                                <Divider position={'bottom left'} horizontal={true} />
-                                <Divider position={'bottom right'} />
+                                <Divider position={'bottom left'} horizontal={true} noAnim={true}/>
+                                <Divider position={'bottom right'} noAnim={true}/>
                             </div>
                         ))
                     }

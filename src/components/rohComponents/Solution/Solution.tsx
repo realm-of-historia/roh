@@ -11,16 +11,20 @@ const Solution = ({ data, header }: any) => {
                 <Text>
                     <h2>{header}</h2>
                 </Text>
-                <Divider position={'top left'} horizontal={true} noAnim={true}/>
+                <Divider position={'top left'} horizontal={true} noAnim={true} />
                 <Divider position={'bottom left'} horizontal={true} />
             </div>
             <div className={style.wrapperHeaderTable}>
                 <Divider position={'top right'} />
                 <div className={style.headerTableCell}>
-                    <p>{data?.leftName}</p>
+                    <Text>
+                        <p>{data?.leftName}</p>
+                    </Text>
                 </div>
                 <div className={style.headerTableCell}>
-                    <p>{data?.rightName}</p>
+                    <Text>
+                        <p>{data?.rightName}</p>
+                    </Text>
                 </div>
                 <Divider position={'bottom left'} horizontal={true} />
             </div>
@@ -28,10 +32,14 @@ const Solution = ({ data, header }: any) => {
                 {
                     data?.table.map((_: any, i: number) => (
                         <div key={i + 4431} className={style.cell}>
-                            <p>{_.name}</p>
-                            <p>{_.description}</p>
+                            <Text>
+                                <p>{_.name}</p>
+                            </Text>
+                            <Text>
+                                <p>{_.description}</p>
+                            </Text>
                             <Divider position={'top right'} />
-                            <Divider position={'bottom right'} horizontal={true}/>
+                            <Divider position={'bottom right'} horizontal={true} />
                         </div>
                     ))
                 }

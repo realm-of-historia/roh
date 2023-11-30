@@ -22,7 +22,7 @@ const Creatures = ({ text, price, image, items }: { text?: string | Array<string
               items?.map((_: any, i: number) => (
                 <div key={i + 34211} className={styles.wrapper}>
                   <Item isArtist={true} image={_?.img.data.attributes.url} description={_?.description} href={_?.href || '/'} />
-                  <img src={'/showAll.svg'} width={360} height={513} alt='' />
+                  <img className={styles.wrapperImgNon} src={'/showAll.svg'} width={360} height={513} alt='' />
                   <Divider position={"top right"} noAnim={true} />
                   <Divider position={"bottom right"} horizontal={true} noAnim={true} />
                 </div>
@@ -38,7 +38,7 @@ const Creatures = ({ text, price, image, items }: { text?: string | Array<string
                 items[0] &&
                 <Item isArtist={true} image={items[0]?.img.data.attributes.url} description={items[0]?.description} href={items[0]?.href || '/'} />
               }
-              <img src={'/showAll.svg'} width={360} height={513} alt='' />
+              <img className={styles.wrapperImgNon} src={'/showAll.svg'} width={360} height={513} alt='' />
               <Divider position={"top right"} noAnim={true} />
             </div>
             <div className={styles.wrapper}>
@@ -46,7 +46,7 @@ const Creatures = ({ text, price, image, items }: { text?: string | Array<string
                 items[1] &&
                 <Item isArtist={true} image={items[1]?.img.data.attributes.url} description={items[1]?.description} href={items[1]?.href || '/'} />
               }
-              <img src={'/showAll.svg'} width={360} height={513} alt='' />
+              <img className={styles.wrapperImgNon} src={'/showAll.svg'} width={360} height={513} alt='' />
               <Divider position={"top right"} noAnim={true} />
             </div>
             <div className={styles.wrapper}>
@@ -54,14 +54,14 @@ const Creatures = ({ text, price, image, items }: { text?: string | Array<string
                 items[2] &&
                 <Item isArtist={true} image={items[2]?.img.data.attributes.url} description={items[2]?.description} href={items[2]?.href || '/'} />
               }
-              <img src={'/showAll.svg'} width={360} height={513} alt='' />
+              <img className={styles.wrapperImgNon} src={'/showAll.svg'} width={360} height={513} alt='' />
               <Divider position={"top right"} noAnim={true} />
             </div>
             <div className={styles.wrapper}>
               {items[3] &&
                 <Item isArtist={true} image={items[3]?.img.data.attributes.url} description={items[3]?.description} href={items[3]?.href || '/'} />
               }
-              <img src={'/showAll.svg'} width={360} height={513} alt='' />
+              <img className={styles.wrapperImgNon} src={'/showAll.svg'} width={360} height={513} alt='' />
               <Divider position={"top right"} noAnim={true} />
             </div>
           </>

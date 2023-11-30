@@ -110,21 +110,15 @@ const GetStarted = ({data, article, dataArticleLast,comments} : StandardComponen
                     <Posts dataArticleLast={dataArticleLast} title={recentPostsTitle}></Posts>
                 </div>
             </div>
-            <div className={styles.footer}>
-                {/* <div className={styles.block}> <p>Facebook</p></div>
-                <div className={styles.block}><p>Instagram</p></div>
-                <div className={styles.block}><p>GitHub</p></div>
-                <div className={styles.block}><p>Behance</p></div>
-                <div className={styles.block}><p>Pinterest</p></div>
-                <div className={styles.block}><p>Twitter</p></div>
-                <div className={styles.block}><p>Dribbble</p></div> */}
+            {/* <div className={styles.footer}>
+              
                 {
                         articleData?.link &&
                         articleData?.link.map((_:any, i : number) => (
                             <Link key={i + 909} href={_.href}  className={styles.block}><ImageMy src={_.icon.data.attributes.url} width={20} height={20} alt = ''/><p>{_.name}</p></Link>
                         ))
                     }
-            </div>
+            </div> */}
         </div>
     )
 }

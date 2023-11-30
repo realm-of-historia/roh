@@ -59,7 +59,7 @@ const Faces = ({ data }: StandardComponentProps) => {
         <Divider position={'top left'} noAnim={true} />
         {
           data?.map((_: any, i: number) => (
-            <div className={styles.wrapperCard}>
+            <div key={i + 345576} className={styles.wrapperCard}>
               <ImageMy src={_.img.data.attributes.url} alt='' width={640} height={640} />
               <div className={styles.text}>
                 <p className={styles.titleCard}>{_.name}</p>

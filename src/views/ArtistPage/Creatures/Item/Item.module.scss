@@ -7,7 +7,7 @@
     // border: 1px color(text-yellow-90) solid;
     border-left: none;
     height: 100%;
-
+    // z-index: 10;
     &:hover{
         cursor: pointer;
 
@@ -60,13 +60,16 @@
             height: rm(320);
         }
 
-        img{
+        >img{
+            position: absolute;
+            left: 0;
+            top: 0;
             width: 100%;
             height: 100%;
             transform: scale(1.1);
             object-fit: cover;
             transition: transform .6s ease-in-out;
-
+            z-index: 999;
 
             @include lg{
                 width: rm(266.6);
@@ -152,11 +155,13 @@
     }
 
     .title{
+        position: relative;
         padding: rm(32);
         padding-bottom: rm(16);
         display: flex;
         transition: background-color .3s ease-in-out;
-
+        background-color: color(bg-1);
+        z-index: 1;
         @include xsm{
             padding: rm(32);
             padding-bottom: rm(0);
@@ -175,4 +180,10 @@
             padding-bottom: rm(32);
         }
     }
+}
+
+.wrappInfo{
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }

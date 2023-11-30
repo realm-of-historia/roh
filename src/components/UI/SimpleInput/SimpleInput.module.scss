@@ -6,8 +6,17 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-
-
+    padding-top: rm(16);
+    padding-bottom: rm(16);
+    &::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0;
+        bottom: 0;
+        background-color: color(text-brown-85);
+    }
 
 
     span {
@@ -23,37 +32,37 @@
         height: rm(32);
     }
 
-    .inputDivider {
-        position: relative;
-        margin-bottom: rm(16);
-        width: 100%;
-        height: 1px;
+    // .inputDivider {
+    //     position: relative;
+    //     margin-bottom: rm(16);
+    //     width: 100%;
+    //     height: 1px;
 
-        >* {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            transform: translate(-50%, -50%);
-            transition: .3s transform ease, .3s background-color ease;
-        }
+    //     >* {
+    //         position: absolute;
+    //         top: 50%;
+    //         left: 50%;
+    //         width: 100%;
+    //         height: 100%;
+    //         transform: translate(-50%, -50%);
+    //         transition: .3s transform ease, .3s background-color ease;
+    //     }
 
-        > :first-child {
-            background: #EAD8B1;
-        }
+    //     > :first-child {
+    //         background: #EAD8B1;
+    //     }
 
-        > :last-child {
-            background: color(text-brown);
-            transform: translateX(-50%) scale(0);
-        }
-    }
+    //     > :last-child {
+    //         background: color(text-brown);
+    //         transform: translateX(-50%) scale(0);
+    //     }
+    // }
 
 
     input {
         // margin-top: rm(16);
-        font-size: font(16);
-        color: color(text-brown);
+        font-size: font(15);
+        color: color(text-brown-38);
         @include font-work-regular;
         line-height: 140%;
         display: flex;
@@ -82,7 +91,7 @@
     }
 
     .contactsInput {
-        padding: rm(12) rm(0) rm(24) rm(0);
+        // padding: rm(12) rm(0) rm(24) rm(0);
     }
 
     .input {

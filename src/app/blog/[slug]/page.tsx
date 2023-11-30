@@ -34,11 +34,11 @@ export default async function ArticlePage(slug: any) {
             <WrapperTexture>
                 <GetStarted comments={articlesPopular} data={data} article={dataArticle} dataArticleLast={dataArticleLast}></GetStarted>
             </WrapperTexture>
-            <div className={style.wrapperComments}>
+            {/* <div className={style.wrapperComments}>
             <WrapperTexture>
                 <Comments data={articlesPopular}></Comments>
             </WrapperTexture>
-            </div>
+            </div> */}
             <WrapperTexture>
                 <HeritageDefault />
             </WrapperTexture>

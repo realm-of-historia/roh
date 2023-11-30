@@ -33,17 +33,18 @@
         }
         >a{
             position: relative;
-            z-index: 99;
+            // z-index: 999;
             background-color: color(bg-1);
             height: 100%;
         }
-        img{
+        .wrapperImgNon{
             position: absolute;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             object-fit: fill;
+            // z-index: 2;
         }
         @include lg{
             >:last-child{

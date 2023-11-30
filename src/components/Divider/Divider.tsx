@@ -3,7 +3,7 @@
 import { useMemo } from "react"
 import { useInView } from "react-intersection-observer"
 
-const Divider = ({ position, horizontal, animation, style = {}, duration = '2.4s', noAnim }: {position?: any, horizontal?: any, animation?: any, style?: any, duration?: any, noAnim?: boolean}) => {
+const Divider = ({ position, horizontal, animation, style = {}, duration = '2.4s', noAnim, opacityNo = false }: {position?: any, horizontal?: any, animation?: any, style?: any, duration?: any, noAnim?: boolean, opacityNo?: boolean}) => {
     const { ref, inView } = useInView()
     const isHorizontal = useMemo(() => !!horizontal, [horizontal])
     const positions = useMemo(() => { 
@@ -13,7 +13,7 @@ const Divider = ({ position, horizontal, animation, style = {}, duration = '2.4s
             width: isHorizontal ? (inView  ? '100%' : '0%') : '.0625rem',
             height: isHorizontal ? '1px' : (inView  ? '100%' : '0%'),
             backgroundColor: '#85836A',
-            opacity: '0.5',
+            opacity: !opacityNo ? '0.5' : '1',
             transition: inView ? `width ${duration} ease, height ${duration} ease` : '1s',
         }
 
@@ -26,7 +26,8 @@ const Divider = ({ position, horizontal, animation, style = {}, duration = '2.4s
             width: isHorizontal ? '100%' : '.0625rem',
             height: isHorizontal ? '1px' : '100%' ,
             backgroundColor: '#85836A',
-            opacity: '0.5',
+            opacity: !opacityNo ? '0.5' : '1',
+            zIndex: '2',
             // transition: inView ? `width ${duration} ease, height ${duration} ease` : '1s',
         }
 

@@ -28,9 +28,9 @@ export default async function Сollections() {
             <WrapperTexture>
                 <CarahungeX data={dataCarahungeX} />
             </WrapperTexture>
-            <WrapperTexture>
+            {/* <WrapperTexture>
                 <HeritageDefault />
-            </WrapperTexture>
+            </WrapperTexture> */}
         </>
     )
 }

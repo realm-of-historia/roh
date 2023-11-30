@@ -1,0 +1,29 @@
+@use "../../../../assets/styles/index.scss" as *;
+
+.wrapper{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template: 1fr/ 1fr 1fr 1fr 1fr;
+    padding-left: rm(64);
+    padding-right: rm(64);
+    @include lg{
+        grid-template: 1fr/ 1fr 1fr 1fr;
+       }
+    @include md{
+     grid-template: 1fr/ 1fr 1fr;
+    }
+    @include xsm{
+        padding-left: rm(32);
+        padding-right: rm(32);
+
+    }
+    img{
+        width: 100%;
+        height: rm(448);
+        z-index: 999;
+        @include xsm{
+        height: rm(320);
+        }
+    }
+}
