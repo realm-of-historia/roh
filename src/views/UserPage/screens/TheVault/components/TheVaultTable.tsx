@@ -24,7 +24,7 @@ const TheVaultTable = ({ data }: any) => {
             </div>
             {
                 data?.table.map((_: any, i: number) => (
-                    <div className={style.wrapperTable}>
+                    <div key={i + 58621} className={style.wrapperTable}>
                         <Divider position={'left top'} noAnim={true} opacityNo={true}/>
                         <Divider position={'left bottom'} noAnim={true} horizontal={true} opacityNo={true}/>
                         <div className={style.wrapperP}>

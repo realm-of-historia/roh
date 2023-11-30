@@ -84,7 +84,7 @@ export default function UserInfo({lineFirst, lineSecond}: {lineFirst?: number, l
                     <div className={styles.contactsUser}>
                         {
                             contacts.map((_ : any, i : number) => (
-                                <div className={styles.wrapperInfoContacts}>
+                                <div key={i + 9923101} className={styles.wrapperInfoContacts}>
                                     <p>{_.name}</p>
                                     <p>{_.title}</p>
                                 </div>
