@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { Children } from 'react'
 import Header from '../Header/Header'
 import UserInfo from '@/views/UserPage/screens/UserInfo/UserInfo'
 import Digest from '../Digest/Digest'
@@ -69,7 +69,7 @@ export default function UserLayout() {
             {/* {route == 'dashboard' ?
                     <Dashboard />
                 : <></>} */}
-            {route == 'myRealm' ?
+            {/* {route == 'myRealm' ?
                 <WrapperTexture>
                     <MyRealm data={dataMyRealm} />
                 </WrapperTexture>
@@ -79,11 +79,7 @@ export default function UserLayout() {
                     <TheVault />
                 </WrapperTexture>
                 : <></>}
-            {/* {route == 'history' ?
-                <WrapperTexture>
-                    <HistoryView />
-                </WrapperTexture>
-                : <></>} */}
+           
             {route == 'perks' ?
                 <WrapperTexture>
                     <Perks cards={cards} />
@@ -93,7 +89,7 @@ export default function UserLayout() {
                 <WrapperTexture>
                     <Settings />
                 </WrapperTexture>
-                : <></>}
+                : <></>} */}
         </div>
     )
 }

@@ -190,7 +190,7 @@
         top: 50%;
         width: rm(377);
         height: rm(377);
-        transform: translate(0, -50%);
+        transform: translate(0, -50%) rotate(9deg);
         @include xsm {
             width: rm(270);
             height: rm(270);
@@ -203,7 +203,7 @@
         bottom: 0;
         width: rm(377);
         height: rm(377);
-        transform: translate(-50%, 0);
+        transform: translate(-50%, 0) rotate(30deg);
         @include xsm {
             width: rm(270);
             height: rm(270);
@@ -216,7 +216,7 @@
         top: 50%;
         width: rm(377);
         height: rm(377);
-        transform: translate(0, -50%);
+        transform: translate(0, -50%) rotate(16deg);
         @include xsm {
             width: rm(270);
             height: rm(270);
@@ -229,7 +229,7 @@
         top: 0;
         width: rm(377);
         height: rm(377);
-        transform: translate(-50%, 0);
+        transform: translate(-50%, 0) rotate(22deg);
         @include xsm {
             width: rm(270);
             height: rm(270);

@@ -17,12 +17,18 @@ const Heritage = ({ data, bg = false }: StandardComponentProps) => {
                 <div className={stules.containerText}>
                     {/* <Divider position={"top left"} />
                     <Divider position={"top right"} /> */}
-                    <Text>
-                        <h2>{data?.name}</h2>
-                    </Text>
-                    <Text>
-                        <p>{data?.description}</p>
-                    </Text>
+                    {
+                        data?.name &&
+                        <Text>
+                            <h2>{data?.name}</h2>
+                        </Text>
+                    }
+                    {
+                        data?.description &&
+                        <Text>
+                            <p>{data?.description}</p>
+                        </Text>
+                    }
                     {
                         data?.button &&
                         <Text>
