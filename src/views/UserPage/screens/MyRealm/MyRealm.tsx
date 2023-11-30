@@ -6,7 +6,7 @@ const MyRealm = ({data} : any) => {
         <div className={style.wrapper}>   
             {
                 data?.map((_ :any, i : number) => (
-                    <img src={_.url} width={448} height={448} alt=''/>
+                    <img key={i + 34221} src={_.url} width={448} height={448} alt=''/>
                 ))
             }
         </div>
