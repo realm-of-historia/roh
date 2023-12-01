@@ -26,10 +26,11 @@ export default function page() {
         }
         const fetchDataAndLog = async () => {
           const result = await fetchData(token);
-          console.log(result);
+          setData(result);
         };
         fetchDataAndLog()
       }, [token])
+      console.log(data)
     const cards = [
         ['Product1', '01244009', '26', '51,00', 'Published', 'Actions'],
         ['Product1', '01244009', '27', '51,00', 'Published', 'Actions'],
@@ -54,7 +55,7 @@ export default function page() {
     return(
         <>
             <WrapperTexture>
-                <PerksComponent cards={cards}></PerksComponent>
+                <PerksComponent cards={data}></PerksComponent>
             </WrapperTexture>
         </>
     )
