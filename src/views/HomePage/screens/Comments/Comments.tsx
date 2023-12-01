@@ -8,7 +8,6 @@ import Link from 'next/link'
 import Divider from '@/components/Divider/Divider'
 
 const Comments = ({ data }: { data?: any }) => {
-    console.log(data)
     return (
         <div className={styles.comments}>
             {

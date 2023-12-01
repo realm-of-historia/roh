@@ -4,7 +4,6 @@ import Markdown from 'react-markdown'
 import Text from '@/components/Text/Text'
 
 const HistoriaMission = ({ data }: any) => {
-    console.log('HistoriaMission', data)
     return (
         <div className={styles.container}>
             <div className={styles.wrapperHeader}>
