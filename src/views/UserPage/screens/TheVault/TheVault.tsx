@@ -14,7 +14,6 @@ const TheVault = () => {
     let funActive = () => {
         setActive(true)
     }
-    console.log(active)
     const dataTheVaultTable = {
         title: 'Title',
         description: 'Description',

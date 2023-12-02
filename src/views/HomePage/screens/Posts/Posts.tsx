@@ -25,7 +25,6 @@ const Posts = ({ data, img }: StandardComponentProps) => {
     const handler = (href: any) => {
         window.open(href)
     }
-    console.log(dataNew)
     return (
         // <NativeUnderpin>
         <>

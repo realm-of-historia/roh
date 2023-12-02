@@ -24,3 +24,26 @@ export async function useApiFetch(meaning){
         console.error('Fetch error:', error);
     }
 }
+
+export async function useUserFetch(meaning, token){
+    const apiUrl = `https://api.realmofhistoria.com/${meaning}`;
+    const headers = {
+        'Authorization': `Bearer ${token}`,
+    };
+    const options = {
+        method: 'GET',
+        headers: headers,
+        cache: 'no-store' 
+    };
+    try {
+        const response = await fetch(apiUrl, options);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Fetch error:', error);
+    }
+}

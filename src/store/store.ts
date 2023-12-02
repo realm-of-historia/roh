@@ -3,6 +3,7 @@ import { create } from 'zustand'
 const useAuthStore = create((set) => ({
   isSignedIn: false,
   isMint: false,
+  token: null,
   userRoute: 'myRealm',
   isBuy: true,
   isAllChecked: false,

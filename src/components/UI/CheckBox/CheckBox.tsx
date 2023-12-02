@@ -32,7 +32,6 @@ export default function CheckBox({onClick, field, isChecked, isRuler}: {onClick?
 
       const checkAll = () => {
         useAuthStore.setState({isAllChecked: isAllChecked})
-        // console.log('hhh')
       }
 
       const handleLabelClick = useMemo(() => {

@@ -5,7 +5,6 @@ export interface StandardComponentProps {
     data?: any,
 }
 const MapHome = ({data} : StandardComponentProps) => {
-    console.log('nap', data)
     return(
         <div className={style.container}>
             <ImageMy src={data?.data.attributes.url} width={920} height={700} alt = '' />

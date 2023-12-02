@@ -20,7 +20,6 @@ const Faces = ({ data }: StandardComponentProps) => {
   const windowWidth: any = useWindowWidth()
   const [width, setWidth]: any = useState()
 
-  console.log(data)
   useEffect(() => {
     setWidth(windowWidth)
   }, [windowWidth])
