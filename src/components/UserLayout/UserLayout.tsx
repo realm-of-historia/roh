@@ -19,7 +19,7 @@ import TheVault from '@/views/UserPage/screens/TheVault/TheVault'
 
 export default function UserLayout() {
 
-    const route = useAuthStore((state) => (state.userRoute))
+    const route = useAuthStore((state: any) => (state.userRoute))
 
     const cards = [
         ['Product1', '01244009', '26', '51,00', 'Published', 'Actions'],

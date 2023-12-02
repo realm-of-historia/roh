@@ -31,6 +31,10 @@
                 height: 100vh;
             }
 
+            @include xsm{
+                height: rm(640);
+            }
+
             >:nth-child(1){
                 position: absolute;
                 left: 0;
@@ -75,10 +79,14 @@
                     padding-right: rm(32);
                 }
                 
-                .wrapperOption{
+                .signOption{
                     cursor: pointer;
                     padding: rm(30) rm(20);
                     transition: color .7s ease-in-out;
+                    background-color: color(text-black) !important;
+                    text-align: center;
+                    margin-top: rm(15);
+
 
                     .signInOption{
                         width: 100%;
@@ -88,16 +96,16 @@
                     }
 
                     &:hover{
-                        color: color(text-brown-88) !important;
+                        color: color(text-brown-38) !important;
                     }
                 }
 
-                .wrapper, .wrapperOption{
+                .wrapper, .signOption{
                     width: 100%;
                     display: flex;
                     justify-content: space-between;
-                    background-color: #171513;
-                    color: color(text-brown-38);
+                    background-color: color(text-black);
+                    color: color(text-brown-88);
                     align-items: center;
 
 
@@ -121,7 +129,7 @@
                             
                             &:hover{
                                 svg{
-                                    color: color(text-brown-88) !important;
+                                    color: color(text-brown-38) !important;
                                 }
                             }
                         }
@@ -131,7 +139,7 @@
                             height: rm(32);
 
                             svg{
-                                color: color(text-brown-38);
+                                color: color(text-brown-88);
                                 transition: color .7s ease-in-out;
                             }
                         }
@@ -147,7 +155,7 @@
 
 
                         &:hover{
-                            color: color(text-brown-88) !important;
+                            color: color(text-brown-38) !important;
                         }
 
                         >p:first-child{

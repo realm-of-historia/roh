@@ -22,6 +22,7 @@ import { useWalletMultiButton } from '@solana/wallet-adapter-base-ui';
 import { useSectionData } from '@/composable/useSectionData';
 import ImageMy from '@/components/Image/ImageMy';
 import HashAnchor from '@/components/HashAnchor/HashAnchor';
+import MintModal from './components/MintModal/MintModal';
 
 type CandyDisplayInfo = {
     totalSupply: number,
@@ -44,6 +45,8 @@ export default function MintPage({data}: {data: any}) {
 
     const isSignedIn = useAuthStore((state: any) => (state.isSignedIn))
     const {setVisible: setModalVisible} = useWalletModal();
+    const mintModalVisible = useAuthStore((state: any) => (state.mintModalVisible))
+
 
     const {publicKey} = useWalletMultiButton({
         onSelectWallet() {
@@ -72,6 +75,7 @@ export default function MintPage({data}: {data: any}) {
             const txs = params.map(p => createMintTransaction(umiPubkeyFromWalletAdapterPubkey(walletAdapter.publicKey!), p))
             const results = await sendAndConfirmAllMints(umiSignerFromSolanaWalletAdapter(walletAdapter), txs)
             setMintResult(results)
+            useAuthStore.setState({mintModalVisible: true})
             setParams([{}])
         }
       }
@@ -119,15 +123,20 @@ export default function MintPage({data}: {data: any}) {
         }
     }, [candy?.guard])
 
-    // useEffect(() => {
-    //     if(candy?.guard) {
-    //         console.log(candy?.guard)
-    //     }
-    // }, [candy])
+    useEffect(() => {
+        let element = document.getElementById("body");
+        if (mintModalVisible && element) {
+          element.style.cssText = 'overflow: hidden; height: 100vh;'
+        }
+        if (!mintModalVisible && element) {
+          element.style.cssText = 'overflow: visible; height: auto;'
+        }
+      }, [mintModalVisible])
 
     return(
         <div className={styles.mint}>
             <HashAnchor></HashAnchor>
+            {mintModalVisible && <MintModal/>}
             <div className={styles.container}>
                 <div className={styles.videoWrapper}>
                     <ImageMy src={data?.data.attributes.gif.data.attributes.url} poster={data?.data.attributes.preloader.data.attributes.url}/>
@@ -172,7 +181,7 @@ export default function MintPage({data}: {data: any}) {
                         </div>
                     </div>
                     <div className={styles.third}>
-                        {isSignedIn ? <div className={styles.wrapper}>
+                        <div className={styles.wrapper}>
                             <div className={styles.costs} onClick={onMint}>
                                 <p>
                                     {data?.data.attributes.mint}
@@ -193,11 +202,15 @@ export default function MintPage({data}: {data: any}) {
                                 </p>
                                 <div onClick={() => setParams(prev => [...prev, {}])}><Icon label='plus'></Icon></div>
                             </div>
-                        </div> : 
-                        <div onClick={auth} className={styles.wrapperOption}>
-                            <p className={styles.signInOption}>Sign In</p>
                         </div>
-                        }
+                        {!isSignedIn ? 
+                        <div onClick={auth} className={styles.signOption}>
+                            <p className={styles.signInOption}>Sign In</p>
+                        </div>    :
+                        <div className={styles.signOption}>
+                            <p className={styles.signInOption}>Cross mint</p>
+                        </div>
+                    }
                     </div>
                 </div>
             </div>
