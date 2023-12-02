@@ -20,8 +20,35 @@ import { useWindowSize } from 'rooks';
 import Burger from './Avatar/components/Burger/Burger'
 import WrapperTexture from '../WrapperTexture/WrapperTexture'
 import fs from '../../../public/fsVww.svg'
+import { useUserFetch } from '@/composable/useApiFetch'
 export interface StandardComponentProps {
   data?: any,
+}
+
+export const handleAuth = () => {
+  authConfig.connect();
+  handleAuths()
+}
+const handleAuths = () => {
+  setTimeout(() => {
+    let image_icon: any = document.querySelector(".w3a-button--primary img");
+    // let image_iconHover : any = document.querySelector(".w3a-button--primary :nth-child(2)");
+    let image_iconH: any = document.querySelector(".w3a-button--primary :nth-child(2)");
+    let image_iconH2: any = document.querySelector(".w3a-button--primary :nth-child(1)");
+    let subtitle: any = document.querySelector(".w3a-header__subtitle");
+    let input: any = document.querySelector(".w3a-text-field");
+    let cross: any = document.querySelector(".w3ajs-close-btn img");
+    if (!image_icon && !image_iconH && !subtitle && !input && !cross) { return }
+    image_icon.src = '/fsVww.svg'
+    // image_iconHover.src = '/fsVww.svg'
+    image_iconH.src = image_iconH2.src
+    subtitle.innerText = 'Embark on a journey of discovery.'
+    input.placeholder = 'name@example.com'
+    cross.src = '/radix-icons_cross-1.svg'
+    console.log(cross)
+
+
+  }, 1)
 }
 const Header = ({ data }: StandardComponentProps) => {
   // const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
@@ -33,44 +60,26 @@ const Header = ({ data }: StandardComponentProps) => {
   const { innerWidth }: number | any = useWindowSize();
   const isMint = useAuthStore((state: any) => (state.isMint))
 
-  const handleAuth = () => {
-    authConfig.connect();
-    handleAuths()
-  }
   useEffect(() => {
     if (innerWidth > 1080) {
       useAuthStore.setState({ isBurger: false })
     }
   }, [innerWidth])
-  const handleAuths = () => {
-    setTimeout(() => {
-      let image_icon : any = document.querySelector(".w3a-button--primary img");
-      // let image_iconHover : any = document.querySelector(".w3a-button--primary :nth-child(2)");
-      let image_iconH : any = document.querySelector(".w3a-button--primary :nth-child(2)");
-      let image_iconH2 : any = document.querySelector(".w3a-button--primary :nth-child(1)");
-      let subtitle : any = document.querySelector(".w3a-header__subtitle");
-      let input : any = document.querySelector(".w3a-text-field");
-      let cross : any = document.querySelector(".w3ajs-close-btn img");
-      if(!image_icon && !image_iconH && !subtitle && !input && !cross){return}
-        image_icon.src = '/fsVww.svg'
-        // image_iconHover.src = '/fsVww.svg'
-        image_iconH.src = image_iconH2.src
-        subtitle.innerText = 'Embark on a journey of discovery.'
-        input.placeholder = 'name@example.com'
-        cross.src = '/radix-icons_cross-1.svg'
-        console.log(cross)
 
-
-    }, 1)
-  }
 
   useEffect(() => {
     let element = document.getElementById("body");
     if (activeWindow && element) {
-      element.style.cssText = 'overflow: hidden; height: 100vh;'
+      // element.style.cssText = 'overflow: hidden; height: 100vh;'
+      document.documentElement.style.overflow = 'hidden';
+      document.documentElement.style.height = '100%';
+      document.documentElement.style.position = 'relative';
     }
     if (!activeWindow && element) {
-      element.style.cssText = 'overflow: visible; height: auto;'
+      // element.style.cssText = 'overflow: visible; height: auto;'
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.height = '';
+      document.documentElement.style.position = '';
     }
   }, [activeWindow])
 
@@ -92,17 +101,16 @@ const Header = ({ data }: StandardComponentProps) => {
     }, 3500)
   }, [])
 
-
   //listeners
 
   authConfig.on(ADAPTER_EVENTS.CONNECTED, (data: any) => {
     setIsSignedIn(true)
-    useAuthStore.setState(({isSignedIn: true}))
+    useAuthStore.setState(({ isSignedIn: true }))
   })
 
   authConfig.on(ADAPTER_EVENTS.DISCONNECTED, (data: any) => {
     setIsSignedIn(false)
-    useAuthStore.setState(({isSignedIn: false}))
+    useAuthStore.setState(({ isSignedIn: false }))
   })
 
   authConfig.on(ADAPTER_EVENTS.ERRORED, (error) => {
@@ -129,14 +137,17 @@ const Header = ({ data }: StandardComponentProps) => {
       })
         .then(response => response.json())
         .then(data => {
-          setToken(data.token)
-          console.log(data.token)
+          // setToken(data.token)
+          useAuthStore.setState({ token: data.token })
         })
         .catch(error => {
           console.error("ошибка:", error);
         });
     }
   }, [isSignedIn])
+
+
+  
 
 
   useEffect(() => {
@@ -147,10 +158,10 @@ const Header = ({ data }: StandardComponentProps) => {
 
 
   useEffect(() => {
-    if(pathname === '/mint') {
-      useAuthStore.setState({isMint: true})
-    } else{
-      useAuthStore.setState({isMint: false})
+    if (pathname === '/mint') {
+      useAuthStore.setState({ isMint: true })
+    } else {
+      useAuthStore.setState({ isMint: false })
     }
     console.log(pathname, isMint)
   })

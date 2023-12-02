@@ -22,7 +22,6 @@ interface Column {
 
 const Column: NextPage<Column> = ({ link, description, icon, iconLink, initiation = false, road = false }) => {
     // console.log(description)
-    console.log(iconLink)
     return (
         <div className={`${styles.main} ${initiation ? styles.maininitiation : ''}`}>
             <Divider position={"top right"} horizontal={true} />

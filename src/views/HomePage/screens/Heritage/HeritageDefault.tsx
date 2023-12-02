@@ -7,15 +7,20 @@ import Text from '@/components/Text/Text'
 import { useEffect, useState } from 'react'
 import { useAuthStore } from '@/store/store'
 import Link from 'next/link'
+import { handleAuth } from '@/components/Header/Header'
 
 const HeritageDefault = () => {
     const joinUses: any = useAuthStore((state: any) => (state.joinUses))
+    const signedIn = useAuthStore((state: any) => (state.isSignedIn))
     const [data, setData]: any = useState(null)
     useEffect(() => {
         if (!joinUses) return
         setData(joinUses)
     }, [joinUses])
-    console.log(data)
+    const signedInFunction = (e : any) => {
+        handleAuth()
+        e.preventDefault();
+    }
     return (
         <>
             {
@@ -32,7 +37,7 @@ const HeritageDefault = () => {
                                 {
                                     data?.joinUs.button &&
                                     <Text>
-                                        <Link href={data?.href || '/'} className={stules.button}>{data?.joinUs.button}</Link>
+                                        <Link href={data?.href} onClick={(e) => signedIn ? null : signedInFunction(e)} className={stules.button}>{data?.joinUs.button}</Link>
                                     </Text>
 
                                 }
