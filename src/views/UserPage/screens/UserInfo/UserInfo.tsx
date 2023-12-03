@@ -58,7 +58,7 @@ export default function UserInfo({ lineFirst, lineSecond,  }: { lineFirst?: numb
                             <div className={styles.first}>
                                 <p className={styles.name}>
                                     {/* Vasya Pupkin */}
-                                    { data?.user.name || data?.user.surname ? data?.user.name + ' ' + data?.user.surname : data?.user.wallet}
+                                    { data?.user.name || data?.user.surname ? data?.user.name + ' ' + data?.user.surname : data?.user.wallet.substr(0, 10)}
                                 </p>
                                 <div className={styles.verification}>
                                     {/* <div><Icon label='checked'></Icon></div> */}

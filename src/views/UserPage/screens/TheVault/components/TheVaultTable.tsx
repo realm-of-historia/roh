@@ -45,7 +45,7 @@ const TheVaultTable = ({ data }: any) => {
                                         </div>
                                         <div className={style.wrapperP}>
                                             <Divider position={'right top'} noAnim={true} opacityNo={true} />
-                                            <Link href={'/'}>{_.content}</Link>
+                                            <Link href={`https://api.realmofhistoria.com${_.document.url}`}>{_.content}</Link>
                                         </div>
                                     </div>
                                 ))
