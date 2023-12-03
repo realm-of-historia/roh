@@ -28,6 +28,19 @@ const TheVaultPage = () => {
         fetchDataAndLog()
       }, [token])
       console.log(data)
+
+      useEffect(() => {
+        if (!token) { return }
+        const fetchData = async (token: any) => {
+          const dataUser = await useUserFetch('api/crypto-user/', token)
+          return dataUser
+        }
+        const fetchDataAndLog = async () => {
+          const result = await fetchData(token);
+          // console.log(result)
+        };
+        fetchDataAndLog()
+      }, [token])
     return (
         <>
             <WrapperTexture>
