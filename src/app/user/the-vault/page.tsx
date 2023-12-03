@@ -17,12 +17,12 @@ const TheVaultPage = () => {
     const[data, setData] = useState()
     useEffect(() => {
         if (!token) { return }
-        const fetchData = async (token: any) => {
+        const FetchData = async (token: any) => {
           const dataUser = await useUserFetch('api/documents/available/', token)
           return dataUser
         }
         const fetchDataAndLog = async () => {
-          const result = await fetchData(token);
+          const result = await FetchData(token);
           setData(result);
         };
         fetchDataAndLog()
@@ -31,12 +31,12 @@ const TheVaultPage = () => {
 
       useEffect(() => {
         if (!token) { return }
-        const fetchData = async (token: any) => {
+        const FetchData = async (token: any) => {
           const dataUser = await useUserFetch('api/crypto-user/', token)
           return dataUser
         }
         const fetchDataAndLog = async () => {
-          const result = await fetchData(token);
+          const result = await FetchData(token);
           // console.log(result)
         };
         fetchDataAndLog()
