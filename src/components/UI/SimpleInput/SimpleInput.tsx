@@ -13,20 +13,22 @@ interface SimpleInputProps {
     register?: any
 }
 
-const SimpleInput: React.FC<SimpleInputProps> = ({ placeholder, icon, value, onChange, isContacts, name, register}) => {
+const SimpleInput: React.FC<SimpleInputProps> = ({ placeholder, icon, onChange, value, isContacts, name, register}) => {
 
     const padding = isContacts ? styles.input : styles.contactsInput
     
     return (
         <div className={styles.simpleInput}>
-            <form className={styles.wrapperInput}>
+            {/* <form className={styles.wrapperInput}> */}
+            <div className={styles.wrapperInput}>
             <Icon label={icon}></Icon>
             <input
                 {...register(name)}
                 placeholder={placeholder}
                 className={padding}
             />
-            </form>
+            </div>
+            {/* </form> */}
             {/* <div className={styles.inputDivider}>
                 <div></div>
                 <div></div>

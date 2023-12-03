@@ -33,7 +33,7 @@ export async function useUserFetch(meaning, token){
     const options = {
         method: 'GET',
         headers: headers,
-        cache: 'no-store' 
+        // cache: 'no-store' 
     };
     try {
         const response = await fetch(apiUrl, options);
