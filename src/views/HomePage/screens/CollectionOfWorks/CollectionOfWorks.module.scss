@@ -93,10 +93,10 @@
         display: flex;
         // flex: 1;
         width: 50%;
-        height: rm(800); 
+        height: rm(908); 
         z-index: 999;
         @include lg {
-            height: rm(720);
+            height: rm(800);
         }
         @include xsm {
             order: 1;
@@ -108,10 +108,10 @@
         >:nth-child(1){
             position: absolute;
             left: 0;
-            top: 0;
+            bottom: 0;
             width: 100%;
             height: 100%;
-            object-fit: fill;
+            object-fit: cover;
             z-index: 333333;
         }
     }
