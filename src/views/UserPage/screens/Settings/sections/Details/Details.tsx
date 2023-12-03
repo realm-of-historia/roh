@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useMemo } from 'react'
+import React, { useCallback, useEffect, useMemo } from 'react'
 import styles from './Details.module.scss'
 import Text from '@/components/Text/Text'
 import Icon from '@/components/UI/Icon/Icon'
@@ -15,6 +15,7 @@ import Select from 'react-select'
 import Dropdown from '@/components/UI/Dropdown/Dropdown'
 import { useAuthStore } from '@/store/store'
 import { useUserFetch } from '@/composable/useApiFetch'
+import {useDropzone} from 'react-dropzone'
 
 const DetailsProfile = () => {
     const token = useAuthStore((state: any) => (state.token))
@@ -40,9 +41,9 @@ const DetailsProfile = () => {
 
 
     const languageOptions = [
-        { value: 'Russian', label: 'Russian', },
-        { value: 'Armenian', label: 'Armenian' },
-        { value: 'English', label: 'English' },
+        { value: 'RU', label: 'Russian', },
+        { value: 'AM', label: 'Armenian' },
+        { value: 'USA', label: 'English' },
     ];
 
     const countryOptions = [
@@ -74,8 +75,10 @@ const DetailsProfile = () => {
     const [SecondName, setSecondName] = useState('')
 
     const { register, handleSubmit, control } = useForm<any>({
+        shouldUseNativeValidation: true,
         defaultValues: {
-            CheckBox: false
+            CheckBox: false,
+            
         }
     });
 
@@ -94,15 +97,15 @@ const DetailsProfile = () => {
         console.log(data)
         fetch('https://api.realmofhistoria.com/api/crypto-user/', {
             method: 'PUT',
-            body: JSON.stringify({ 
+            body: JSON.stringify({
                 name: data.name,
                 surname: data.firstName,
                 country: data.country,
                 language: data.language,
                 phone: data.phone,
                 allow_marketing: data.checBox
-            }), 
-            headers: { 'content-type': 'application/json', 'Authorization': `Bearer ${token}` } 
+            }),
+            headers: { 'content-type': 'application/json', 'Authorization': `Bearer ${token}` }
         })
             .then(res => res.json())
             .then(json => console.log(json))
@@ -111,15 +114,30 @@ const DetailsProfile = () => {
     }
 
 
-
-
+    const formData = new FormData();
+    const onDrop = useCallback((acceptedFiles: any) => {
+        acceptedFiles.forEach((file : any) => {
+            const reader = new FileReader()
+            reader.onabort = () => console.log('file reading was aborted')
+            reader.onerror = () => console.log('file reading has failed')
+            reader.onload = () => {
+                // Do whatever you want with the file contents
+                const binaryStr : any = reader.result
+                formData.append('image', new Blob([binaryStr]));
+            }
+            reader.readAsArrayBuffer(file)
+        })
+        ;
+    }, [])
+    
+    const {getRootProps, getInputProps} = useDropzone({onDrop})
     return (
         <form id='detailsForm' className={styles.details} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.avatar}>
                 <p>Avatar</p>
-                <div className={styles.container}>
+                <div className={styles.container} {...getRootProps()}>
                     <img src='/userImage.png' width={240} height={240} alt='' />
-                    <input type='file' />
+                    <input {...getInputProps()} type='file' />
                     <span>Choose your file</span>
                 </div>
             </div>
@@ -182,8 +200,8 @@ const DetailsProfile = () => {
                     </p>
                 </div>
                 <div className={styles.inputs}>
-                    <SimpleInput name={'name'} register={register} placeholder={'Vasya'} isContacts={false}></SimpleInput>
-                    <SimpleInput name={'firstName'} register={register} placeholder={'Pupkin'} isContacts={false}></SimpleInput>
+                    <SimpleInput value={'text'} name={'name'} register={register} placeholder={data?.user.name || 'Vasya'} isContacts={false}></SimpleInput>
+                    <SimpleInput value={'text'} name={'firstName'} register={register} placeholder={data?.user.surname || 'Pupkin'} isContacts={false}></SimpleInput>
                 </div>
             </div>
 
@@ -194,7 +212,7 @@ const DetailsProfile = () => {
                     </p>
                 </div>
                 <div className={styles.inputi}>
-                    <SimpleInput name={'phone'} register={register} placeholder={'054 544 325'} isContacts={false}></SimpleInput>
+                    <SimpleInput value={'phone'} name={'phone'} register={register} placeholder={data?.user.phone || '054 544 325'} isContacts={false}></SimpleInput>
                 </div>
             </div>
 
@@ -211,8 +229,10 @@ const DetailsProfile = () => {
                             control={control}
                             render={({ field: { onChange, value, ref, name } }: any) => (
                                 <Select
-                                    value={countryOptions.find((c: any) => c.value === value)}
-                                    {...register('country')}
+                                    value={countryOptions.find((c: any) => c.value === data?.user.country)}
+                                    {...register('country', {
+                                        required: "fill in the field.",
+                                    })}
                                     onChange={(val: any) => onChange(val.value)}
                                     className={`${styles.selectStyles} `}
                                     placeholder={'Select country'}
@@ -239,7 +259,7 @@ const DetailsProfile = () => {
                             control={control}
                             render={({ field: { onChange, value, ref, name } }: any) => (
                                 <Select
-                                    value={languageOptions.find((c: any) => c.value === value)}
+                                    value={languageOptions.find((c: any) => c.value === data?.user.language)}
                                     {...register('language')}
                                     onChange={(val: any) => onChange(val.value)}
                                     className={`${styles.selectStyles} `}
