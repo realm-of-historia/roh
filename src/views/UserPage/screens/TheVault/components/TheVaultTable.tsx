@@ -4,6 +4,9 @@ import Divider from '@/components/Divider/Divider'
 
 const TheVaultTable = ({ data }: any) => {
     console.log(data)
+    const handler = (href: any) => {
+        window.open(href)
+      }
     return (
 
         <div className={style.container}>
@@ -45,7 +48,7 @@ const TheVaultTable = ({ data }: any) => {
                                         </div>
                                         <div className={style.wrapperP}>
                                             <Divider position={'right top'} noAnim={true} opacityNo={true} />
-                                            <Link href={`https://api.realmofhistoria.com${_.document.url}`}>{_.content}</Link>
+                                            <div className={style.link} onClick={() => handler(`https://api.realmofhistoria.com${_.document.url}`)}>{_.content}</div>
                                         </div>
                                     </div>
                                 ))

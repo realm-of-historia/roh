@@ -20,7 +20,7 @@
         display: grid;
         grid-template: 1fr/ 1fr 1fr 1fr;
 
-        a {
+        .link {
             color: color(text-brown-38);
             font-size: font(18);
             @include font-work-regular();
