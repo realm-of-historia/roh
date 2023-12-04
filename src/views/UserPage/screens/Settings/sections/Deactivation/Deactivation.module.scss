@@ -36,7 +36,7 @@
         height: rm(60);
         font-weight: 600;
         transition: background-color .7s ease;
-        z-index: 1000;
+        // z-index: 1000;
 
         @include lg {
             margin-left: rm(0);
@@ -146,5 +146,12 @@
                 }
             }
         }
+    }
+}
+
+.buttonWhiteno{
+    cursor: no-drop !important;
+    &:hover{
+        background-color: inherit !important;
     }
 }
