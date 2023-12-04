@@ -26,7 +26,7 @@ const SimpleInput: React.FC<SimpleInputProps> = ({ placeholder, icon, onChange, 
                     {...register(name, {
                         required: "fill in the field.",
                         pattern: {
-                            value: value === 'phone' ? /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/ : /^[a-zA-Z][a-zA-Z0-9-]+$/,
+                            value: value === 'phone' ? /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/ : value === 'text' ? /^[a-zA-Z][a-zA-Z0-9-]+$/ : /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/,
                             message: 'incorrect value'
                         }
                     })}

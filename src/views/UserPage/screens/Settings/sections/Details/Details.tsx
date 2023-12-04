@@ -91,18 +91,9 @@ const DetailsProfile = () => {
         setValue('phone', data?.user.phone)
         setValue('country', data?.user.country)
         setValue('language', data?.user.language)
-
+        setValue('email', data?.user.email)
     },[data])
-    const detailsText = [
-        ['Full Name *', 'Vasya', 'firstName', false, 'Pupkin', 'secondName', setSecondName],
-        ['Contact Phone *', '054 544 325', 'phone', false],
-        // ['Company Site', 'vasya.pupkin@1507.io', 'companySite', false],
-        ['Country *', 'Select country', 'country', true, countryOptions, 'country'],
-        ['Language *', 'Select language', 'language', true, languageOptions, 'language'],
-        // ['Time Zone *', 'Select timezone...', 'time zone', true, timeOptions, 'timeZone'],
-        // ['Currency', 'Select a currency...', 'currency', true, currencyOptions, 'currency'],
-        // ['Communication', '', '', '', '', '', '', 'Email', 'Phone'],
-    ]
+    
     const [files, setFiles] = useState([]);
 
     const onSubmit: any = (_: any) => {
@@ -116,6 +107,7 @@ const DetailsProfile = () => {
                 language: _.language,
                 phone: _.phone,
                 allow_marketing: _.checBox,
+                email: _.email
             }),
             headers: { 'content-type': 'application/json', 'Authorization': `Bearer ${token}` }
         })
@@ -261,7 +253,18 @@ const DetailsProfile = () => {
                     </p>
                 </div>
                 <div className={styles.inputi}>
-                    <SimpleInput value={'phone'} name={'phone'} register={register} placeholder={data?.user.phone || '054 544 325'} isContacts={false}></SimpleInput>
+                    <SimpleInput value={'phone'} name={'phone'} register={register} placeholder={'054 544 325'} isContacts={false}></SimpleInput>
+                </div>
+            </div>
+
+            <div className={styles.section}>
+                <div>
+                    <p>
+                        Email *
+                    </p>
+                </div>
+                <div className={styles.inputi}>
+                    <SimpleInput value={'email'} name={'email'} register={register} placeholder={'www@ww.com'} isContacts={false}></SimpleInput>
                 </div>
             </div>
 
