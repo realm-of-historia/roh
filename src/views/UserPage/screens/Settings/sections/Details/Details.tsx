@@ -73,15 +73,26 @@ const DetailsProfile = () => {
 
 
     const [SecondName, setSecondName] = useState('')
+    const [nameUs, setNameUs] = useState('')
 
-    const { register, handleSubmit, control } = useForm<any>({
+   
+
+    const { register, handleSubmit, control, setValue } = useForm<any>({
         shouldUseNativeValidation: true,
         defaultValues: {
             CheckBox: false,
-            
         }
     });
+    console.log(data?.user.name)
+    useEffect(() => { 
+        if(!data) {return}
+        setValue('name', data?.user.name)
+        setValue('firstName', data?.user.surname)
+        setValue('phone', data?.user.phone)
+        setValue('country', data?.user.country)
+        setValue('language', data?.user.language)
 
+    },[data])
     const detailsText = [
         ['Full Name *', 'Vasya', 'firstName', false, 'Pupkin', 'secondName', setSecondName],
         ['Contact Phone *', '054 544 325', 'phone', false],
@@ -92,18 +103,19 @@ const DetailsProfile = () => {
         // ['Currency', 'Select a currency...', 'currency', true, currencyOptions, 'currency'],
         // ['Communication', '', '', '', '', '', '', 'Email', 'Phone'],
     ]
+    const [files, setFiles] = useState([]);
 
-    const onSubmit: any = (data: any) => {
-        console.log(data)
+    const onSubmit: any = (_: any) => {
+        console.log(_)
         fetch('https://api.realmofhistoria.com/api/crypto-user/', {
             method: 'PUT',
             body: JSON.stringify({
-                name: data.name,
-                surname: data.firstName,
-                country: data.country,
-                language: data.language,
-                phone: data.phone,
-                allow_marketing: data.checBox
+                name: _.name,
+                surname: _.firstName,
+                country: _.country,
+                language: _.language,
+                phone: _.phone,
+                allow_marketing: _.checBox,
             }),
             headers: { 'content-type': 'application/json', 'Authorization': `Bearer ${token}` }
         })
@@ -114,30 +126,67 @@ const DetailsProfile = () => {
     }
 
 
-    const formData = new FormData();
-    const onDrop = useCallback((acceptedFiles: any) => {
-        acceptedFiles.forEach((file : any) => {
-            const reader = new FileReader()
-            reader.onabort = () => console.log('file reading was aborted')
-            reader.onerror = () => console.log('file reading has failed')
-            reader.onload = () => {
-                // Do whatever you want with the file contents
-                const binaryStr : any = reader.result
-                formData.append('image', new Blob([binaryStr]));
-            }
-            reader.readAsArrayBuffer(file)
-        })
-        ;
-    }, [])
-    
-    const {getRootProps, getInputProps} = useDropzone({onDrop})
+    // const formData = new FormData();
+    // const onDrop = useCallback((acceptedFiles: any) => {
+    //     acceptedFiles.forEach((file : any) => {
+    //         const reader = new FileReader()
+    //         reader.onabort = () => console.log('file reading was aborted')
+    //         reader.onerror = () => console.log('file reading has failed')
+    //         reader.onload = () => {
+    //             // Do whatever you want with the file contents
+    //             const binaryStr : any = reader.result
+
+    //             formData.append('image', new Blob([binaryStr]));
+    //         }
+    //         reader.readAsArrayBuffer(file)
+    //     })
+    //     console.log(acceptedFiles)
+    //     ;
+    // }, [])
+    const onDrop = useCallback((acceptedFiles : any) => {
+        setFiles(acceptedFiles.map((file : any) => Object.assign(file, {
+          preview: URL.createObjectURL(file)
+        })));
+      }, []);
+      const {
+        getRootProps,
+        getInputProps,
+        isDragActive,
+        isDragAccept,
+        isDragReject
+      } = useDropzone({
+        onDrop,
+        accept: {'image/jpeg': [],
+        'image/png': []}
+      });
+      const thumbs = files.map((file : any) => (
+        <div key={file.name}>
+          <img
+          
+            src={file.preview }
+            alt={''}
+            width={240}
+            height={240}
+          />
+        </div>
+      ));
+      useEffect(() => () => {
+        files.forEach((file : any) => URL.revokeObjectURL(file.preview));
+      }, [files]);
+    // const {getRootProps, getInputProps} = useDropzone({onDrop})
     return (
         <form id='detailsForm' className={styles.details} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.avatar}>
                 <p>Avatar</p>
-                <div className={styles.container} {...getRootProps()}>
-                    <img src='/userImage.png' width={240} height={240} alt='' />
-                    <input {...getInputProps()} type='file' />
+                <div className={styles.container}  {...getRootProps()}>
+                    {/* <img src='/userImage.png' width={240} height={240} alt='' /> */}
+                    {
+                        files.length !== 0 ? 
+                        thumbs
+                        :
+                        <img src='/userImage.png' width={240} height={240} alt='' /> 
+                    }
+                    <input {...getInputProps()}  type='file' />
                     <span>Choose your file</span>
                 </div>
             </div>
@@ -200,8 +249,8 @@ const DetailsProfile = () => {
                     </p>
                 </div>
                 <div className={styles.inputs}>
-                    <SimpleInput value={'text'} name={'name'} register={register} placeholder={data?.user.name || 'Vasya'} isContacts={false}></SimpleInput>
-                    <SimpleInput value={'text'} name={'firstName'} register={register} placeholder={data?.user.surname || 'Pupkin'} isContacts={false}></SimpleInput>
+                    <SimpleInput  value={'text'} name={'name'} register={register} placeholder={'Vasya'} isContacts={false}></SimpleInput>
+                    <SimpleInput  value={'text'} name={'firstName'} register={register} placeholder={'Pupkin'} isContacts={false}></SimpleInput>
                 </div>
             </div>
 
@@ -229,7 +278,7 @@ const DetailsProfile = () => {
                             control={control}
                             render={({ field: { onChange, value, ref, name } }: any) => (
                                 <Select
-                                    value={countryOptions.find((c: any) => c.value === data?.user.country)}
+                                    value={countryOptions.find((c: any) => c.value === value)}
                                     {...register('country', {
                                         required: "fill in the field.",
                                     })}
@@ -259,7 +308,7 @@ const DetailsProfile = () => {
                             control={control}
                             render={({ field: { onChange, value, ref, name } }: any) => (
                                 <Select
-                                    value={languageOptions.find((c: any) => c.value === data?.user.language)}
+                                    value={languageOptions.find((c: any) => c.value === value)}
                                     {...register('language')}
                                     onChange={(val: any) => onChange(val.value)}
                                     className={`${styles.selectStyles} `}

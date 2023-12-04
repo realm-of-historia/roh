@@ -10,7 +10,7 @@ interface SimpleInputProps {
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     isContacts: boolean;
     name: string;
-    register?: any
+    register?: any,
 }
 
 const SimpleInput: React.FC<SimpleInputProps> = ({ placeholder, icon, onChange, value, isContacts, name, register }) => {
@@ -26,7 +26,7 @@ const SimpleInput: React.FC<SimpleInputProps> = ({ placeholder, icon, onChange, 
                     {...register(name, {
                         required: "fill in the field.",
                         pattern: {
-                            value: value === 'phone' ? /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/ : /[a-zA-Z][a-zA-Z0-9-_]{4,24}/,
+                            value: value === 'phone' ? /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/ : /^[a-zA-Z][a-zA-Z0-9-]+$/,
                             message: 'incorrect value'
                         }
                     })}
