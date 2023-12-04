@@ -8,22 +8,24 @@ export default function MintModal() {
     }
 
     return (
-        <div className={styles.modal}>
-            <p className={styles.title}>
-                Welcome to Realm
-            </p>
-            <picture>
-                <img src='/modalImage.png'/>
-            </picture>
-            <p className={styles.info}>
-                Your purchase is complete
-            </p>
-            <button className={styles.solan}>
-                View on Solsan
-            </button>
-            <button className={styles.realm} onClick={handleClose}>
-                My Realm
-            </button>
+        <div className={styles.wrapper}>
+            <div className={styles.modal}>
+                <p className={styles.title}>
+                    Welcome to Realm
+                </p>
+                <picture>
+                    <img src='/modalImage.png'/>
+                </picture>
+                <p className={styles.info}>
+                    Your purchase is complete
+                </p>
+                <button className={styles.solan}>
+                    View on Solsan
+                </button>
+                <button className={styles.realm} onClick={handleClose}>
+                    My Realm
+                </button>
+            </div>
         </div>
     )
 }

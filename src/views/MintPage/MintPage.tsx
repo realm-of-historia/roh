@@ -126,17 +126,24 @@ export default function MintPage({data}: {data: any}) {
     useEffect(() => {
         let element = document.getElementById("body");
         if (mintModalVisible && element) {
-          element.style.cssText = 'overflow: hidden; height: 100vh;'
+          // element.style.cssText = 'overflow: hidden; height: 100vh;'
+          document.documentElement.style.overflow = 'hidden';
+          document.documentElement.style.height = '100%';
+          document.documentElement.style.position = 'relative';
         }
         if (!mintModalVisible && element) {
-          element.style.cssText = 'overflow: visible; height: auto;'
+          // element.style.cssText = 'overflow: visible; height: auto;'
+          document.documentElement.style.overflow = '';
+          document.documentElement.style.height = '';
+          document.documentElement.style.position = '';
         }
       }, [mintModalVisible])
 
     return(
+        <>
+        {mintModalVisible && <MintModal/>}
         <div className={styles.mint}>
             <HashAnchor></HashAnchor>
-            {mintModalVisible && <MintModal/>}
             <div className={styles.container}>
                 <div className={styles.videoWrapper}>
                     <ImageMy src={data?.data.attributes.gif.data.attributes.url} poster={data?.data.attributes.preloader.data.attributes.url}/>
@@ -215,5 +222,6 @@ export default function MintPage({data}: {data: any}) {
                 </div>
             </div>
         </div>
+        </>
     )
 }
