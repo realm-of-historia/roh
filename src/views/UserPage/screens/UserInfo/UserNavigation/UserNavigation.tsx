@@ -7,7 +7,7 @@ import Link from 'next/link'
 
 const UserNavigation = () => {
 
-  const route = useAuthStore((state) => (state.userRoute))
+  const route = useAuthStore((state: any) => (state.userRoute))
 
   const routeHandler = (currentRoute: any) => {
     setTimeout(() => {

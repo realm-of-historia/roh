@@ -14,9 +14,10 @@ const useAuthStore = create((set) => ({
   carahunges: [],
   joinUses: [],
   instagram: {},
-  signIn: () => set((state) => ({ isSignedIn: !state.isSignedIn })),
-  logIn: () => set((state) => ({ isSignedIn: !state.isSignedIn })),
-  changeRoute: (route) => ((state) => ({userRoute: route}))
+  mintModalVisible: false,
+  signIn: () => set((state: any) => ({ isSignedIn: !state.isSignedIn })),
+  logIn: () => set((state: any) => ({ isSignedIn: !state.isSignedIn })),
+  changeRoute: (route: any) => ((state: any) => ({userRoute: route}))
 }))
   
 export {useAuthStore}

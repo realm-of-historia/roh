@@ -4,13 +4,16 @@ import React from 'react'
 import MintPage from '@/views/MintPage/MintPage'
 import MintProvider from '@/components/MintProvider/MintProvider'
 import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
+import { useApiFetch } from '@/composable/useApiFetch'
 
-export default function PerksPage() {
+export default async function PerksPage() {
+    const data = await useApiFetch('api/mint?populate=*')
+
 
     return(
         <WrapperTexture>
             <MintProvider>
-                <MintPage></MintPage>
+                <MintPage data={data}></MintPage>
             </MintProvider>
         </WrapperTexture>
         )
