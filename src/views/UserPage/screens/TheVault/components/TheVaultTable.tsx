@@ -3,7 +3,6 @@ import style from './TheVaultTable.module.scss'
 import Divider from '@/components/Divider/Divider'
 
 const TheVaultTable = ({ data }: any) => {
-    console.log(data)
     const handler = (href: any) => {
         window.open(href)
       }

@@ -35,7 +35,6 @@ export default function UserInfo({ lineFirst, lineSecond,  }: { lineFirst?: numb
         };
         fetchDataAndLog()
     }, [token, profileChange])
-    console.log(data)
     const contacts = [
         {
             name: 'Email',
@@ -50,7 +49,7 @@ export default function UserInfo({ lineFirst, lineSecond,  }: { lineFirst?: numb
         <div className={styles.userInfo}>
             <div className={styles.container}>
                 <div className={styles.left}>
-                    <img src='/userImage.png' width={363} height={363} alt='' />
+                    <img src={data?.user.avatar ? `https://api.realmofhistoria.com/${data?.user.avatar}` : '/userImage.png'} width={363} height={363} alt='' />
                 </div>
                 <div className={styles.right}>
                     <div className={styles.top}>

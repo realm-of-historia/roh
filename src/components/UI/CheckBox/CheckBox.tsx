@@ -9,9 +9,6 @@ export default function CheckBox({setIsCheckedState, isCheckedState, onClick, fi
 
     // const [isCheckedState, setIsCheckedState] = useState(isChecked || false);
     const [isAllChecked, setIsAllChecked] = useState(false) 
-  console.log(isChecked)
-  console.log(isAllChecked)
-
 
     const handleCheckChange = () => {
         const newCheckedState = !isCheckedState;

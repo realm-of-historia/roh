@@ -15,7 +15,7 @@ import Select from 'react-select'
 import Dropdown from '@/components/UI/Dropdown/Dropdown'
 import { useAuthStore } from '@/store/store'
 import { useUserFetch } from '@/composable/useApiFetch'
-import {useDropzone} from 'react-dropzone'
+import { useDropzone } from 'react-dropzone'
 
 const DetailsProfile = () => {
     const token = useAuthStore((state: any) => (state.token))
@@ -75,7 +75,7 @@ const DetailsProfile = () => {
     const [SecondName, setSecondName] = useState('')
     const [nameUs, setNameUs] = useState('')
 
-   
+
 
     const { register, handleSubmit, control, setValue } = useForm<any>({
         shouldUseNativeValidation: true,
@@ -83,21 +83,20 @@ const DetailsProfile = () => {
             CheckBox: false,
         }
     });
-    console.log(data?.user.name)
-    useEffect(() => { 
-        if(!data) {return}
+    useEffect(() => {
+        if (!data) { return }
         setValue('name', data?.user.name)
         setValue('firstName', data?.user.surname)
         setValue('phone', data?.user.phone)
         setValue('country', data?.user.country)
         setValue('language', data?.user.language)
         setValue('email', data?.user.email)
-    },[data])
-    
+    }, [data])
+
     const [files, setFiles] = useState([]);
+    const [filesserv, setFilesserv]: any = useState();
 
     const onSubmit: any = (_: any) => {
-        console.log(_)
         fetch('https://api.realmofhistoria.com/api/crypto-user/', {
             method: 'PUT',
             body: JSON.stringify({
@@ -107,7 +106,8 @@ const DetailsProfile = () => {
                 language: _.language,
                 phone: _.phone,
                 allow_marketing: _.checBox,
-                email: _.email
+                email: _.email,
+                avatar: filesserv
             }),
             headers: { 'content-type': 'application/json', 'Authorization': `Bearer ${token}` }
         })
@@ -135,36 +135,53 @@ const DetailsProfile = () => {
     //     console.log(acceptedFiles)
     //     ;
     // }, [])
-    const onDrop = useCallback((acceptedFiles : any) => {
-        setFiles(acceptedFiles.map((file : any) => Object.assign(file, {
-          preview: URL.createObjectURL(file)
+    const onDrop = useCallback((acceptedFiles: any) => {
+        setFiles(acceptedFiles.map((file: any) => Object.assign(file, {
+            preview: URL.createObjectURL(file)
         })));
-      }, []);
-      const {
+        let file = acceptedFiles[0]
+        if (file) {
+            const reader = new FileReader();
+  
+            reader.onload = function (e : any) {
+              const base64String = e.target.result.split(',')[1];
+              const imageSrc = `data:${file.type};base64,${base64String}`; 
+              setFilesserv(imageSrc)
+            };
+  
+            reader.readAsDataURL(file);
+          } 
+
+        
+    }, []);
+    
+    const {
         getRootProps,
         getInputProps,
         isDragActive,
         isDragAccept,
         isDragReject
-      } = useDropzone({
+    } = useDropzone({
         onDrop,
-        accept: {'image/jpeg': [],
-        'image/png': []}
-      });
-      const thumbs = files.map((file : any) => (
+        accept: {
+            'image/jpeg': [],
+            'image/png': []
+        }
+    });
+    const thumbs = files.map((file: any) => (
         <div key={file.name}>
-          <img
-          
-            src={file.preview }
-            alt={''}
-            width={240}
-            height={240}
-          />
+            <img
+
+                src={file.preview}
+                alt={''}
+                width={240}
+                height={240}
+            />
         </div>
-      ));
-      useEffect(() => () => {
-        files.forEach((file : any) => URL.revokeObjectURL(file.preview));
-      }, [files]);
+    ));
+    useEffect(() => () => {
+        files.forEach((file: any) => URL.revokeObjectURL(file.preview));
+    }, [files]);
     // const {getRootProps, getInputProps} = useDropzone({onDrop})
     return (
         <form id='detailsForm' className={styles.details} onSubmit={handleSubmit(onSubmit)}>
@@ -173,12 +190,12 @@ const DetailsProfile = () => {
                 <div className={styles.container}  {...getRootProps()}>
                     {/* <img src='/userImage.png' width={240} height={240} alt='' /> */}
                     {
-                        files.length !== 0 ? 
-                        thumbs
-                        :
-                        <img src='/userImage.png' width={240} height={240} alt='' /> 
+                        files.length !== 0 ?
+                            thumbs
+                            :
+                            <img src='/userImage.png' width={240} height={240} alt='' />
                     }
-                    <input {...getInputProps()}  type='file' />
+                    <input id="fileInput" {...getInputProps()} type='file' />
                     <span>Choose your file</span>
                 </div>
             </div>
@@ -241,8 +258,8 @@ const DetailsProfile = () => {
                     </p>
                 </div>
                 <div className={styles.inputs}>
-                    <SimpleInput  value={'text'} name={'name'} register={register} placeholder={'Vasya'} isContacts={false}></SimpleInput>
-                    <SimpleInput  value={'text'} name={'firstName'} register={register} placeholder={'Pupkin'} isContacts={false}></SimpleInput>
+                    <SimpleInput value={'text'} name={'name'} register={register} placeholder={'Vasya'} isContacts={false}></SimpleInput>
+                    <SimpleInput value={'text'} name={'firstName'} register={register} placeholder={'Pupkin'} isContacts={false}></SimpleInput>
                 </div>
             </div>
 
