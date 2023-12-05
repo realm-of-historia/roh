@@ -21,8 +21,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
-
-    @include md {
+    // padding: 0 !important;
+    @include xsm {
         padding-top: rm(32);
     }
 
@@ -52,7 +52,6 @@
             color: color(text-brown-38);
             display: flex;
             align-items: center;
-            padding-right: rm(16);
             @include md {
                 font-size: font(15);
             }
@@ -81,29 +80,31 @@
         }
 
         >:first-child {
+            position: relative;
             width: rm(155);
+            padding-right: rm(10);
 
             p {
                 color: color(text-brown-38);
                 font-weight: 600;
             }
 
-            @include lg {
-                width: rm(130);
-            }
+            // @include lg {
+            //     width: rm(130);
+            // }
 
-            @include md {
-                width: rm(110);
-            }
+            // @include md {
+            //     width: rm(110);
+            // }
 
-            @include xsm {
-                width: rm(128);
-            }
+            // @include xsm {
+            //     width: rm(128);
+            // }
         }
 
         >:last-child {
-            width: rm(314);
-
+            // width: rm(314);
+            width: 100%;
             p {
                 color: color(text-brown-38);
             }
@@ -120,6 +121,7 @@
     .description {
         margin-bottom: rm(32);
         display: flex;
+        // gap: rm(20);
 
         p {
             font-size: font(16);
@@ -145,7 +147,7 @@
                 font-weight: 600;
                 color: color(text-brown-38);
                 // width: 100% !important;
-                padding-right: rm(16);
+                // padding-right: rm(16);
             }
 
             @include lg {
@@ -161,32 +163,32 @@
             }
         }
 
-        div {
-            gap: rm(20);
-            display: flex;
-            flex-direction: column;
+        // div {
+            // gap: rm(20);
+            // display: flex;
+            // flex-direction: column;
 
-            p {
-                width: rm(677);
+            >:last-child {
+                // width: rm(677);
                 color: color(text-brown-38);
+                width: 100%;
+                // @include lg {
+                //     width: rm(400);
+                // }
 
-                @include lg {
-                    width: rm(400);
-                }
+                // @include md {
+                //     width: rm(325);
+                // }
 
-                @include md {
-                    width: rm(325);
-                }
+                // @include xsm {
+                //     width: rm(360);
+                // }
 
-                @include xsm {
-                    width: rm(360);
-                }
-
-                @include xsm {
-                    width: rm(400);
-                }
+                // @include xsm {
+                //     width: rm(400);
+                // }
             }
-        }
+        // }
     }
 
     .section:last-child {

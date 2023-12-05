@@ -6,7 +6,7 @@
     justify-content: space-between;
     position: relative;
     overflow: hidden;
-
+    
     @include xsm{
         flex-direction: column;
         padding: rm(32);
@@ -28,7 +28,10 @@
         }
     }
     >:nth-child(n+2){
-        flex: 1;
+        width: 50%;
+        @include xsm {
+            width: 100%;
+        }
     }
     >:last-child{
         padding-left: rm(64);
@@ -57,7 +60,11 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-
+        padding-right: rm(64);
+        @include xsm{
+            padding-bottom: rm(32);
+            padding-right: rm(0);
+        }
         >:first-child{
             @include font-dune-regular;
             color: color(text-black);
