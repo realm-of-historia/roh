@@ -163,7 +163,7 @@ const Header = ({ data }: StandardComponentProps) => {
     } else {
       useAuthStore.setState({ isMint: false })
     }
-    console.log(pathname, isMint)
+    // console.log(pathname, isMint)
   })
 
   const handler = (href: any) => {

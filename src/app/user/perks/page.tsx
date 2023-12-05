@@ -30,7 +30,6 @@ export default function PerksPage() {
         };
         fetchDataAndLog()
       }, [token])
-    console.log(data)
     return(
         <>
             <WrapperTexture>

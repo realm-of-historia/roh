@@ -8,7 +8,6 @@ export interface StandardComponentProps {
     bg?: boolean,
 }
 const Heritage = ({ data, bg = false }: StandardComponentProps) => {
-    console.log('Heritage', data)
     return (
         <div className={`${stules.wrapper} ${bg ? stules.bg : ''}`}>
             <div className={stules.wrapperInfoText}>

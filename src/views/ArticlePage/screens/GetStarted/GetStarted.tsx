@@ -34,7 +34,6 @@ const GetStarted = ({data, article, dataArticleLast,comments} : StandardComponen
     const creationDateIcon = useSectionData(data, 'creationDateIcon')
     const familiarizationTimeImg = useSectionData(data, 'familiarizationTimeImg')
     const articleData = article?.data[0].attributes
-    console.log(article)
     const [text, setText] = useState('')
 
     const {register} = useForm()
