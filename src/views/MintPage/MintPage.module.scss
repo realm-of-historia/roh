@@ -1,9 +1,63 @@
 @use '../../assets/styles/index.scss' as *;
 
+
+
+.loader{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+
+    @keyframes rotation {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+        } 
+
+    .content{
+        width: rm(48);
+        height: rm(48);
+        border: 5px solid #FFF;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        display: inline-block;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+        z-index: 1000000;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &::before{
+        content: '';
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        background-color: rgba($color: #000000, $alpha: 0.5);
+        z-index: 10000;
+        // transition: opacity .7s ease-in-out;
+    }
+}
+
+.loaderActive{
+    z-index: 10000;
+
+    &::before{
+        z-index: 1000;
+        opacity: 1 !important;
+    }
+}
+
 .mint{
     padding-left: rm(64);
     background-color: color(bg);
-
 
     @include lg{
         padding-left: rm(32);
@@ -11,6 +65,15 @@
 
     @include md{
         padding-left: 0;
+    }
+
+    .payButton{
+
+        background-color: color(text-black) !important;
+
+        img{
+            display: none;
+        }
     }
 
     .container{
@@ -85,7 +148,7 @@
                 }
                 
                 .signOption{
-                    cursor: pointer;
+                    // cursor: pointer;
                     padding: rm(30) rm(20);
                     transition: color .7s ease-in-out;
                     background-color: color(text-black) !important;
@@ -93,11 +156,12 @@
                     margin-top: rm(15);
 
 
-                    .signInOption{
+                    span{
                         width: 100%;
                         font-size: font(20);
                         @include font-dune-regular;
                         margin-bottom: rm(-5);
+                        color: color(text-brown-88);
                     }
 
                     &:hover{

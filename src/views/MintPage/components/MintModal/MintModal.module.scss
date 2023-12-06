@@ -68,6 +68,23 @@
         position: relative;
     }
 
+    .cross{
+        position: absolute;
+        top: rm(20);
+        right: rm(20);
+        height: rm(30);
+        width: rm(30);
+        z-index: 3;
+        opacity: 1;
+        cursor: pointer;
+        color: color(text-brown-38) !important;
+        transition: opacity .3s ease-in-out;
+
+        &:hover{
+            opacity: .7;
+        }
+    }
+
     .info{
         color: #383727;
         font-size: font(18);

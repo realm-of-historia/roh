@@ -3,26 +3,20 @@
 import { useEffect, useRef, useState, useMemo} from 'react'
 import styles from './MintPage.module.scss'
 import Icon from '@/components/UI/Icon/Icon'
-import MintGroupsDetails from './components/mint-groups-details/MintGroupsDetails';
 import { useAuth } from './hooks/useAuth';
 import { useCandy } from './hooks/useCandy';
 import { WalletMultiButton, useWalletModal } from '@solana/wallet-adapter-react-ui';
 import '@solana/wallet-adapter-react-ui/styles.css';
-import { createSignerFromWalletAdapter } from '@metaplex-foundation/umi-signer-wallet-adapters';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { umiPubkeyFromWalletAdapterPubkey, umiSignerFromSolanaWalletAdapter } from './lib/utils';
 import { CreateMintTransactionParams, MintingResult } from './types/create_mint';
-import SelectNftToBurn from './components/select-nft-to-burn/SelectNftToBurn';
-import { PublicKey } from '@metaplex-foundation/umi';
-import { TokenStandard } from '@metaplex-foundation/mpl-token-metadata';
-import MintingResultDisplay from './components/minting-result/MintingResult';
-import MintProvider from '@/components/MintProvider/MintProvider';
+import { PublicKey, base58PublicKey, generateSigner } from '@metaplex-foundation/umi';
 import { useAuthStore } from '@/store/store';
 import { useWalletMultiButton } from '@solana/wallet-adapter-base-ui';
-import { useSectionData } from '@/composable/useSectionData';
 import ImageMy from '@/components/Image/ImageMy';
 import HashAnchor from '@/components/HashAnchor/HashAnchor';
 import MintModal from './components/MintModal/MintModal';
+import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 
 type CandyDisplayInfo = {
     totalSupply: number,
@@ -46,6 +40,8 @@ export default function MintPage({data}: {data: any}) {
     const isSignedIn = useAuthStore((state: any) => (state.isSignedIn))
     const {setVisible: setModalVisible} = useWalletModal();
     const mintModalVisible = useAuthStore((state: any) => (state.mintModalVisible))
+    const [isLoaderVisible, setIsLoaderVisible] = useState(false)
+    const [key, setKey] = useState<any>()
 
 
     const {publicKey} = useWalletMultiButton({
@@ -53,8 +49,6 @@ export default function MintPage({data}: {data: any}) {
             setModalVisible(true);
         },
     });
-
-    console.log(publicKey)
 
     const compilationRefFirst: any = useRef(null)
     const compilationRefSecond: any = useRef(null)
@@ -72,11 +66,28 @@ export default function MintPage({data}: {data: any}) {
             setModalVisible(true)
             return
         } else{
-            const txs = params.map(p => createMintTransaction(umiPubkeyFromWalletAdapterPubkey(walletAdapter.publicKey!), p))
-            const results = await sendAndConfirmAllMints(umiSignerFromSolanaWalletAdapter(walletAdapter), txs)
-            setMintResult(results)
-            useAuthStore.setState({mintModalVisible: true})
-            setParams([{}])
+            setIsLoaderVisible(true);
+            const txs = params.map(p => createMintTransaction(umiPubkeyFromWalletAdapterPubkey(walletAdapter.publicKey!), p));
+            setKey(txs[0].mint.publicKey);
+
+            try {
+                const results = await sendAndConfirmAllMints(umiSignerFromSolanaWalletAdapter(walletAdapter), txs);
+
+                if (results && results.mintedNfts.length) {
+                    setIsLoaderVisible(false)
+                    useAuthStore.setState({ mintModalVisible: true });
+                }
+
+                setMintResult(results);
+            } catch (error) {
+                if (error instanceof Error && error.name === 'AbortError') {
+                    setIsLoaderVisible(false);
+                } else {
+                    setIsLoaderVisible(false);
+                }
+            }
+
+            setParams([{}]);
         }
       }
 
@@ -125,23 +136,28 @@ export default function MintPage({data}: {data: any}) {
 
     useEffect(() => {
         let element = document.getElementById("body");
-        if (mintModalVisible && element) {
+        console.log(isLoaderVisible)
+        if (mintModalVisible && element || element && isLoaderVisible) {
           // element.style.cssText = 'overflow: hidden; height: 100vh;'
           document.documentElement.style.overflow = 'hidden';
           document.documentElement.style.height = '100%';
           document.documentElement.style.position = 'relative';
+          console.log(isLoaderVisible)
         }
-        if (!mintModalVisible && element) {
+        if (!mintModalVisible && element && !isLoaderVisible) {
           // element.style.cssText = 'overflow: visible; height: auto;'
           document.documentElement.style.overflow = '';
           document.documentElement.style.height = '';
           document.documentElement.style.position = '';
         }
-      }, [mintModalVisible])
+      }, [mintModalVisible, isLoaderVisible])
 
     return(
         <>
-        {mintModalVisible && <MintModal/>}
+        {mintModalVisible && <MintModal publicKey={base58PublicKey(key)}/>}
+        <div className={`${styles.loader} ${isLoaderVisible ? styles.loaderActive : ''}`}>
+            <span className={styles.content}></span>
+        </div>
         <div className={styles.mint}>
             <HashAnchor></HashAnchor>
             <div className={styles.container}>
@@ -210,14 +226,15 @@ export default function MintPage({data}: {data: any}) {
                                 <div onClick={() => setParams(prev => [...prev, {}])}><Icon label='plus'></Icon></div>
                             </div>
                         </div>
-                        {!isSignedIn ? 
-                        <div onClick={auth} className={styles.signOption}>
-                            <p className={styles.signInOption}>Sign In</p>
-                        </div>    :
                         <div className={styles.signOption}>
-                            <p className={styles.signInOption}>Cross mint</p>
+                            {/* <p className={styles.signInOption}>Cross mint</p> */}
+                            <CrossmintPayButton 
+                            collectionId="cc11a174-0df9-4df3-bfeb-65ad4014e59f"
+                            projectId="1b6866d4-3236-42e9-83a2-f376668316e9"
+                            environment="staging"
+                            className={styles.payButton}
+                            />
                         </div>
-                    }
                     </div>
                 </div>
             </div>
