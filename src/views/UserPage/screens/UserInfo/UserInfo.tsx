@@ -49,7 +49,7 @@ export default function UserInfo({ lineFirst, lineSecond,  }: { lineFirst?: numb
         <div className={styles.userInfo}>
             <div className={styles.container}>
                 <div className={styles.left}>
-                    <img src={data?.user.avatar ? `https://api.realmofhistoria.com/${data?.user.avatar}` : '/userImage.png'} width={363} height={363} alt='' />
+                    <img src={data?.user.avatar ? `https://api.realmofhistoria.com/${data?.user.avatar}` : '/ooui_user-avatar.png'} width={363} height={363} alt='' />
                 </div>
                 <div className={styles.right}>
                     <div className={styles.top}>

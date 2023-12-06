@@ -193,7 +193,7 @@ const DetailsProfile = () => {
                         files.length !== 0 ?
                             thumbs
                             :
-                            <img src='/userImage.png' width={240} height={240} alt='' />
+                            <img src='/ooui_user-avatar.png' width={240} height={240} alt='' />
                     }
                     <input id="fileInput" {...getInputProps()} type='file' />
                     <span>Choose your file</span>

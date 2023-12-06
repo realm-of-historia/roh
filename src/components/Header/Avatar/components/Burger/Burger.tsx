@@ -1,5 +1,5 @@
 "use client"
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import style from './Burger.module.scss'
 import { useAuthStore } from '@/store/store'
 import Link from 'next/link'
@@ -7,12 +7,13 @@ import authConfig from '@/authConfig/authConfig'
 import ImageMy from '@/components/Image/ImageMy'
 import Divider from '@/components/Divider/Divider'
 import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
+import { useUserFetch } from '@/composable/useApiFetch'
 
 export interface StandardComponentProps {
     networks?: any,
     link?: any,
     button?: any,
-    linkauthorized?: any
+    linkauthorized?: any,
 }
 
 const Burger = ({ networks, link, button, linkauthorized }: StandardComponentProps) => {
@@ -30,6 +31,25 @@ const Burger = ({ networks, link, button, linkauthorized }: StandardComponentPro
     const handler = (href: any) => {
         window.open(href)
     }
+
+    // user
+    const token = useAuthStore((state: any) => (state.token))
+    const profileChange = useAuthStore((state: any) => (state.profileChange))
+
+    const [dataUserNew, setDataUserNew]: any = useState()
+
+    useEffect(() => {
+        if (!token) { return }
+        const FetchData = async (token: any) => {
+            const dataUser = await useUserFetch('api/crypto-user/', token)
+            return dataUser
+        }
+        const fetchDataAndLog = async () => {
+            const result = await FetchData(token);
+            setDataUserNew(result)
+        };
+        fetchDataAndLog()
+    }, [token, profileChange])
     return (
         <>
             <div className={`${style.stub} ${burger ? style.stubActive : ''}`} onClick={() => useAuthStore.setState({ isBurger: false })}></div>
@@ -38,7 +58,7 @@ const Burger = ({ networks, link, button, linkauthorized }: StandardComponentPro
                     {
                         isSignedIn &&
                         <div className={style.avatar}>
-                            <img src='/ooui_user-avatar.png' width={38} height={38} />
+                            <img src={`https://api.realmofhistoria.com/${dataUserNew?.user.avatar}` || '/ooui_user-avatar.png'} width={38} height={38} />
                         </div>
                     }
                     <div className={style.link}>
