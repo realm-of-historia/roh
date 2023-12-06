@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 }
 
 export default async function RootLayout({ children, }: { children: React.ReactNode }) {
-  const dataHeader = await useApiFetch('api/header?populate[networks][populate]=*&populate[link][populate]=*&populate[logo][populate]=*&populate[support][populate]=*&populate[subject][populate]=*&populate[searchIcon][populate]=*&populate[authorizedUserMenu][populate]=*') 
+  const dataHeader = await useApiFetch('api/header?populate[networks][populate]=*&populate[link][populate]=*&populate[logo][populate]=*&populate[support][populate]=*&populate[subject][populate]=*&populate[searchIcon][populate]=*&populate[authorizedUserMenu][populate]=*&populate[authorizedUserBurger][populate]=*')  
   const dataDigest = await useApiFetch('api/footer?populate[socialNetwork][populate]=*')
   const generalData = await useApiFetch('api/general-content?populate[about_the_projects][populate]=*&populate[carahunges][populate]=*&populate[join_uses][populate]=*')
   const instagramData = await useApiFetch('api/instagram-post?populate[post][populate]=*')

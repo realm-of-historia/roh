@@ -6,6 +6,9 @@
     display: flex;
     align-items: center;
     gap: rm(24);
+    @include md{
+        margin-top: rm(6); 
+    }
     @include xsm{
         // margin-left: rm(-70);
         // margin-right: rm(21);

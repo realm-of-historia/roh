@@ -265,7 +265,7 @@
             margin-right: rm(24);
             z-index: 10000;
 
-
+            
             @include xsm {
                 width: rm(60);
                 margin-right: rm(0);
@@ -278,6 +278,9 @@
 .signin {
     cursor: pointer;
     width: fit-content;
+    @include md{
+        padding-right: rm(25);
+    }
 
 }
 
