@@ -5,6 +5,7 @@
     display: flex;
     width: 100%;
     overflow: hidden;
+
     @include xsm {
         flex-direction: column;
     }
@@ -23,9 +24,11 @@
             width: 100%;
             flex: none;
         }
-        .wrapperText{
+
+        .wrapperText {
             position: relative;
             width: 100%;
+
             .textHeader {
                 @include font-dune-regular();
                 font-size: font(48);
@@ -33,15 +36,33 @@
                 line-height: 120%;
                 // text-transform: uppercase;
                 padding: rm(64) rm(64) rm(0) rm(64);
-                @include lg{
+
+                @include lg {
                     font-size: font(40);
                 }
+
                 @include xsm {
                     font-size: font(30);
                     padding: rm(32) rm(32) rm(0) rm(32);
                 }
             }
-    
+
+            .paragraph {
+                @include font-work-regular();
+                font-size: font(16);
+                color: color(text-brown-38);
+                font-weight: 400;
+                line-height: 160%;
+                white-space: pre-wrap;
+                padding: rm(0) rm(64) rm(200) rm(64);
+                @include lg{
+                    padding: rm(0) rm(64) rm(64) rm(64);
+                }
+                @include xsm {
+                    padding: rm(0) rm(32) rm(32) rm(32);
+                }
+            }
+
             .wrapperInfo {
                 position: relative;
                 display: flex;
@@ -50,20 +71,23 @@
                 margin-bottom: rm(64);
                 row-gap: rm(16);
                 padding: rm(0) rm(64) rm(0) rm(64);
-                @include md{
+
+                @include md {
                     row-gap: rm(32);
 
                 }
+
                 @include xsm {
+                    row-gap: rm(16);
                     margin-top: rm(32);
-                    margin-bottom: rm(32);
+                    margin-bottom: rm(0);
                     padding: rm(0) rm(32) rm(32) rm(32);
                 }
-    
+
                 .containerMeaning {
                     display: flex;
                     align-items: center;
-    
+
                     >:nth-child(1) {
                         width: rm(128);
                         color: color(text-black);
@@ -73,7 +97,7 @@
                         line-height: 160%;
                         text-transform: capitalize;
                     }
-    
+
                     >:nth-child(2) {
                         width: rm(272);
                         color: color(text-brown-38);
@@ -85,7 +109,7 @@
                 }
             }
         }
-        
+
     }
 
     .wrapperImage {
@@ -93,11 +117,14 @@
         display: flex;
         // flex: 1;
         width: 50%;
-        height: rm(908); 
+        // height: rm(908);
+        height: auto;
         z-index: 999;
+
         @include lg {
-            height: rm(800);
+            // height: rm(800);
         }
+
         @include xsm {
             order: 1;
             height: rm(640);
@@ -105,7 +132,7 @@
             flex: none;
         }
 
-        >:nth-child(1){
+        >:nth-child(1) {
             position: absolute;
             left: 0;
             bottom: 0;
@@ -113,6 +140,12 @@
             height: 100%;
             object-fit: cover;
             z-index: 333333;
+            @include md{
+                padding-bottom: rm(209.58);
+            }
+            @include xsm{
+                padding-bottom: rm(0);
+            }
         }
     }
 }
@@ -120,6 +153,7 @@
 .wrapperClock {
     position: relative;
     width: 100%;
+
     // padding-right: rm(64);
     // @include xsm{
     //     padding-right: rm(0);
@@ -130,10 +164,12 @@
     // }
     >:nth-child(2) {
         margin-right: rm(64) !important;
-        @include md{
+
+        @include md {
             display: none;
         }
     }
+
     >:nth-child(1) {
         width: 130% !important;
         right: rm(-40) !important;

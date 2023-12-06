@@ -8,6 +8,7 @@ import Divider from '@/components/Divider/Divider'
 import Text from '@/components/Text/Text'
 import { useAuthStore } from '@/store/store'
 import { useEffect, useState } from 'react'
+import Markdown from 'react-markdown'
 
 const CollectionOfWorks = () => {
     const carahunge: any = useAuthStore((state: any) => (state.carahunges))
@@ -21,6 +22,7 @@ const CollectionOfWorks = () => {
             {
                 data ?
                 <div className={style.container}>
+                    <Divider position={'left bottom'} noAnim={true} horizontal={true} opacityNo={true}/>
                     <div className={style.wrapperColumnLeft}>
                         <div className={style.wrapperText}>
                             {/* <Text> */}
@@ -40,6 +42,9 @@ const CollectionOfWorks = () => {
                                     ))
                                 }
                             </div>
+                            <Text>
+                                <Markdown className={style.paragraph}>{data?.paragraph}</Markdown>
+                            </Text>
                         </div>
                         <div className={style.wrapperClock}>
                             <Divider position={'top right'} horizontal={true} />
