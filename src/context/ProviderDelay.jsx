@@ -36,7 +36,6 @@ export const ProviderDelay = ({children}) => {
             setLoaded(true)
         }, 2000)
         setLoaded(false)
-        console.log(pathname)
     }, [url])
     const styleChildren = useMemo(() => {
         const styles = {

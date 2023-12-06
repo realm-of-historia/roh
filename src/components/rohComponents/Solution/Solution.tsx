@@ -4,7 +4,6 @@ import style from './Solution.module.scss'
 import Divider from '@/components/Divider/Divider'
 
 const Solution = ({ data, header }: any) => {
-    console.log('Solution', data)
     return (
         <div className={style.container}>
             <div className={style.header}>

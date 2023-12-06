@@ -6,6 +6,7 @@ const useAuthStore = create((set) => ({
   token: null,
   userRoute: 'myRealm',
   isBuy: true,
+  profileChange: null,
   isAllChecked: false,
   isLenis: true,
   isBurger: false,

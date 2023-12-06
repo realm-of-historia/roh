@@ -15,22 +15,21 @@ import PerksComponent from '@/views/UserPage/screens/Perks/PerksComponent/PerksC
 import { useUserFetch } from '@/composable/useApiFetch'
 import { useAuthStore } from '@/store/store'
 
-export default function page() {
+export default function PerksPage() {
     const token = useAuthStore((state: any) => (state.token))
     const [data, setData] = useState()
     useEffect(() => {
         if (!token) { return }
-        const fetchData = async (token: any) => {
+        const FetchData = async (token: any) => {
           const dataUser = await useUserFetch('api/perks/available/', token)
           return dataUser
         }
         const fetchDataAndLog = async () => {
-          const result = await fetchData(token);
+          const result = await FetchData(token);
           setData(result);
         };
         fetchDataAndLog()
       }, [token])
-    
     return(
         <>
             <WrapperTexture>

@@ -22,7 +22,6 @@ const AboutTheProject = () => {
             
         }
         setDataNew(chunkedArrays)
-        console.log(chunkedArrays)
     }, [dataTheProject])
 
     return (
