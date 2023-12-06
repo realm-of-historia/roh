@@ -2,7 +2,7 @@ import { Web3Auth } from "@web3auth/modal";
 import { SolanaWalletAdapter } from "@web3auth/torus-solana-adapter";
 
 const authConfig = new Web3Auth({
-    clientId: "BKaIFcYud_TYQJBpWkTV_H7CE7wMzpH0n5bK0Fn8LahgXeQwawPF4bHK8bvRKf6JDne1xyKi-v9-QDmggrVGWcY", //Нужен ли слеш в конце?)
+    clientId: "BBPcXBN_LFqrWooUTwEUkKH4CwvXTaxAV44R0sRNXKE-iCBlV69siQ6o1gFGnzYMgpKe2DuMc9kIwI1FfUIaV_M", //Нужен ли слеш в конце?
     web3AuthNetwork: "sapphire_devnet",
     chainConfig: {
       chainNamespace: "solana",
@@ -37,7 +37,7 @@ const authConfig = new Web3Auth({
       ticker: "sol",
       tickerName: "solana",
     },
-    clientId: "BKaIFcYud_TYQJBpWkTV_H7CE7wMzpH0n5bK0Fn8LahgXeQwawPF4bHK8bvRKf6JDne1xyKi-v9-QDmggrVGWcY",
+    clientId: "BBPcXBN_LFqrWooUTwEUkKH4CwvXTaxAV44R0sRNXKE-iCBlV69siQ6o1gFGnzYMgpKe2DuMc9kIwI1FfUIaV_M",
     sessionTime: 3600,
     web3AuthNetwork: "sapphire_mainnet",
   });
