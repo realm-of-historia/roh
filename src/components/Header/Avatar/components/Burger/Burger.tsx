@@ -58,7 +58,7 @@ const Burger = ({ networks, link, button, linkauthorized }: StandardComponentPro
                     {
                         isSignedIn &&
                         <div className={style.avatar}>
-                            <img src={`https://api.realmofhistoria.com/${dataUserNew?.user.avatar}` || '/ooui_user-avatar.png'} width={38} height={38} />
+                            <img src={dataUserNew?.user.avatar ? `https://api.realmofhistoria.com/${dataUserNew?.user.avatar}` : '/ooui_user-avatar.png'} width={38} height={38} />
                         </div>
                     }
                     <div className={style.link}>
