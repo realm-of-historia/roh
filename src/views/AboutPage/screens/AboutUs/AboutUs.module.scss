@@ -73,6 +73,7 @@
 
             :first-child{
                 p{
+                    padding-bottom: rm(32);
                     color: color(text-black);
                     font-size: font(48);
                     @include font-dune-regular;
@@ -85,6 +86,7 @@
                     @include xsm{
                         margin-bottom: rm(32);
                         font-size: font(32);
+                        padding-bottom: rm(0);
                     }
                 }
             }
@@ -160,7 +162,6 @@
                 right: 0 !important;
                 background-color: color(text-brown-85);
                 opacity: 1 !important;
-
                 @include xsm{
                     display: none;
                 }
@@ -197,6 +198,7 @@
                 }
 
                 p{
+                    white-space: pre-wrap;
                     color: color(text-brown-38);
                     line-height: 160%;
                     font-size: font(18);

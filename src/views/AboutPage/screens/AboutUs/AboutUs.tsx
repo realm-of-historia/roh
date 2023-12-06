@@ -53,11 +53,11 @@ const AboutUs = ({data} : StandardComponentProps) => {
         <div className={styles.statistics}>
           <Divider horizontal={true} position={'top left'} noAnim={true}></Divider>
           <Divider horizontal={true} position={'bottom left'} noAnim={true}></Divider>
-          {
+          {/* {
             data?.dataaboutUsactivity.map((_ : any, i : number) => (
               <Statistic key={i + 434} title={_.title} text={_.meaning}></Statistic>
             ))
-          }
+          } */}
           {/* <Statistic title='700+' text='BUSINESSES'></Statistic>
           <Statistic title='80k+' text='Quick Reports'></Statistic>
           <Statistic title='35M+' text='Payments'></Statistic> */}

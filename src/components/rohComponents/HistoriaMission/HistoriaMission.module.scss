@@ -56,6 +56,7 @@
             position: relative;
             width: 100%;
             padding: rm(32) rm(64);
+            white-space: pre-wrap;
             @include xsm{
                 padding: rm(32);
             }

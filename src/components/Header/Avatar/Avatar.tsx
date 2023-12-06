@@ -7,13 +7,14 @@ import authConfig from '@/authConfig/authConfig'
 import ImageMy from '@/components/Image/ImageMy'
 import { useWindowSize } from 'rooks';
 import { useAuthStore } from '@/store/store'
+import { useUserFetch } from '@/composable/useApiFetch'
 
 export interface StandardComponentProps {
   searchIcon?: any,
   support?: any,
   subject?: any,
   data?: any,
-  logOut?: any
+  logOut?: any,
 }
 
 const Avatar = ({ searchIcon, support, subject, data, logOut }: StandardComponentProps) => {
@@ -22,8 +23,8 @@ const Avatar = ({ searchIcon, support, subject, data, logOut }: StandardComponen
     let element: any = document.getElementById("body");
     if (burger) {
       document.documentElement.style.overflow = 'hidden';
-            document.documentElement.style.height = '100%';
-            document.documentElement.style.position = 'relative';
+      document.documentElement.style.height = '100%';
+      document.documentElement.style.position = 'relative';
       // element.style.cssText = 'overflow: hidden; height: 100vh;'
     } else {
       document.documentElement.style.overflow = '';
@@ -42,6 +43,27 @@ const Avatar = ({ searchIcon, support, subject, data, logOut }: StandardComponen
   }
   const { innerWidth }: number | any = useWindowSize();
 
+  
+// user
+const token = useAuthStore((state: any) => (state.token))
+const profileChange = useAuthStore((state: any) => (state.profileChange))
+
+const [dataUserNew, setDataUserNew]: any = useState()
+
+useEffect(() => {
+  if (!token) { return }
+  const FetchData = async (token: any) => {
+    const dataUser = await useUserFetch('api/crypto-user/', token)
+    return dataUser
+  }
+  const fetchDataAndLog = async () => {
+    const result = await FetchData(token);
+    setDataUserNew(result)
+  };
+  fetchDataAndLog()
+}, [token, profileChange])
+
+
   return (
     <div
       className={styles.avatar}
@@ -57,27 +79,30 @@ const Avatar = ({ searchIcon, support, subject, data, logOut }: StandardComponen
       </div>
       <div className={styles.wraperAvatar}>
         <picture>
-          <img src='/Avatar.png' alt='' width={38} height={38} />
+          <img src={dataUserNew?.user.avatar?  `https://api.realmofhistoria.com/${dataUserNew?.user.avatar}` : '/ooui_user-avatar.png'} alt='' width={38} height={38} />
         </picture>
         <div className={styles.dropdown}>
-          <img src="/texture.png" className={styles.texture} width={1920} height={800} alt="" />
+          <img src={"/texture.png"} className={styles.texture} width={1920} height={800} alt="" />
           <div className={styles.userInfo}>
             {/* <div className={styles.leftDivider}></div> */}
             {/* <div className={styles.bottomDivider}></div> */}
-            <img src='/Avatar.png' width={38} height={38} />
+            <img src={dataUserNew?.user.avatar?  `https://api.realmofhistoria.com/${dataUserNew?.user.avatar}` : '/ooui_user-avatar.png'} width={38} height={38} />
             <div className={styles.container}>
               <p>
-                Robert Fox
+              { dataUserNew?.user.name || dataUserNew?.user.surname ? dataUserNew?.user.name + ' ' + dataUserNew?.user.surname : dataUserNew?.user.wallet.substr(0, 10)}
+                {/* Robert Fox */}
               </p>
+
               <p>
-                robert@kt.com
+                {dataUserNew?.user.email || ''}
+                {/* robert@kt.com */}
               </p>
             </div>
           </div>
           <div className={styles.divider}></div>
           <div className={styles.options}>
             {
-              data?.map((_ : any, i : number) => (
+              data?.map((_: any, i: number) => (
                 <Link key={i + 8348} href={_.href}><p>{_.name}</p></Link>
               ))
             }

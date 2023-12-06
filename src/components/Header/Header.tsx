@@ -54,7 +54,7 @@ const Header = ({ data }: StandardComponentProps) => {
   // const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
   const [isSignedIn, setIsSignedIn] = useState(false)
   const pathname = usePathname()
-  const [token, setToken] = useState()
+  // const [token, setToken] = useState()
   const [isInit, setIsInit] = useState(false)
   const [activeWindow, setActiveWindow] = useState(false)
   const { innerWidth }: number | any = useWindowSize();
@@ -147,7 +147,7 @@ const Header = ({ data }: StandardComponentProps) => {
   }, [isSignedIn])
 
 
-  
+
 
 
   useEffect(() => {
@@ -170,13 +170,14 @@ const Header = ({ data }: StandardComponentProps) => {
     window.open(href)
   }
 
+  
   return (
     <>
       {
         data?.networks &&
         <div className={styles.header}>
           <img src="/texture.png" className={styles.texture} width={1920} height={800} alt="" />
-          <Burger networks={data?.networks} link={data?.link} button={data?.button} />
+          <Burger  networks={data?.networks} link={data?.link} button={data?.button} linkauthorized={data?.authorizedUserBurger} />
           <div className={styles.bottomDivider}></div>
           <div className={styles.wrapperLogoNetworks}>
             <picture className={styles.wrapperLogo}>
@@ -204,7 +205,7 @@ const Header = ({ data }: StandardComponentProps) => {
             <Divider position={'left top'} />
             {!isMint && <Link href='/mint'><button className={`${styles.button} ${styles.buttonMob}`}>{data?.button}</button></Link>}
             {!isSignedIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>{data?.buttonSignIn}</p></div> : <div className={styles.logIn}></div>}
-            {isSignedIn ? <Avatar
+            {isSignedIn || innerWidth <= 1080 ? <Avatar
               data={data?.authorizedUserMenu}
               logOut={data?.bottonLogOut}
               searchIcon={data?.searchIcon?.data.attributes.url}
