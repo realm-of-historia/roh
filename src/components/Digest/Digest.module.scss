@@ -23,11 +23,13 @@
     }
 
     .translation{
+        position: relative;
         transform: translateY(rm(0)) !important;
         opacity: 1 !important;
     }
 
     .loaderContainer{
+        position: relative;
         transition: transform .7s ease;
         // transform: translateY(rm(40));
     }

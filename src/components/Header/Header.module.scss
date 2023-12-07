@@ -252,7 +252,9 @@
             @include lg {
                 // width: rm(80);
             }
-
+            @include md{
+                font-size: font(20) !important;
+            }
             @include xsm {
                 // width: rm(50);
                 // display: none;
@@ -356,5 +358,6 @@
     // }
     @include md {
         display: block;
+        font-size: font(20) !important;
     }
 }

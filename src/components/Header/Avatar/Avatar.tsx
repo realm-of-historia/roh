@@ -43,25 +43,25 @@ const Avatar = ({ searchIcon, support, subject, data, logOut }: StandardComponen
   }
   const { innerWidth }: number | any = useWindowSize();
 
-  
-// user
-const token = useAuthStore((state: any) => (state.token))
-const profileChange = useAuthStore((state: any) => (state.profileChange))
 
-const [dataUserNew, setDataUserNew]: any = useState()
+  // user
+  const token = useAuthStore((state: any) => (state.token))
+  const profileChange = useAuthStore((state: any) => (state.profileChange))
 
-useEffect(() => {
-  if (!token) { return }
-  const FetchData = async (token: any) => {
-    const dataUser = await useUserFetch('api/crypto-user/', token)
-    return dataUser
-  }
-  const fetchDataAndLog = async () => {
-    const result = await FetchData(token);
-    setDataUserNew(result)
-  };
-  fetchDataAndLog()
-}, [token, profileChange])
+  const [dataUserNew, setDataUserNew]: any = useState()
+
+  useEffect(() => {
+    if (!token) { return }
+    const FetchData = async (token: any) => {
+      const dataUser = await useUserFetch('api/crypto-user/', token)
+      return dataUser
+    }
+    const fetchDataAndLog = async () => {
+      const result = await FetchData(token);
+      setDataUserNew(result)
+    };
+    fetchDataAndLog()
+  }, [token, profileChange])
 
 
   return (
@@ -79,17 +79,17 @@ useEffect(() => {
       </div>
       <div className={styles.wraperAvatar}>
         <picture>
-          <img src={dataUserNew?.user.avatar?  `https://api.realmofhistoria.com/${dataUserNew?.user.avatar}` : '/ooui_user-avatar.png'} alt='' width={38} height={38} />
+          <img src={dataUserNew?.user.avatar ? `https://api.realmofhistoria.com/${dataUserNew?.user.avatar}` : '/ooui_user-avatar.png'} alt='' width={38} height={38} />
         </picture>
         <div className={styles.dropdown}>
           <img src={"/texture.png"} className={styles.texture} width={1920} height={800} alt="" />
           <div className={styles.userInfo}>
             {/* <div className={styles.leftDivider}></div> */}
             {/* <div className={styles.bottomDivider}></div> */}
-            <img src={dataUserNew?.user.avatar?  `https://api.realmofhistoria.com/${dataUserNew?.user.avatar}` : '/ooui_user-avatar.png'} width={38} height={38} />
+            <img src={dataUserNew?.user.avatar ? `https://api.realmofhistoria.com/${dataUserNew?.user.avatar}` : '/ooui_user-avatar.png'} width={38} height={38} />
             <div className={styles.container}>
               <p>
-              { dataUserNew?.user.name || dataUserNew?.user.surname ? dataUserNew?.user.name + ' ' + dataUserNew?.user.surname : dataUserNew?.user.wallet.substr(0, 10)}
+                {dataUserNew?.user.name || dataUserNew?.user.surname ? dataUserNew?.user.name + ' ' + dataUserNew?.user.surname : dataUserNew?.user.wallet.substr(0, 10)}
                 {/* Robert Fox */}
               </p>
 
@@ -120,10 +120,12 @@ useEffect(() => {
       </div>
       {
         innerWidth <= 1080 ?
-          <div className={styles.containerBurger} onClick={() => useAuthStore.setState({ isBurger: !burger })}>
-            <span className={`${styles.burger} ${burger ? styles.burgerActive : null}`} />
-            <span className={`${styles.burger2} ${burger ? styles.burgerActive2 : null}`} />
-            <span className={`${styles.burger3} ${burger ? styles.burgerActive3 : null}`} />
+          <div onClick={() => useAuthStore.setState({ isBurger: !burger })} className={styles.wrapBurger}>
+            <div className={styles.containerBurger} >
+              <span className={`${styles.burger} ${burger ? styles.burgerActive : null}`} />
+              <span className={`${styles.burger2} ${burger ? styles.burgerActive2 : null}`} />
+              <span className={`${styles.burger3} ${burger ? styles.burgerActive3 : null}`} />
+            </div>
           </div>
           :
           <></>

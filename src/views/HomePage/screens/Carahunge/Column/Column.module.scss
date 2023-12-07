@@ -122,7 +122,7 @@
         margin-bottom: rm(32);
         display: flex;
         // gap: rm(20);
-
+        white-space: pre-wrap;
         p {
             font-size: font(16);
             line-height: 160%;
@@ -238,6 +238,7 @@
     width: fit-content !important;
     padding-left: rm(64) !important;
     padding-right: rm(64) !important;
+    white-space: pre-wrap;
 
     @include xsm {
         padding-left: rm(32) !important;

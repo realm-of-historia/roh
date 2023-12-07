@@ -12,23 +12,24 @@ import Markdown from 'react-markdown';
 const AboutTheProject = () => {
     const [dataNew, setDataNew]: any = useState([])
     const dataTheProject: any = useAuthStore((state: any) => (state.aboutTheProject))
-    
+    const { innerWidth }: number | any = useWindowSize();
+
     useMemo(() => {
         const chunkSize = Math.ceil(dataTheProject?.length / 3);
         const chunkedArrays: any = [];
         for (let i = 0; i < dataTheProject?.length; i += chunkSize) {
-                const chunk = dataTheProject?.slice(i, i + chunkSize);
-                chunkedArrays.push(chunk);
-            
+            const chunk = dataTheProject?.slice(i, i + chunkSize);
+            chunkedArrays.push(chunk);
+
         }
         setDataNew(chunkedArrays)
     }, [dataTheProject])
 
     return (
         <div className={styles.container}>
-            <Divider position={"bottom right"} horizontal={true} noAnim={true}/>
+            <Divider position={"bottom right"} horizontal={true} noAnim={true} />
             {
-             dataTheProject ?
+                dataTheProject ?
                     <>
                         <div className={styles.wrapperColumn}>
                             {
@@ -40,14 +41,21 @@ const AboutTheProject = () => {
                                         <Text>
                                             <Markdown>{_.description}</Markdown>
                                         </Text>
-                                        <Divider position={"top left"} horizontal={true}  noAnim={true}/>
+                                        <Divider position={"top left"} horizontal={true} noAnim={true} />
                                     </div>
                                 ))
                             }
                         </div>
                         <div className={styles.wrapperColumn}>
-                            <Divider position={"top right"} noAnim={true}/>
-                            <Divider position={"top left"} noAnim={true}/>
+                            {
+                                innerWidth > 576 &&
+                                <>
+                                    <Divider position={"top right"} noAnim={true} />
+                                    <Divider position={"top left"} noAnim={true} />
+                                </>
+
+                            }
+
                             {
                                 dataNew[1]?.map((_: any, i: number) => (
                                     <div key={i + 862} className={styles.cell}>
@@ -57,7 +65,7 @@ const AboutTheProject = () => {
                                         <Text>
                                             <Markdown>{_.description}</Markdown>
                                         </Text>
-                                        <Divider position={"top left"} horizontal={true} noAnim={true}/>
+                                        <Divider position={"top left"} horizontal={true} noAnim={true} />
                                     </div>
                                 ))
                             }
@@ -72,7 +80,7 @@ const AboutTheProject = () => {
                                         <Text>
                                             <Markdown>{_.description}</Markdown>
                                         </Text>
-                                        <Divider position={"top left"} horizontal={true} noAnim={true}/>
+                                        <Divider position={"top left"} horizontal={true} noAnim={true} />
                                     </div>
                                 ))
                             }

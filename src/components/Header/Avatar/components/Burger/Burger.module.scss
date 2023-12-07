@@ -62,7 +62,7 @@
             font-size: font(20);
         }
         @include xsm {
-            font-size: font(16);
+            font-size: font(20);
         }
     }
 }
@@ -86,7 +86,7 @@
         font-size: font(20);
     }
     @include xsm {
-        font-size: font(16);
+        font-size: font(20);
     }
     &:hover{
         background-color: color(burgundyBg);
@@ -140,9 +140,9 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            object-fit: cover;
-            width: rm(24);
-            height: rm(24);
+            object-fit: fill;
+            width: rm(28);
+            height: rm(28);
         }
         &:hover {
             img {

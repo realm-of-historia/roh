@@ -23,7 +23,9 @@ const ImageMy = forwardRef(function ImageMy({ src, width, height, alt = '', post
                         <source src={url} type="video/mp4"/>
                     </video>
                     :
-                    <Image ref={ref} src={url} width={width} priority={priority} height={height} alt={alt} />
+                    <Image loading={!width ? "lazy" : 'eager'}
+                    layout={!width ?"fill" : ''}
+                     ref={ref} src={url} width={width} priority={priority} height={height} alt={alt} />
             }
 
         </>
