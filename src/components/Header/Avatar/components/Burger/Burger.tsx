@@ -19,6 +19,7 @@ export interface StandardComponentProps {
 const Burger = ({ networks, link, button, linkauthorized }: StandardComponentProps) => {
     const burger: any = useAuthStore((state: any) => (state.isBurger))
     const isSignedIn = useAuthStore((state: any) => (state.isSignedIn))
+    const isMint = useAuthStore((state: any) => (state.isMint))
 
     const unLogIn = () => {
         if (authConfig.connected) {
@@ -89,7 +90,7 @@ const Burger = ({ networks, link, button, linkauthorized }: StandardComponentPro
                             <p onClick={unLogIn}>Log Out</p>
                         }
                     </div>
-                    <button className={style.button}>{button}</button>
+                    <Link href='/mint'><button className={style.button}>{button}</button></Link>
                     <div className={style.network}>
                         {
                             networks?.map((_: any, i: number) => (
