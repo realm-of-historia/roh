@@ -7,6 +7,7 @@
     // border: 1px color(text-yellow-90) solid;
     border-left: none;
     height: 100%;
+    background-color: color(bg-1);
     // z-index: 10;
     &:hover{
         cursor: pointer;
@@ -71,20 +72,20 @@
             transition: transform .6s ease-in-out;
             z-index: 999;
 
-            @include lg{
-                width: rm(266.6);
-                height: rm(266.6);
-            }
+            // @include lg{
+            //     width: rm(266.6);
+            //     height: rm(266.6);
+            // }
 
-            @include md{
-                width: rm(300);
-                height: rm(300);
-            }
+            // @include md{
+            //     width: rm(300);
+            //     height: rm(300);
+            // }
 
-            @include xsm{
-                width: rm(576);
-                height: rm(576);
-            }
+            // @include xsm{
+            //     width: rm(576);
+            //     height: rm(576);
+            // }
         }
 
         // .dividerTop{
@@ -186,4 +187,12 @@
     position: relative;
     display: flex;
     flex-direction: column;
+}
+
+.wrapperInfoArtist{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: color(bg-1);
 }

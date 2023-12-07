@@ -19,6 +19,7 @@ const Item = ({ title, price, image, isText, isArtist, description, href }: { ti
                     {/* <div className={styles.dividerBottom}></div> */}
                 </div>
                 <div className={styles.dividerRight}></div>
+                <div className={styles.wrapperInfoArtist}> 
                         {
                             description &&
                             description?.map((_: any, i: any) => (
@@ -36,6 +37,7 @@ const Item = ({ title, price, image, isText, isArtist, description, href }: { ti
                                 </div>
                             ))
                         }
+                        </div>
                 {/* {!isText ? <div className={styles.title}>
                 <Text>
                     <p className={styles.first}>

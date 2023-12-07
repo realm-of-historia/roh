@@ -61,7 +61,7 @@ const RunningLineY = ({ image='', height } : any) => {
   },[height])
   return (
     <div ref={ref} className={`${styles.runningLineY}`} style={heightrunningLineY}>
-        <div className={styles.content} ref={containerRef}></div>
+        <div className={styles.contentY} ref={containerRef}></div>
     </div>
   )
 }

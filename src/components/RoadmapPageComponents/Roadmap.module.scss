@@ -5,18 +5,18 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: color(text-black);
+    background-color: color(bg-black);
     p{
-        color: color(text-brown-88) !important;
+        color: color(text-yellow-100) !important;
     }
     li{
-        color: color(text-brown-88) !important;
+        color: color(text-yellow-100) !important;
     }
     span{
         opacity: 1 !important;
     }
     .title{
-            color: color(text-brown-88);
+            color: color(text-yellow-100);
             @include font-dune-regular();
             font-size: font(56);
             text-align: center;

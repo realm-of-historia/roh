@@ -240,7 +240,7 @@ $ancientsXSM: (
 }
 
 .black{
-    background-color: color(text-black);
+    background-color: color(bg-black);
 
 
     .container{
@@ -250,7 +250,7 @@ $ancientsXSM: (
             .ancient_#{$key} {
                     svg{
                         // color: #EFCF80;
-                        color: color(text-brown-88);
+                        color: color(text-yellow-100);
 
                     }
             }
