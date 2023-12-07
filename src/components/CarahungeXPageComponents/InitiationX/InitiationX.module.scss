@@ -68,6 +68,7 @@
             flex-direction: column;
             align-items: flex-end;
             justify-content: flex-end;
+            padding-left: rm(32);
             @include md{
                 align-items: flex-start;
                 padding-left: rm(64);

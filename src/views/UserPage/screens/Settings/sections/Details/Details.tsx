@@ -102,9 +102,9 @@ const DetailsProfile = () => {
             body: JSON.stringify({
                 name: _.name,
                 surname: _.firstName,
-                country: _.country,
-                language: _.language,
-                phone: _.phone,
+                // country: _.country,
+                // language: _.language,
+                // phone: _.phone,
                 allow_marketing: _.checBox,
                 email: _.email,
                 avatar: filesserv
@@ -263,7 +263,7 @@ const DetailsProfile = () => {
                 </div>
             </div>
 
-            <div className={styles.section}>
+            {/* <div className={styles.section}>
                 <div>
                     <p>
                         Contact Phone *
@@ -272,7 +272,7 @@ const DetailsProfile = () => {
                 <div className={styles.inputi}>
                     <SimpleInput value={'phone'} name={'phone'} register={register} placeholder={'054 544 325'} isContacts={false}></SimpleInput>
                 </div>
-            </div>
+            </div> */}
 
             <div className={styles.section}>
                 <div>
@@ -285,7 +285,7 @@ const DetailsProfile = () => {
                 </div>
             </div>
 
-            <div className={styles.section}>
+            {/* <div className={styles.section}>
                 <div>
                     <p>
                         Country *
@@ -313,9 +313,9 @@ const DetailsProfile = () => {
 
                     </div>
                 </div>
-            </div>
+            </div> */}
 
-            <div className={styles.section}>
+            {/* <div className={styles.section}>
                 <div>
                     <p>
                         Language *
@@ -341,7 +341,7 @@ const DetailsProfile = () => {
 
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             <div className={styles.switches}>
                 <p>Allow Marketing</p>

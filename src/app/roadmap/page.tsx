@@ -11,12 +11,12 @@ export default async function RoadmapPage() {
     return (
         <>
             <HashAnchor />
-            <WrapperTexture>
+            {/* <WrapperTexture> */}
                 <Roadmap data={data?.data.attributes} />
-            </WrapperTexture>
-            <WrapperTexture>
+            {/* </WrapperTexture> */}
+            {/* <WrapperTexture> */}
                 <Panegliph isFirst={true} />
-            </WrapperTexture>
+            {/* </WrapperTexture> */}
             <WrapperTexture>
                 <HeritageDefault />
             </WrapperTexture>

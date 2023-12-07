@@ -22,6 +22,7 @@
         width: 100%;
         height: rm(448);
         z-index: 999;
+        object-fit: cover;
         @include xsm{
         height: rm(320);
         }
