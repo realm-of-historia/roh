@@ -79,14 +79,14 @@ const Avatar = ({ searchIcon, support, subject, data, logOut }: StandardComponen
       </div>
       <div className={styles.wraperAvatar}>
         <picture>
-          <img src={dataUserNew?.user.avatar ? `https://api.realmofhistoria.com/${dataUserNew?.user.avatar}` : '/ooui_user-avatar.png'} alt='' width={38} height={38} />
+          <img className={styles.avatariMG} src={dataUserNew?.user.avatar ? `https://api.realmofhistoria.com/${dataUserNew?.user.avatar}` : '/ooui_user-avatar.png'} alt='' width={38} height={38} />
         </picture>
         <div className={styles.dropdown}>
           <img src={"/texture.png"} className={styles.texture} width={1920} height={800} alt="" />
           <div className={styles.userInfo}>
             {/* <div className={styles.leftDivider}></div> */}
             {/* <div className={styles.bottomDivider}></div> */}
-            <img src={dataUserNew?.user.avatar ? `https://api.realmofhistoria.com/${dataUserNew?.user.avatar}` : '/ooui_user-avatar.png'} width={38} height={38} />
+            <img className={styles.avatariMG} src={dataUserNew?.user.avatar ? `https://api.realmofhistoria.com/${dataUserNew?.user.avatar}` : '/ooui_user-avatar.png'} width={38} height={38} />
             <div className={styles.container}>
               <p>
                 {dataUserNew?.user.name || dataUserNew?.user.surname ? dataUserNew?.user.name + ' ' + dataUserNew?.user.surname : dataUserNew?.user.wallet.substr(0, 10)}

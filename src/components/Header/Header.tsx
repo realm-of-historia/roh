@@ -21,6 +21,7 @@ import Burger from './Avatar/components/Burger/Burger'
 import WrapperTexture from '../WrapperTexture/WrapperTexture'
 import fs from '../../../public/fsVww.svg'
 import { useUserFetch } from '@/composable/useApiFetch'
+
 export interface StandardComponentProps {
   data?: any,
 }
@@ -64,7 +65,10 @@ const Header = ({ data }: StandardComponentProps) => {
     if (innerWidth > 1080) {
       useAuthStore.setState({ isBurger: false })
     }
-  }, [innerWidth])
+    if(pathname){
+      useAuthStore.setState({ isBurger: false })
+    }
+  }, [innerWidth, pathname])
 
 
   useEffect(() => {
