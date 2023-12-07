@@ -5,14 +5,30 @@ import styles from './CarahungeX.module.scss'
 import Link from 'next/link'
 import { useWindowSize } from 'rooks';
 import Divider from '@/components/Divider/Divider';
+import { useRouter, useSearchParams } from "next/navigation";
 
-const CarahungeX = ({ data, fun }: any) => {
+const CarahungeX = ({ data, fun }: {data : any, fun? : any}) => {
     const { innerWidth }: number | any = useWindowSize();
     // const linkNo = (e: any) => {
     //     if (innerWidth <= 1080) {
     //         e.preventDefault()
     //     }
     // }
+    const router = useRouter()
+    function handleClick(event : any, href : any) {
+        event.stopPropagation();
+        event.preventDefault();
+        router.push(href)
+        
+    }
+    function click(e : any, href : any, fun : any){
+        if(href){
+            handleClick(e, href)
+        } if(fun) {
+            fun()
+        }
+
+    }
     return (
         <>
             {
@@ -20,7 +36,7 @@ const CarahungeX = ({ data, fun }: any) => {
                     <div className={styles.wrapper }>
                         {/* <Divider horizontal={true} position={'bottom left'}></Divider> */}
                         
-                        <div onClick={() => innerWidth <= 1080 && fun ? null : fun()}  className={styles.wrapperInfoText}>
+                        <div onClick={(e) => innerWidth <= 1080 ? null : click(e, data?.href, fun) }  className={styles.wrapperInfoText}>
                         <Divider  position={'top left'} noAnim={true}></Divider>
                         <Divider  position={'top right'} noAnim={true}></Divider>
                             <span className={styles.containerText}>
@@ -36,7 +52,7 @@ const CarahungeX = ({ data, fun }: any) => {
                                 {
                                     data?.button && innerWidth <= 1080 &&
                                     <Text>
-                                        <button onClick={() => innerWidth > 1080 && fun ? null : fun()} className={styles.button}>{data?.button}</button>
+                                        <button onClick={(e) => innerWidth > 1080  ? null : click(e, data?.href, fun)} className={styles.button}>{data?.button}</button>
                                     </Text>
                                 }
                             </span>
