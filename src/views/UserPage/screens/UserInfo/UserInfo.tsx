@@ -54,14 +54,14 @@ export default function UserInfo({ lineFirst, lineSecond,  }: { lineFirst?: numb
                 <div className={styles.right}>
                     <div className={styles.top}>
                         <div className={styles.info}>
-                            {/* <div className={styles.first}>
+                            <div className={styles.first}>
                                 <p className={styles.name}>
                                     { data?.user.name || data?.user.surname ? data?.user.name + ' ' + data?.user.surname : data?.user.wallet.substr(0, 10)}
                                 </p>
                                 <div className={styles.verification}>
                                     <div><p>Steward of Historia / Traveller / Hand of Historia</p></div>
                                 </div>
-                            </div> */}
+                            </div>
                         </div>
                         {/* <div className={styles.progress}>
                             <div className={styles.first}>
