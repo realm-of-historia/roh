@@ -55,13 +55,14 @@ const Header = ({ data }: StandardComponentProps) => {
   // const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
   const [isSignedIn, setIsSignedIn] = useState(false)
   const pathname = usePathname()
+  const [activeBurger, setActiveBurger] = useState(false)
   // const [token, setToken] = useState()
   const [isInit, setIsInit] = useState(false)
   const [activeWindow, setActiveWindow] = useState(false)
 
   const { innerWidth }: number | any = useWindowSize();
   const isMint = useAuthStore((state: any) => (state.isMint))
-
+ 
   useEffect(() => {
     if (innerWidth > 1080) {
       useAuthStore.setState({ isBurger: false })
@@ -69,8 +70,17 @@ const Header = ({ data }: StandardComponentProps) => {
     if(pathname){
       useAuthStore.setState({ isBurger: false })
     }
-  }, [innerWidth, pathname])
+    
 
+  }, [innerWidth, pathname])
+  useEffect(() => {
+    if(innerWidth <= 1080){
+      setActiveBurger(true)
+    } else {
+      setActiveBurger(false)
+    }
+  },[innerWidth])
+ 
   useEffect(() => {
     let element = document.getElementById("body");
     if (activeWindow && element) {
@@ -174,7 +184,6 @@ const Header = ({ data }: StandardComponentProps) => {
     window.open(href)
   }
 
-  // console.log(window.innerWidth)
   return (
     <>
       {
@@ -209,7 +218,7 @@ const Header = ({ data }: StandardComponentProps) => {
             <Divider position={'left top'} />
             {!isMint && !data?.hideButtonBuy && <Link href='/mint'><button className={`${styles.button} ${styles.buttonMob}`}>{data?.button}</button></Link>}
             {!isSignedIn && !data?.hideButtonSignIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>{data?.buttonSignIn}</p></div> : <div className={styles.logIn}></div>}
-            {isSignedIn || innerWidth <= 1080 || window.innerWidth <= 1080 ? <Avatar
+            {(isSignedIn || activeBurger) ? <Avatar
               data={data?.authorizedUserMenu}
               logOut={data?.bottonLogOut}
               searchIcon={data?.searchIcon?.data.attributes.url}

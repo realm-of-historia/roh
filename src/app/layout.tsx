@@ -39,9 +39,7 @@ export default async function RootLayout({ children, }: { children: React.ReactN
         <ProviderDelay>
           <LenisScroll />
           <WrapperDefoultData dataAbout={dataAboutProject} datacarahunges={datacarahunges} datajoinUses={datajoinUses} dataInstagram={instagramData?.data.attributes}/>
-          {/* <WrapperTexture> */}
             <Header data={dataHeader?.data.attributes} />
-          {/* </WrapperTexture> */}
               {children}
           <WrapperTexture>
             <Digest data={dataDigest?.data.attributes}></Digest>
