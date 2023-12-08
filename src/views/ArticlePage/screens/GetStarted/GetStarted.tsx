@@ -68,7 +68,11 @@ const GetStarted = ({data, article, dataArticleLast,comments} : StandardComponen
                 <div className={styles.left}>
                     <div className={styles.dividerLeft}></div>
                     <div className={styles.dividerRight}></div>
-                    <p className={styles.title}>{articleData?.title}</p>
+                    <Divider position={'lefr bottom'} noAnim={true} opacityNo={true} horizontal={true}/>
+                    {
+                        articleData?.title &&
+                        <p className={styles.title}>{articleData?.title}</p>
+                    }
                     <div className={styles.infos}>
                         {/* {infos.map((el) => (
                             <PostInfo key={el[0]} label={el[0]} text={el[1]}></PostInfo>
@@ -76,7 +80,10 @@ const GetStarted = ({data, article, dataArticleLast,comments} : StandardComponen
                         <PostInfo  label={creationDateIcon?.data.attributes.url} text={newDate}></PostInfo>
                         <PostInfo  label={familiarizationTimeImg?.data.attributes.url} text={articleData.familiarizationTime}></PostInfo>
                     </div>
-                    <ImageMy src={articleData?.img.data.attributes.url} height={468} width={1068} alt=''/>
+                    {
+                        articleData?.img &&
+                        <ImageMy src={articleData?.img.data.attributes.url} height={468} width={1068} alt=''/>
+                    }
                     <div className={styles.text}>
                         { articleData?.description &&
                            <Markdown>{articleData?.description}</Markdown>
@@ -93,7 +100,10 @@ const GetStarted = ({data, article, dataArticleLast,comments} : StandardComponen
                     }
                 </div> 
                 <div className={styles.wrapperComments}>
-                    <Comments data={comments}></Comments>
+                    {
+                        comments && 
+                        <Comments data={comments}></Comments>
+                    }
                 </div>
                 <div className={styles.right}>
                     <div className={styles.search}>

@@ -43,11 +43,23 @@ const Faces = ({ data = [] }: StandardComponentProps) => {
               data?.map((_: any, i: number) => (
                 <SwiperSlide key={i + 5576}>
                   <Link href={_.href || '/about'} className={styles.wrapperCard}>
-                    <ImageMy src={_.img.data.attributes.url} alt='' width={640} height={640} />
+                    {
+                      _.img.data && 
+                      <ImageMy src={_.img.data.attributes.url} alt='' width={640} height={640} />
+                    }
                     <div className={styles.text}>
-                      <p className={styles.titleCard}>{_.name}</p>
-                      <p>{_.title}</p>
-                      <ImageMy src={_.icon.data.attributes.url} alt='' width={32} height={32} />
+                      {
+                        _.name && 
+                        <p className={styles.titleCard}>{_.name}</p>
+                      }
+                      {
+                        _.title && 
+                        <p>{_.title}</p>
+                      }
+                      {
+                        _.icon.data && 
+                        <ImageMy src={_.icon.data.attributes.url} alt='' width={32} height={32} />
+                      }
                     </div>
                     <Divider position={'top right'} noAnim={true} />
                   </Link>
@@ -58,16 +70,9 @@ const Faces = ({ data = [] }: StandardComponentProps) => {
           :
           <Swiper
             modules={[Navigation, Scrollbar, A11y, Pagination, Autoplay]}
-            // spaceBetween={24}
             slidesPerView={3}
-            // ref={swiperRef}
-            // autoplay={{
-            //   delay: 0,
-            //   pauseOnMouseEnter: true,
-            // }}
             loop={true}
             scrollbar={{ draggable: true }}
-            // speed={6000}
             className={styles.wrapper}
           >
             <Divider position={'top left'} noAnim={true} />
@@ -75,11 +80,24 @@ const Faces = ({ data = [] }: StandardComponentProps) => {
               data?.map((_: any, i: number) => (
                 <SwiperSlide key={i + 345576}>
                   <Link href={_.href || '/about'} className={styles.wrapperCard}>
-                    <ImageMy src={_.img.data.attributes.url} alt='' width={640} height={640} />
+                    {
+                      _.img.data &&
+                      <ImageMy src={_.img.data?.attributes.url} alt='' width={640} height={640} />
+
+                    }
                     <div className={styles.text}>
-                      <p className={styles.titleCard}>{_.name}</p>
-                      <p>{_.title}</p>
-                      <ImageMy src={_.icon.data.attributes.url} alt='' width={32} height={32} />
+                      {
+                        _.name && 
+                        <p className={styles.titleCard}>{_.name}</p>
+                      }
+                      {
+                        _.title && 
+                        <p>{_.title}</p>
+                      }
+                      {
+                        _.icon.data &&
+                        <ImageMy src={_.icon.data?.attributes.url} alt='' width={32} height={32} />
+                      }
                     </div>
                     <Divider position={'top right'} noAnim={true} />
                   </Link>
@@ -91,11 +109,23 @@ const Faces = ({ data = [] }: StandardComponentProps) => {
               data?.map((_: any, i: number) => (
                 <SwiperSlide key={i + 34376}>
                   <Link href={_.href || '/about'} className={styles.wrapperCard}>
-                    <ImageMy src={_.img.data.attributes.url} alt='' width={640} height={640} />
+                    {
+                      _.img.data &&
+                      <ImageMy src={_.img.data.attributes.url} alt='' width={640} height={640} />
+                    }
                     <div className={styles.text}>
-                      <p className={styles.titleCard}>{_.name}</p>
-                      <p>{_.title}</p>
-                      <ImageMy src={_.icon.data.attributes.url} alt='' width={32} height={32} />
+                      {
+                        _.name && 
+                        <p className={styles.titleCard}>{_.name}</p>
+                      }
+                      {
+                        _.title && 
+                        <p>{_.title}</p>
+                      }
+                      {
+                        _.icon.data &&
+                        <ImageMy src={_?.icon?.data?.attributes.url} alt='' width={32} height={32} />
+                      }
                     </div>
                     <Divider position={'top right'} noAnim={true} />
                   </Link>

@@ -14,9 +14,10 @@ export interface StandardComponentProps {
     link?: any,
     button?: any,
     linkauthorized?: any,
+    hideButtonBuy?: boolean
 }
 
-const Burger = ({ networks, link, button, linkauthorized }: StandardComponentProps) => {
+const Burger = ({ networks, link, button, linkauthorized, hideButtonBuy }: StandardComponentProps) => {
     const burger: any = useAuthStore((state: any) => (state.isBurger))
     const isSignedIn = useAuthStore((state: any) => (state.isSignedIn))
     const isMint = useAuthStore((state: any) => (state.isMint))
@@ -63,10 +64,6 @@ const Burger = ({ networks, link, button, linkauthorized }: StandardComponentPro
                         </div>
                     }
                     <div className={style.link}>
-                        {/* <Link href='/user/personal'><p>My Profile</p></Link>
-                <Link href='/lobby'><p>3d Lobby</p></Link>
-                <Link href='/marketplace'><p>Marketplace</p></Link>
-                <Link href='/artists'><p>Artists</p></Link> */}
                         {
                             isSignedIn ?
                                 <>
@@ -90,7 +87,10 @@ const Burger = ({ networks, link, button, linkauthorized }: StandardComponentPro
                             <p onClick={unLogIn}>Log Out</p>
                         }
                     </div>
-                    {/* <Link href='/mint'><button className={style.button}>{button}</button></Link> */}
+                    {
+                        !hideButtonBuy && 
+                        <Link href='/mint'><button className={style.button}>{button}</button></Link>
+                    }
                     <div className={style.network}>
                         {
                             networks?.map((_: any, i: number) => (

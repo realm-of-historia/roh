@@ -9,7 +9,10 @@ const News = ({isNews, link, title, avatar, name, date} : {isNews?: boolean | an
     <div className={styles.news}>
       <div className={styles.imageContainer}>
         <span className={styles.loader}></span>
-        <ImageMy src={link} width={600} height={334} alt={''}/>
+        {
+          link &&
+          <ImageMy src={link} width={600} height={334} alt={''}/>
+        }
       </div>
       <Comment isNews={isNews} title={title} avatar={avatar} name={name} date={date}></Comment>
       {/* <div className={styles.divider}></div> */}

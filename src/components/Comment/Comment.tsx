@@ -15,10 +15,15 @@ const Comment = ({ isNews, title, comment, avatar, name, date, isDivider }: { is
       {isDivider ? <Divider position={"bottom left"} horizontal={true}></Divider> : <div className={styles.deleter}></div>}
       <div className={containerClass}>
         <div className={titleClass}>
-        {isNews ? null : Array.isArray(title) ? (
-            title.map((el: string) => <Text key={el}><p>{el}</p></Text>)
+          {isNews ? null : Array.isArray(title) ? (
+            title?.map((el: string) => <Text key={el}><p>{el}</p></Text>)
           ) : (
-            <Text><p>{title}</p></Text>
+            <>
+              {
+                title &&
+                <Text><p>{title}</p></Text>
+              }
+            </>
           )}
         </div>
         {comment ? <Text><p className={styles.text}>{comment}</p></Text> : <></>}
