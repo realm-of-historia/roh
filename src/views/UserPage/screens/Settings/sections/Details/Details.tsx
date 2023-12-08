@@ -19,10 +19,10 @@ import { useDropzone } from 'react-dropzone'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const DetailsProfile = () => {
+const DetailsProfile = ({ dataSer }: any) => {
     const token = useAuthStore((state: any) => (state.token))
     const profileChange = useAuthStore((state: any) => (state.profileChange))
-
+    console.log(dataSer)
     const [data, setData]: any = useState()
 
 
@@ -75,7 +75,7 @@ const DetailsProfile = () => {
 
 
 
-    const { register, handleSubmit, control, setValue, formState: {errors} } = useForm<any>({
+    const { register, handleSubmit, control, setValue, formState: { errors } } = useForm<any>({
         shouldUseNativeValidation: true,
         defaultValues: {
             CheckBox: false,
@@ -93,16 +93,16 @@ const DetailsProfile = () => {
 
     const [files, setFiles] = useState([]);
     const [filesserv, setFilesserv]: any = useState();
-    const toastError = (errors : any) => {
-        if(errors.name){
+    const toastError = (errors: any) => {
+        if (errors.name) {
             toast.error(`wrong name`)
             console.log(`wrong name`)
             return
-        } else if (errors.firstName){
+        } else if (errors.firstName) {
             toast.error(`wrong last name`)
             console.log(`wrong last name`)
             return
-        } else if(errors.email){
+        } else if (errors.email) {
             toast.error(`invalid mail`)
             console.log(`invalid mail`)
             return
@@ -154,19 +154,19 @@ const DetailsProfile = () => {
         let file = acceptedFiles[0]
         if (file) {
             const reader = new FileReader();
-  
-            reader.onload = function (e : any) {
-              const base64String = e.target.result.split(',')[1];
-              const imageSrc = `data:${file.type};base64,${base64String}`; 
-              setFilesserv(imageSrc)
-            };
-  
-            reader.readAsDataURL(file);
-          } 
 
-        
+            reader.onload = function (e: any) {
+                const base64String = e.target.result.split(',')[1];
+                const imageSrc = `data:${file.type};base64,${base64String}`;
+                setFilesserv(imageSrc)
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+
     }, []);
-    
+
     const {
         getRootProps,
         getInputProps,
@@ -198,9 +198,11 @@ const DetailsProfile = () => {
     return (
         <form id='detailsForm' className={styles.details} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.avatar}>
-                <p>Avatar</p>
+                {
+                    dataSer?.avatar &&
+                    <p>{dataSer?.avatar}</p>
+                }
                 <div className={styles.container}  {...getRootProps()}>
-                    {/* <img src='/userImage.png' width={240} height={240} alt='' /> */}
                     {
                         files.length !== 0 ?
                             thumbs
@@ -208,6 +210,7 @@ const DetailsProfile = () => {
                             <img src='/ooui_user-avatar.png' width={240} height={240} alt='' />
                     }
                     <input id="fileInput" {...getInputProps()} type='file' />
+
                     <span>Choose your file</span>
                 </div>
             </div>
@@ -265,13 +268,17 @@ const DetailsProfile = () => {
             ))} */}
             <div className={styles.section}>
                 <div>
-                    <p>
-                        Full Name *
-                    </p>
+                    {
+                        dataSer?.fullName &&
+                        <p>
+                            {dataSer?.fullName}
+                        </p>
+                    }
+
                 </div>
                 <div className={styles.inputs}>
-                    <SimpleInput errors={errors} value={'text'} name={'name'} register={register} placeholder={'Vasya'} isContacts={false}></SimpleInput>
-                    <SimpleInput errors={errors} value={'text'} name={'firstName'} register={register} placeholder={'Pupkin'} isContacts={false}></SimpleInput>
+                    <SimpleInput errors={errors} value={'text'} name={'name'} register={register} placeholder={dataSer?.placeholderName} isContacts={false}></SimpleInput>
+                    <SimpleInput errors={errors} value={'text'} name={'firstName'} register={register} placeholder={dataSer?.placeholderSurname} isContacts={false}></SimpleInput>
                 </div>
             </div>
 
@@ -288,12 +295,16 @@ const DetailsProfile = () => {
 
             <div className={styles.section}>
                 <div>
-                    <p>
-                        Email *
+                    {
+                        dataSer?.email &&
+                        <p>
+                            {dataSer?.email}
                     </p>
+                    }
+                   
                 </div>
                 <div className={styles.inputi}>
-                    <SimpleInput errors={errors} value={'email'} name={'email'} register={register} placeholder={'www@ww.com'} isContacts={false}></SimpleInput>
+                    <SimpleInput errors={errors} value={'email'} name={'email'} register={register} placeholder={dataSer?.placeholderEmail} isContacts={false}></SimpleInput>
                 </div>
             </div>
 
@@ -356,11 +367,14 @@ const DetailsProfile = () => {
             </div> */}
 
             <div className={styles.switches}>
-                <p>Allow Marketing</p>
+                {
+                    dataSer?.allowMarketing &&
+                    <p>{dataSer?.allowMarketing}</p>
+                }
                 <SwitchBox name={'checBox'} register={register}></SwitchBox>
             </div>
             <div className={styles.footer}>
-                <button className={styles.buttonWhite} onClick={() => toastError(errors)}>Save Changes</button>
+                <button className={styles.buttonWhite} onClick={() => toastError(errors)}>{dataSer?.buttonSave}</button>
                 {/* <UserButtonBlack formId='detailsForm' text='Save Changes'></UserButtonBlack> */}
             </div>
         </form>
