@@ -14,6 +14,7 @@
     flex-direction: column;
     transform: translate(-100%, 0%);
     transition: transform ease 0.5s, opacity ease 0.3s, visibility ease 0.3s;
+    min-width: rm(300);
     >:nth-child(1){
         height: 100vh;
     }

@@ -13,7 +13,7 @@ const Comments = ({ data }: { data?: any }) => {
             {
                 data?.data.map((_: any, i: number) => (
                     <Link key={i + 8324} href={`/blog/${_.attributes.uid}` || '/'} className={styles.linkArticles}>
-                        <News link={_.attributes.img.data.attributes.url}
+                        <News link={_.attributes?.img.data.attributes.url}
                             isNews={true}
                             title={_.attributes.title}
                             avatar={_.attributes.avatar.data.attributes.url}
