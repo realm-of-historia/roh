@@ -15,20 +15,19 @@ export interface StandardComponentProps {
 }
 const Explorer = ({ data }: StandardComponentProps) => {
 
+
   return (
     <div className={styles.main}>
       <Swiper
         modules={[Navigation, Scrollbar, A11y, Pagination, Autoplay]}
         slidesPerView={1}
         loop={true}
-        // effect={'fade'}
-        spaceBetween={24}
+        effect={'fade'}
         autoplay={{
-          delay: 2000,
-          pauseOnMouseEnter: true,
-          // disableOnInteraction: false,
+          delay: 5000,
+          disableOnInteraction: false,
         }}
-        speed={6000}
+        speed={3000}
         scrollbar={{ draggable: true }}
         className='mySwiper'
       >
