@@ -22,6 +22,7 @@
 }
 .linkArticles{
     position: relative;
+    width: 100%;
     @include xsm{
         padding-bottom: rm(16);
     }

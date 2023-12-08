@@ -35,7 +35,7 @@ const HeritageDefault = () => {
                                     <p>{data?.joinUs.description}</p>
                                 </Text>
                                 {
-                                    data?.joinUs.button &&
+                                    !data?.hideButton &&
                                     <Text>
                                         <Link href={data?.href} onClick={(e) => signedIn ? null : signedInFunction(e)} className={stules.button}>{data?.joinUs.button}</Link>
                                     </Text>

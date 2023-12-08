@@ -26,11 +26,11 @@ const Column: NextPage<Column> = ({ link, description, icon, iconLink, initiatio
         <div className={`${styles.main} ${initiation ? styles.maininitiation : ''}`}>
             <Divider position={"top right"} horizontal={true} />
             {
-                !road &&
+                road &&
                 <Divider position={"top left"} />
             }
             {
-                initiation && !road &&
+                initiation && road &&
                 <div className={styles.dot}></div>
             }
             {

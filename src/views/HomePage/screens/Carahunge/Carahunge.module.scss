@@ -36,7 +36,7 @@
     >:last-child{
         padding-left: rm(64);
         @include xsm {
-            padding-left: rm(32);
+            padding-left: rm(0);
         }
     }
 

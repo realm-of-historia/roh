@@ -9,9 +9,10 @@ import Divider from '@/components/Divider/Divider'
 import { useAuthStore } from '@/store/store'
 import Link from 'next/link'
 export interface StandardComponentProps {
-    data?: any
+    data?: any,
+    road?: boolean
 }
-const Carahunge = ({ data }: StandardComponentProps) => {
+const Carahunge = ({ data, road }: StandardComponentProps) => {
 
 
     return (

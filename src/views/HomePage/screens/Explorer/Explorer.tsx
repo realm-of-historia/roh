@@ -9,6 +9,7 @@ import SwiperButton from '@/components/SwiperButton/SwiperButton'
 import 'swiper/css/pagination';
 import 'swiper/swiper-bundle.css'
 import ImageMy from '../../../../components/Image/ImageMy'
+import Link from 'next/link'
 
 export interface StandardComponentProps {
   data?: any
@@ -32,11 +33,13 @@ const Explorer = ({ data }: StandardComponentProps) => {
         className='mySwiper'
       >
         {data?.map((item: any, index: number) => (
-          <SwiperSlide key={index} className={styles.swiperSlide}>
-            <div className={styles.wrapperMedia}>
-              <ImageMy src={item.img.data.attributes.url} alt='' width={1920} height={720} />
-            </div>
-            <Text><p>{item.title}</p></Text>
+          <SwiperSlide key={index} >
+            <Link href={item?.href || '/'} className={styles.swiperSlide}>
+              <div className={styles.wrapperMedia}>
+                <ImageMy src={item.img.data.attributes.url} alt='' width={1920} height={720} />
+              </div>
+              <Text><p>{item.title}</p></Text>
+            </Link>
           </SwiperSlide>
         ))}
 
