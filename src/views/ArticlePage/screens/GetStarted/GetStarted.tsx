@@ -68,6 +68,7 @@ const GetStarted = ({data, article, dataArticleLast,comments} : StandardComponen
                 <div className={styles.left}>
                     <div className={styles.dividerLeft}></div>
                     <div className={styles.dividerRight}></div>
+                    <Divider position={'lefr bottom'} noAnim={true} opacityNo={true} horizontal={true}/>
                     {
                         articleData?.title &&
                         <p className={styles.title}>{articleData?.title}</p>
