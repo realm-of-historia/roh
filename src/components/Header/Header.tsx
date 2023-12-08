@@ -58,6 +58,8 @@ const Header = ({ data }: StandardComponentProps) => {
   // const [token, setToken] = useState()
   const [isInit, setIsInit] = useState(false)
   const [activeWindow, setActiveWindow] = useState(false)
+  const [burgerAvatar, setBurgerAvatar] = useState(false)
+
   const { innerWidth }: number | any = useWindowSize();
   const isMint = useAuthStore((state: any) => (state.isMint))
 
@@ -67,6 +69,11 @@ const Header = ({ data }: StandardComponentProps) => {
     }
     if(pathname){
       useAuthStore.setState({ isBurger: false })
+    }
+    if(innerWidth <= 1080){
+      setBurgerAvatar(true)
+    } else {
+      setBurgerAvatar(false)
     }
   }, [innerWidth, pathname])
 
@@ -181,7 +188,7 @@ const Header = ({ data }: StandardComponentProps) => {
         data?.networks &&
         <div className={styles.header}>
           <img src="/texture.png" className={styles.texture} width={1920} height={800} alt="" />
-          <Burger  networks={data?.networks} link={data?.link} button={data?.button} linkauthorized={data?.authorizedUserBurger} />
+          <Burger hideButtonBuy={data?.hideButtonBuy}  networks={data?.networks} link={data?.link} button={data?.button} linkauthorized={data?.authorizedUserBurger} />
           <div className={styles.bottomDivider}></div>
           <div className={styles.wrapperLogoNetworks}>
             <picture className={styles.wrapperLogo}>
@@ -203,13 +210,13 @@ const Header = ({ data }: StandardComponentProps) => {
                 <Link key={i + 321} href={_.href || '/'}><p>{_.name}</p></Link>
               ))
             }
-            {/* {!isMint && <Link href='/mint'><button className={styles.button}>{data?.button}</button></Link>} */}
+            {!isMint && !data?.hideButtonBuy &&  <Link href='/mint'><button className={styles.button}>{data?.button}</button></Link>}
           </div>
           <div className={styles.right}>
             <Divider position={'left top'} />
-            {/* {!isMint && <Link href='/mint'><button className={`${styles.button} ${styles.buttonMob}`}>{data?.button}</button></Link>} */}
-            {/* {!isSignedIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>{data?.buttonSignIn}</p></div> : <div className={styles.logIn}></div>} */}
-            {isSignedIn || innerWidth <= 1080 ? <Avatar
+            {!isMint && !data?.hideButtonBuy && <Link href='/mint'><button className={`${styles.button} ${styles.buttonMob}`}>{data?.button}</button></Link>}
+            {!isSignedIn && !data?.hideButtonSignIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>{data?.buttonSignIn}</p></div> : <div className={styles.logIn}></div>}
+            {isSignedIn || burgerAvatar ? <Avatar
               data={data?.authorizedUserMenu}
               logOut={data?.bottonLogOut}
               searchIcon={data?.searchIcon?.data.attributes.url}

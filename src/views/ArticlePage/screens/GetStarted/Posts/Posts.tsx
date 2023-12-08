@@ -9,7 +9,10 @@ const Posts = ({ dataArticleLast, title} : {dataArticleLast? : any, title? : any
 
   return (
     <div className={styles.posts}>
-       <p className={styles.title}>{title}</p>
+      {
+        title &&
+        <p className={styles.title}>{title}</p>
+      }
         <div className={styles.text}>
             {/* {Array.isArray(secondText) ? text.map((el, _) => (
                 <PostBlock key={el} text={text[_]} secondText={secondText[_]}></PostBlock>    
@@ -17,7 +20,7 @@ const Posts = ({ dataArticleLast, title} : {dataArticleLast? : any, title? : any
             {
               dataArticleLast && 
               dataArticleLast?.data.map((_ : any, i : any) => (
-                <PostBlock key={i + 7681} title={_.attributes.title} href={_?.attributes.uid || '/'}></PostBlock>    
+                <PostBlock key={i + 7681} title={_?.attributes.title} href={_?.attributes.uid || '/'}></PostBlock>    
               ))
             }
         </div>

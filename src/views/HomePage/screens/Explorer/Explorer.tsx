@@ -24,10 +24,10 @@ const Explorer = ({ data }: StandardComponentProps) => {
         loop={true}
         effect={'fade'}
         autoplay={{
-          delay: 5000,
+          delay: 8000,
           disableOnInteraction: false,
         }}
-        speed={3000}
+        speed={1000}
         scrollbar={{ draggable: true }}
         className='mySwiper'
       >
