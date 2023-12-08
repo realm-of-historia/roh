@@ -63,7 +63,7 @@ const AboutUs = ({data} : StandardComponentProps) => {
           <Statistic title='35M+' text='Payments'></Statistic> */}
           
         </div>
-        <div className={styles.footer}>
+        {/* <div className={styles.footer}>
           <div className={styles.container}>
             <Text>
               <p>
@@ -77,7 +77,7 @@ const AboutUs = ({data} : StandardComponentProps) => {
               </p>
             </Text>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )

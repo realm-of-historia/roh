@@ -203,12 +203,12 @@ const Header = ({ data }: StandardComponentProps) => {
                 <Link key={i + 321} href={_.href || '/'}><p>{_.name}</p></Link>
               ))
             }
-            {!isMint && <Link href='/mint'><button className={styles.button}>{data?.button}</button></Link>}
+            {/* {!isMint && <Link href='/mint'><button className={styles.button}>{data?.button}</button></Link>} */}
           </div>
           <div className={styles.right}>
             <Divider position={'left top'} />
-            {!isMint && <Link href='/mint'><button className={`${styles.button} ${styles.buttonMob}`}>{data?.button}</button></Link>}
-            {!isSignedIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>{data?.buttonSignIn}</p></div> : <div className={styles.logIn}></div>}
+            {/* {!isMint && <Link href='/mint'><button className={`${styles.button} ${styles.buttonMob}`}>{data?.button}</button></Link>} */}
+            {/* {!isSignedIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>{data?.buttonSignIn}</p></div> : <div className={styles.logIn}></div>} */}
             {isSignedIn || innerWidth <= 1080 ? <Avatar
               data={data?.authorizedUserMenu}
               logOut={data?.bottonLogOut}

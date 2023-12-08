@@ -11,8 +11,10 @@
     .wrapper{
         position: relative;
         width: 100%;
-        display: grid;
-        grid-template: 1fr/ 1fr 1fr 1fr;
+        display: flex;
+        align-items: center;
+        // display: grid;
+        // grid-template: 1fr/ 1fr 1fr 1fr;
         overflow: hidden;
         @include xsm{
             display: flex;
@@ -20,6 +22,12 @@
         }
         >:nth-child(1){
             opacity: 1 !important;
+        }
+        .swiper-slide {
+            height: auto !important;
+            // @include xmd {
+            //     background: color(black-3) !important;
+            // }
         }
     }
 

@@ -15,7 +15,7 @@ import Link from 'next/link'
 export interface StandardComponentProps {
   data?: any
 }
-const Faces = ({ data }: StandardComponentProps) => {
+const Faces = ({ data = [] }: StandardComponentProps) => {
 
   const windowWidth: any = useWindowWidth()
   const [width, setWidth]: any = useState()
@@ -35,61 +35,76 @@ const Faces = ({ data }: StandardComponentProps) => {
 
   return (
     <div className={styles.faces}>
-      {/* <Swiper
-        modules={[Navigation, Scrollbar, A11y, Pagination, Autoplay]}
-        // spaceBetween={24}
-        slidesPerView={slides}
-        ref={swiperRef}
-        autoplay={{
-          delay: 0,
-          pauseOnMouseEnter: true,
-        }}
-        loop={true}
-        speed={6000}
-        className={styles.mySwiper}
-      > */}
-      {/* {
-          data?.data.map((_: any, i: number) => (
-            <SwiperSlide key={i + 55}>
-              <ImageMy src={_.attributes.url} alt='' width={640} height={640}/>
-            </SwiperSlide>
-          ))
-        } */}
-      <div className={styles.wrapper}>
-        <Divider position={'top left'} noAnim={true} />
-        {
-          data?.map((_: any, i: number) => (
-            <Link href={_.href || '/about'} key={i + 345576} className={styles.wrapperCard}>
-              <ImageMy src={_.img.data.attributes.url} alt='' width={640} height={640} />
-              <div className={styles.text}>
-                <p className={styles.titleCard}>{_.name}</p>
-                <p>{_.title}</p>
-                <ImageMy src={_.icon.data.attributes.url} alt='' width={32} height={32} />
-              </div>
-              <Divider position={'top right'} noAnim={true}/>
-            </Link>
-          ))
-        }
-      </div>
-      {/* <SwiperSlide>
-              <img src='/Post-1.png' alt='' width={640} height={640}/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src='/Post-2.png' alt='' width={640} height={640}/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src='/Post.png' alt='' width={640} height={640}/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src='/Post-1.png' alt='' width={640} height={640}/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src='/Post-2.png' alt='' width={640} height={640}/>
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src='/Post.png' alt='' width={640} height={640}/>
-            </SwiperSlide> */}
-      {/* </Swiper> */}
+      {
+        width <= 576 ?
+          <div className={styles.wrapper}>
+            <Divider position={'top left'} noAnim={true} />
+            {
+              data?.map((_: any, i: number) => (
+                <SwiperSlide key={i + 5576}>
+                  <Link href={_.href || '/about'} className={styles.wrapperCard}>
+                    <ImageMy src={_.img.data.attributes.url} alt='' width={640} height={640} />
+                    <div className={styles.text}>
+                      <p className={styles.titleCard}>{_.name}</p>
+                      <p>{_.title}</p>
+                      <ImageMy src={_.icon.data.attributes.url} alt='' width={32} height={32} />
+                    </div>
+                    <Divider position={'top right'} noAnim={true} />
+                  </Link>
+                </SwiperSlide>
+              ))
+            }
+          </div>
+          :
+          <Swiper
+            modules={[Navigation, Scrollbar, A11y, Pagination, Autoplay]}
+            // spaceBetween={24}
+            slidesPerView={3}
+            // ref={swiperRef}
+            // autoplay={{
+            //   delay: 0,
+            //   pauseOnMouseEnter: true,
+            // }}
+            loop={true}
+            scrollbar={{ draggable: true }}
+            // speed={6000}
+            className={styles.wrapper}
+          >
+            <Divider position={'top left'} noAnim={true} />
+            {
+              data?.map((_: any, i: number) => (
+                <SwiperSlide key={i + 345576}>
+                  <Link href={_.href || '/about'} className={styles.wrapperCard}>
+                    <ImageMy src={_.img.data.attributes.url} alt='' width={640} height={640} />
+                    <div className={styles.text}>
+                      <p className={styles.titleCard}>{_.name}</p>
+                      <p>{_.title}</p>
+                      <ImageMy src={_.icon.data.attributes.url} alt='' width={32} height={32} />
+                    </div>
+                    <Divider position={'top right'} noAnim={true} />
+                  </Link>
+                </SwiperSlide>
+              ))
+            }
+            {
+              data?.length < 6 &&
+              data?.map((_: any, i: number) => (
+                <SwiperSlide key={i + 34376}>
+                  <Link href={_.href || '/about'} className={styles.wrapperCard}>
+                    <ImageMy src={_.img.data.attributes.url} alt='' width={640} height={640} />
+                    <div className={styles.text}>
+                      <p className={styles.titleCard}>{_.name}</p>
+                      <p>{_.title}</p>
+                      <ImageMy src={_.icon.data.attributes.url} alt='' width={32} height={32} />
+                    </div>
+                    <Divider position={'top right'} noAnim={true} />
+                  </Link>
+                </SwiperSlide>
+              ))
+            }
+          </Swiper>
+      }
+
     </div>
   )
 }

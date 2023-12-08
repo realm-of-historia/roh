@@ -90,7 +90,7 @@ const Burger = ({ networks, link, button, linkauthorized }: StandardComponentPro
                             <p onClick={unLogIn}>Log Out</p>
                         }
                     </div>
-                    <Link href='/mint'><button className={style.button}>{button}</button></Link>
+                    {/* <Link href='/mint'><button className={style.button}>{button}</button></Link> */}
                     <div className={style.network}>
                         {
                             networks?.map((_: any, i: number) => (
