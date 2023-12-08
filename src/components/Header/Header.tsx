@@ -58,7 +58,6 @@ const Header = ({ data }: StandardComponentProps) => {
   // const [token, setToken] = useState()
   const [isInit, setIsInit] = useState(false)
   const [activeWindow, setActiveWindow] = useState(false)
-  const [burgerAvatar, setBurgerAvatar] = useState(false)
 
   const { innerWidth }: number | any = useWindowSize();
   const isMint = useAuthStore((state: any) => (state.isMint))
@@ -70,13 +69,7 @@ const Header = ({ data }: StandardComponentProps) => {
     if(pathname){
       useAuthStore.setState({ isBurger: false })
     }
-    if(innerWidth <= 1080){
-      setBurgerAvatar(true)
-    } else {
-      setBurgerAvatar(false)
-    }
   }, [innerWidth, pathname])
-
 
   useEffect(() => {
     let element = document.getElementById("body");
@@ -181,7 +174,7 @@ const Header = ({ data }: StandardComponentProps) => {
     window.open(href)
   }
 
-  
+  // console.log(window.innerWidth)
   return (
     <>
       {
@@ -216,7 +209,7 @@ const Header = ({ data }: StandardComponentProps) => {
             <Divider position={'left top'} />
             {!isMint && !data?.hideButtonBuy && <Link href='/mint'><button className={`${styles.button} ${styles.buttonMob}`}>{data?.button}</button></Link>}
             {!isSignedIn && !data?.hideButtonSignIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>{data?.buttonSignIn}</p></div> : <div className={styles.logIn}></div>}
-            {isSignedIn || burgerAvatar ? <Avatar
+            {isSignedIn || innerWidth <= 1080 || window.innerWidth <= 1080 ? <Avatar
               data={data?.authorizedUserMenu}
               logOut={data?.bottonLogOut}
               searchIcon={data?.searchIcon?.data.attributes.url}
