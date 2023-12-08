@@ -4,7 +4,7 @@ import Divider from '@/components/Divider/Divider'
 import Text from '@/components/Text/Text'
 
 
-const InitiationX = ({ data, road }: {data:any, road?:boolean}) => {
+const InitiationX = ({ data, road, roadColumn }: {data:any, road?:boolean, roadColumn? : boolean}) => {
     return (
         <div className={styles.carahunge}>
             <div className={styles.container}>
@@ -24,7 +24,7 @@ const InitiationX = ({ data, road }: {data:any, road?:boolean}) => {
                         <div className={styles.dot2}></div>
                     }
                 </div>
-                <Column description={data?.initiationTable} initiation={true} road={road}></Column>
+                <Column description={data?.initiationTable} initiation={true} road={roadColumn}></Column>
             </div>
         </div>
     )

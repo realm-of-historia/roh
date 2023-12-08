@@ -16,6 +16,8 @@ import Dropdown from '@/components/UI/Dropdown/Dropdown'
 import { useAuthStore } from '@/store/store'
 import { useUserFetch } from '@/composable/useApiFetch'
 import { useDropzone } from 'react-dropzone'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const DetailsProfile = () => {
     const token = useAuthStore((state: any) => (state.token))
@@ -37,9 +39,6 @@ const DetailsProfile = () => {
         fetchDataAndLog()
     }, [token, profileChange])
 
-
-
-
     const languageOptions = [
         { value: 'RU', label: 'Russian', },
         { value: 'AM', label: 'Armenian' },
@@ -51,7 +50,6 @@ const DetailsProfile = () => {
         { value: 'PL', label: 'Poland' },
         { value: 'USA', label: 'United States' },
     ]
-
 
     const selectStyles: any = {
         control: (styles: any, { isFocused }: { isFocused: boolean }) => ({
@@ -77,7 +75,7 @@ const DetailsProfile = () => {
 
 
 
-    const { register, handleSubmit, control, setValue } = useForm<any>({
+    const { register, handleSubmit, control, setValue, formState: {errors} } = useForm<any>({
         shouldUseNativeValidation: true,
         defaultValues: {
             CheckBox: false,
@@ -87,15 +85,29 @@ const DetailsProfile = () => {
         if (!data) { return }
         setValue('name', data?.user.name)
         setValue('firstName', data?.user.surname)
-        setValue('phone', data?.user.phone)
-        setValue('country', data?.user.country)
-        setValue('language', data?.user.language)
+        // setValue('phone', data?.user.phone)
+        // setValue('country', data?.user.country)
+        // setValue('language', data?.user.language)
         setValue('email', data?.user.email)
     }, [data])
 
     const [files, setFiles] = useState([]);
     const [filesserv, setFilesserv]: any = useState();
-
+    const toastError = (errors : any) => {
+        if(errors.name){
+            toast.error(`wrong name`)
+            console.log(`wrong name`)
+            return
+        } else if (errors.firstName){
+            toast.error(`wrong last name`)
+            console.log(`wrong last name`)
+            return
+        } else if(errors.email){
+            toast.error(`invalid mail`)
+            console.log(`invalid mail`)
+            return
+        }
+    }
     const onSubmit: any = (_: any) => {
         fetch('https://api.realmofhistoria.com/api/crypto-user/', {
             method: 'PUT',
@@ -117,7 +129,7 @@ const DetailsProfile = () => {
 
     }
 
-
+    console.log(errors)
     // const formData = new FormData();
     // const onDrop = useCallback((acceptedFiles: any) => {
     //     acceptedFiles.forEach((file : any) => {
@@ -258,8 +270,8 @@ const DetailsProfile = () => {
                     </p>
                 </div>
                 <div className={styles.inputs}>
-                    <SimpleInput value={'text'} name={'name'} register={register} placeholder={'Vasya'} isContacts={false}></SimpleInput>
-                    <SimpleInput value={'text'} name={'firstName'} register={register} placeholder={'Pupkin'} isContacts={false}></SimpleInput>
+                    <SimpleInput errors={errors} value={'text'} name={'name'} register={register} placeholder={'Vasya'} isContacts={false}></SimpleInput>
+                    <SimpleInput errors={errors} value={'text'} name={'firstName'} register={register} placeholder={'Pupkin'} isContacts={false}></SimpleInput>
                 </div>
             </div>
 
@@ -281,7 +293,7 @@ const DetailsProfile = () => {
                     </p>
                 </div>
                 <div className={styles.inputi}>
-                    <SimpleInput value={'email'} name={'email'} register={register} placeholder={'www@ww.com'} isContacts={false}></SimpleInput>
+                    <SimpleInput errors={errors} value={'email'} name={'email'} register={register} placeholder={'www@ww.com'} isContacts={false}></SimpleInput>
                 </div>
             </div>
 
@@ -348,7 +360,7 @@ const DetailsProfile = () => {
                 <SwitchBox name={'checBox'} register={register}></SwitchBox>
             </div>
             <div className={styles.footer}>
-                <button className={styles.buttonWhite}>Save Changes</button>
+                <button className={styles.buttonWhite} onClick={() => toastError(errors)}>Save Changes</button>
                 {/* <UserButtonBlack formId='detailsForm' text='Save Changes'></UserButtonBlack> */}
             </div>
         </form>
