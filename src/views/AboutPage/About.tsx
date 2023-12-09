@@ -7,7 +7,6 @@ import Digest from '@/components/Digest/Digest'
 import AboutUs from '@/views/AboutPage/screens/AboutUs/AboutUs'
 import RunningLine from '@/components/RunningLine/RunningLine'
 import Faces from '@/views/AboutPage/screens/AboutUs/Faces/Faces'
-import GreatTeam from '@/views/AboutPage/screens/AboutUs/GreatTeam/GreatTeam'
 import Layout from '@/components/Layout/Layout'
 import { useSectionData } from '@/composable/useSectionData'
 import HashAnchor from '@/components/HashAnchor/HashAnchor'
@@ -35,7 +34,6 @@ export default function About({ data }: StandardComponentProps) {
         dataaboutUsimgMobile
     }
     const dataRunningLine = useSectionData(data, 'ribbon')
-    const dataGreatTeam = useSectionData(data, 'ourGreatTeam')
     const dataFaces = useSectionData(data, 'swiperAboutUs')
 
     return (
@@ -48,7 +46,6 @@ export default function About({ data }: StandardComponentProps) {
 
             {/* <RunningLine image={dataRunningLine.data.attributes.url}></RunningLine> */}
             {/* <Comments data={articles} /> */}
-            {/* <GreatTeam data={dataGreatTeam} /> */}
             <WrapperTexture>
                 <Faces data={dataFaces} />
             </WrapperTexture>

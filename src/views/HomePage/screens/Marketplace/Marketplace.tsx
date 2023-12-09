@@ -11,7 +11,6 @@ import SwiperButton from '@/components/SwiperButton/SwiperButton'
 import 'swiper/css/pagination';
 import 'swiper/swiper-bundle.css'
 import { useWindowWidth } from '@react-hook/window-size'
-import { NativeUnderpin } from '@/components/NativeUnderpin/NativeUnderpin'
 import { useInView } from 'react-intersection-observer'
 export interface StandardComponentProps {
     title?: string,
@@ -68,7 +67,6 @@ const Marketplace = ({title, isMarket, ref}: StandardComponentProps) => {
     const swiperRef = useRef<any>(null)
 
   return (
-    // <NativeUnderpin>
         <div className={styles.marketplace} ref={ref}>
             {!isMarket &&         
                 <div className={styles.title}>
@@ -119,10 +117,7 @@ const Marketplace = ({title, isMarket, ref}: StandardComponentProps) => {
                     </SwiperSlide>
                 </Swiper>
             </div>
-            {/* <div className={styles.cardsContainer}>
-            </div> */}
         </div>
-    // </NativeUnderpin>
   )
 }
 
