@@ -5,7 +5,6 @@ import Carahunge from './screens/Carahunge/Carahunge'
 import Start from './screens/Start/Start'
 import Comments from './screens/Comments/Comments'
 import Posts from './screens/Posts/Posts'
-import Layout from '@/components/Layout/Layout'
 import { useSectionData } from '../../composable/useSectionData.js'
 import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 import Heritage from './screens/Heritage/Heritage'
@@ -33,7 +32,6 @@ export default function HomeView({ data }: StandardComponentProps) {
 
   return (
     <div>
-      <Layout>
           <Explorer data={dataExplorer} />
         <WrapperTexture>
           <Heritage data={dataHeritage} />
@@ -68,7 +66,6 @@ export default function HomeView({ data }: StandardComponentProps) {
         <WrapperTexture>
           <HeritageDefault />
         </WrapperTexture>
-      </Layout>
     </div>
   )
 }
