@@ -4,7 +4,6 @@ import RunningLine from "@/components/RunningLine/RunningLine"
 import WrapperTexture from "@/components/WrapperTexture/WrapperTexture"
 import { useApiFetch } from "@/composable/useApiFetch"
 import { useSectionData } from "@/composable/useSectionData"
-import HeritageDefault from "@/views/HomePage/screens/Heritage/HeritageDefault"
 
 
 export default async function Сollections() {
@@ -28,9 +27,6 @@ export default async function Сollections() {
             <WrapperTexture>
                 <CarahungeX data={dataCarahungeX} />
             </WrapperTexture>
-            {/* <WrapperTexture>
-                <HeritageDefault />
-            </WrapperTexture> */}
         </>
     )
 }

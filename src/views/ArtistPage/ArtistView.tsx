@@ -1,8 +1,6 @@
 "use client"
 
 import React from 'react'
-import Header from '@/components/Header/Header'
-import Digest from '@/components/Digest/Digest'
 import Artist from './ArtistPage/ArtistPage'
 import HashAnchor from '@/components/HashAnchor/HashAnchor'
 import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'

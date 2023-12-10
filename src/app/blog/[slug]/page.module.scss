@@ -1,9 +1,0 @@
-@use "@/assets/styles/index.scss" as *;
-
-
-.wrapperComments{
-    position: relative;
-    @include xsm{
-        display: none;
-    }
-}

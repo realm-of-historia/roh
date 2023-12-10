@@ -9,11 +9,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 const CarahungeX = ({ data, fun }: {data : any, fun? : any}) => {
     const { innerWidth }: number | any = useWindowSize();
-    // const linkNo = (e: any) => {
-    //     if (innerWidth <= 1080) {
-    //         e.preventDefault()
-    //     }
-    // }
     const router = useRouter()
     function handleClick(event : any, href : any) {
         event.stopPropagation();
@@ -34,8 +29,6 @@ const CarahungeX = ({ data, fun }: {data : any, fun? : any}) => {
             {
                 data ?
                     <div className={styles.wrapper }>
-                        {/* <Divider horizontal={true} position={'bottom left'}></Divider> */}
-                        
                         <div onClick={(e) => innerWidth <= 1080 ? null : click(e, data?.href, fun) }  className={styles.wrapperInfoText}>
                         <Divider  position={'top left'} noAnim={true}></Divider>
                         <Divider  position={'top right'} noAnim={true}></Divider>

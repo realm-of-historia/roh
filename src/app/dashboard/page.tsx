@@ -1,4 +1,3 @@
-"use client"
 
 import DashboardView from '@/views/UserPage/screens/Dashboard/DashboardView'
 import React from 'react'
