@@ -1,5 +1,4 @@
 import React from 'react'
-import HistoryView from '@/views/UserPage/screens/History/HistoryView'
 import { useApiFetch } from '@/composable/useApiFetch'
 import { useSectionData } from '@/composable/useSectionData'
 import HeaderHistory from '@/components/HistoryPageComponent/HeaderHistory/HeaderHistory'
@@ -42,6 +41,5 @@ export default async function HistoryPage() {
                 <HeritageDefault />
             </WrapperTexture>
         </>
-        // <HistoryView></HistoryView> // раньше была страница
     )
 }

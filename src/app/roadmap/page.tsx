@@ -11,12 +11,8 @@ export default async function RoadmapPage() {
     return (
         <>
             <HashAnchor />
-            {/* <WrapperTexture> */}
-                <Roadmap data={data?.data.attributes} />
-            {/* </WrapperTexture> */}
-            {/* <WrapperTexture> */}
-                <Panegliph isFirst={true} />
-            {/* </WrapperTexture> */}
+            <Roadmap data={data?.data.attributes} />
+            <Panegliph isFirst={true} />
             <WrapperTexture>
                 <HeritageDefault />
             </WrapperTexture>

@@ -2,7 +2,6 @@
 
 import React from 'react'
 import styles from './Creatures.module.scss'
-import Bundle from '@/components/Bundle/Bundle'
 import Item from './Item/Item'
 import imgs from '../../../../public/showAll.svg'
 import Divider from '@/components/Divider/Divider'
@@ -11,7 +10,6 @@ import { useWindowSize } from 'rooks';
 const Creatures = ({ text, price, image, items }: { text?: string | Array<string>, price?: string | Array<string>, image?: string | Array<string>, items?: any | Array<string> }) => {
   const { innerWidth }: number | any = useWindowSize();
 
-  // console.log('dsa', items)
   return (
     <div className={styles.creatures}>
       <Divider position={"bottom right"} horizontal={true} noAnim={true} />

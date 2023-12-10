@@ -8,7 +8,6 @@ import Categories from './Categories/Categories'
 import Posts from './Posts/Posts'
 import SimpleInput from '@/components/UI/SimpleInput/SimpleInput'
 import {useState} from 'react'
-import Text from '@/components/Text/Text'
 import {useForm} from 'react-hook-form'
 import { useSectionData } from '@/composable/useSectionData'
 import ImageMy from '@/components/Image/ImageMy'
@@ -25,7 +24,6 @@ export interface StandardComponentProps {
 }
 
 const GetStarted = ({data, article, dataArticleLast,comments} : StandardComponentProps) => {
-    // console.log(data)
     const searchBlog = useSectionData(data, 'searchBlog')
     const searchBlogplaceholder = useSectionData(data, 'searchBlogplaceholder')
     const recentPostsTitle = useSectionData(data, 'recentPostsTitle')
