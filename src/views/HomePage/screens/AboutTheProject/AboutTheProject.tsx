@@ -11,6 +11,7 @@ import Markdown from 'react-markdown';
 
 const AboutTheProject = () => {
     const [dataNew, setDataNew]: any = useState([])
+    const [activeDivider, setActiveDivider]: any = useState(false)
     const dataTheProject: any = useAuthStore((state: any) => (state.aboutTheProject))
     const { innerWidth }: number | any = useWindowSize();
 
@@ -24,7 +25,13 @@ const AboutTheProject = () => {
         }
         setDataNew(chunkedArrays)
     }, [dataTheProject])
-
+    useEffect(() => {
+        if(innerWidth > 576){
+            setActiveDivider(true)
+        } else{
+            setActiveDivider(false)
+        }
+    },[innerWidth])
     return (
         <div className={styles.container}>
             <Divider position={"bottom right"} horizontal={true} noAnim={true} />
@@ -48,7 +55,7 @@ const AboutTheProject = () => {
                         </div>
                         <div className={styles.wrapperColumn}>
                             {
-                                innerWidth > 576 &&
+                                activeDivider &&
                                 <>
                                     <Divider position={"top right"} noAnim={true} />
                                     <Divider position={"top left"} noAnim={true} />

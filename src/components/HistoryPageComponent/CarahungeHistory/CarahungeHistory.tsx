@@ -18,7 +18,10 @@ const CarahungeHistory = ({ data }: any) => {
                             </div>
                         </div>
                         <div className={style.wrapperImg}>
-                            <ImageMy src={_.img.data.attributes.url} width={960} height={720} alt = ''/>
+                            {
+                                _?.img?.data?.attributes.url && 
+                                <ImageMy src={_.img.data.attributes.url} width={960} height={720} alt = ''/>
+                            }
                         </div>
                     </div>
                 ))

@@ -6,7 +6,6 @@ import Text from '@/components/Text/Text'
 import { useMemo } from 'react'
 import { useInView } from "react-intersection-observer"
 import Link from 'next/link'
-import { NativeUnderpin } from '@/components/NativeUnderpin/NativeUnderpin'
 import ImageMy from '@/components/Image/ImageMy'
 import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 import { useAuthStore } from '@/store/store'
@@ -26,43 +25,12 @@ const Posts = ({ data, img }: StandardComponentProps) => {
         window.open(href)
     }
     return (
-        // <NativeUnderpin>
         <>
             {
                 dataNew &&
                 <div className={styles.posts}>
                     <div className={styles.dividerTop}></div>
                     <div className={styles.left}>
-                        {/* <div className={styles.container} ref={ref}>
-                    <div className={`${styles.animCircle} ${inView ? styles.animCircleActive : ''}`}></div>
-                    <div className={styles.dividerBottom}></div>
-                    <div className={styles.dividerRight}></div>
-                </div>
-                <div className={styles.container}>
-                    <div className={`${styles.animCircle} ${inView ? styles.animCircleActive : ''}`}></div>
-                    <div className={styles.dividerBottom}></div>
-                    <div className={styles.dividerRight}></div>
-                </div>
-                <div className={styles.container}>
-                    <div className={`${styles.animCircle} ${inView ? styles.animCircleActive : ''}`}></div>
-                    <div className={styles.dividerBottom}></div>
-                    <div className={styles.dividerRight}></div>
-                </div>
-                <div className={styles.container}>
-                    <div className={`${styles.animCircle} ${inView ? styles.animCircleActive : ''}`}></div>
-                    <div className={styles.dividerBottom}></div>
-                    <div className={styles.dividerRight}></div>
-                </div>
-                <div className={styles.container}>
-                    <div className={`${styles.animCircle} ${inView ? styles.animCircleActive : ''}`}></div>
-                    <div className={styles.dividerBottom}></div>
-                    <div className={styles.dividerRight}></div>
-                </div>
-                <div className={styles.container}>
-                    <div className={`${styles.animCircle} ${inView ? styles.animCircleActive : ''}`}></div>
-                    <div className={styles.dividerBottom}></div>
-                    <div className={styles.dividerRight}></div>
-                </div> */}
                         {
                             dataNew?.post.map((_: any, i: number) => (
                                 <div key={i + 834} onClick={() => handler(_.href)} className={styles.wrapperInstPost}>
@@ -85,8 +53,6 @@ const Posts = ({ data, img }: StandardComponentProps) => {
                 </div>
             }
         </>
-
-        // </NativeUnderpin>
     )
 }
 

@@ -20,6 +20,12 @@
     position: relative;
     width: 100%;
     overflow: hidden;
+    padding-left: rm(64);
+    padding-right: rm(64);
+    @include xsm {
+        padding-left: rm(32);
+        padding-right: rm(32);
+    }
 }
 .main{
     display: flex;

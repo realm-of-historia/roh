@@ -6,7 +6,6 @@ import Contacts from './Contacts/Contacts'
 import HeadOffice from './HeadOffice/HeadOffice'
 import Header from '@/components/Header/Header'
 import { useSectionData } from '@/composable/useSectionData'
-// import Layout from '@/components/Layout/Layout'
 export interface StandardComponentProps {
     data?: string
 }
