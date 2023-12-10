@@ -28,7 +28,7 @@ const Explorer = ({ data }: StandardComponentProps) => {
           delay: 8000,
           disableOnInteraction: false,
         }}
-        speed={1000}
+        speed={200}
         scrollbar={{ draggable: true }}
         className='mySwiper'
       >
