@@ -11,7 +11,7 @@ import { useSectionData } from '@/composable/useSectionData'
 import { ToastContainer } from 'react-toastify'
 import { getServerSession } from 'next-auth'
 import SessionProvider from '../components/SessionProvider/SessionProvider'
-import Analytics from '@/Analytics/analytics'
+import Analytics from '@/Analytics/Analytics'
 
 
 export const metadata: Metadata = {
