@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/NativeUnderpin/NativeUnderpin.jsx", "src/components/SwiperButton", "src/app/services/WalletService.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/NativeUnderpin/NativeUnderpin.jsx", "src/components/SwiperButton", "src/services/WalletService.js"],
   "exclude": ["node_modules"]
 }
