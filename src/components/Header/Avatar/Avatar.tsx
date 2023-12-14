@@ -8,6 +8,7 @@ import ImageMy from '@/components/Image/ImageMy'
 import { useWindowSize } from 'rooks';
 import { useAuthStore } from '@/store/store'
 import { useUserFetch } from '@/composable/useApiFetch'
+import { useSession, signOut, getSession} from 'next-auth/react'
 
 export interface StandardComponentProps {
   searchIcon?: any,
@@ -18,6 +19,19 @@ export interface StandardComponentProps {
 }
 
 const Avatar = ({ searchIcon, support, subject, data, logOut }: StandardComponentProps) => {
+
+  const {data: session} = useSession();
+  const [fetchedSession, setFetchedSession] = useState<any>()
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const userSession: any = await getSession();
+      setFetchedSession(userSession)
+    };
+
+    fetchData();
+  }, []);
+
   const burger: any = useAuthStore((state: any) => (state.isBurger))
   useEffect(() => {
     let element: any = document.getElementById("body");
@@ -34,9 +48,12 @@ const Avatar = ({ searchIcon, support, subject, data, logOut }: StandardComponen
     }
   }, [burger])
   const unLogIn = () => {
-    if (authConfig.connected) {
-      authConfig.logout();
-      console.log(authConfig.connected)
+    // if (authConfig.connected) {
+    if(fetchedSession){
+      // authConfig.logout();
+      // console.log(authConfig.connected)
+      signOut()
+      // console.log(session)
     } else {
       console.log('disconnected')
     }

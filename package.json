@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/azure-tables-adapter": "^0.1.9",
+    "@auth/typeorm-adapter": "^1.0.12",
     "@crossmint/client-sdk-react-ui": "^1.1.2",
     "@metaplex-foundation/mpl-candy-machine": "^6.0.0",
     "@metaplex-foundation/mpl-token-metadata": "^3.1.0",
@@ -34,11 +36,14 @@
     "chartjs-plugin-zoom": "^2.0.1",
     "date-fns-tz": "^2.0.0",
     "dotenv": "^16.3.1",
+    "encoding": "^0.1.13",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
     "google-map-react": "^2.2.1",
     "gsap": "^3.12.2",
     "next": "13.4.19",
+    "next-auth": "^4.24.5",
+    "nodemailer": "^6.9.7",
     "react": "18.2.0",
     "react-calendar": "^4.6.0",
     "react-chartjs-2": "^5.2.0",
@@ -58,6 +63,7 @@
     "ts-node": "^10.9.1",
     "tweetnacl": "^1.0.3",
     "tweetnacl-util": "^0.15.1",
+    "typeorm": "^0.3.17",
     "typescript": "5.2.2",
     "yarn": "^1.22.19",
     "zustand": "^4.4.1"

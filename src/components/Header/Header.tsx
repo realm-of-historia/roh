@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useMemo, useState } from 'react'
+import { getSession, signIn, signOut, useSession } from 'next-auth/react'
 import styles from './Header.module.scss'
 import Icon from '../UI/Icon/Icon'
 import Avatar from './Avatar/Avatar'
@@ -27,7 +28,8 @@ export interface StandardComponentProps {
 }
 
 export const handleAuth = () => {
-  authConfig.connect();
+  // authConfig.connect();
+  signIn(undefined, { callbackUrl: 'http://localhost:3000/' })
   handleAuths()
 }
 const handleAuths = () => {
@@ -52,16 +54,23 @@ const handleAuths = () => {
   }, 1)
 }
 const Header = ({ data }: StandardComponentProps) => {
-  // const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
-  const [isSignedIn, setIsSignedIn] = useState(false)
+  const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
   const pathname = usePathname()
   const [activeBurger, setActiveBurger] = useState(false)
-  // const [token, setToken] = useState()
   const [isInit, setIsInit] = useState(false)
   const [activeWindow, setActiveWindow] = useState(false)
 
   const { innerWidth }: number | any = useWindowSize();
   const isMint = useAuthStore((state: any) => (state.isMint))
+  const {data: session} = useSession()
+  const [publicKey, setPublicKey]: any = useState()
+  const [secretKey, setSecretKey]: any = useState()
+  const [fetchedSession, setFetchedSession]: any = useState()
+
+  const projectId = "1b6866d4-3236-42e9-83a2-f376668316e9";
+  const clientSecret = "sk_test.758515a4.81408c4fb94a9d32c6449756a12fe1d9";
+
+  
  
   useEffect(() => {
     if (innerWidth > 1080) {
@@ -117,72 +126,128 @@ const Header = ({ data }: StandardComponentProps) => {
 
   //listeners
 
-  authConfig.on(ADAPTER_EVENTS.CONNECTED, (data: any) => {
-    setIsSignedIn(true)
-    useAuthStore.setState(({ isSignedIn: true }))
-  })
+  //getting publicKey
+  // useEffect(() => {
+  //   if(fetchedSession){
+  //     const body = {
+  //       email: `${fetchedSession.user.email}`, 
+  //       chain: "solana",  
+  //     }
 
-  authConfig.on(ADAPTER_EVENTS.DISCONNECTED, (data: any) => {
-    setIsSignedIn(false)
-    useAuthStore.setState(({ isSignedIn: false }))
-  })
+  //     const getPub = async () => {
+  //       const response: any = await fetch(
+  //         `https://staging.crossmint.com/api/v1-alpha1/wallets`,
+  //         {
+  //           method: 'POST',
+  //           headers: {
+  //             'X-PROJECT-ID': `${projectId}`,
+  //             'X-CLIENT-SECRET': `${clientSecret}`,
+  //             'content-type': 'application/json'
+  //           },
+  //           body: JSON.stringify(body),
+  //         }
+  //       );
 
-  authConfig.on(ADAPTER_EVENTS.ERRORED, (error) => {
-    console.log("error", error);
-  });
+        
+  //       const wallet = await response.json();
+
+  //       console.log(wallet)
+
+  //       setPublicKey(wallet)
+  //     }
+
+  //     getPub()
+  //   }
+  // }, [fetchedSession])
+
+
+  // useEffect(() => {
+  //   console.log(publicKey)
+  //   if (publicKey) {
+  //     const test = solanaWeb3.Keypair.generate()
+
+
+  //     const solAuthJSON = generateSolAuthJSON(test, publicKey);
+  //     // // const solAuthJSON = generateSolAuthJSON(publicKey, secretKey);
+
+  //     // console.log(solAuthJSON)
+
+
+  //     // fetch('https://api.realmofhistoria.com/api/web3auth/', {
+  //     //   method: 'POST',
+  //     //   headers: {
+  //     //     'Authorization': `Bearer`,
+  //     //     'Content-Type': 'application/json',
+  //     //   },
+  //     //   body: JSON.stringify(solAuthJSON),
+  //     // })
+  //     //   .then(response => response.json())
+  //     //   .then(data => {
+  //     //     // setToken(data.token)
+  //     //     useAuthStore.setState({ token: data.token })
+  //     //   })
+  //     //   .catch(error => {
+  //     //     console.error("ошибка:", error);
+  //     //   });
+
+
+
+  //     const env = "staging";
+  //     const chain = "solana";
+  //     const address = `${publicKey.publicKey}`;
+
+  //     const message = "signed";
+
+  //     fetch(`https://${env}.crossmint.com/api/v1-alpha1/wallets/${chain}:${address}/signMessage`, {
+  //         method: "POST",
+  //         headers: {
+  //             "Content-Type": "application/json",
+  //             "x-project-id": projectId,
+  //             "x-client-secret": clientSecret
+  //         },
+  //         body: JSON.stringify({ chain, address, message })
+  //     })
+  //     .then(response => response.json())
+  //     .then(data => console.log("Signed message:", data))
+  //     .catch(error => console.error("Error:", error));
+
+  //   }
+  // }, [publicKey])
+
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const userSession: any = await getSession();
+  //     if(userSession.accessToken){
+  //       setSecretKey(userSession.accessToken)
+  //     }
+
+  //     setFetchedSession(userSession)
+  //   };
+
+  //   fetchData();
+  // }, []);
 
 
   useEffect(() => {
-    if (isSignedIn) {
-      const test = solanaWeb3.Keypair.generate()
-
-      const solAuthJSON = generateSolAuthJSON(test);
-      const confirmResult = confirmSolAuthJSON(solAuthJSON);
-
-
-
-      fetch('https://api.realmofhistoria.com/api/web3auth/', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(solAuthJSON),
-      })
-        .then(response => response.json())
-        .then(data => {
-          // setToken(data.token)
-          useAuthStore.setState({ token: data.token })
-        })
-        .catch(error => {
-          console.error("ошибка:", error);
-        });
-    }
-  }, [isSignedIn])
-
-
-
-
-
-  useEffect(() => {
-    if (pathname.indexOf('/user') === 0 && !isSignedIn) {
+    if (pathname.indexOf('/user') === 0 && !fetchedSession) {
       redirect('/')
     }
-  }, [pathname, isSignedIn])
+  }, [pathname, fetchedSession])
 
 
-  useEffect(() => {
-    if (pathname === '/mint') {
-      useAuthStore.setState({ isMint: true })
-    } else {
-      useAuthStore.setState({ isMint: false })
-    }
-    // console.log(pathname, isMint)
-  })
+  // useEffect(() => {
+  //   if (pathname === '/mint') {
+  //     useAuthStore.setState({ isMint: true })
+  //   } else {
+  //     useAuthStore.setState({ isMint: false })
+  //   }
+  // })
 
   const handler = (href: any) => {
     window.open(href)
   }
+
 
   return (
     <>
@@ -212,19 +277,28 @@ const Header = ({ data }: StandardComponentProps) => {
                 <Link key={i + 321} href={_.href || '/'}><p>{_.name}</p></Link>
               ))
             }
+            <p>{fetchedSession?.user?.name}</p>
             {!isMint && !data?.hideButtonBuy &&  <Link href='/mint'><button className={styles.button}>{data?.button}</button></Link>}
           </div>
           <div className={styles.right}>
             <Divider position={'left top'} />
             {!isMint && !data?.hideButtonBuy && <Link href='/mint'><button className={`${styles.button} ${styles.buttonMob}`}>{data?.button}</button></Link>}
-            {!isSignedIn && !data?.hideButtonSignIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>{data?.buttonSignIn}</p></div> : <div className={styles.logIn}></div>}
-            {(isSignedIn || activeBurger) ? <Avatar
+            {/* {!isSignedIn && !data?.hideButtonSignIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>{data?.buttonSignIn}</p></div> : <div className={styles.logIn}></div>} */}
+            {/* {<div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>{data?.buttonSignIn}</p></div>} */}
+            {/* {(isSignedIn || activeBurger) ? <Avatar
               data={data?.authorizedUserMenu}
               logOut={data?.bottonLogOut}
               searchIcon={data?.searchIcon?.data.attributes.url}
               support={data?.support?.data.attributes.url}
               subject={data?.subject?.data.attributes.url}></Avatar>
-              : <div></div>}
+              : <div></div>} */}
+              {/* {(fetchedSession) ? <Avatar
+              data={data?.authorizedUserMenu}
+              logOut={data?.bottonLogOut}
+              searchIcon={data?.searchIcon?.data.attributes.url}
+              support={data?.support?.data.attributes.url}
+              subject={data?.subject?.data.attributes.url}></Avatar>
+              : <div></div>} */}
           </div>
         </div>
       }

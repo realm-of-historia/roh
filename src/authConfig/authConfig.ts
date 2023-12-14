@@ -1,8 +1,9 @@
 import { Web3Auth } from "@web3auth/modal";
 import { SolanaWalletAdapter } from "@web3auth/torus-solana-adapter";
 
+
 const authConfig = new Web3Auth({
-    clientId: "BBPcXBN_LFqrWooUTwEUkKH4CwvXTaxAV44R0sRNXKE-iCBlV69siQ6o1gFGnzYMgpKe2DuMc9kIwI1FfUIaV_M", //Нужен ли слеш в конце?
+    clientId: `${process.env.WEB3_CLIENT_ID}`, //Нужен ли слеш в конце?
     web3AuthNetwork: "sapphire_devnet",
     chainConfig: {
       chainNamespace: "solana",
@@ -37,7 +38,7 @@ const authConfig = new Web3Auth({
       ticker: "sol",
       tickerName: "solana",
     },
-    clientId: "BBPcXBN_LFqrWooUTwEUkKH4CwvXTaxAV44R0sRNXKE-iCBlV69siQ6o1gFGnzYMgpKe2DuMc9kIwI1FfUIaV_M",
+    clientId: `${process.env.WEB3_CLIENT_ID}`,
     sessionTime: 3600,
     web3AuthNetwork: "sapphire_mainnet",
   });

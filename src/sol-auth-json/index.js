@@ -8,11 +8,15 @@ const { decodeUTF8 } = require('tweetnacl-util'); // both
 
 /** FOR FRONTEND */
 
-function generateSolAuthJSON(keypair, msgBase = 'AUTH', roundMs = 300000) {
+function generateSolAuthJSON(keypair, msgBase = 'AUTH', roundMs = 300000) { // delete secretKey
   const wallet = keypair.publicKey.toBase58();
   const msg = msgBase + (Math.ceil(Date.now() / roundMs) * roundMs).toString();
   const signatureBytes = nacl.sign.detached(decodeUTF8(msg), keypair.secretKey);
   const signature = btoa(String.fromCharCode.apply(null, signatureBytes));
+  // const msg = msgBase + (Math.ceil(Date.now() / roundMs) * roundMs).toString();
+  // const signatureBytes = nacl.sign.detached(decodeUTF8(msg), keypair.secretKey);
+  // const signature = btoa(String.fromCharCode.apply(null, signatureBytes));
+  // const wallet = publicKey.publicKey
   return { wallet, signature };
 }
 

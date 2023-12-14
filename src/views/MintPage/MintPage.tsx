@@ -17,6 +17,8 @@ import ImageMy from '@/components/Image/ImageMy';
 import HashAnchor from '@/components/HashAnchor/HashAnchor';
 import MintModal from './components/MintModal/MintModal';
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
+import { useSession } from 'next-auth/react';
+import { toast } from 'react-toastify';
 
 type CandyDisplayInfo = {
     totalSupply: number,
@@ -37,11 +39,11 @@ type CandyDisplayInfo = {
 
 export default function MintPage({data}: {data: any}) {
 
-    const isSignedIn = useAuthStore((state: any) => (state.isSignedIn))
     const {setVisible: setModalVisible} = useWalletModal();
     const mintModalVisible = useAuthStore((state: any) => (state.mintModalVisible))
     const [isLoaderVisible, setIsLoaderVisible] = useState(false)
     const [key, setKey] = useState<any>()
+    const {data: session} = useSession()
 
 
     const {publicKey} = useWalletMultiButton({
@@ -54,7 +56,6 @@ export default function MintPage({data}: {data: any}) {
     const compilationRefSecond: any = useRef(null)
     const { candy, createMintTransaction, sendAndConfirmAllMints, selectNextPhase, selectedPhase, selectedPhaseSettings, elligiblePhases }: any = useCandy()
     const walletAdapter = useWallet()
-    const {auth} = useAuth()
 
 
     const [params, setParams] = useState<CreateMintTransactionParams[]>([{}])
@@ -76,14 +77,17 @@ export default function MintPage({data}: {data: any}) {
                 if (results && results.mintedNfts.length) {
                     setIsLoaderVisible(false)
                     useAuthStore.setState({ mintModalVisible: true });
+                    toast.success('Minted successfully');
                 }
 
                 setMintResult(results);
             } catch (error) {
                 if (error instanceof Error && error.name === 'AbortError') {
                     setIsLoaderVisible(false);
+                    toast.error('Error during mint');
                 } else {
                     setIsLoaderVisible(false);
+                    toast.error('Error during mint');
                 }
             }
 
@@ -155,9 +159,11 @@ export default function MintPage({data}: {data: any}) {
     return(
         <>
         {mintModalVisible && <MintModal publicKey={base58PublicKey(key)}/>}
-        <div className={`${styles.loader} ${isLoaderVisible ? styles.loaderActive : ''}`}>
-            <span className={styles.content}></span>
-        </div>
+        {isLoaderVisible &&
+                <div className={`${styles.loader} ${isLoaderVisible ? styles.loaderActive : ''}`}>
+                    <span className={styles.content}></span>
+                </div>
+        }
         <div className={styles.mint}>
             <HashAnchor></HashAnchor>
             <div className={styles.container}>
