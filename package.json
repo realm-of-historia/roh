@@ -1,9 +1,10 @@
+
 {
   "name": "client",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node dev-server.ts",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
