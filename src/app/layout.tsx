@@ -11,13 +11,22 @@ import { useSectionData } from '@/composable/useSectionData'
 import { ToastContainer } from 'react-toastify'
 import { getServerSession } from 'next-auth'
 import SessionProvider from '../components/SessionProvider/SessionProvider'
-import Head from 'next/head'
+import Analytics from '@/Analytics/analytics'
 
 
 export const metadata: Metadata = {
   title: 'Realm of Historia - Preserving Cultural Heritage',
   description: `Realm of Historia is a pioneering  project leveraging blockchain technology to preserve global cultural heritage sites, starting with Armenia's ancient Carahunge astronomical observatory.`,
   keywords: 'Carahunge, Armenia, blockchain, culture, heritage, history, art, preservation, astronomy, observatory, Solana',
+  twitter: {
+    creator: '@RealmofHistoria',
+    card: 'summary',
+    site: '@RealmofHistoria'
+  },
+  openGraph:{
+    url: 'https://www.realmofhistoria.com/',
+    images: 'https://landingpage-ldfymt793-arthur-popov.vercel.app/images/metaLogo.png'
+  },
 }
 
 export default async function RootLayout({ children, }: { children: React.ReactNode }) {
@@ -32,16 +41,6 @@ export default async function RootLayout({ children, }: { children: React.ReactN
 
   return (
     <html lang="en">
-      <Head>
-        <title>Realm of Historia - Preserving Cultural Heritage</title>
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content="@RealmofHistoria" />
-        <meta name="twitter:creator" content="@RealmofHistoria" />
-        <meta property="og:url" content="https://www.realmofhistoria.com/" />
-        <meta property="og:title" content="Realm of Historia - Preserving Cultural Heritage" />
-        <meta property="og:description" content="Realm of Historia is a pioneering  project leveraging blockchain technology to preserve global cultural heritage sites, starting with Armenia's ancient Carahunge astronomical observatory." />
-        <meta property="og:image" content="https://landingpage-ldfymt793-arthur-popov.vercel.app/images/metaLogo.png" />
-      </Head>
       <body suppressHydrationWarning={true} id='body'>
         <SessionProvider session={session}>
           <ProviderDelay>
@@ -55,6 +54,7 @@ export default async function RootLayout({ children, }: { children: React.ReactN
           </ProviderDelay>
         </SessionProvider>
         <ToastContainer />
+        <Analytics/>
       </body>
     </html>
   )
