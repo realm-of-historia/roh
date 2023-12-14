@@ -127,106 +127,106 @@ const Header = ({ data }: StandardComponentProps) => {
   //listeners
 
   //getting publicKey
-  // useEffect(() => {
-  //   if(fetchedSession){
-  //     const body = {
-  //       email: `${fetchedSession.user.email}`, 
-  //       chain: "solana",  
-  //     }
+  useEffect(() => {
+    if(fetchedSession){
+      const body = {
+        email: `${fetchedSession.user.email}`, 
+        chain: "solana",  
+      }
 
-  //     const getPub = async () => {
-  //       const response: any = await fetch(
-  //         `https://staging.crossmint.com/api/v1-alpha1/wallets`,
-  //         {
-  //           method: 'POST',
-  //           headers: {
-  //             'X-PROJECT-ID': `${projectId}`,
-  //             'X-CLIENT-SECRET': `${clientSecret}`,
-  //             'content-type': 'application/json'
-  //           },
-  //           body: JSON.stringify(body),
-  //         }
-  //       );
+      const getPub = async () => {
+        const response: any = await fetch(
+          `https://staging.crossmint.com/api/v1-alpha1/wallets`,
+          {
+            method: 'POST',
+            headers: {
+              'X-PROJECT-ID': `${projectId}`,
+              'X-CLIENT-SECRET': `${clientSecret}`,
+              'content-type': 'application/json'
+            },
+            body: JSON.stringify(body),
+          }
+        );
 
         
-  //       const wallet = await response.json();
+        const wallet = await response.json();
 
-  //       console.log(wallet)
+        console.log(wallet)
 
-  //       setPublicKey(wallet)
-  //     }
+        setPublicKey(wallet)
+      }
 
-  //     getPub()
-  //   }
-  // }, [fetchedSession])
-
-
-  // useEffect(() => {
-  //   console.log(publicKey)
-  //   if (publicKey) {
-  //     const test = solanaWeb3.Keypair.generate()
+      getPub()
+    }
+  }, [fetchedSession])
 
 
-  //     const solAuthJSON = generateSolAuthJSON(test, publicKey);
-  //     // // const solAuthJSON = generateSolAuthJSON(publicKey, secretKey);
-
-  //     // console.log(solAuthJSON)
-
-
-  //     // fetch('https://api.realmofhistoria.com/api/web3auth/', {
-  //     //   method: 'POST',
-  //     //   headers: {
-  //     //     'Authorization': `Bearer`,
-  //     //     'Content-Type': 'application/json',
-  //     //   },
-  //     //   body: JSON.stringify(solAuthJSON),
-  //     // })
-  //     //   .then(response => response.json())
-  //     //   .then(data => {
-  //     //     // setToken(data.token)
-  //     //     useAuthStore.setState({ token: data.token })
-  //     //   })
-  //     //   .catch(error => {
-  //     //     console.error("ошибка:", error);
-  //     //   });
+  useEffect(() => {
+    console.log(publicKey)
+    if (publicKey) {
+      const test = solanaWeb3.Keypair.generate()
 
 
+      const solAuthJSON = generateSolAuthJSON(test, publicKey);
+      // // const solAuthJSON = generateSolAuthJSON(publicKey, secretKey);
 
-  //     const env = "staging";
-  //     const chain = "solana";
-  //     const address = `${publicKey.publicKey}`;
-
-  //     const message = "signed";
-
-  //     fetch(`https://${env}.crossmint.com/api/v1-alpha1/wallets/${chain}:${address}/signMessage`, {
-  //         method: "POST",
-  //         headers: {
-  //             "Content-Type": "application/json",
-  //             "x-project-id": projectId,
-  //             "x-client-secret": clientSecret
-  //         },
-  //         body: JSON.stringify({ chain, address, message })
-  //     })
-  //     .then(response => response.json())
-  //     .then(data => console.log("Signed message:", data))
-  //     .catch(error => console.error("Error:", error));
-
-  //   }
-  // }, [publicKey])
+      // console.log(solAuthJSON)
 
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const userSession: any = await getSession();
-  //     if(userSession.accessToken){
-  //       setSecretKey(userSession.accessToken)
-  //     }
+      // fetch('https://api.realmofhistoria.com/api/web3auth/', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Authorization': `Bearer`,
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify(solAuthJSON),
+      // })
+      //   .then(response => response.json())
+      //   .then(data => {
+      //     // setToken(data.token)
+      //     useAuthStore.setState({ token: data.token })
+      //   })
+      //   .catch(error => {
+      //     console.error("ошибка:", error);
+      //   });
 
-  //     setFetchedSession(userSession)
-  //   };
 
-  //   fetchData();
-  // }, []);
+
+      const env = "staging";
+      const chain = "solana";
+      const address = `${publicKey.publicKey}`;
+
+      const message = "signed";
+
+      fetch(`https://${env}.crossmint.com/api/v1-alpha1/wallets/${chain}:${address}/signMessage`, {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json",
+              "x-project-id": projectId,
+              "x-client-secret": clientSecret
+          },
+          body: JSON.stringify({ chain, address, message })
+      })
+      .then(response => response.json())
+      .then(data => console.log("Signed message:", data))
+      .catch(error => console.error("Error:", error));
+
+    }
+  }, [publicKey])
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const userSession: any = await getSession();
+      if(userSession.accessToken){
+        setSecretKey(userSession.accessToken)
+      }
+
+      setFetchedSession(userSession)
+    };
+
+    fetchData();
+  }, []);
 
 
   useEffect(() => {
