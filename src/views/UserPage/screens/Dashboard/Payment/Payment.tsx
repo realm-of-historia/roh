@@ -6,7 +6,7 @@ import Dropdown from '@/components/UI/Dropdown/Dropdown'
 
 export default function Payment() {
 
-    const isBuy = useAuthStore((state) => (state.isBuy))
+    const isBuy = useAuthStore((state: any) => (state.isBuy))
 
 
     return(

@@ -13,10 +13,10 @@ const Statistic = ({title, text}: {title: string, text: string}) => {
                 {title}
             </p>
         </Text>
-        <Divider position={'top left'}></Divider>
-        <Divider position={'top right'}></Divider>
+        <Divider position={'top left'} noAnim={true}></Divider>
+        <Divider position={'top right'} noAnim={true}></Divider>
         {/* <Divider position={'top right'} horizontal={true}></Divider> */}
-        <Divider position={'bottom right'} horizontal={true}></Divider>
+        <Divider position={'bottom right'} horizontal={true} noAnim={true}></Divider>
         <Text>
             <p>
                 {text}

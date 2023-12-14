@@ -52,15 +52,26 @@
 }
 
 .selectStyles{
+    position: relative;
+    width: 100%;
     background-color: color(bg) !important;
     font-size: font(15);
-    color: color(text-brown);
+    color: color(text-brown-38);
     padding-left: rm(0);
-    margin-bottom: rm(15);
+    // margin-bottom: rm(15);
     border-color: color(bg);
     cursor: pointer;
     caret-color: transparent !important;
-
+    &::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background-color: color(text-brown-85);
+        z-index: 1;
+    }
     &:hover{
         ~ .selectDivider > :last-child {
             transform: translateX(-50%) scale(1);
@@ -86,10 +97,11 @@
 
 
     >:nth-child(3){
-        padding-bottom: rm(15);
-        padding-top: rm(5);
+        // padding-bottom: rm(15);
+        // padding-top: rm(5);
         box-shadow: none;
         border-color: color(bg) !important;
+    cursor: pointer;
         // border-bottom: 2px rgba(234,216,177, 0.5) solid !important;
 
         >:nth-child(2){
@@ -99,7 +111,7 @@
             }
 
             >:nth-child(2){
-                color: color(text-black);
+                color: color(text-brown-38);
                 transition: transform .3s ease-in-out;
             }
         }
@@ -109,7 +121,7 @@
             padding-left: rm(0);
 
             >:nth-child(1){
-                color: color(text-brown) !important;
+                color: color(text-brown-38) !important;
             }
 
             >:nth-child(2){
@@ -180,7 +192,30 @@
             opacity: 0;
             transition: opacity .6s ease-in-out;
         }
-
+        .container{
+            cursor: pointer;
+            position: relative;
+            width: rm(240);
+            height: rm(240);
+            img{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                // position: relative;
+                z-index: 999;
+            }
+            span{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                opacity: 0;
+                transition: opacity .6s ease-in-out;
+            }
+        }
 
         .container:hover{
             img{
@@ -189,6 +224,7 @@
             }
 
             span{
+                
                 opacity: 1;
                 cursor: pointer;
             }
@@ -208,21 +244,23 @@
 
 
     .buttonWhite{
-        font-size: font(16);
+        font-size: font(15);
         position: relative;
-        color: color(text-brown);
+        color: color(text-brown-88);
         @include font-work-regular;
         line-height: 140%;
         display: flex;
         cursor: pointer;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        border: 1px solid #EAD8B1;
-        height: rm(60);
+        // width: 100%;
+        max-width: 100%;
+        padding: rm(20) rm(32);
+        // border: 1px solid #EAD8B1;
+        // height: rm(60);
         font-weight: 600;
+        background-color: color(text-black);
         transition: background-color .7s ease;
-        z-index: 1000;
 
         &:hover{
             background-color: rgba(	234,	216,	177, .4);
@@ -238,9 +276,9 @@
 
 
 
-        >:last-child{
-            height: rm(60);
-        }
+        // >:last-child{
+        //     height: rm(60);
+        // }
     }
 
     .switches{
@@ -261,7 +299,7 @@
     .section{
         display: flex;
         align-items: center;
-
+        margin-bottom: rm(32);
         .checks{
             display: flex;
             margin-bottom: rm(30);
@@ -277,7 +315,7 @@
 
             p{
                 font-size: font(16);
-                color: color(text-brown);
+                color: color(text-black);
                 @include font-work-regular;
                 line-height: 140%;
             }
@@ -310,10 +348,10 @@
             }
 
 
-            input{
-                margin-top: rm(-10);
-                padding-bottom: rm(16);
-            }
+            // input{
+            //     margin-top: rm(-10);
+            //     padding-bottom: rm(16);
+            // }
         }
 
         >:first-child{
@@ -322,12 +360,12 @@
                 color: color(text-black);
                 font-size: font(16);
                 line-height: 160%;
-                margin-bottom: rm(28);
+                // margin-bottom: rm(28);
                 @include font-work-regular;
                 font-weight: 600;
 
                 @include lg{
-                    margin-bottom: rm(25);
+                    // margin-bottom: rm(25);
                 }
             }
         }
@@ -366,3 +404,4 @@
     }
 
 }
+

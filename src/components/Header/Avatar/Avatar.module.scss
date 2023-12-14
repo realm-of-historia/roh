@@ -2,8 +2,13 @@
 
 .avatar {
     position: relative;
-    z-index: 10000000;
-
+    // z-index: 10000000;
+    display: flex;
+    align-items: center;
+    gap: rm(24);
+    @include md{
+        // margin-top: rm(6); 
+    }
     @include xsm{
         // margin-left: rm(-70);
         // margin-right: rm(21);
@@ -23,106 +28,261 @@
     //     width: rm(100);
     //     height: rm(50);
     // }
-
-    .dropdown {
-        opacity: 0;
-        position: absolute;
-        top: rm(58);
-        // right: rm(-114);
-        right: rm(-64);
-        z-index: 1;
-        transition: all 0.15s ease-in;
-        transform: translateY(rm(-7));
-        padding: rm(32);
-        background-color: #FBF6E8;
-        border: 1px color(text-yellow-90) solid;
-
-        // @include lg{
-        //     right: rm(-135);
-        //     top: rm(57);
-        // }
-
-        // @include md{
-        //     right: rm(-88);
-        //     top: rm(58);
-        // }
-
-        @include xsm{
-            // right: rm(-45);
-            right: rm(-31);
-        }
-
-        .leftDivider{
-            position: absolute;
-            width: 1px;
-            height: 100%;
-            background-color: color(text-yellow-90);
-            margin-bottom: rm(32);
-            top: 0;
-            left: 0;
-        }
-
-        .bottomDivider{
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            background-color: color(text-yellow-90);
-            bottom: 0;
-            left: 0;
-        }
-
-        .userInfo{
-            display: flex;
-            align-items: center;
-            margin-bottom: rm(32);
-
-
-
-            .container{
-                display: flex;
-                flex-direction: column;
-                color: color(text-brown);
-                @include font-work-regular;
-                font-size: font(14);
-                margin-left: rm(16);
-
-                p:first-child{
-                    font-weight: 600;
-                }
-
-            }
-        }
-
-        .divider{
-            width: 100%;
-            height: 1px;
-            background-color: color(text-yellow-90);
-            margin-bottom: rm(32);
-        }
-
-        .options{
-            display: flex;
-            flex-direction: column;
-            gap: rm(15);
-           
-            p{
-                cursor: pointer;
-                @include font-work-regular;
-                color: color(text-brown);
-                font-size: font(16);
-                line-height: 140%;    
-            }
-        }
-
-      }
+   
+    
       
-      &:hover .dropdown {
-        display: block;
-        opacity: 1;
-        transform: translateY(0);
-        opacity: 1;
-      }
+    //   &:hover .dropdown {
+    //     display: block;
+    //     opacity: 1;
+    //     transform: translateY(0);
+    //     opacity: 1;
+    //   }
       
 
   }
+  .wraperAvatar{
+    @include md {
+        display: none;
+    }
+    @include xsm {
+        display: none;
+    }
+  }
+  .wraperAvatar:hover{
+    .dropdown {
+        display: block;
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  .dropdown {
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+    top: rm(58);
+    // right: rm(-114);
+    // right: rm(-64);
+    right: 0;
+    z-index: 9999;
+    transition: all 0.15s ease-in;
+    transform: translateY(rm(-7));
+    padding: rm(32);
+    background-color: #FBF6E8;
+    border: 1px color(text-yellow-90) solid;
+    .texture{
+        position: absolute;
+        left: 0;
+        top: 0;
+        mix-blend-mode: overlay;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none;
+        z-index: 994;
+    }
+    // @include lg{
+    //     right: rm(-135);
+    //     top: rm(57);
+    // }
+
+    // @include md{
+    //     right: rm(-88);
+    //     top: rm(58);
+    // }
+
+    @include xsm{
+        // right: rm(-45);
+        right: rm(-31);
+    }
+
+    .leftDivider{
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        background-color: color(text-yellow-90);
+        margin-bottom: rm(32);
+        top: 0;
+        left: 0;
+    }
+
+    .bottomDivider{
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: color(text-yellow-90);
+        bottom: 0;
+        left: 0;
+    }
+
+    .userInfo{
+        display: flex;
+        align-items: center;
+        margin-bottom: rm(32);
+
+
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            color: color(text-brown-38);
+            @include font-work-regular;
+            font-size: font(14);
+            margin-left: rm(16);
+
+            p:first-child{
+                font-weight: 600;
+            }
+
+        }
+    }
+
+    .divider{
+        width: 100%;
+        height: 1px;
+        background-color: color(text-yellow-90);
+        margin-bottom: rm(32);
+    }
+
+    .options{
+        display: flex;
+        flex-direction: column;
+        gap: rm(15);
+       
+        p{
+            cursor: pointer;
+            @include font-work-regular;
+            color: color(text-brown-38);
+            font-size: font(16);
+            line-height: 140%;    
+        }
+    }
+
+  }
   
+  
+  .wrapperIcon{
+    position: relative;
+    height: 100%;
+    width: rm(18);
+    @include xsm{
+        display: none;
+    }
+    cursor: pointer;
+    transition: width ease 0.3s, height ease 0.3s;
+    display: none;
+    img{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: rm(18);
+        height: rm(18);
+        object-fit: fill;
+        transition: width ease 0.3s, height ease 0.3s;
+
+    }
+    &:hover{
+        img{
+            width: rm(22);
+            height: rm(22);
+            transition: width ease 0.3s, height ease 0.3s;
+
+        }
+    }
+  }
+  .wrapBurger{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    &::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translate(0%, -50%);
+        width: 300%;
+        height: 300%;
+    }
+  }
+  .containerBurger{
+    position: relative;
+    // content: '';
+    // right:rm(30);
+    // bottom: 0;
+    display: flex;
+    align-items: center;
+    width: rm(22);
+    height: rm(22);
+    cursor: pointer;
+    overflow: hidden;
+    
+    // @include xsm {
+    // right:rm(16);
+    // }
+    .burger{
+        display: block;
+        position: absolute;
+        top: rm(0);
+        left: 0;
+        width:100%;                    
+        border-bottom: rm(2) solid color(text-brown-38);
+        transform: rotate(0deg);
+        transition: .3s transform ease;
+        transform-origin: rm(6) rm(0);
+
+    }
+    .burger2{
+        display: block;
+        position: absolute;
+        // top: rm(6);
+        top: 50%;
+        left: 0;
+        width:100%; 
+        border-bottom: rm(2) solid color(text-brown-38);
+    }
+    .burger3{
+        display: block;
+        position: absolute;
+        // top: rm(12);
+        bottom: 0;
+        left: 0;
+        width:100%; 
+        border-bottom: rm(2) solid color(text-brown-38);
+        transform: rotate(0deg);
+        transition: .3s transform ease;
+        transform-origin: rm(0) rm(0);
+    }
+}
+
+.burgerActive{
+    // transform: rotate(45deg) !important;
+    transition: .3s transform ease;
+    transform-origin: center center !important;
+    // top: rm(3.2) !important; 
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%,-50%) rotate(45deg) !important;
+    width: 150% !important;
+    
+}
+.burgerActive2{
+    display: none !important;
+}
+.burgerActive3{
+    // transform: translate(-50%,-50%) rotate(-45deg) !important;
+    transition: .3s transform ease;
+    transform-origin: center center !important;
+    left: 50% !important;
+    // top: 50% !important;
+    bottom: 50% !important;
+    transform: translate(-50%,-50%) rotate(-45deg) !important;
+    width: 150% !important;
+    // top: 100% !important;
+
+}
+
+.avatariMG{
+    position: relative;
+    z-index: 999;
+}

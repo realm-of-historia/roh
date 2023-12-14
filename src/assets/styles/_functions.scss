@@ -15,3 +15,8 @@ $font-base: 16;
     @return #{math.div(strip-unit($px), strip-unit($font-base))}em;
   }
   
+  @mixin lvh($vh) {
+    height: #{$vh}vh;
+    height: #{$vh}lvh;
+    height: calc(var(--vh, 1lvh) * #{$vh});
+  }

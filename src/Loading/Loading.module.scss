@@ -22,13 +22,15 @@
     background-color: color(bg);
     transition: opacity 0.7s ease-in-out;
     z-index: 10000000;
-    opacity: 0;
+    opacity: 1;
   }
   
   .svgContainer {
-  
+    @include md{
+      width: 50%;
+    }
     path{
-        animation: dash 3s ease-in-out forwards;
+        animation: dash 1.5s ease-in-out forwards;
     }
   }
 

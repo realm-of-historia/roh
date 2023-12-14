@@ -1,12 +1,9 @@
-// 'use client'
 
 import React from 'react'
 import styles from './ContactsView.module.scss'
 import Contacts from './Contacts/Contacts'
 import HeadOffice from './HeadOffice/HeadOffice'
-import Header from '@/components/Header/Header'
 import { useSectionData } from '@/composable/useSectionData'
-// import Layout from '@/components/Layout/Layout'
 export interface StandardComponentProps {
     data?: string
 }
@@ -28,7 +25,6 @@ export default function ContactsView({data} : StandardComponentProps) {
     }
     return(
         <div className={styles.contactsView}>
-            {/* <Header></Header> */}
             <Contacts title={dataContactsTitle} button={dataContactsButton} placeholder={placeholderContacts}/>
             <HeadOffice contacts={dataHeadOfficeContacts} socialMedia={dataHeadOfficeSocialMedia}/>
         </div>

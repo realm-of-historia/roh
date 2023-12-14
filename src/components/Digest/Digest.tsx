@@ -33,6 +33,8 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
   useEffect(() => {
     if(router.includes('/contacts')){
       setActive(false)
+    } else{
+      setActive(true)
     }
   },[router])
   const validateEmail = (email: any) => {
@@ -43,6 +45,8 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
   const subscribeHandler = (e: any) => {
     e.preventDefault()
 
+    
+
 
     if (loading) { return }
 
@@ -50,6 +54,7 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
 
     if (!validateEmail(email)) {
       toast.error('Please enter a valid email');
+      
       return;
     }
 
@@ -62,6 +67,11 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
       headers: { 'Content-Type': 'application/json' },
       body,
     }
+
+    
+
+
+
 
     setTimeout(() => {
       fetch('https://api.realmofhistoria.com/subscribe', options)
@@ -92,6 +102,10 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
     <div className={`${styles.main} ${active ? null : styles.mainNoActive}`} ref={reff}>
       <div className={styles.mainDivider}></div>
       <div className={styles.subscription}>
+      <Divider horizontal={true} position={'bottom left'} noAnim={true}></Divider>
+        <p className={styles.footer}>
+          {data?.rofDate}
+        </p>
         <div className={styles.header} ref={ref}>
           {
             data?.socialNetwork?.map((_:any, i:number) => (
@@ -132,16 +146,16 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
         <div className={styles.leftDivider}></div>
       </div>
       <div className={styles.promotion}>
-        <Image className={styles.logo} alt='' src={'/ROHlogo.svg.svg'} width={630} height={180} />
-        <p className={styles.footer}>
+        <Image className={styles.logo} alt='' src={'/RoHlogoFooter.svg'} width={630} height={180} />
+        <p className={styles.footerMob}>
           {data?.rofDate}
         </p>
-        <Divider horizontal={true} position={'top left'}></Divider>
-        <Divider horizontal={true} position={'bottom left'}></Divider>
-        <Divider position={'top left'}></Divider>
-        <Divider position={'top right'}></Divider>
-        <div className={styles.divider}></div>
-        <div className={`${inView ? styles.mainCircle : ''}`}></div>
+        <Divider horizontal={true} position={'top left'} noAnim={true}></Divider>
+        <Divider horizontal={true} position={'bottom left'} noAnim={true}></Divider>
+        {/* <Divider position={'top left'}></Divider>
+        <Divider position={'top right'}></Divider> */}
+        {/* <div className={styles.divider}></div> */}
+        <div className={styles.mainCircle}></div>
         <picture><img className={styles.firstElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
         <picture><img className={styles.secondElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
         <picture><img className={styles.thirdElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>

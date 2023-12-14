@@ -5,9 +5,9 @@ import UserInfo from '@/views/UserPage/screens/UserInfo/UserInfo'
 import Header from '@/components/Header/Header'
 import UserNavigation from '@/views/UserPage/screens/UserInfo/UserNavigation/UserNavigation'
 import Digest from '@/components/Digest/Digest'
-import Bundle from '@/components/Bundle/Bundle'
 import Payment from '@/views/UserPage/screens/Dashboard/Payment/Payment'
 import PerksComponent from '@/views/UserPage/screens/Perks/PerksComponent/PerksComponent'
+import HashAnchor from '@/components/HashAnchor/HashAnchor'
 
 export default function Perks() {
 
@@ -31,6 +31,7 @@ export default function Perks() {
 
     return(
         <div>
+                <HashAnchor />
             <UserNavigation></UserNavigation>
             <PerksComponent cards={cards}></PerksComponent>
         </div>

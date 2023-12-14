@@ -1,0 +1,177 @@
+@use "../../../../assets/styles/index.scss" as *;
+
+.container {
+    position: relative;
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+
+    @include xsm {
+        flex-direction: column;
+    }
+
+    .wrapperColumnLeft {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        // flex: 1;
+        width: 50%;
+        // padding: rm(64);
+        justify-content: space-between;
+
+        @include xsm {
+            order: 2;
+            width: 100%;
+            flex: none;
+        }
+
+        .wrapperText {
+            position: relative;
+            width: 100%;
+
+            .textHeader {
+                @include font-dune-regular();
+                font-size: font(48);
+                color: color(text-brown-38);
+                line-height: 120%;
+                // text-transform: uppercase;
+                padding: rm(64) rm(64) rm(0) rm(64);
+
+                @include lg {
+                    font-size: font(40);
+                }
+
+                @include xsm {
+                    font-size: font(30);
+                    padding: rm(32) rm(32) rm(0) rm(32);
+                }
+            }
+
+            .paragraph {
+                @include font-work-regular();
+                font-size: font(16);
+                color: color(text-brown-38);
+                font-weight: 400;
+                line-height: 160%;
+                white-space: pre-wrap;
+                padding: rm(0) rm(64) rm(200) rm(64);
+                @include lg{
+                    padding: rm(0) rm(64) rm(64) rm(64);
+                }
+                @include xsm {
+                    padding: rm(0) rm(32) rm(32) rm(32);
+                }
+            }
+
+            .wrapperInfo {
+                position: relative;
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: rm(64);
+                margin-bottom: rm(64);
+                row-gap: rm(16);
+                padding: rm(0) rm(64) rm(0) rm(64);
+
+                @include md {
+                    row-gap: rm(32);
+
+                }
+
+                @include xsm {
+                    row-gap: rm(16);
+                    margin-top: rm(32);
+                    margin-bottom: rm(0);
+                    padding: rm(0) rm(32) rm(32) rm(32);
+                }
+
+                .containerMeaning {
+                    display: flex;
+                    align-items: center;
+
+                    >:nth-child(1) {
+                        width: rm(128);
+                        color: color(text-black);
+                        @include font-work-regular();
+                        font-size: font(16);
+                        font-weight: 600;
+                        line-height: 160%;
+                        text-transform: capitalize;
+                    }
+
+                    >:nth-child(2) {
+                        width: rm(272);
+                        color: color(text-brown-38);
+                        @include font-work-regular();
+                        font-size: font(16);
+                        font-weight: 400;
+                        line-height: 160%
+                    }
+                }
+            }
+        }
+
+    }
+
+    .wrapperImage {
+        position: relative;
+        display: flex;
+        // flex: 1;
+        width: 50%;
+        // height: rm(908);
+        height: auto;
+        z-index: 999;
+
+        @include lg {
+            // height: rm(800);
+        }
+
+        @include xsm {
+            order: 1;
+            height: rm(640);
+            width: 100%;
+            flex: none;
+        }
+
+        >:nth-child(1) {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 333333;
+            @include md{
+                padding-bottom: rm(209.58);
+            }
+            @include xsm{
+                padding-bottom: rm(0);
+            }
+        }
+    }
+}
+
+.wrapperClock {
+    position: relative;
+    width: 100%;
+
+    // padding-right: rm(64);
+    // @include xsm{
+    //     padding-right: rm(0);
+    // }
+    // padding: rm(64) rm(64) rm(64) rm(64);
+    // @include xsm {
+    //     padding: rm(32) rm(32) rm(32) rm(32);
+    // }
+    >:nth-child(2) {
+        margin-right: rm(64) !important;
+
+        @include md {
+            display: none;
+        }
+    }
+
+    >:nth-child(1) {
+        width: 130% !important;
+        right: rm(-40) !important;
+    }
+}

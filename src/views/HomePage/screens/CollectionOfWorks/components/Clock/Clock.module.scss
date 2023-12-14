@@ -1,0 +1,56 @@
+@use "../../../../../../assets/styles/index.scss" as *;
+
+.wrapperClock {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: rm(64) rm(64) rm(64) rm(64);
+    @include xsm {
+        padding: rm(32) rm(32) rm(32) rm(32);
+    }
+    >:last-child {
+        >:last-child {
+            display: none;
+        }
+    }
+
+    .containerDate {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        >:nth-child(1) {
+            color: color(text-brown-38);
+            font-size: font(56);
+            @include font-dune-regular();
+            font-weight: 400;
+            line-height: 120%;
+            // padding-bottom: rm(5);
+        }
+
+        >:nth-child(2) {
+            color: color(text-brown-38);
+            font-size: font(12);
+            @include font-work-regular();
+            font-weight: 400;
+            line-height: 120%;
+            text-transform: lowercase;
+        }
+    }
+}
+
+.containerDateWrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    >:last-child {
+        color: color(text-brown-38);
+        font-size: font(56);
+        @include font-dune-regular();
+        font-weight: 400;
+        line-height: 120%;
+        padding-left: rm(8);
+        padding-right: rm(8);
+    }
+}

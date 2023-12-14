@@ -697,8 +697,26 @@ const Icon = ({label, ...props} : {label: string | Array<string> | undefined}) =
         case 'checkbox':
             return(
                 <span className={styles.icon}>
-                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M9.08941 0.707596C9.38912 0.940707 9.44311 1.37265 9.21 1.67236L5.53692 6.3949C4.96518 7.12999 3.88974 7.22538 3.19754 6.6024L0.874077 4.51129C0.591851 4.25729 0.568972 3.82259 0.822976 3.54036C1.07698 3.25814 1.51168 3.23526 1.7939 3.48926L4.11736 5.58037C4.21625 5.66937 4.36988 5.65574 4.45156 5.55073L8.12464 0.828192C8.35775 0.528478 8.78969 0.474485 9.08941 0.707596Z" fill="#583F21"/>
+                    <svg width="10" height="8" viewBox="0 0 10 8" fill="#F5F2EB" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#F5F2EB" fillRule="evenodd" clipRule="evenodd" d="M9.08941 0.707596C9.38912 0.940707 9.44311 1.37265 9.21 1.67236L5.53692 6.3949C4.96518 7.12999 3.88974 7.22538 3.19754 6.6024L0.874077 4.51129C0.591851 4.25729 0.568972 3.82259 0.822976 3.54036C1.07698 3.25814 1.51168 3.23526 1.7939 3.48926L4.11736 5.58037C4.21625 5.66937 4.36988 5.65574 4.45156 5.55073L8.12464 0.828192C8.35775 0.528478 8.78969 0.474485 9.08941 0.707596Z" />
+                    </svg>
+                </span>
+            )
+
+        case 'plus':
+            return(
+                <span className={styles.icon}>
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fillRule="evenodd" clipRule="evenodd" d="M17 8C17 7.44772 16.5523 7 16 7C15.4477 7 15 7.44772 15 8V15H8C7.44771 15 7 15.4477 7 16C7 16.5523 7.44771 17 8 17H15V24C15 24.5523 15.4477 25 16 25C16.5523 25 17 24.5523 17 24V17H24C24.5523 17 25 16.5523 25 16C25 15.4477 24.5523 15 24 15H17V8Z" fill="currentColor"/>
+                    </svg>
+                </span>
+            )
+
+        case 'minus':
+            return(
+                <span className={styles.icon}>
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fillRule="evenodd" clipRule="evenodd" d="M25 16C25 16.5523 24.5523 17 24 17L8 17C7.44771 17 7 16.5523 7 16C7 15.4477 7.44771 15 8 15L24 15C24.5523 15 25 15.4477 25 16Z" fill="currentColor"/>
                     </svg>
                 </span>
             )

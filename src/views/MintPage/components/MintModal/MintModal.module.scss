@@ -1,0 +1,130 @@
+@use '../../../../assets/styles/index.scss' as *;
+
+.wrapper{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 100000000;
+
+    &::before{
+        content: '';
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: rgba($color: #000000, $alpha: 0.5);
+        z-index: 10000;
+    }
+}
+
+.modal{
+    display: flex;
+    flex-direction: column;
+    padding: rm(64);
+    position: absolute;
+    background-color: color(bg);
+    text-align: center;
+    z-index: 100000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &::before{
+        content: '';
+        background-image: url('/texture.png') !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        mix-blend-mode: overlay;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9;
+    }
+
+
+    @include lg{
+        padding: rm(32);
+    }
+
+    .title{
+        font-size: font(32);
+        @include font-dune-regular;
+        color: color(text-black);
+        line-height: 120%;
+        margin-bottom: rm(32);
+        width: rm(448);
+    }
+
+    picture{
+        width: rm(448);
+    }
+
+    img{
+        width: rm(448);
+        height: rm(448);
+        z-index: 10000000;
+        position: relative;
+    }
+
+    .cross{
+        position: absolute;
+        top: rm(20);
+        right: rm(20);
+        height: rm(30);
+        width: rm(30);
+        z-index: 3;
+        opacity: 1;
+        cursor: pointer;
+        color: color(text-brown-38) !important;
+        transition: opacity .3s ease-in-out;
+
+        &:hover{
+            opacity: .7;
+        }
+    }
+
+    .info{
+        color: #383727;
+        font-size: font(18);
+        line-height: 160%;
+        margin-top: rm(32);
+        margin-bottom: rm(16);
+        width: rm(448);
+
+    }   
+
+    button{
+        width: rm(448);
+        padding: rm(24) 0;
+        font-size: font(16);
+        @include font-work-regular;
+        font-weight: 600 !important;
+        transition: background-color .3s ease-in-out;
+        cursor: pointer;
+    }
+
+    .solan{
+        margin-bottom: rm(16);
+        border: 1px solid color(text-brown-88);
+        color: #383727;
+        background-color: color(bg);
+
+        &:hover{
+            background-color: color(text-black);
+            color: color(text-brown-88)
+        }
+    }
+
+    .realm{
+        border: 1px solid color(text-brown-88);
+        background-color: color(text-black);
+        color: color(text-brown-88);
+
+        &:hover{
+            background-color: color(bg);
+            color: #383727;
+        }
+    }
+}

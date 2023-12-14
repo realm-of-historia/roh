@@ -8,7 +8,10 @@ const Categories = ({ title, data }: { title?: string | Array<string> | undefine
 
   return (
     <div className={styles.categories}>
-      <p className={styles.title}>{title}</p>
+      {
+        title &&
+        <p className={styles.title}>{title}</p>
+      }
       <div className={styles.containerInfo}>
         {
           data?.map((_: any, i: number) => (

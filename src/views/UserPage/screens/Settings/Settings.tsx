@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 
 import React from 'react'
 import UserInfo from '@/views/UserPage/screens/UserInfo/UserInfo'
@@ -14,18 +14,26 @@ import Accounts from './sections/Accounts/Accounts'
 import Preferences from './sections/Preferences/Preferences'
 import Notifications from './sections/Notifications/Notifications'
 import Deactivation from './sections/Deactivation/Deactivation'
+import HashAnchor from '@/components/HashAnchor/HashAnchor'
+import { useApiFetch } from '@/composable/useApiFetch'
 
 
-const Settings = () => {
-    return(
-        <div>
-            <ProfileLayout title='PROFILe DeTAILS'><DetailsProfile></DetailsProfile></ProfileLayout>
-            <ProfileLayout title='SIGN-IN MeTHOD'><SignIn></SignIn></ProfileLayout>
+const Settings = async () => {
+    const data = await useApiFetch('api/user-setting?populate[learnMore][populate]=*')
+    return (
+        <>
+            {
+                data &&
+                <div>
+                    <ProfileLayout title={data?.data.attributes.profileDetails}><DetailsProfile dataSer={data?.data.attributes}></DetailsProfile></ProfileLayout>
+                    {/* <ProfileLayout title='SIGN-IN MeTHOD'><SignIn></SignIn></ProfileLayout>
             <ProfileLayout title='CONNeCTeD ACCOUNTS'><Accounts></Accounts></ProfileLayout>
             <ProfileLayout title='eMAIL PReFeReNCeS'><Preferences></Preferences></ProfileLayout>
-            <ProfileLayout title='NOTIFICATIONS'><Notifications></Notifications></ProfileLayout>
-            <ProfileLayout title='DeACTIVATe ACCOUNT'><Deactivation></Deactivation></ProfileLayout>
-        </div>
+            <ProfileLayout title='NOTIFICATIONS'><Notifications></Notifications></ProfileLayout> */}
+                    <ProfileLayout title={data?.data.attributes.atricleDeactivate}><Deactivation data={data?.data.attributes}></Deactivation></ProfileLayout>
+                </div>
+            }
+        </>
     )
 }
 

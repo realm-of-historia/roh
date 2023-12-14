@@ -20,7 +20,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(88,63,33, 0.4);
+    background-color: color(text-brown-38);
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -32,7 +32,7 @@
     width: rm(18);
     left: rm(4);
     bottom: rm(3);
-    background-color: #583F21;
+    background-color: color(bg-1);
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -52,7 +52,7 @@
   }
 
   input:checked + .slider{
-    background-color: rgba(88,63,33, 0.7);
+    background-color: color(text-black);
   }
   
   .slider.round {

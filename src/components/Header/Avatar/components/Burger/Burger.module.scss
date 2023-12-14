@@ -1,0 +1,180 @@
+@use "../../../../../assets/styles/index.scss" as *;
+
+.wrapperBurger {
+    z-index: 999999;
+    background-color: color(bg-1);
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transform: translate(-100%, 0%);
+    transition: transform ease 0.5s, opacity ease 0.3s, visibility ease 0.3s;
+    min-width: rm(300);
+    >:nth-child(1){
+        height: 100vh;
+    }
+}
+
+.avatar {
+    margin: rm(32);
+    position: relative;
+    width: rm(64);
+    height: rm(64);
+    border-radius: 100%;
+    overflow: hidden;
+    z-index: 999;
+    img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.link {
+    padding: rm(0) rm(32) rm(32) rm(32);
+    margin-top: rm(30);
+    display: flex;
+    flex-direction: column;
+    gap: rm(15);
+    @include lg {
+        gap: rm(25);
+    }
+    @include xsm {
+        gap: rm(15);
+    }
+    p {
+        cursor: pointer;
+        @include font-work-regular;
+        color: color(text-brown);
+        font-size: font(16);
+        line-height: 140%;
+        &:hover {
+            opacity: .7;
+        }
+        @include lg {
+            font-size: font(20);
+        }
+        @include xsm {
+            font-size: font(20);
+        }
+    }
+}
+
+.button {
+    position: relative;
+    padding: rm(20) rm(150);
+    margin-left: rm(32);
+    margin-right: rm(32);
+    color: color(text-brown-88);
+    font-size: font(16);
+    @include font-work-regular();
+    font-weight: 600;
+    line-height: 140%;
+    background-color: color(text-black);
+    border: 1px solid color(text-brown-88);
+    // margin-top: rm(30);
+    cursor: pointer;
+    transition: background-color ease 0.3s;
+    @include lg {
+        font-size: font(20);
+    }
+    @include xsm {
+        font-size: font(20);
+    }
+    &:hover{
+        background-color: color(burgundyBg);
+        transition: background-color ease 0.3s;
+    }
+}
+
+.network {
+    position: relative;
+    display: grid;
+    grid-template: 1fr/1fr 1fr 1fr;
+    margin-top: rm(40);
+    padding-left: rm(32);
+    padding-right: rm(32);
+    >:nth-child(3n) {
+        &:before {
+            display: block;
+            position: absolute;
+            content: '';
+            width: 500%;
+            height: rm(1);
+            background-color: #EAD8B1;
+            z-index: 33434;
+            top: 0;
+            right: rm(-40);
+        }
+    }
+
+    >:last-child {
+        &::after {
+            display: block;
+            position: absolute;
+            content: '';
+            width: 500%;
+            height: rm(1);
+            background-color: #EAD8B1;
+            z-index: 33434;
+            bottom: 0;
+            right: rm(-40);
+        }
+    }
+
+    .iconHeader {
+        position: relative;
+        width: 100%;
+        height: rm(70);
+        cursor: pointer;
+        transition: width ease 0.3s, height ease 0.3s;
+        img {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            object-fit: fill;
+            width: rm(28);
+            height: rm(28);
+        }
+        &:hover {
+            img {
+                width: rm(30);
+                height: rm(30);
+                transition: width ease 0.3s, height ease 0.3s;
+            }
+        }
+    }
+}
+
+.wrapperBurgerActive{
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translate(0%, 0%) !important;
+    transition: transform ease 0.5s, opacity ease 0.3s, visibility ease 0.3s;
+}
+
+.stub{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    visibility: hidden;
+    background-color: color(burgundyBg);
+}
+.stubActive{
+    opacity: 0.2 !important;
+    visibility: visible;
+
+}

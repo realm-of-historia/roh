@@ -1,7 +1,10 @@
+"use client"
+
 import styles from './SimpleInput.module.scss';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Icon from '../Icon/Icon';
-import {useForm} from 'react-hook-form'
+import { useForm } from 'react-hook-form'
+import { toast } from 'react-toastify';
 
 interface SimpleInputProps {
     placeholder: string;
@@ -10,25 +13,37 @@ interface SimpleInputProps {
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     isContacts: boolean;
     name: string;
-    register?: any
+    register?: any,
+    errors?: any
 }
 
-const SimpleInput: React.FC<SimpleInputProps> = ({ placeholder, icon, value, onChange, isContacts, name, register}) => {
+const SimpleInput: React.FC<SimpleInputProps> = ({ errors, placeholder, icon, onChange, value, isContacts, name, register }) => {
 
     const padding = isContacts ? styles.input : styles.contactsInput
-    
+   
     return (
         <div className={styles.simpleInput}>
-            <Icon label={icon}></Icon>
-            <input
-                {...register(name)}
-                placeholder={placeholder}
-                className={padding}
-            />
-            <div className={styles.inputDivider}>
-                <div></div>
-                <div></div>
+            {/* <form className={styles.wrapperInput}> */}
+            <div className={styles.wrapperInput}>
+                <Icon label={icon}></Icon>
+                <input
+                    {...register(name, {
+                        required: true,
+                        pattern: {
+                            value: value === 'phone' ? /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/ : value === 'text' ? /^[a-zA-Z][a-zA-Z0-9-]+$/ : /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/,
+                            // message: 'incorrect value'
+                        }
+                    })}
+                    placeholder={placeholder}
+                    className={padding}
+                />
+                
             </div>
+            {/* </form> */}
+            {/* <div className={styles.inputDivider}>
+                <div></div>
+                <div></div>
+            </div> */}
         </div>
     )
 }

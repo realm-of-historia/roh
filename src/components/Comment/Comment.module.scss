@@ -9,7 +9,9 @@
     @include xsm{
         padding: rm(32);
     }
-
+    >:nth-child(1){
+        opacity: 1 !important;
+    }
     &:hover{
         background-color: rgba(	234,	216,	177, .4);
         cursor: pointer;
@@ -70,7 +72,7 @@
     }
 
     .title{
-        color: color(text-black);
+        color: color(text-brown-38);
         font-size: font(22);
         @include font-work-regular;
         font-weight: 600;
@@ -83,7 +85,7 @@
     }
 
     .text{
-        color: color(text-brown);
+        color: color(text-brown-38);
         font-size: font(15);
         @include font-work-regular;
         margin-bottom: rm(24);

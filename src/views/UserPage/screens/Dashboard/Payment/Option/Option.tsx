@@ -9,7 +9,7 @@ import Select from 'react-select'
 
 export default function Option({name, money, amount}: {name: string, money: string, amount: string}) {
 
-    const isBuy: any = useAuthStore((state) => (state.isBuy))
+    const isBuy: any = useAuthStore((state: any) => (state.isBuy))
 
     const clickHandlerBuy = () => {
         useAuthStore.setState({isBuy: true})

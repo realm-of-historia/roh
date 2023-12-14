@@ -75,22 +75,23 @@
     .imageContainer{
         position: relative;
         height: rm(334);
-        width: rm(595);
+        // width: rm(595);
+        width: 100%;
         overflow: hidden;
-        z-index: 19231;
+        z-index: 999;
 
         @include lg{
             height: rm(334);
-            width: rm(385);
+            // width: rm(385);
         }
 
         @include md{
-            width: rm(320);
+            // width: rm(320);
             height: rm(270);
         }
 
         @include xsm{
-            width: rm(595);
+            // width: rm(595);
             height: rm(334);
         }
 
@@ -106,7 +107,7 @@
             transition: transform .6s ease-in-out;
             object-fit: cover;
             @include lg{
-                width: auto;
+                // width: auto;
             }
         }
 

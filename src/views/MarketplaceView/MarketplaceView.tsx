@@ -6,17 +6,17 @@ import Panegliph from '@/components/Panegliph/Panegliph'
 import Marketplace from '@/views/HomePage/screens/Marketplace/Marketplace'
 import Digest from '@/components/Digest/Digest'
 import MarketplaceTitle from '@/components/MarketplaceTitle/MarketplaceTItle'
-import {useState, useRef, useEffect} from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { gsap } from 'gsap';
 import { useInView } from 'react-intersection-observer'
 import Loader from '@/components/Loader/Loader'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import {ScrollToPlugin} from 'gsap/ScrollToPlugin'
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
+import HashAnchor from '@/components/HashAnchor/HashAnchor'
 
 
-export default function MarketplaceView({data} : {data : any}) {
+export default function MarketplaceView({ data }: { data: any }) {
     const { ref, inView } = useInView()
-    console.log(data)
     const endRef = useRef(null)
     const firstRef = useRef(null)
     const secondRef = useRef(null)
@@ -30,16 +30,16 @@ export default function MarketplaceView({data} : {data : any}) {
 
     const allCards: Array<any> = [<Marketplace key={Math.random()} isMarket={true} ></Marketplace>, <Marketplace key={Math.random()} isMarket={true} ></Marketplace>, <Marketplace key={Math.random()} isMarket={true} ></Marketplace>, <Marketplace key={Math.random()} isMarket={true} ></Marketplace>]
 
-    useEffect(() =>{
-        if(inView && cardNumber < 4 && !isLoader) {
+    useEffect(() => {
+        if (inView && cardNumber < 4 && !isLoader) {
             setIsLoader(true)
-            setTimeout(() =>{
+            setTimeout(() => {
                 setCards(
                     [cards, allCards[cardNumber]]
                 )
                 setCardNumber(cardNumber + 1)
                 setIsLoader(false)
-                
+
                 setTimeout(() => {
                     ScrollTrigger.refresh()
                 }, 30)
@@ -48,19 +48,21 @@ export default function MarketplaceView({data} : {data : any}) {
     }, [inView])
 
 
-    return(
-        <div style={{overflowX: 'hidden'}}>
-            {/* <Header></Header> */}
-            <MarketplaceTitle title={data.data.attributes.title} />
-            <Panegliph isFirst={false}></Panegliph>
-            <Marketplace isMarket={true}></Marketplace>
-            <Marketplace isMarket={true} ></Marketplace>
-            {cards.map((element : any, index: any) => (
-                <div key={index}>{element}</div>
-            ))}
-            {isLoader && <Loader></Loader>}
-            <div style={{width: '100%', height: '1px'}} ref={ref}></div>
-            {/* <Digest reff={ref}></Digest> */}
-        </div>
+    return (
+        <>
+            <HashAnchor />
+            <div style={{ overflowX: 'hidden' }}>
+                <MarketplaceTitle title={data.data.attributes.title} />
+                <Panegliph isFirst={false}></Panegliph>
+                <Marketplace isMarket={true}></Marketplace>
+                <Marketplace isMarket={true} ></Marketplace>
+                {cards.map((element: any, index: any) => (
+                    <div key={index}>{element}</div>
+                ))}
+                {isLoader && <Loader></Loader>}
+                <div style={{ width: '100%', height: '1px' }} ref={ref}></div>
+            </div>
+        </>
+
     )
 }

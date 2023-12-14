@@ -22,7 +22,7 @@ const Panegliph: NextPage<Panegliph> = ({isFirst}) => {
   return (
     <div className={`${styles.panegliph} ${backgroundClass}`}>
         <div className={styles.container}>
-            <picture><img alt=''  className={styles.letter} src={`${path}MainLetter.png`} width='166' height='246'/></picture>
+            <picture><img alt=''  className={styles.letter} src={`${path}MainLetter.svg`} width='166' height='246'/></picture>
             <div className={styles.circle_1}>
                 <div></div>
             </div>
