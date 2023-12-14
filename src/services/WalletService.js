@@ -1,3 +1,7 @@
+const projectId = "1b6866d4-3236-42e9-83a2-f376668316e9";
+const clientSecret = "sk_test.758515a4.81408c4fb94a9d32c6449756a12fe1d9";
+const baseUrl="https://staging.crossmint.com"
+
 export class WalletService {
   static async fetchWallets(userId) {
     let walletsMap = {};
@@ -11,7 +15,7 @@ export class WalletService {
   }
 
   static async createWallets(userId) {
-    const url = `${process.env.CROSSMINT_BASEURL}/api/v1-alpha1/wallets`;
+    const url = `${baseUrl}/api/v1-alpha1/wallets`;
     const options = WalletService.#createOptions("POST", {
       chain: "ethereum",
       userId: userId,
@@ -21,7 +25,7 @@ export class WalletService {
 
   static async #fetchWalletsInternal(userId) {
     const url = new URL(
-      `${process.env.CROSSMINT_BASEURL}/api/v1-alpha1/wallets`,
+      `${baseUrl}/api/v1-alpha1/wallets`,
     );
     url.searchParams.append("userId", userId);
     const options = WalletService.#createOptions("GET");
@@ -33,8 +37,8 @@ export class WalletService {
       method: method,
       headers: {
         accept: "application/json",
-        "X-CLIENT-SECRET": process.env.CROSSMINT_X_CLIENT_SECRET,
-        "X-PROJECT-ID": process.env.CROSSMINT_X_PROJECT_ID,
+        "X-CLIENT-SECRET": clientSecret,
+        "X-PROJECT-ID": projectId,
         ...(body && { "content-type": "application/json" }),
       },
       ...(body && { body: JSON.stringify(body) }),
