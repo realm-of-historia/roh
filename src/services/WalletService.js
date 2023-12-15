@@ -4,20 +4,26 @@ const baseUrl="https://staging.crossmint.com"
 
 export class WalletService {
   static async fetchWallets(userId) {
+    console.log(userId)
     let walletsMap = {};
     const existingWallets = await WalletService.#fetchWalletsInternal(userId);
-    existingWallets.forEach((wallet) => {
-      const chain = wallet.chain;
-      const address = wallet.publicKey;
-      walletsMap[chain] = address;
-    });
-    return walletsMap;
+    
+    if(existingWallets.error){
+      return null;
+    } else{
+      existingWallets.forEach((wallet) => {
+        const chain = wallet.chain;
+        const address = wallet.publicKey;
+        walletsMap[chain] = address;
+      });
+      return walletsMap;
+    }
   }
 
   static async createWallets(userId) {
     const url = `${baseUrl}/api/v1-alpha1/wallets`;
     const options = WalletService.#createOptions("POST", {
-      chain: "ethereum",
+      chain: "solana",
       userId: userId,
     });
     return WalletService.#fetchWithExceptionHandling(url, options);
