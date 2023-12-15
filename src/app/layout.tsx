@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   openGraph:{
     url: 'https://www.realmofhistoria.com/',
-    images: 'https://landingpage-ldfymt793-arthur-popov.vercel.app/images/metaLogo.png'
+    images: '/metaLogo.png'
   },
 }
 
