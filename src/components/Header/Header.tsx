@@ -242,15 +242,15 @@ const Header = ({ data }: StandardComponentProps) => {
           <div className={styles.right}>
             <Divider position={'left top'} />
             {!isMint && !data?.hideButtonBuy && <Link href='/mint'><button className={`${styles.button} ${styles.buttonMob}`}>{data?.button}</button></Link>}
-            {/* {!isSignedIn && !data?.hideButtonSignIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>{data?.buttonSignIn}</p></div> : <div className={styles.logIn}></div>} */}
+            {!fetchedSession && !data?.hideButtonSignIn ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>{data?.buttonSignIn}</p></div> : <div className={styles.logIn}></div>}
             {/* {<div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>{data?.buttonSignIn}</p></div>} */}
-            {/* {(isSignedIn || activeBurger) ? <Avatar
+            {activeBurger ? <Avatar
               data={data?.authorizedUserMenu}
               logOut={data?.bottonLogOut}
               searchIcon={data?.searchIcon?.data.attributes.url}
               support={data?.support?.data.attributes.url}
               subject={data?.subject?.data.attributes.url}></Avatar>
-              : <div></div>} */}
+              : <div></div>}
               {/* {(fetchedSession) ? <Avatar
               data={data?.authorizedUserMenu}
               logOut={data?.bottonLogOut}
