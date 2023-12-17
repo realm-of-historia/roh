@@ -6,7 +6,7 @@ const WrapperTexture = ({ children }: any) => {
 
         <div className={style.contentWrapper}>
             {/* <div className={style.wrapperTexture}> */}
-                <img src="/texture.png" width={1920} height={800} alt="" />
+                <img src="/texture.webp" width={1920} height={800} alt="" />
             {/* </div> */}
             {children}
         </div>
