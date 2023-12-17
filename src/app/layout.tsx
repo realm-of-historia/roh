@@ -39,6 +39,7 @@ export default async function RootLayout({ children, }: { children: React.ReactN
   const datajoinUses = useSectionData(generalData, 'join_uses')
   const session = await getServerSession();
 
+
   return (
     <html lang="en">
       <body suppressHydrationWarning={true} id='body'>
