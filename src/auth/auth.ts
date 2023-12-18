@@ -24,7 +24,7 @@ export const authOptions: any = {
         clientId: process.env.DISCORD_ID ?? "",
         clientSecret: process.env.DISCORD_SECRET ?? "",
         // authorization:{
-        //     url
+        //     url: 'https://realmofhistoria.com/api/auth/callback/discord'
         // }
       }),
       GoogleProvider({
