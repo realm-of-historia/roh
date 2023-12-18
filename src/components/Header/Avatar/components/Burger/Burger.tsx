@@ -8,6 +8,7 @@ import ImageMy from '@/components/Image/ImageMy'
 import Divider from '@/components/Divider/Divider'
 import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 import { useUserFetch } from '@/composable/useApiFetch'
+import { getSession, signOut} from 'next-auth/react'
 
 export interface StandardComponentProps {
     networks?: any,
@@ -22,10 +23,20 @@ const Burger = ({ networks, link, button, linkauthorized, hideButtonBuy }: Stand
     const isSignedIn = useAuthStore((state: any) => (state.isSignedIn))
     const isMint = useAuthStore((state: any) => (state.isMint))
 
+    const [fetchedSession, setFetchedSession] = useState<any>()
+
+    useEffect(() => {
+      const fetchData = async () => {
+        const userSession: any = await getSession();
+        setFetchedSession(userSession)
+      };
+  
+      fetchData();
+    }, []);
+
     const unLogIn = () => {
-        if (authConfig.connected) {
-            authConfig.logout();
-            console.log(authConfig.connected)
+        if (fetchedSession) {
+            signOut()
         } else {
             console.log('disconnected')
         }
@@ -42,6 +53,7 @@ const Burger = ({ networks, link, button, linkauthorized, hideButtonBuy }: Stand
 
     useEffect(() => {
         if (!token) { return }
+        console.log(token)
         const FetchData = async (token: any) => {
             const dataUser = await useUserFetch('api/crypto-user/', token)
             return dataUser

@@ -20,7 +20,6 @@ export interface StandardComponentProps {
 
 const Avatar = ({ searchIcon, support, subject, data, logOut }: StandardComponentProps) => {
 
-  const {data: session} = useSession();
   const [fetchedSession, setFetchedSession] = useState<any>()
 
   useEffect(() => {
@@ -55,6 +54,7 @@ const Avatar = ({ searchIcon, support, subject, data, logOut }: StandardComponen
       signOut()
       // console.log(session)
     } else {
+      console.log(fetchedSession)
       console.log('disconnected')
     }
   }
