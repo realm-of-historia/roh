@@ -99,7 +99,7 @@ const Avatar = ({ searchIcon, support, subject, data, logOut }: StandardComponen
           <img className={styles.avatariMG} src={dataUserNew?.user.avatar ? `https://api.realmofhistoria.com/${dataUserNew?.user.avatar}` : '/ooui_user-avatar.png'} alt='' width={38} height={38} />
         </picture>
         <div className={styles.dropdown}>
-          <img src={"/texture.png"} className={styles.texture} width={1920} height={800} alt="" />
+          <img src={"/texture.webp"} className={styles.texture} width={1920} height={800} alt="" />
           <div className={styles.userInfo}>
             <img className={styles.avatariMG} src={dataUserNew?.user.avatar ? `https://api.realmofhistoria.com/${dataUserNew?.user.avatar}` : '/ooui_user-avatar.png'} width={38} height={38} />
             <div className={styles.container}>
