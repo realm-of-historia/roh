@@ -53,7 +53,6 @@ const Burger = ({ networks, link, button, linkauthorized, hideButtonBuy }: Stand
 
     useEffect(() => {
         if (!token) { return }
-        console.log(token)
         const FetchData = async (token: any) => {
             const dataUser = await useUserFetch('api/crypto-user/', token)
             return dataUser

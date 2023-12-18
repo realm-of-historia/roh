@@ -30,7 +30,7 @@ export interface StandardComponentProps {
 
 export const handleAuth = () => {
   // authConfig.connect();
-  signIn(undefined, { callbackUrl: 'http://localhost:3000/' })
+  signIn(undefined, { callbackUrl: 'https://roh-self.vercel.app/' })
   handleAuths()
 }
 const handleAuths = () => {
@@ -80,6 +80,7 @@ const Header = ({ data }: StandardComponentProps) => {
     
 
   }, [innerWidth, pathname])
+
   useEffect(() => {
     if(innerWidth <= 1080){
       setActiveBurger(true)
