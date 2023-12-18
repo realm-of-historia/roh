@@ -1,7 +1,22 @@
 import NextAuth from "next-auth"
 import DiscordProvider from "next-auth/providers/discord"
 import GoogleProvider from 'next-auth/providers/google'
+import FacebookProvider from 'next-auth/providers/facebook'
+import TwitterProvider from 'next-auth/providers/twitter'
+import EmailProvider from "next-auth/providers/email"
 import { WalletService } from "@/services/WalletService"
+import { ConnectionOptions, Entity} from "typeorm";
+import { SnakeNamingStrategy } from "typeorm-naming-strategies";
+import { TypeORMAdapter} from "@auth/typeorm-adapter"
+
+
+const connection: ConnectionOptions = {
+    type: "sqlite",
+    database: "base.sqlite",
+    namingStrategy: new SnakeNamingStrategy(),
+    synchronize: true,
+    logging: true,
+};
 
 export const authOptions: any = {
     providers: [
@@ -15,8 +30,21 @@ export const authOptions: any = {
       GoogleProvider({
           clientId: process.env.GOOGLE_ID ?? "",
           clientSecret: process.env.GOOGLE_SECRET ?? "",
-      })
+      }),
+      TwitterProvider({
+        clientId: process.env.TWITTER_CLIENT_ID ?? "",
+        clientSecret: process.env.TWITTER_CLIENT_SECRET ?? ""
+      }),
+      FacebookProvider({
+        clientId: process.env.FACEBOOK_CLIENT_ID ?? "",
+        clientSecret: process.env.FACEBOOK_CLIENT_SECRET ?? ""
+      }),
+      EmailProvider({
+        server: process.env.EMAIL_SERVER,
+        from: process.env.EMAIL_FROM
+      }),
     ],
+    adapter: TypeORMAdapter("sqlite:base.sqlite"),
     session: {
       jwt: true,
     },
