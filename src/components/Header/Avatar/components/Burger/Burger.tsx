@@ -8,7 +8,7 @@ import ImageMy from '@/components/Image/ImageMy'
 import Divider from '@/components/Divider/Divider'
 import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 import { useUserFetch } from '@/composable/useApiFetch'
-import { getSession, signOut} from 'next-auth/react'
+import { getSession, signOut, useSession} from 'next-auth/react'
 
 export interface StandardComponentProps {
     networks?: any,
@@ -22,6 +22,8 @@ const Burger = ({ networks, link, button, linkauthorized, hideButtonBuy }: Stand
     const burger: any = useAuthStore((state: any) => (state.isBurger))
     const isSignedIn = useAuthStore((state: any) => (state.isSignedIn))
     const isMint = useAuthStore((state: any) => (state.isMint))
+
+    const {data: session} = useSession()
 
     const [fetchedSession, setFetchedSession] = useState<any>()
 
@@ -94,7 +96,7 @@ const Burger = ({ networks, link, button, linkauthorized, hideButtonBuy }: Stand
                                 </>
                         }
                         {
-                            isSignedIn &&
+                            fetchedSession &&
                             <p onClick={unLogIn}>Log Out</p>
                         }
                     </div>
