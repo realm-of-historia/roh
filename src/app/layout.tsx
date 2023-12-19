@@ -12,6 +12,7 @@ import { ToastContainer } from 'react-toastify'
 import { getServerSession } from 'next-auth'
 import SessionProvider from '../components/SessionProvider/SessionProvider'
 import Analytics from '@/Analytics/Analytics'
+import { authOptions } from '@/auth/auth'
 
 
 export const metadata: Metadata = {
@@ -37,8 +38,8 @@ export default async function RootLayout({ children, }: { children: React.ReactN
   const dataAboutProject = useSectionData(generalData, 'about_the_projects')
   const datacarahunges = useSectionData(generalData, 'carahunges')
   const datajoinUses = useSectionData(generalData, 'join_uses')
-  const session = await getServerSession();
-
+  const session: any = await getServerSession(authOptions)
+  
 
   return (
     <html lang="en">

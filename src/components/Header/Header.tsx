@@ -30,7 +30,7 @@ export interface StandardComponentProps {
 
 export const handleAuth = () => {
   // authConfig.connect();
-  signIn(undefined, { callbackUrl: 'https://roh-self.vercel.app/' })
+  signIn(undefined, { callbackUrl: 'https://roh-self.vercel.app' }) //{callbackUrl: 'http://localhost:3000/'}
   handleAuths()
 }
 const handleAuths = () => {
@@ -63,6 +63,8 @@ const Header = ({ data }: StandardComponentProps) => {
   const { innerWidth }: number | any = useWindowSize();
   const isMint = useAuthStore((state: any) => (state.isMint))
   const [isDev, setIsDev] = useState(false)  
+
+  const {data: session} = useSession()
   const [fetchedSession, setFetchedSession]: any = useState()
 
   const projectId = "1b6866d4-3236-42e9-83a2-f376668316e9";
@@ -80,7 +82,7 @@ const Header = ({ data }: StandardComponentProps) => {
     
 
   }, [innerWidth, pathname])
-
+  
   useEffect(() => {
     if(innerWidth <= 1080){
       setActiveBurger(true)
@@ -127,7 +129,10 @@ const Header = ({ data }: StandardComponentProps) => {
 
 
   useEffect(() => {
+    console.log(fetchedSession)
     if (fetchedSession?.wallets) {
+
+      console.log(fetchedSession)
 
       const authTest = {
         wallet: fetchedSession?.wallets.solana,
@@ -146,8 +151,10 @@ const Header = ({ data }: StandardComponentProps) => {
         .then(response => response.json())
         .then(data => {
           // setToken(data.token)
+          console.log(data)
           if(data.token) {
             useAuthStore.setState({ token: data.token, isSignedIn: true })
+            console.log(data.token)
           }
         })
         .catch(error => {
@@ -162,6 +169,7 @@ const Header = ({ data }: StandardComponentProps) => {
   useEffect(() => {
     const fetchData = async () => {
       const userSession: any = await getSession();
+      console.log(userSession)
       setFetchedSession(userSession)
     };
 
@@ -205,7 +213,7 @@ const Header = ({ data }: StandardComponentProps) => {
           <Burger hideButtonBuy={data?.hideButtonBuy}  networks={data?.networks} link={data?.link} button={data?.button} linkauthorized={data?.authorizedUserBurger} />
           <div className={styles.bottomDivider}></div>
           <div className={styles.wrapperLogoNetworks}>
-            <picture className={styles.wrapperLogo}>
+            <picture onClick={() => signOut} className={styles.wrapperLogo}>
               <Link href="/" className={styles.logoImage}><ImageMy alt='' width={92} height={38} src={data?.logo.data.attributes.url} priority={true} /></Link>
               <Divider position={'right top'} />
             </picture>
@@ -224,7 +232,7 @@ const Header = ({ data }: StandardComponentProps) => {
                 <Link key={i + 321} href={_.href || '/'}><p>{_.name}</p></Link>
               ))
             }
-            <p>{fetchedSession?.user?.name}</p>
+            {/* <p>{fetchedSession?.user?.name}</p> */}
             {!isMint && !data?.hideButtonBuy &&  <Link href='/mint'><button className={styles.button}>{data?.button}</button></Link>}
           </div>
           <div className={styles.right}>
