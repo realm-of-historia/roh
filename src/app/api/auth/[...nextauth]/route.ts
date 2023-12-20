@@ -27,10 +27,12 @@ const authOptions: any = {
         // authorization:{
         //     url: 'http://localhost:3000/api/auth/callback/discord'
         // }
+        checks: ['none'],
       }),
       GoogleProvider({
           clientId: process.env.GOOGLE_ID ?? "",
           clientSecret: process.env.GOOGLE_SECRET ?? "",
+          checks: ['none'],
       }),
       TwitterProvider({
         clientId: process.env.TWITTER_CLIENT_ID ?? "",
