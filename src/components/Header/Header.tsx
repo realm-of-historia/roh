@@ -30,7 +30,7 @@ export interface StandardComponentProps {
 
 export const handleAuth = () => {
   // authConfig.connect();
-  signIn(undefined, { callbackUrl: '/' }) //{callbackUrl: 'http://localhost:3000/'} callbackUrl: 'https://roh-self.vercel.app'
+  signIn(undefined, { callbackUrl: '/', redirect: true }) //{callbackUrl: 'http://localhost:3000/'} callbackUrl: 'https://roh-self.vercel.app'
   handleAuths()
 }
 const handleAuths = () => {
