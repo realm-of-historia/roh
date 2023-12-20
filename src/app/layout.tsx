@@ -24,6 +24,8 @@ export const metadata: Metadata = {
     card: 'summary',
     site: '@RealmofHistoria',
     title: 'Realm of Historia - Preserving Cultural Heritage',
+    description: `Realm of Historia is a pioneering  project leveraging blockchain technology to preserve global cultural heritage sites, starting with Armenia's ancient Carahunge astronomical observatory.`,
+    images: '/metaLogo.png',
   },
   openGraph:{
     url: 'https://www.realmofhistoria.com/',

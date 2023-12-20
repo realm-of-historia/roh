@@ -4,12 +4,10 @@ const baseUrl="https://staging.crossmint.com"
 
 export class WalletService {
   static async fetchWallets(userId) {
-    // console.log('fsfsfsfsfsfsfsfs')
     let walletsMap = {};
     const existingWallets = await WalletService.#fetchWalletsInternal(userId);
     
     if(existingWallets.error){
-      // console.log(existingWallets, 'existingWallets')
       return null;
     } else{
       existingWallets.forEach((wallet) => {
@@ -17,13 +15,11 @@ export class WalletService {
         const address = wallet.publicKey;
         walletsMap[chain] = address;
       });
-      // console.log(walletsMap, 'koshelki')
       return walletsMap;
     }
   }
 
   static async createWallets(userId) {
-    // console.log(userId, 'айдишник юзера')
     const url = `${baseUrl}/api/v1-alpha1/wallets`;
     const options = WalletService.#createOptions("POST", {
       chain: "solana",
@@ -33,7 +29,6 @@ export class WalletService {
   }
 
   static async #fetchWalletsInternal(userId) {
-    // console.log('fsfsfsfsfsfsfsfs')
     const url = new URL(
       `${baseUrl}/api/v1-alpha1/wallets`,
     );
@@ -43,7 +38,6 @@ export class WalletService {
   }
 
   static #createOptions(method, body = null) {
-    // console.log('fsfsfsfsfsfsfsfs')
     return {
       method: method,
       headers: {
