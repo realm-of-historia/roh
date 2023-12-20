@@ -55,6 +55,7 @@ const authOptions: any = {
     // sqlite:base.sqlite
     adapter: TypeORMAdapter(connection),
     secret: process.env.NEXTAUTH_SECRET,
+    debug: true,
     session: {
       jwt: true,
     },
