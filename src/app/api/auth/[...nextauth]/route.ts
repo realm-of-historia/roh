@@ -24,10 +24,10 @@ const authOptions: any = {
       DiscordProvider({
         clientId: process.env.DISCORD_ID ?? "",
         clientSecret: process.env.DISCORD_SECRET ?? "",
-        // authorization:{
-        //     url: 'http://localhost:3000/api/auth/callback/discord'
-        // }
-        checks: ['none'],
+        authorization:{
+            url: 'http://roh-self.vercel.app/api/auth/callback/discord'
+        }
+        // checks: ['none'],
       }),
       GoogleProvider({
           clientId: process.env.GOOGLE_ID ?? "",
