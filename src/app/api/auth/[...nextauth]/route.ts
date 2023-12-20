@@ -25,7 +25,7 @@ const authOptions: any = {
         clientId: process.env.DISCORD_ID ?? "",
         clientSecret: process.env.DISCORD_SECRET ?? "",
         authorization:{
-            url: 'http://roh-self.vercel.app/api/auth/callback/discord'
+            url: 'https://roh-self.vercel.app/api/auth/callback/discord'
         }
         // checks: ['none'],
       }),
