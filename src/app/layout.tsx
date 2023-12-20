@@ -22,11 +22,13 @@ export const metadata: Metadata = {
   twitter: {
     creator: '@RealmofHistoria',
     card: 'summary',
-    site: '@RealmofHistoria'
+    site: '@RealmofHistoria',
+    title: 'Realm of Historia - Preserving Cultural Heritage',
   },
   openGraph:{
     url: 'https://www.realmofhistoria.com/',
-    images: '/metaLogo.png'
+    images: '/metaLogo.png',
+    title: 'Realm of Historia - Preserving Cultural Heritage',
   },
 }
 
