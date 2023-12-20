@@ -22,17 +22,17 @@ const connection: ConnectionOptions = {
 const authOptions: any = {
     providers: [
       DiscordProvider({
-        clientId: process.env.DISCORD_ID ?? "",
-        clientSecret: process.env.DISCORD_SECRET ?? "",
+        clientId: '1181307021702746245',
+        clientSecret: '0aeGPm1Vfb7FCkOH36MtjV7J9Fu9i99E',
         authorization:{
             url: 'https://roh-self.vercel.app/api/auth/callback/discord'
-        }
+        },
         // checks: ['none'],
       }),
       GoogleProvider({
           clientId: process.env.GOOGLE_ID ?? "",
           clientSecret: process.env.GOOGLE_SECRET ?? "",
-          checks: ['none'],
+          // checks: ['none'],
       }),
       TwitterProvider({
         clientId: process.env.TWITTER_CLIENT_ID ?? "",
