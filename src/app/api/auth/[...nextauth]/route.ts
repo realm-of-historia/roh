@@ -22,8 +22,8 @@ const connection: ConnectionOptions = {
 const authOptions: any = {
     providers: [
       DiscordProvider({
-        clientId: '1181307021702746245',
-        clientSecret: '0aeGPm1Vfb7FCkOH36MtjV7J9Fu9i99E',
+        clientId: process.env.DISCORD_ID ?? "",
+        clientSecret: process.env.DISCORD_SECRET ?? "",
         authorization:{
             url: 'https://roh-self.vercel.app/api/auth/callback/discord'
         },
