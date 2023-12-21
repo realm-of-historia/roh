@@ -34,7 +34,12 @@ const AboutUs = ({data} : StandardComponentProps) => {
       <div className={styles.dividerBottom}></div>
       <div className={styles.second}>
         {/* <img src='ancectors.png' alt='' width={1920} height={480}/> */}
-        <ImageMy src={innerWidth <= 576 ? data?.dataaboutUsimgMobile?.data.attributes.url : data?.dataaboutUsimg2?.data.attributes.url} alt='' width={488} height={540}/>
+        <ImageMy src={innerWidth <= 576 ? data?.dataaboutUsimgMobile?.data.attributes.url : data?.dataaboutUsimg2?.data.attributes.url} 
+        alt='' 
+        width={488} 
+        height={540} 
+        poster={innerWidth <= 576 ? data?.posterMobile?.data?.attributes.url : data?.poster?.data?.attributes.url}
+        />
       </div>
       <div className={styles.third}>
         <div className={styles.disclaimer}>

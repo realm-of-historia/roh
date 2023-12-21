@@ -9,12 +9,13 @@ import ImageMy from '@/components/Image/ImageMy'
 
 export interface StandardComponentProps {
     data?: string,
-    articles?: any
+    articles?: any,
+    poster? : string
 }
-const Start = ({ data, articles }: StandardComponentProps) => {
+const Start = ({ data, articles, poster }: StandardComponentProps) => {
     const [articlesMyR, setArticlesMyR] = useState([])
     const [articlesMyL, setArticlesMyL] = useState([])
-
+    console.log(poster)
     useMemo(() => {
         if (!articles) { return }
         let lengthFirst = Math.floor(articles.data.length / 2) + 1;
@@ -32,7 +33,7 @@ const Start = ({ data, articles }: StandardComponentProps) => {
                 <div className={styles.player}>
                     {
                         data && 
-                        <ImageMy src={data} width={960} height={540} alt={''}/>
+                        <ImageMy src={data} width={960} height={540} alt={''} poster={poster}/>
                     }
                 </div>
 
