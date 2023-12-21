@@ -46,18 +46,16 @@ const Avatar = ({ searchIcon, support, subject, data, logOut }: StandardComponen
       // element.style.cssText = 'overflow: visible; height: auto;'
     }
   }, [burger])
+  
   const unLogIn = () => {
-    // if (authConfig.connected) {
-    if(fetchedSession){
-      // authConfig.logout();
-      // console.log(authConfig.connected)
-      signOut()
-      // console.log(session)
+    if (authConfig.connected) {
+      authConfig.logout();
+      console.log(authConfig.connected)
     } else {
-      console.log(fetchedSession)
       console.log('disconnected')
     }
   }
+
   const { innerWidth }: number | any = useWindowSize();
 
 

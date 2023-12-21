@@ -7,20 +7,23 @@ import Text from '@/components/Text/Text'
 import { useEffect, useState } from 'react'
 import { useAuthStore } from '@/store/store'
 import Link from 'next/link'
-import { handleAuth } from '@/components/Header/Header'
+import { useAuth } from '@/views/MintPage/hooks/useAuth'
 
 const HeritageDefault = () => {
+    const { auth } = useAuth()
+    const signedInFunction = (e : any) => {
+        auth()
+        e.preventDefault();
+    }
     const joinUses: any = useAuthStore((state: any) => (state.joinUses))
     const signedIn = useAuthStore((state: any) => (state.isSignedIn))
     const [data, setData]: any = useState(null)
+    
     useEffect(() => {
         if (!joinUses) return
         setData(joinUses)
     }, [joinUses])
-    const signedInFunction = (e : any) => {
-        handleAuth()
-        e.preventDefault();
-    }
+
     return (
         <>
             {
