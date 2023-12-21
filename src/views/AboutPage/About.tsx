@@ -18,6 +18,8 @@ export default function About({ data }: StandardComponentProps) {
     const dataaboutUsDisclaimer = useSectionData(data, 'Disclaimer')
     const dataaboutUsactivity = useSectionData(data, 'activity')
     const dataaboutUsMarcusLevy = useSectionData(data, 'MarcusLevy')
+    const poster = useSectionData(data, 'poster')
+    const posterMobile = useSectionData(data, 'posterMobile')
     const dataAboutUs = {
         dataAboutUsImg,
         dataaboutUsDescription,
@@ -25,7 +27,9 @@ export default function About({ data }: StandardComponentProps) {
         dataaboutUsDisclaimer,
         dataaboutUsactivity,
         dataaboutUsMarcusLevy,
-        dataaboutUsimgMobile
+        dataaboutUsimgMobile,
+        poster,
+        posterMobile
     }
     const dataFaces = useSectionData(data, 'swiperAboutUs')
 

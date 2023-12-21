@@ -9,8 +9,9 @@ import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 import HeritageDefault from '@/views/HomePage/screens/Heritage/HeritageDefault'
 
 export default async function BlogPage() { 
-    const data = await useApiFetch('api/blog-page?populate[video][populate]=*&populate[articles][populate]=*&populate[articlesPopular][populate]=*')
+    const data = await useApiFetch('api/blog-page?populate[video][populate]=*&populate[articles][populate]=*&populate[articlesPopular][populate]=*&populate[posterVideo][populate]=*')
     const dataStart = useSectionData(data, 'video')
+    const dataStartPoster = useSectionData(data, 'posterVideo')
     const dataStartArticles = useSectionData(data, 'articles')
     const articlesPopular = useSectionData(data, 'articlesPopular')
 
@@ -28,7 +29,7 @@ export default async function BlogPage() {
         <div>
             <HashAnchor />
             <WrapperTexture>
-                <Start data={dataStart.data.attributes.url} articles={dataStartArticles}></Start>
+                <Start data={dataStart.data.attributes.url} articles={dataStartArticles} poster={dataStartPoster && dataStartPoster.data.attributes.url}></Start>
             </WrapperTexture>
             <WrapperTexture>
             <Comments data={articlesPopular} />
