@@ -39,7 +39,7 @@ const Avatar = ({ searchIcon, support, subject, data, logOut }: StandardComponen
   const unLogIn = () => {
     if (authConfig.connected) {
       authConfig.logout();
-      console.log(authConfig.connected)
+      // console.log(authConfig.connected)
     } else {
       console.log('disconnected')
     }

@@ -60,7 +60,7 @@ const Header = ({ data }: StandardComponentProps) => {
             title.innerText = 'Email'
             input.placeholder = 'name@example.com'
             cross.src = '/radix-icons_cross-1.svg'
-            console.log(cross)
+            // console.log(cross)
         
         
           }, 1)

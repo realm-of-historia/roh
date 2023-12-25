@@ -67,14 +67,14 @@ export default function UserInfo({ lineFirst, lineSecond,  }: { lineFirst?: numb
                                 <div className={styles.verification}>
                                     <div><p>Steward of Historia / Traveller / Hand of Historia</p></div>
                                 </div>
-                                <div className={styles.wallet}>
+                                {/* <div className={styles.wallet}>
                                     <p>
                                         Profile wallet address:
                                     </p>
                                     <p>
                                         {walletAdress}
                                     </p>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         {/* <div className={styles.progress}>
