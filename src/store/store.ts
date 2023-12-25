@@ -15,6 +15,8 @@ const useAuthStore = create((set) => ({
   joinUses: [],
   instagram: {},
   mintModalVisible: false,
+  profileWalletAdress: '',
+  signedMessage: null,
   signIn: () => set((state: any) => ({ isSignedIn: !state.isSignedIn })),
   logIn: () => set((state: any) => ({ isSignedIn: !state.isSignedIn })),
   changeRoute: (route: any) => ((state: any) => ({userRoute: route}))

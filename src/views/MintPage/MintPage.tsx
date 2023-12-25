@@ -43,10 +43,10 @@ export default function MintPage({data}: {data: any}) {
     const mintModalVisible = useAuthStore((state: any) => (state.mintModalVisible))
     const [isLoaderVisible, setIsLoaderVisible] = useState(false)
     const [key, setKey] = useState<any>()
-    const {data: session} = useSession()
+    const [mintWalletAddress, setMintWalletAddress] = useState<any>('')
 
 
-    const {publicKey} = useWalletMultiButton({
+    const {publicKey, walletName} = useWalletMultiButton({
         onSelectWallet() {
             setModalVisible(true);
         },
@@ -62,11 +62,18 @@ export default function MintPage({data}: {data: any}) {
     const [mintResult, setMintResult] = useState<MintingResult | null>(null)
 
 
+    useEffect(() => {
+        if(walletAdapter) {
+            console.log(walletAdapter)
+        }
+    }, [walletName])
+
     const onMint = async () => {
         if(!publicKey && !walletAdapter.publicKey) {
             setModalVisible(true)
             return
         } else{
+            console.log(walletAdapter)
             setIsLoaderVisible(true);
             const txs = params.map(p => createMintTransaction(umiPubkeyFromWalletAdapterPubkey(walletAdapter.publicKey!), p));
             setKey(txs[0].mint.publicKey);
@@ -192,6 +199,14 @@ export default function MintPage({data}: {data: any}) {
                                     {candyDisplay.price} SOL
                                 </p>
                             </div>
+                        </div>
+                        <div className={styles.walletInfo}>
+                            <p>
+                                Mint wallet address:
+                            </p>
+                            <p>
+                                {/* {mintWalletAddress} */}
+                            </p>
                         </div>
                     </div>
                     <div className={styles.second}>

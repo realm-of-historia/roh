@@ -20,17 +20,6 @@ export interface StandardComponentProps {
 
 const Avatar = ({ searchIcon, support, subject, data, logOut }: StandardComponentProps) => {
 
-  const [fetchedSession, setFetchedSession] = useState<any>()
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const userSession: any = await getSession();
-      setFetchedSession(userSession)
-    };
-
-    fetchData();
-  }, []);
-
   const burger: any = useAuthStore((state: any) => (state.isBurger))
   useEffect(() => {
     let element: any = document.getElementById("body");

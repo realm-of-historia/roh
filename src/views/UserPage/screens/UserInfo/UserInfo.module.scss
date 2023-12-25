@@ -306,3 +306,22 @@
 
     }
 }
+
+.wallet{
+    margin-top: rm(16);
+    display: flex;
+
+    @include md{
+        margin-top: rm(8);
+    }
+
+    >p:first-child{
+        font-weight: 600;
+        width: rm(155);
+
+    }
+
+    >p:last-child{
+        
+    }
+}
