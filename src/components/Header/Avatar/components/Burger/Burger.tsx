@@ -96,7 +96,7 @@ const Burger = ({ networks, link, button, linkauthorized, hideButtonBuy }: Stand
                                 </>
                         }
                         {
-                            fetchedSession &&
+                            isSignedIn &&
                             <p onClick={unLogIn}>Log Out</p>
                         }
                     </div>

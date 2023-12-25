@@ -128,10 +128,10 @@ const Header = ({ data }: StandardComponentProps) => {
 
 
   useEffect(() => {
-    console.log(fetchedSession)
+    // console.log(fetchedSession)
     if (fetchedSession?.wallets) {
 
-      console.log(fetchedSession)
+      // console.log(fetchedSession)
 
       const authTest = {
         wallet: fetchedSession?.wallets.solana,
@@ -150,10 +150,10 @@ const Header = ({ data }: StandardComponentProps) => {
         .then(response => response.json())
         .then(data => {
           // setToken(data.token)
-          console.log(data)
+          // console.log(data)
           if(data.token) {
             useAuthStore.setState({ token: data.token, isSignedIn: true })
-            console.log(data.token)
+            // console.log(data.token)
           }
         })
         .catch(error => {
@@ -168,7 +168,7 @@ const Header = ({ data }: StandardComponentProps) => {
   useEffect(() => {
     const fetchData = async () => {
       const userSession: any = await getSession();
-      console.log(userSession)
+      // console.log(userSession)
       setFetchedSession(userSession)
     };
 

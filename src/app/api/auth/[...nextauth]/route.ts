@@ -64,29 +64,23 @@ const authOptions: any = {
     callbacks: {
     async redirect({ url, baseUrl }: {url: any, baseUrl: any}) { return baseUrl },
     async signIn({ user, isNewUser }: { user: any, isNewUser: any }) {
-    //   console.log(isNewUser, 'новый ли юзер')
       if (isNewUser) {
         console.info(`NextAuth: created user ${user.id}`);
         await WalletService.createWallets(user.id);
         console.info(`NextAuth: initialized wallet for user ${user.id}`);
       }
       console.info(`NextAuth: fetching wallets for user ${user.id}`);
-    //   console.log(user.wallets, 'валеты юзера')
       user.wallets = await WalletService.fetchWallets(user.id);
       if(user.wallets) {
-        // console.log('с кошельками всё норм', user.wallets)
         return true;
       } else {
-        // console.log('С кошельками лажа', user?.wallets)
         await WalletService.createWallets(user.id)
       }
-    //   console.log(user.id, 'для отправки в fetchWallets')
       user.wallets = await WalletService.fetchWallets(user.id);
       console.info(`Ну ${user.id}`)
       return true
     },
     async jwt({ token, user, account, profile, isNewUser }: { token: any, user: any, account: any, profile: any, isNewUser: any }) {
-    //   console.log(token, 'tokenik')
       if (user) {
         token.wallets = user.wallets;
       }

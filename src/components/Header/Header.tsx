@@ -15,6 +15,9 @@ import Divider from '../Divider/Divider'
 import { useWindowSize } from 'rooks';
 import Burger from './Avatar/components/Burger/Burger'
 import { useAuth } from '@/views/MintPage/hooks/useAuth'
+import crossSvg from './Avatar/components/Burger/Vector (1).svg'
+import { generateSolAuthJSON } from '@/sol-auth-json'
+import { useWallet } from '@solana/wallet-adapter-react'
 
 export interface StandardComponentProps {
     data?: any,
@@ -30,10 +33,38 @@ const Header = ({ data }: StandardComponentProps) => {
 
     const { innerWidth }: number | any = useWindowSize();
     const isMint = useAuthStore((state: any) => (state.isMint))
+    const signedMessage = useAuthStore((state: any) => (state.signedMessage))
 
     const [isDev, setIsDev] = useState(false)
 
-    const { auth, signer } = useAuth()
+    const { auth, signer} = useAuth()
+
+
+    const handleAuth = () => {
+        auth()
+        
+        setTimeout(() => {
+            let image_icon: any = document.querySelector(".w3a-button--primary img");
+            // let image_iconHover : any = document.querySelector(".w3a-button--primary :nth-child(2)");
+            let image_iconH: any = document.querySelector(".w3a-button--primary :nth-child(2)");
+            let image_iconH2: any = document.querySelector(".w3a-button--primary :nth-child(1)");
+            let subtitle: any = document.querySelector(".w3a-header__subtitle");
+            let title: any = document.querySelector(".w3a-group__title");
+            let input: any = document.querySelector(".w3a-text-field");
+            let cross: any = document.querySelector(".w3ajs-close-btn img");
+            if (!image_icon && !image_iconH && !subtitle && !input && !cross) { return }
+            // image_icon.src = '/fsVww.svg'
+            // image_iconHover.src = '/fsVww.svg'
+            image_iconH.src = image_iconH2.src
+            subtitle.innerText = 'Embark on a journey of discovery.'
+            title.innerText = 'Email'
+            input.placeholder = 'name@example.com'
+            cross.src = '/radix-icons_cross-1.svg'
+            // console.log(cross)
+        
+        
+          }, 1)
+    }
 
     useEffect(() => {
         if (innerWidth > 1080) {
@@ -55,6 +86,7 @@ const Header = ({ data }: StandardComponentProps) => {
 
     useEffect(() => {
         let element = document.getElementById("body");
+
         if (activeWindow && element) {
             // element.style.cssText = 'overflow: hidden; height: 100vh;'
             document.documentElement.style.overflow = 'hidden';
@@ -93,16 +125,21 @@ const Header = ({ data }: StandardComponentProps) => {
     })
 
     useEffect(() => {
-        if (signer) {
+
+        if (signer && signedMessage) {
+
+
+            const signature = btoa(String.fromCharCode.apply(null, signedMessage));
+
+
             const user = JSON.stringify({
                 wallet: signer.publicKey,
-                signature: ' '
+                signature: signature
             })
 
             fetch('https://api.realmofhistoria.com/api/web3auth/', {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer`,
                     'Content-Type': 'application/json',
                 },
                 body: user,
@@ -117,7 +154,7 @@ const Header = ({ data }: StandardComponentProps) => {
                     console.error("ошибка:", error);
                 });
         }
-    }, [signer])
+    }, [signedMessage])
 
     useEffect(() => {
         if (pathname.indexOf('/user') === 0 && !isSignedIn) {
@@ -179,7 +216,7 @@ const Header = ({ data }: StandardComponentProps) => {
                         <Divider position={'left top'} />
                         {!isMint && !data?.hideButtonBuy && <Link href='/mint'><button className={`${styles.button} ${styles.buttonMob}`}>{data?.button}</button></Link>}
                         {/* {!isSignedIn ? <div className={styles.signin}><p className={styles.logIn} onClick={auth}>{data?.buttonSignIn}</p></div> : <div className={styles.logIn}></div>} */}
-                        {!isSignedIn && (!data?.hideButtonSignIn || isDev) ? <div className={styles.signin}><p className={styles.logIn} onClick={auth}>{data?.buttonSignIn}</p></div> : <div className={styles.logIn}></div>}
+                        {!isSignedIn && (!data?.hideButtonSignIn || isDev) ? <div className={styles.signin}><p className={styles.logIn} onClick={handleAuth}>{data?.buttonSignIn}</p></div> : <div className={styles.logIn}></div>}
                         {activeBurger ? <Avatar
                         data={data?.authorizedUserMenu}
                         logOut={data?.bottonLogOut}

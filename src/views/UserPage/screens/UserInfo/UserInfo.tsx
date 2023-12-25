@@ -22,6 +22,10 @@ export default function UserInfo({ lineFirst, lineSecond,  }: { lineFirst?: numb
     const token = useAuthStore((state: any) => (state.token))
     const profileChange = useAuthStore((state: any) => (state.profileChange))
 
+    const walletAdress = useAuthStore((state: any) => (state.profileWalletAdress))
+
+    console.log(walletAdress)
+
     const [data, setData]: any = useState()
     useEffect(() => {
         if (!token) { return }
@@ -45,6 +49,8 @@ export default function UserInfo({ lineFirst, lineSecond,  }: { lineFirst?: numb
             title: 'Allowed / Not allowed',
         }
     ]
+
+
     return (
         <div className={styles.userInfo}>
             <div className={styles.container}>
@@ -61,6 +67,14 @@ export default function UserInfo({ lineFirst, lineSecond,  }: { lineFirst?: numb
                                 <div className={styles.verification}>
                                     <div><p>Steward of Historia / Traveller / Hand of Historia</p></div>
                                 </div>
+                                {/* <div className={styles.wallet}>
+                                    <p>
+                                        Profile wallet address:
+                                    </p>
+                                    <p>
+                                        {walletAdress}
+                                    </p>
+                                </div> */}
                             </div>
                         </div>
                         {/* <div className={styles.progress}>
