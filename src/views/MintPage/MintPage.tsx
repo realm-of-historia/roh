@@ -63,10 +63,11 @@ export default function MintPage({data}: {data: any}) {
 
 
     useEffect(() => {
-        if(walletAdapter) {
-            console.log(walletAdapter)
+        if(walletAdapter.publicKey) {
+            const toLog = umiPubkeyFromWalletAdapterPubkey(walletAdapter.publicKey!)
+            setMintWalletAddress(toLog)
         }
-    }, [walletName])
+    }, [walletAdapter])
 
     const onMint = async () => {
         if(!publicKey && !walletAdapter.publicKey) {
@@ -76,6 +77,9 @@ export default function MintPage({data}: {data: any}) {
             console.log(walletAdapter)
             setIsLoaderVisible(true);
             const txs = params.map(p => createMintTransaction(umiPubkeyFromWalletAdapterPubkey(walletAdapter.publicKey!), p));
+
+            console.log(txs)
+
             setKey(txs[0].mint.publicKey);
 
             try {
@@ -205,7 +209,7 @@ export default function MintPage({data}: {data: any}) {
                                 Mint wallet address:
                             </p>
                             <p>
-                                {/* {mintWalletAddress} */}
+                                {mintWalletAddress}
                             </p>
                         </div>
                     </div>
