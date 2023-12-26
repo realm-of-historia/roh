@@ -7,6 +7,7 @@ import Divider from '@/components/Divider/Divider'
 import { useEffect, useState } from 'react'
 import { useUserFetch } from '@/composable/useApiFetch'
 import { useAuthStore } from '@/store/store'
+import { useWindowSize, useWindowWidth } from '@react-hook/window-size'
 
 
 export default function UserInfo({ lineFirst, lineSecond,  }: { lineFirst?: number, lineSecond?: number }) {
@@ -24,7 +25,8 @@ export default function UserInfo({ lineFirst, lineSecond,  }: { lineFirst?: numb
 
     const walletAdress = useAuthStore((state: any) => (state.profileWalletAdress))
 
-    console.log(walletAdress)
+    const width = useWindowWidth()
+
 
     const [data, setData]: any = useState()
     useEffect(() => {
@@ -67,14 +69,15 @@ export default function UserInfo({ lineFirst, lineSecond,  }: { lineFirst?: numb
                                 <div className={styles.verification}>
                                     <div><p>Steward of Historia / Traveller / Hand of Historia</p></div>
                                 </div>
-                                {/* <div className={styles.wallet}>
+                                {width < 576 ? <></> :
+                                    <div className={styles.wallet}>
                                     <p>
                                         Profile wallet address:
                                     </p>
                                     <p>
                                         {walletAdress}
                                     </p>
-                                </div> */}
+                                </div>}
                             </div>
                         </div>
                         {/* <div className={styles.progress}>

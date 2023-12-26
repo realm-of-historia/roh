@@ -72,41 +72,43 @@ const Burger = ({ networks, link, button, linkauthorized, hideButtonBuy }: Stand
                 <img src="/texture.webp" className={style.texture} width={1920} height={800} alt="" />
                 <div className={style.containerWrapper}>
                     <div className={style.mainWrapper}>
-                        {
-                            isSignedIn &&
-                            <div className={style.avatar}>
-                                <img src={dataUserNew?.user.avatar ? `https://api.realmofhistoria.com/${dataUserNew?.user.avatar}` : '/ooui_user-avatar.png'} width={38} height={38} />
-                            </div>
-                        }
-                        <div className={style.link}>
-                            {
-                                isSignedIn ?
-                                    <>
-                                        {
-                                            linkauthorized?.map((_: any, i: number) => (
-                                                <Link key={i + 3233} href={_.href || '/'}><p>{_.name}</p></Link>
-                                            ))
-                                        }
-                                    </>
-                                    :
-                                    <>
-                                        {
-                                            link?.map((_: any, i: number) => (
-                                                <Link key={i + 321} href={_.href || '/'}><p>{_.name}</p></Link>
-                                            ))
-                                        }
-                                    </>
-                            }
+                        <div>
                             {
                                 isSignedIn &&
-                                <p onClick={unLogIn}>Log Out</p>
+                                <div className={style.avatar}>
+                                    <img src={dataUserNew?.user.avatar ? `https://api.realmofhistoria.com/${dataUserNew?.user.avatar}` : '/ooui_user-avatar.png'} width={38} height={38} />
+                                </div>
+                            }
+                            <div className={style.link}>
+                                {
+                                    isSignedIn ?
+                                        <>
+                                            {
+                                                linkauthorized?.map((_: any, i: number) => (
+                                                    <Link key={i + 3233} href={_.href || '/'}><p>{_.name}</p></Link>
+                                                ))
+                                            }
+                                        </>
+                                        :
+                                        <>
+                                            {
+                                                link?.map((_: any, i: number) => (
+                                                    <Link key={i + 321} href={_.href || '/'}><p>{_.name}</p></Link>
+                                                ))
+                                            }
+                                        </>
+                                }
+                                {
+                                    isSignedIn &&
+                                    <p onClick={unLogIn}>Log Out</p>
+                                }
+                            </div>
+
+                            {
+                                !hideButtonBuy && 
+                                <Link href='/mint'><button className={style.button}>{button}</button></Link>
                             }
                         </div>
-
-                        {
-                            !hideButtonBuy && 
-                            <Link href='/mint'><button className={style.button}>{button}</button></Link>
-                        }
                         <div className={style.network}>
                             {
                                 networks?.map((_: any, i: number) => (
