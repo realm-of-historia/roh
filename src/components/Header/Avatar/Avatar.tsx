@@ -56,6 +56,7 @@ const Avatar = ({ searchIcon, support, subject, data, logOut }: StandardComponen
 
   useEffect(() => {
     if (!token) { return }
+    console.log('token page', token)
     const FetchData = async (token: any) => {
       const dataUser = await useUserFetch('api/crypto-user/', token)
       return dataUser

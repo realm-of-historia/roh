@@ -37,7 +37,7 @@ const Burger = ({ networks, link, button, linkauthorized, hideButtonBuy }: Stand
     }, []);
 
     const unLogIn = () => {
-        if (fetchedSession) {
+        if (isSignedIn) {
             signOut()
         } else {
             console.log('disconnected')
@@ -68,54 +68,60 @@ const Burger = ({ networks, link, button, linkauthorized, hideButtonBuy }: Stand
     return (
         <>
             <div className={`${style.stub} ${burger ? style.stubActive : ''}`} onClick={() => useAuthStore.setState({ isBurger: false })}></div>
-            <div className={`${style.wrapperBurger} ${burger ? style.wrapperBurgerActive : ''}`} >
-                <WrapperTexture>
-                    {
-                        isSignedIn &&
-                        <div className={style.avatar}>
-                            <img src={dataUserNew?.user.avatar ? `https://api.realmofhistoria.com/${dataUserNew?.user.avatar}` : '/ooui_user-avatar.png'} width={38} height={38} />
-                        </div>
-                    }
-                    <div className={style.link}>
-                        {
-                            isSignedIn ?
-                                <>
-                                    {
-                                        linkauthorized?.map((_: any, i: number) => (
-                                            <Link key={i + 3233} href={_.href || '/'}><p>{_.name}</p></Link>
-                                        ))
-                                    }
-                                </>
-                                :
-                                <>
-                                    {
-                                        link?.map((_: any, i: number) => (
-                                            <Link key={i + 321} href={_.href || '/'}><p>{_.name}</p></Link>
-                                        ))
-                                    }
-                                </>
-                        }
-                        {
-                            isSignedIn &&
-                            <p onClick={unLogIn}>Log Out</p>
-                        }
-                    </div>
-                    {
-                        !hideButtonBuy && 
-                        <Link href='/mint'><button className={style.button}>{button}</button></Link>
-                    }
-                    <div className={style.network}>
-                        {
-                            networks?.map((_: any, i: number) => (
-                                <div key={i + 741} onClick={() => handler(_.href)} className={style.iconHeader}>
-                                    <ImageMy src={_.icon.data.attributes.url} width={24} height={24} alt='' />
-                                    <Divider position={'right top'} />
-                                    <Divider position={'left top'} />
+            <div className={`${style.wrapperBurger} ${burger ? style.wrapperBurgerActive : ''}`}>
+                <img src="/texture.webp" className={style.texture} width={1920} height={800} alt="" />
+                <div className={style.containerWrapper}>
+                    <div className={style.mainWrapper}>
+                        <div>
+                            {
+                                isSignedIn &&
+                                <div className={style.avatar}>
+                                    <img src={dataUserNew?.user.avatar ? `https://api.realmofhistoria.com/${dataUserNew?.user.avatar}` : '/ooui_user-avatar.png'} width={38} height={38} />
                                 </div>
-                            ))
-                        }
+                            }
+                            <div className={style.link}>
+                                {
+                                    isSignedIn ?
+                                        <>
+                                            {
+                                                linkauthorized?.map((_: any, i: number) => (
+                                                    <Link key={i + 3233} href={_.href || '/'}><p>{_.name}</p></Link>
+                                                ))
+                                            }
+                                        </>
+                                        :
+                                        <>
+                                            {
+                                                link?.map((_: any, i: number) => (
+                                                    <Link key={i + 321} href={_.href || '/'}><p>{_.name}</p></Link>
+                                                ))
+                                            }
+                                        </>
+                                }
+                                {
+                                    isSignedIn &&
+                                    <p onClick={unLogIn}>Log Out</p>
+                                }
+                            </div>
+
+                            {
+                                !hideButtonBuy && 
+                                <Link href='/mint'><button className={style.button}>{button}</button></Link>
+                            }
+                        </div>
+                        <div className={style.network}>
+                            {
+                                networks?.map((_: any, i: number) => (
+                                    <div key={i + 741} onClick={() => handler(_.href)} className={style.iconHeader}>
+                                        <ImageMy src={_.icon.data.attributes.url} width={24} height={24} alt='' />
+                                        <Divider position={'right top'} />
+                                        <Divider position={'left top'} />
+                                    </div>
+                                ))
+                            }
+                        </div>
                     </div>
-                </WrapperTexture>
+                </div>
             </div>
         </>
     )

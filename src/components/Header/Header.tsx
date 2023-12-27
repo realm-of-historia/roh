@@ -126,35 +126,40 @@ const Header = ({ data }: StandardComponentProps) => {
 
     useEffect(() => {
 
-        if (signer && signedMessage) {
+        console.log(signedMessage)
 
+        setTimeout(() => {
+            if (signer && signedMessage) {
 
-            const signature = btoa(String.fromCharCode.apply(null, signedMessage));
-
-
-            const user = JSON.stringify({
-                wallet: signer.publicKey,
-                signature: signature
-            })
-
-            fetch('https://api.realmofhistoria.com/api/web3auth/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: user,
-            })
-                .then(response => response.json())
-                .then(data => {
-                    useAuthStore.setState({ token: data.token })
-                    setIsSignedIn(true)
-                    useAuthStore.setState(({ isSignedIn: true }))
+                const signature = btoa(String.fromCharCode.apply(null, signedMessage));
+    
+    
+                const user = JSON.stringify({
+                    wallet: signer.publicKey,
+                    signature: signature
                 })
-                .catch(error => {
-                    console.error("ошибка:", error);
-                });
-        }
-    }, [signedMessage])
+    
+                fetch('https://api.realmofhistoria.com/api/web3auth/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: user,
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        useAuthStore.setState({ token: data.token })
+                        console.log('token', data.token)
+                        setIsSignedIn(true)
+                        useAuthStore.setState(({ isSignedIn: true }))
+                    })
+                    .catch(error => {
+                        console.error("ошибка:", error);
+                    });
+            }
+        }, 700)
+
+    }, [signedMessage, signer])
 
     useEffect(() => {
         if (pathname.indexOf('/user') === 0 && !isSignedIn) {

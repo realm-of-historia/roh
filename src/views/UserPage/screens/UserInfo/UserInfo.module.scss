@@ -70,9 +70,20 @@
 
     .left {
         position: relative;
-        width: rm(363);
-        height: rm(363);
+        width: rm(390);
+        height: rm(390);
         z-index: 999;
+
+        // @include md{
+        //     width: rm(300);
+        //     height: rm(300);
+        // }
+
+        @include md {
+            width: rm(370);
+            height: rm(370);
+        }
+
         @include xsm {
             width: rm(224);
             height: rm(224);
@@ -310,6 +321,8 @@
 .wallet{
     margin-top: rm(16);
     display: flex;
+    flex-wrap: wrap;
+    column-gap: rm(20);
 
     @include md{
         margin-top: rm(8);
@@ -317,7 +330,7 @@
 
     >p:first-child{
         font-weight: 600;
-        width: rm(155);
+        // width: rm(155);
 
     }
 
