@@ -52,6 +52,7 @@ export default function UserInfo({ lineFirst, lineSecond,  }: { lineFirst?: numb
         }
     ]
 
+    // console.log(data, 'fdasfas')
 
     return (
         <div className={styles.userInfo}>

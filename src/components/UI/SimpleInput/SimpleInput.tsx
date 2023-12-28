@@ -30,7 +30,7 @@ const SimpleInput: React.FC<SimpleInputProps> = ({ errors, placeholder, icon, on
                     {...register(name, {
                         required: true,
                         pattern: {
-                            value: value === 'phone' ? /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/ : value === 'text' ? /^[a-zA-Z][a-zA-Z0-9-]+$/ : /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/,
+                            value: value === 'wallet' ? '' : value === 'text' ? /^[a-zA-Zа-яА-ЯёЁ][a-zA-Zа-яА-ЯёЁ0-9-]+$/ : /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/,
                             // message: 'incorrect value'
                         }
                     })}
