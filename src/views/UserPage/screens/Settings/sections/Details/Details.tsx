@@ -22,8 +22,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const DetailsProfile = ({ dataSer }: any) => {
     const token = useAuthStore((state: any) => (state.token))
     const profileChange = useAuthStore((state: any) => (state.profileChange))
-    console.log(dataSer)
     const [data, setData]: any = useState()
+    const [submitIndex, setSubmitIndex] = useState<any>(0)
 
 
     useEffect(() => {
@@ -89,26 +89,39 @@ const DetailsProfile = ({ dataSer }: any) => {
         // setValue('country', data?.user.country)
         // setValue('language', data?.user.language)
         setValue('email', data?.user.email)
+        setValue('nftWallet', data?.user.ext_wallet)
     }, [data])
 
     const [files, setFiles] = useState([]);
     const [filesserv, setFilesserv]: any = useState();
-    const toastError = (errors: any) => {
-        if (errors.name) {
-            toast.error(`wrong name`)
-            console.log(`wrong name`)
-            return
-        } else if (errors.firstName) {
-            toast.error(`wrong last name`)
-            console.log(`wrong last name`)
-            return
-        } else if (errors.email) {
-            toast.error(`invalid mail`)
-            console.log(`invalid mail`)
-            return
+
+
+    useEffect(() => {
+
+        if(errors.name || errors.firstName || errors.email) {
+            if (errors.name) {
+                toast.error(`wrong name`)
+                console.log(`wrong name`)
+                return
+            } else if (errors.firstName) {
+                toast.error(`wrong last name`)
+                console.log(`wrong last name`)
+                return
+            } else if (errors.email) {
+                toast.error(`invalid mail`)
+                console.log(`invalid mail`)
+                return
+            }
         }
+
+    }, [submitIndex, errors, data])
+
+    const onSubmitHandler = () => {
+        setSubmitIndex(submitIndex + 1)
     }
+
     const onSubmit: any = (_: any) => {
+        
         fetch('https://api.realmofhistoria.com/api/crypto-user/', {
             method: 'PUT',
             body: JSON.stringify({
@@ -119,17 +132,18 @@ const DetailsProfile = ({ dataSer }: any) => {
                 // phone: _.phone,
                 allow_marketing: _.checBox,
                 email: _.email,
-                avatar: filesserv
+                avatar: filesserv,
+                ext_wallet: _.nftWallet
             }),
             headers: { 'content-type': 'application/json', 'Authorization': `Bearer ${token}` }
         })
             .then(res => res.json())
             .then(json => console.log(json))
             .then(e => useAuthStore.setState({ profileChange: new Date().getTime() }))
+            .then(e => toast.success('changed'))
 
     }
 
-    console.log(errors)
     // const formData = new FormData();
     // const onDrop = useCallback((acceptedFiles: any) => {
     //     acceptedFiles.forEach((file : any) => {
@@ -195,6 +209,9 @@ const DetailsProfile = ({ dataSer }: any) => {
         files.forEach((file: any) => URL.revokeObjectURL(file.preview));
     }, [files]);
     // const {getRootProps, getInputProps} = useDropzone({onDrop})
+
+    
+
     return (
         <form id='detailsForm' className={styles.details} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.avatar}>
@@ -207,7 +224,7 @@ const DetailsProfile = ({ dataSer }: any) => {
                         files.length !== 0 ?
                             thumbs
                             :
-                            <img src='/ooui_user-avatar.png' width={240} height={240} alt='' />
+                            <img src={data?.user.avatar ? `https://api.realmofhistoria.com/${data?.user.avatar}` : '/ooui_user-avatar.png'} width={240} height={240} alt='' />
                     }
                     <input id="fileInput" {...getInputProps()} type='file' />
 
@@ -308,6 +325,15 @@ const DetailsProfile = ({ dataSer }: any) => {
                 </div>
             </div>
 
+            <div className={styles.section}>
+                <div>
+                    <p>NftWallet</p>
+                   
+                </div>
+                <div className={styles.inputi}>
+                    <SimpleInput errors={errors} value={'wallet'} name={'nftWallet'} register={register} placeholder={data?.user.ext_wallet} isContacts={false}></SimpleInput>
+                </div>
+            </div>
             {/* <div className={styles.section}>
                 <div>
                     <p>
@@ -374,7 +400,7 @@ const DetailsProfile = ({ dataSer }: any) => {
                 <SwitchBox name={'checBox'} register={register}></SwitchBox>
             </div>
             <div className={styles.footer}>
-                <button className={styles.buttonWhite} onClick={() => toastError(errors)}>{dataSer?.buttonSave}</button>
+                <button className={styles.buttonWhite} onClick={onSubmitHandler}>{dataSer?.buttonSave}</button>
                 {/* <UserButtonBlack formId='detailsForm' text='Save Changes'></UserButtonBlack> */}
             </div>
         </form>
