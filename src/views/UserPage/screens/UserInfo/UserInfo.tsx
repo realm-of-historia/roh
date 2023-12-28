@@ -25,6 +25,7 @@ export default function UserInfo({ lineFirst, lineSecond,  }: { lineFirst?: numb
 
     const walletAdress = useAuthStore((state: any) => (state.profileWalletAdress))
 
+
     const width = useWindowWidth()
 
 
