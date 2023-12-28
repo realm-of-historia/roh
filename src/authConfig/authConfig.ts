@@ -1,6 +1,6 @@
 import { Web3Auth } from "@web3auth/modal";
 import { SolanaWalletAdapter } from "@web3auth/torus-solana-adapter";
-
+import { PhantomAdapter } from "@web3auth/phantom-adapter";
 
 const authConfig = new Web3Auth({
     clientId: `BMcoOQok7hg-gWsra7Dzu54GyiXVuLIVhehUFupyMeWegfd4cOqjjgAkKt4F0IU8r9g2Y3icnY6269m587tH2EI`,
@@ -51,9 +51,23 @@ const authConfig = new Web3Auth({
     chainConfig: {
       chainNamespace: "solana",
       chainId: "0x1",
-      rpcTarget: "https://api.mainnet-beta.solana.com",
+      rpcTarget: "https://shy-solitary-reel.solana-mainnet.quiknode.pro/faaf277bca95610594e2729c04e56108d1710543/",
     },
     web3AuthNetwork: "sapphire_mainnet",
   });
+
+  const phantomAdapter = new PhantomAdapter({
+    clientId: `BMcoOQok7hg-gWsra7Dzu54GyiXVuLIVhehUFupyMeWegfd4cOqjjgAkKt4F0IU8r9g2Y3icnY6269m587tH2EI`,
+    sessionTime: 86400,
+    web3AuthNetwork: "sapphire_mainnet",
+    chainConfig: {
+      chainNamespace: 'solana',
+      chainId: "0x1",
+      rpcTarget: "https://shy-solitary-reel.solana-mainnet.quiknode.pro/faaf277bca95610594e2729c04e56108d1710543/",
+    },
+  });
+
+  authConfig.configureAdapter(phantomAdapter);
+  
 
 export default authConfig;
