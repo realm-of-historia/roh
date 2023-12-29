@@ -48,6 +48,9 @@ const Header = ({ data }: StandardComponentProps) => {
             // let image_iconHover : any = document.querySelector(".w3a-button--primary :nth-child(2)");
             let image_iconH: any = document.querySelector(".w3a-button--primary :nth-child(2)");
             let image_iconH2: any = document.querySelector(".w3a-button--primary :nth-child(1)");
+            let twitter: any = document.querySelector(".w3ajs-socials-adapters :nth-child(11) button img");
+            let discord: any = document.querySelector(".w3ajs-socials-adapters :nth-child(4) button img");
+            let facebook: any = document.querySelector(".w3ajs-socials-adapters :nth-child(2) button img");
             let subtitle: any = document.querySelector(".w3a-header__subtitle");
             let title: any = document.querySelector(".w3a-group__title");
             let input: any = document.querySelector(".w3a-text-field");
@@ -55,6 +58,9 @@ const Header = ({ data }: StandardComponentProps) => {
             if (!image_icon && !image_iconH && !subtitle && !input && !cross) { return }
             // image_icon.src = '/fsVww.svg'
             // image_iconHover.src = '/fsVww.svg'
+            twitter.src= '/twitterIcon.svg'
+            discord.src= '/discordIcon.svg'
+            facebook.src= '/facebookIcon.svg'
             image_iconH.src = image_iconH2.src
             subtitle.innerText = 'Embark on a journey of discovery.'
             title.innerText = 'Email'
