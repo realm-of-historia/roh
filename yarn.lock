@@ -3198,6 +3198,17 @@
     bs58 "^5.0.0"
     json-rpc-random-id "^1.0.1"
 
+"@web3auth/solflare-adapter@^7.2.1":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@web3auth/solflare-adapter/-/solflare-adapter-7.2.1.tgz#2aa098704f3a4699b7d51e16151185a8b3f9497a"
+  integrity sha512-GtJswi+xjIadJJ3ctMxCgl4fIlYISyOK1Ub7cLNcEBVvtpiPPhX9TjeESPguDINsE6wUrRvYSWyyXxfhQEsJ1Q==
+  dependencies:
+    "@web3auth/base" "^7.2.1"
+    "@web3auth/base-provider" "^7.2.1"
+    "@web3auth/base-solana-adapter" "^7.2.1"
+    "@web3auth/solana-provider" "^7.2.1"
+    bn.js "^5.2.1"
+
 "@web3auth/torus-evm-adapter@^7.0.4":
   version "7.0.4"
   resolved "https://registry.npmjs.org/@web3auth/torus-evm-adapter/-/torus-evm-adapter-7.0.4.tgz"

@@ -322,7 +322,29 @@
     margin-top: rm(16);
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     column-gap: rm(20);
+
+    .copyBut{
+        position: relative;
+        height: rm(36);
+        width: rm(48);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+        margin-left: rm(10);
+        border: 1px solid color(text-brown-88);
+
+        @include xsm{
+            display: none;
+        }
+
+        &:hover{
+            opacity: 0.7;
+        }
+    }
 
     @include md{
         margin-top: rm(8);

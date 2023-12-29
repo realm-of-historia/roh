@@ -113,6 +113,11 @@ line-height: 160% !important;
 
 .w3a-button--login {
     height: auto !important;
+
+    img{
+        color: black !important;
+    }
+
     &:hover{
         >:nth-child(1){
             display: block !important;
