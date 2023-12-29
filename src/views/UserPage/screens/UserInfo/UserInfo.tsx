@@ -24,12 +24,38 @@ export default function UserInfo({ lineFirst, lineSecond,  }: { lineFirst?: numb
     const profileChange = useAuthStore((state: any) => (state.profileChange))
 
     const walletAdress = useAuthStore((state: any) => (state.profileWalletAdress))
+    const [splitedWallet, setSplittedWallet] = useState<any>()
 
 
     const width = useWindowWidth()
 
 
     const [data, setData]: any = useState()
+
+
+    useEffect(() => {
+        if(walletAdress) {
+            const splited = walletAdress.split('')
+            setSplittedWallet(splited)
+            console.log(splited[-3])
+        }
+    }, [walletAdress])
+
+
+    const handleCopy = (text: any) => {
+        let textarea = document.createElement('textarea');
+        textarea.value = text;
+      
+        document.body.appendChild(textarea);
+      
+        textarea.select();
+        textarea.setSelectionRange(0, textarea.value.length);
+      
+        document.execCommand('copy');
+      
+        document.body.removeChild(textarea);
+    }
+
     useEffect(() => {
         if (!token) { return }
         const FetchData = async (token: any) => {
@@ -71,15 +97,17 @@ export default function UserInfo({ lineFirst, lineSecond,  }: { lineFirst?: numb
                                 <div className={styles.verification}>
                                     <div><p>Steward of Historia / Traveller / Hand of Historia</p></div>
                                 </div>
-                                {width < 576 ? <></> :
-                                    <div className={styles.wallet}>
+                                <div className={styles.wallet}>
                                     <p>
                                         Profile wallet address:
                                     </p>
-                                    <p>
-                                        {walletAdress}
+                                    <p onClick={width < 576 ? () => handleCopy(walletAdress): () => {}}>
+                                        {splitedWallet ? (splitedWallet[0] + splitedWallet[1] + splitedWallet[2] + splitedWallet[3] + '...' + splitedWallet[splitedWallet.length - 1] + splitedWallet[splitedWallet.length - 2] + splitedWallet[splitedWallet.length - 3] + splitedWallet[splitedWallet.length - 4]) : ''}
                                     </p>
-                                </div>}
+                                    <div className={styles.copyBut} onClick={() => handleCopy(walletAdress)}>
+                                        Copy
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         {/* <div className={styles.progress}>
