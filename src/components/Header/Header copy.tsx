@@ -50,7 +50,7 @@ const handleAuths = () => {
     cross.src = '/radix-icons_cross-1.svg'
 
 
-  }, 1)
+  }, 50)
 }
 const Header = ({ data }: StandardComponentProps) => {
   const [isSignedIn] = useAuthStore((state: any) => [state.isSignedIn])
