@@ -73,18 +73,13 @@ export default function MintPage({data}: {data: any}) {
             setModalVisible(true)
             return
         } else{
-            console.log(walletAdapter)
             setIsLoaderVisible(true);
             const txs = await Promise.all(params.map(p => createMintTransaction(walletAdapter, p)));
-
-            console.log(txs)
 
             setKey((txs.filter(t => t !== null) as any[])[0].mint.publicKey);
 
             try {
                 const results = await sendAndConfirmAllMints(walletAdapter, txs);
-
-                console.log(results)
 
                 if (results && results.mintedNfts.length) {
                     setIsLoaderVisible(false)
@@ -170,13 +165,11 @@ export default function MintPage({data}: {data: any}) {
 
     useEffect(() => {
         let element = document.getElementById("body");
-        console.log(isLoaderVisible)
         if (mintModalVisible && element || element && isLoaderVisible) {
           // element.style.cssText = 'overflow: hidden; height: 100vh;'
           document.documentElement.style.overflow = 'hidden';
           document.documentElement.style.height = '100%';
           document.documentElement.style.position = 'relative';
-          console.log(isLoaderVisible)
         }
         if (!mintModalVisible && element && !isLoaderVisible) {
           // element.style.cssText = 'overflow: visible; height: auto;'

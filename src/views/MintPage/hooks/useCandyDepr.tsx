@@ -101,7 +101,6 @@ export function useCandyDepr () {
                     const { blockhash, lastValidBlockHeight } = await connection.getLatestBlockhash()
                     const signature = await connection.sendRawTransaction(t.tx.serialize(), { skipPreflight: true })
                     signatures.push(signature)
-                    console.log(signature)
                     await connection.confirmTransaction({
                         blockhash,
                         lastValidBlockHeight,
@@ -130,7 +129,6 @@ export function useCandyDepr () {
     // fetch candy machine on rednre
     useEffect(() => {
         fetchCandyDepr().then(c => {
-            console.log(c)
             setCandy(c)
             setSelectedPhaseIndex(0)
         })
