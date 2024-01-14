@@ -67,17 +67,15 @@ export function useCandyDepr () {
 
         const filteredTxs = txs.filter(t => t !== null) as MintTransactionDepr[]
         const { blockhash } = await getMplClientDepr().connection.getLatestBlockhash()
-        const builtTxs = await Promise.all(
-            filteredTxs.map(async (t) => {
-                const built = t.tx
-                built.recentBlockhash = blockhash
-                built.feePayer = walletAdapter.publicKey!
-                return {
-                    tx: built,
-                    mint: t.mint
-                }
-            })
-        )
+        const builtTxs = filteredTxs.map((t) => {
+            const built = t.tx
+            built.recentBlockhash = blockhash
+            built.feePayer = walletAdapter.publicKey!
+            return {
+                tx: built,
+                mint: t.mint
+            }
+        })
 
         const userSignedTxs = await walletAdapter.signAllTransactions(builtTxs.map(t => t.tx))
         const fullSignedTxs = await Promise.all(
