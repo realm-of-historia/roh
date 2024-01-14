@@ -117,7 +117,7 @@ export default function MintPage({data}: {data: any}) {
         const startDate = candy?.candyGuard?.guards.startDate !== null ? new Date(Number(candy?.candyGuard?.guards.startDate.date) * 1000) : null
         const endDate = candy?.candyGuard?.guards.endDate !== null ? new Date(Number(candy?.candyGuard?.guards.endDate.date) * 1000) : null
         let price = 0
-        let priceLabel = 'SOL'
+        let priceLabel = 'USDC'
         if (candy?.candyGuard?.guards.solPayment !== null) {
             price = Number(candy?.candyGuard?.guards.solPayment.amount.basisPoints) / 1_000_000_000
         } else if (candy?.candyGuard?.guards.tokenPayment !== null) {
@@ -136,7 +136,7 @@ export default function MintPage({data}: {data: any}) {
             let groupPriceLabel = priceLabel
             if (g.guards.solPayment !== null) {
                 price = Number(g.guards.solPayment.amount.basisPoints) / 1_000_000_000
-                groupPriceLabel = 'SOL'
+                groupPriceLabel = 'USDC'
             } else if (g.guards.tokenPayment !== null) {
                 price = price = Number(g.guards.tokenPayment.amount.basisPoints) / 1_000_000
                 priceLabel = 'USDC'
@@ -251,7 +251,7 @@ export default function MintPage({data}: {data: any}) {
                                         {data?.data.attributes.estimatedCosts}
                                     </p>
                                     <p>
-                                        {candyDisplay.price * params.length} SOL
+                                        {candyDisplay.price * params.length} USDC
                                     </p>
                                 </div>
                             </div>
