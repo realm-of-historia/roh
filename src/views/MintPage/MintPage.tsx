@@ -1,29 +1,27 @@
 'use client'
 
-import { useEffect, useRef, useState, useMemo} from 'react'
-import styles from './MintPage.module.scss'
-import Icon from '@/components/UI/Icon/Icon'
-import { useAuth } from './hooks/useAuth';
-import { useCandy } from './hooks/useCandy';
-import { WalletMultiButton, useWalletModal } from '@solana/wallet-adapter-react-ui';
-import '@solana/wallet-adapter-react-ui/styles.css';
-import { useWallet } from '@solana/wallet-adapter-react';
-import { umiPubkeyFromWalletAdapterPubkey, umiSignerFromSolanaWalletAdapter } from './lib/utils';
-import { CreateMintTransactionParams, MintingResult } from './types/create_mint';
-import { PublicKey, base58PublicKey, generateSigner } from '@metaplex-foundation/umi';
-import { useAuthStore } from '@/store/store';
-import { useWalletMultiButton } from '@solana/wallet-adapter-base-ui';
-import ImageMy from '@/components/Image/ImageMy';
 import HashAnchor from '@/components/HashAnchor/HashAnchor';
-import MintModal from './components/MintModal/MintModal';
+import ImageMy from '@/components/Image/ImageMy';
+import Icon from '@/components/UI/Icon/Icon';
+import { useAuthStore } from '@/store/store';
+import { useCandyDepr } from '@/views/MintPage/hooks/useCandyDepr';
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
-import { useSession } from 'next-auth/react';
+import { useWalletMultiButton } from '@solana/wallet-adapter-base-ui';
+import { useWallet } from '@solana/wallet-adapter-react';
+import { useWalletModal } from '@solana/wallet-adapter-react-ui';
+import '@solana/wallet-adapter-react-ui/styles.css';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
+import styles from './MintPage.module.scss';
+import MintModal from './components/MintModal/MintModal';
+import { umiPubkeyFromWalletAdapterPubkey } from './lib/utils';
+import { CreateMintTransactionParams, MintingResult } from './types/create_mint';
 
 type CandyDisplayInfo = {
     totalSupply: number,
     supplyMinted: number,
     price: number,
+    priceLabel: string,
     startDate: Date | null,
     endDate: Date | null,
     groups: CandyDisplayGroup[]
@@ -33,6 +31,7 @@ type CandyDisplayInfo = {
     label: string,
     totalSupply: number,
     price: number,
+    priceLabel: string,
     startDate: Date | null,
     endDate: Date | null,
   } 
@@ -54,7 +53,7 @@ export default function MintPage({data}: {data: any}) {
 
     const compilationRefFirst: any = useRef(null)
     const compilationRefSecond: any = useRef(null)
-    const { candy, createMintTransaction, sendAndConfirmAllMints, selectNextPhase, selectedPhase, selectedPhaseSettings, elligiblePhases }: any = useCandy()
+    const { candy, createMintTransaction, sendAndConfirmAllMints } = useCandyDepr()
     const walletAdapter = useWallet()
 
 
@@ -74,16 +73,13 @@ export default function MintPage({data}: {data: any}) {
             setModalVisible(true)
             return
         } else{
-            console.log(walletAdapter)
             setIsLoaderVisible(true);
-            const txs = params.map(p => createMintTransaction(umiPubkeyFromWalletAdapterPubkey(walletAdapter.publicKey!), p));
+            const txs = await Promise.all(params.map(p => createMintTransaction(walletAdapter, p)));
 
-            console.log(txs)
-
-            setKey(txs[0].mint.publicKey);
+            setKey((txs.filter(t => t !== null) as any[])[0].mint.publicKey);
 
             try {
-                const results = await sendAndConfirmAllMints(umiSignerFromSolanaWalletAdapter(walletAdapter), txs);
+                const results = await sendAndConfirmAllMints(walletAdapter, txs);
 
                 if (results && results.mintedNfts.length) {
                     setIsLoaderVisible(false)
@@ -91,6 +87,7 @@ export default function MintPage({data}: {data: any}) {
                     toast.success('Minted successfully');
                 }
 
+                setIsLoaderVisible(false)
                 setMintResult(results);
             } catch (error) {
                 if (error instanceof Error && error.name === 'AbortError') {
@@ -115,27 +112,43 @@ export default function MintPage({data}: {data: any}) {
     })
 
     const candyDisplay: CandyDisplayInfo = useMemo(() => {
-        const totalSupply = Number(candy?.guard.guards.redeemedAmount.__option === "Some" ? candy?.guard.guards.redeemedAmount.value.maximum.toString() : candy?.candy.data.itemsAvailable.toString())
-        const supplyMinted = Number(candy?.candy.itemsRedeemed.toString())
-        const price = candy?.guard.guards.solPayment.__option === "Some" ? Number(candy?.guard.guards.solPayment.value.lamports.basisPoints.toString()) / 1_000_000_000 : 0
-        const startDate = candy?.guard.guards.startDate.__option === "Some" ? new Date(Number(candy?.guard.guards.startDate.value.date.toString()) * 1000) : null
-        const endDate = candy?.guard.guards.endDate.__option === "Some" ? new Date(Number(candy?.guard.guards.endDate.value.date.toString()) * 1000) : null
+        const totalSupply = Number(candy?.candyGuard?.guards.redeemedAmount !== null ? candy?.candyGuard?.guards.redeemedAmount.maximum.toString() : candy?.itemsAvailable.toString())
+        const supplyMinted = Number(candy?.itemsMinted.toString())
+        const startDate = candy?.candyGuard?.guards.startDate !== null ? new Date(Number(candy?.candyGuard?.guards.startDate.date) * 1000) : null
+        const endDate = candy?.candyGuard?.guards.endDate !== null ? new Date(Number(candy?.candyGuard?.guards.endDate.date) * 1000) : null
+        let price = 0
+        let priceLabel = 'SOL'
+        if (candy?.candyGuard?.guards.solPayment !== null) {
+            price = Number(candy?.candyGuard?.guards.solPayment.amount.basisPoints) / 1_000_000_000
+        } else if (candy?.candyGuard?.guards.tokenPayment !== null) {
+            price = price = Number(candy?.candyGuard?.guards.tokenPayment.amount.basisPoints) / 1_000_000
+            priceLabel = 'USDC'
+        }
 
         const groups: CandyDisplayGroup[] = []
 
-        candy?.guard.groups.forEach((g: any) => {
+        candy?.candyGuard?.groups.forEach(g => {
 
-            const groupTotalSupply = Number(g.guards.redeemedAmount.__option === "Some" ? g.guards.redeemedAmount.value.maximum.toString() : totalSupply)
-            const groupPrice = g.guards.solPayment.__option === "Some" ? Number(g.guards.solPayment.value.lamports.basisPoints.toString()) / 1_000_000_000 : price
-            const groupStartDate = g.guards.startDate.__option === "Some" ? new Date(Number(g.guards.startDate.value.date.toString()) * 1000) : startDate
-            const groupEndDate = g.guards.endDate.__option === "Some" ? new Date(Number(g.guards.endDate.value.date.toString()) * 1000) : endDate
-            
+            const groupTotalSupply = Number(g.guards.redeemedAmount !== null ? g.guards.redeemedAmount.maximum.toString() : totalSupply)
+            const groupStartDate = g.guards.startDate !== null ? new Date(Number(g.guards.startDate.date) * 1000) : startDate
+            const groupEndDate = g.guards.endDate !== null ? new Date(Number(g.guards.endDate.date) * 1000) : endDate
+            let groupPrice = price
+            let groupPriceLabel = priceLabel
+            if (g.guards.solPayment !== null) {
+                price = Number(g.guards.solPayment.amount.basisPoints) / 1_000_000_000
+                groupPriceLabel = 'SOL'
+            } else if (g.guards.tokenPayment !== null) {
+                price = price = Number(g.guards.tokenPayment.amount.basisPoints) / 1_000_000
+                priceLabel = 'USDC'
+            }
+
             groups.push({
-            label: g.label,
-            price: groupPrice,
-            totalSupply: groupTotalSupply,
-            endDate: groupEndDate,
-            startDate: groupStartDate
+                label: g.label,
+                price: groupPrice,
+                totalSupply: groupTotalSupply,
+                endDate: groupEndDate,
+                startDate: groupStartDate,
+                priceLabel: groupPriceLabel
             })
         })
 
@@ -143,21 +156,20 @@ export default function MintPage({data}: {data: any}) {
             totalSupply,
             supplyMinted,
             price,
+            priceLabel,
             endDate,
             startDate,
             groups
         }
-    }, [candy?.guard])
+    }, [candy])
 
     useEffect(() => {
         let element = document.getElementById("body");
-        console.log(isLoaderVisible)
         if (mintModalVisible && element || element && isLoaderVisible) {
           // element.style.cssText = 'overflow: hidden; height: 100vh;'
           document.documentElement.style.overflow = 'hidden';
           document.documentElement.style.height = '100%';
           document.documentElement.style.position = 'relative';
-          console.log(isLoaderVisible)
         }
         if (!mintModalVisible && element && !isLoaderVisible) {
           // element.style.cssText = 'overflow: visible; height: auto;'
@@ -169,7 +181,7 @@ export default function MintPage({data}: {data: any}) {
 
     return(
         <>
-        {mintModalVisible && <MintModal publicKey={base58PublicKey(key)}/>}
+        {mintModalVisible && <MintModal publicKey={key}/>}
         {isLoaderVisible &&
                 <div className={`${styles.loader} ${isLoaderVisible ? styles.loaderActive : ''}`}>
                     <span className={styles.content}></span>
@@ -192,7 +204,7 @@ export default function MintPage({data}: {data: any}) {
                                     {data?.data.attributes.nameTotalItems}
                                 </p>
                                 <p>
-                                {candy ? candy?.guard.guards.redeemedAmount.__option === "Some" ? candy?.guard.guards.redeemedAmount.value.maximum.toString() : candy.candy.itemsLoaded.toString() : '-'}
+                                {candy ? candy?.candyGuard?.guards.redeemedAmount !== null ? candy?.candyGuard?.guards.redeemedAmount.maximum.toString() : candy.itemsLoaded.toString() : '-'}
                                 </p>
                             </div>
                             <div>
@@ -200,7 +212,7 @@ export default function MintPage({data}: {data: any}) {
                                     {data?.data.attributes.namePrice}
                                 </p>
                                 <p>
-                                    {candyDisplay.price} SOL
+                                    {candyDisplay.price} {candyDisplay.priceLabel}
                                 </p>
                             </div>
                         </div>
@@ -217,9 +229,9 @@ export default function MintPage({data}: {data: any}) {
                         <div className={styles.complition}>
                             <div>
                                 <p>
-                                    {data?.data.attributes.titleTotalMinted} {candy ? candy.candy.itemsRedeemed.toString() : '-'} 
+                                    {data?.data.attributes.titleTotalMinted} {candy ? candy.itemsMinted.toString() : '-'} 
                                     /
-                                    {candy ? candy?.guard.guards.redeemedAmount.__option === "Some" ? candy?.guard.guards.redeemedAmount.value.maximum.toString() : candy.candy.itemsLoaded.toString() : '-'}
+                                    {candy ? candy.candyGuard?.guards.redeemedAmount !== null ? candy?.candyGuard?.guards.redeemedAmount.maximum.toString() : candy.itemsLoaded.toString() : '-'}
                                 </p>
                             </div>
                         </div>
