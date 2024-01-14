@@ -1,10 +1,9 @@
 import { useAuthStore } from '@/store/store'
-import styles from './MintModal.module.scss'
-import Link from 'next/link'
-import { base58PublicKey } from '@metaplex-foundation/umi'
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base'
+import Link from 'next/link'
+import styles from './MintModal.module.scss'
 
-export default function MintModal({publicKey}: {publicKey: any}) {
+export default function MintModal({publicKey}: {publicKey: string}) {
 
     const handleClose = () => {
         useAuthStore.setState({mintModalVisible: false})

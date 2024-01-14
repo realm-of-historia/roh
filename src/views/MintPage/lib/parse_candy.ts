@@ -1,10 +1,10 @@
-import { CandyPhase, CandyCurrentPhaseSettings, FullCandyDetails } from "../types/candy_info";
-import { CandyGuard, DefaultGuardSet, NftBurn, TokenPayment } from "@metaplex-foundation/mpl-candy-machine";
-import { PublicKey } from "@metaplex-foundation/umi";
+import { NftBurnGuardSettings, TokenPaymentGuardSettings } from "@metaplex-foundation/js";
+import { PublicKey as Web3Pubkey } from "@solana/web3.js";
+import { CandyCurrentPhaseSettingsDepr, CandyPhase, FullCandyDetailsDepr } from "../types/candy_info";
 
-
-export function determineCandyElligiblePhases (details: FullCandyDetails): CandyPhase[] {
-    const { candy, guard } = details
+export function determineCandyElligiblePhasesDepr (details: FullCandyDetailsDepr): CandyPhase[] {
+    const candy = details
+    const guard = candy.candyGuard!
     
     const phases: CandyPhase[] = []
     const currentTime = Date.now() / 1000
@@ -14,9 +14,9 @@ export function determineCandyElligiblePhases (details: FullCandyDetails): Candy
         guard.groups.forEach(g => {
             let elligible = true
 
-            if (g.guards.startDate.__option === "Some" && Number(g.guards.startDate.value.date.toString()) > currentTime) elligible = false
-            if (g.guards.endDate.__option === "Some" && Number(g.guards.endDate.value.date.toString()) < currentTime) elligible = false
-            if (g.guards.redeemedAmount.__option === "Some" && Number(g.guards.redeemedAmount.value.maximum.toString()) > Number(candy.itemsRedeemed.toString())) elligible = false
+            if (g.guards.startDate && Number(g.guards.startDate.date.toString()) > currentTime) elligible = false
+            if (g.guards.endDate && Number(g.guards.endDate.date.toString()) < currentTime) elligible = false
+            if (g.guards.redeemedAmount && Number(g.guards.redeemedAmount.maximum.toString()) > Number(candy.itemsRemaining.toString())) elligible = false
 
             if (elligible) {
                 phases.push({ group: g.label })
@@ -26,9 +26,9 @@ export function determineCandyElligiblePhases (details: FullCandyDetails): Candy
     } else {
         let elligible = true
 
-        if (guard.guards.startDate.__option === "Some" && Number(guard.guards.startDate.value.date.toString()) > currentTime) elligible = false
-        if (guard.guards.endDate.__option === "Some" && Number(guard.guards.endDate.value.date.toString()) < currentTime) elligible = false
-        if (guard.guards.redeemedAmount.__option === "Some" && Number(guard.guards.redeemedAmount.value.maximum.toString()) > Number(candy.itemsRedeemed.toString())) elligible = false
+        if (guard.guards.startDate && Number(guard.guards.startDate.date.toString()) > currentTime) elligible = false
+        if (guard.guards.endDate && Number(guard.guards.endDate.date.toString()) < currentTime) elligible = false
+        if (guard.guards.redeemedAmount && Number(guard.guards.redeemedAmount.maximum.toString()) > Number(candy.itemsRemaining.toString())) elligible = false
 
         if (elligible) {
             phases.push({ group: null })
@@ -38,34 +38,35 @@ export function determineCandyElligiblePhases (details: FullCandyDetails): Candy
     return phases
 }
 
-export function getCurrentPhaseSettings (guard: CandyGuard<DefaultGuardSet>, currentPhase: CandyPhase): CandyCurrentPhaseSettings {
+export function getCurrentPhaseSettingsDepr (details: FullCandyDetailsDepr, currentPhase: CandyPhase): CandyCurrentPhaseSettingsDepr {
+    const guard = details.candyGuard!
 
-    let nftBurn: NftBurn | null = null
-    let tokenPayment: TokenPayment | null = null
-    let solPayment: PublicKey | null = null
+    let nftBurn: NftBurnGuardSettings | null = null
+    let tokenPayment: TokenPaymentGuardSettings | null = null
+    let solPayment: Web3Pubkey | null = null
     
-    if (guard.guards.nftBurn.__option === "Some") {
-        nftBurn = guard.guards.nftBurn.value
+    if (guard.guards.nftBurn !== null) {
+        nftBurn = guard.guards.nftBurn
     }
-    if (guard.guards.tokenPayment.__option === "Some") {
-        tokenPayment = guard.guards.tokenPayment.value
+    if (guard.guards.tokenPayment !== null) {
+        tokenPayment = guard.guards.tokenPayment
     }
-    if (guard.guards.solPayment.__option === "Some") {
-        solPayment = guard.guards.solPayment.value.destination
+    if (guard.guards.solPayment !== null) {
+        solPayment = guard.guards.solPayment.destination
     }
 
     if (currentPhase.group !== null) {
         const matchingGroup = guard.groups.find(g => g.label === currentPhase.group)
 
         if (matchingGroup) {
-            if (matchingGroup.guards.nftBurn.__option === "Some") {
-                nftBurn = matchingGroup.guards.nftBurn.value
+            if (matchingGroup.guards.nftBurn !== null) {
+                nftBurn = matchingGroup.guards.nftBurn
             }    
-            if (matchingGroup.guards.tokenPayment.__option === "Some") {
-                tokenPayment = matchingGroup.guards.tokenPayment.value
+            if (matchingGroup.guards.tokenPayment !== null) {
+                tokenPayment = matchingGroup.guards.tokenPayment
             }
-            if (matchingGroup.guards.solPayment.__option === "Some") {
-                solPayment = matchingGroup.guards.solPayment.value.destination
+            if (matchingGroup.guards.solPayment !== null) {
+                solPayment = matchingGroup.guards.solPayment.destination
             }
         }
     }

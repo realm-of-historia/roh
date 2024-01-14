@@ -1,7 +1,8 @@
 import { CandyPhase } from "./candy_info"
 import { NftWithImage } from "./nft"
 import { TokenStandard } from "@metaplex-foundation/mpl-token-metadata"
-import { KeypairSigner, PublicKey, Transaction, TransactionBuilder } from "@metaplex-foundation/umi"
+import { KeypairSigner, PublicKey, TransactionBuilder } from "@metaplex-foundation/umi"
+import { Keypair, Transaction } from "@solana/web3.js"
 
 export type CreateMintTransactionParams = {
     nftBurn?: {
@@ -11,9 +12,9 @@ export type CreateMintTransactionParams = {
     selectedPhase?: CandyPhase
 }
 
-export type MintTransaction = {
-    tx: TransactionBuilder,
-    mint: KeypairSigner
+export type MintTransactionDepr = {
+    tx: Transaction,
+    mint: Keypair
 }
 
 export type MintingResult = {
