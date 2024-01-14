@@ -266,7 +266,7 @@ export default function MintPage({data}: {data: any}) {
                         <div className={styles.signOption}>
                             {/* <p className={styles.signInOption}>Cross mint</p> */}
                             <CrossmintPayButton 
-                            collectionId="cc11a174-0df9-4df3-bfeb-65ad4014e59f"
+                            collectionId="cdbe3f50-6d31-40f8-b3a0-a3373f04877e"
                             projectId="1b6866d4-3236-42e9-83a2-f376668316e9"
                             environment="staging"
                             className={styles.payButton}
