@@ -53,28 +53,22 @@ export default async function Home() {
         <Preserve data={dataPreserve} />
       </WrapperTexture>
       <WrapperTexture>
-        <Panegliph isFirst={false} />
-      </WrapperTexture>
-      <WrapperTexture>
         <TableCarahunge data={table} />
       </WrapperTexture>
       <WrapperTexture>
         <RunningLine image={ribbon?.data.attributes.url} />
       </WrapperTexture>
       <WrapperTexture>
-        <InitiationX data={dataInitiationX} roadColumn={true}/>
+        <CollectionOfWorks />
       </WrapperTexture>
       <WrapperTexture>
         <RunningLine image={ribbon2?.data.attributes.url} />
       </WrapperTexture>
       <WrapperTexture>
-        <CollectionOfWorks />
+        <InitiationX data={dataInitiationX} roadColumn={true}/>
       </WrapperTexture>
       <WrapperTexture>
         <Heritage data={selfSustainableHeritage} />
-      </WrapperTexture>
-      <WrapperTexture>
-        <HeritageDefault />
       </WrapperTexture>
     </main>
   )
