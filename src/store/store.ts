@@ -17,8 +17,6 @@ const useAuthStore = create((set) => ({
   mintModalVisible: false,
   profileWalletAdress: '',
   signedMessage: null,
-  profileSigner: null,
-  level: 0,
   signIn: () => set((state: any) => ({ isSignedIn: !state.isSignedIn })),
   logIn: () => set((state: any) => ({ isSignedIn: !state.isSignedIn })),
   changeRoute: (route: any) => ((state: any) => ({userRoute: route}))

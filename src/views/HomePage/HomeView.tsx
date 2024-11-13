@@ -23,11 +23,13 @@ export default function HomeView({ data }: StandardComponentProps) {
   const dataBundlesRibbon = useSectionData(data, 'ribbon')
   const dataPosts = useSectionData(data, 'lastPost')
   const dataStartVideo = useSectionData(data, 'videoArticles')
+  const videoArticlesPoster = useSectionData(data, 'videoArticlesPoster')
   const articles = useSectionData(data, 'articles')
   const article_populars = useSectionData(data, 'article_populars')
   const dataHeritage = useSectionData(data, 'selfSustainableHeritage')
   const instagramPost = useSectionData(data, 'instagramPost')
   const map = useSectionData(data, 'map')
+  const mapPoster = useSectionData(data, 'mapPoster')
   const ribbon2 = useSectionData(data, 'ribbon2')
 
   return (
@@ -49,7 +51,7 @@ export default function HomeView({ data }: StandardComponentProps) {
           <CollectionOfWorks />
         </WrapperTexture>
         <WrapperTexture>
-          <Start data={dataStartVideo?.data.attributes.url} articles={articles}></Start>
+          <Start data={dataStartVideo?.data.attributes.url} articles={articles} poster={videoArticlesPoster?.data.attributes.url}></Start>
         </WrapperTexture>
         <WrapperTexture>
           <Comments data={article_populars}></Comments>
@@ -61,7 +63,7 @@ export default function HomeView({ data }: StandardComponentProps) {
           <RunningLine image={ribbon2?.data.attributes.url}></RunningLine>
         </WrapperTexture>
         <WrapperTexture>
-          <MapHome data={map}/>
+          <MapHome data={map} poster={mapPoster?.data.attributes.url}/>
         </WrapperTexture>
         <WrapperTexture>
           <HeritageDefault />

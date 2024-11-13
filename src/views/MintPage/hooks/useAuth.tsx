@@ -39,8 +39,7 @@ export function useAuth () {
 
                 setSigner(umiSigner)
 
-
-                useAuthStore.setState({profileWalletAdress: umiSigner.publicKey, profileSigner: umiSigner})
+                useAuthStore.setState({profileWalletAdress: umiSigner.publicKey})
             }
 
 

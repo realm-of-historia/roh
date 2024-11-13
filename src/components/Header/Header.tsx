@@ -155,7 +155,7 @@ const Header = ({ data }: StandardComponentProps) => {
                     .then(response => response.json())
                     .then(data => {
                         useAuthStore.setState({ token: data.token })
-                        console.log('token', data)
+                        console.log('token', data.token)
                         setIsSignedIn(true)
                         useAuthStore.setState(({ isSignedIn: true }))
                     })

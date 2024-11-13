@@ -10,7 +10,6 @@ import { useAuthStore } from '@/store/store'
 import { useWindowSize, useWindowWidth } from '@react-hook/window-size'
 
 
-
 export default function UserInfo({ lineFirst, lineSecond,  }: { lineFirst?: number, lineSecond?: number }) {
 
     // const compilationRefFirst: any = useRef(null)
@@ -81,10 +80,6 @@ export default function UserInfo({ lineFirst, lineSecond,  }: { lineFirst?: numb
     ]
 
     // console.log(data, 'fdasfas')
-    
-    const levelArray = ['Traveller', 'Steward of Historia', 'Steward of Historia', 'Steward of Historia', 'Steward of Historia', 'Steward of Historia']
-
-    const level = useAuthStore((state: any) => (state.level))
 
     return (
         <div className={styles.userInfo}>
@@ -100,7 +95,7 @@ export default function UserInfo({ lineFirst, lineSecond,  }: { lineFirst?: numb
                                     { data?.user.name || data?.user.surname ? data?.user.name + ' ' + data?.user.surname : data?.user.wallet.substr(0, 10)}
                                 </p>
                                 <div className={styles.verification}>
-                                    <div><p>{levelArray[level]}</p></div>
+                                    <div><p>Steward of Historia / Traveller / Hand of Historia</p></div>
                                 </div>
                                 <div className={styles.wallet}>
                                     <p>

@@ -7,39 +7,16 @@ import UserButtonBlack from '@/components/UI/buttons/UserButtonBlack/UserButtonB
 import CheckBox from '@/components/UI/CheckBox/CheckBox'
 import { useForm, Controller } from 'react-hook-form'
 import Divider from '@/components/Divider/Divider'
-import { useAuthStore } from '@/store/store'
-import { useUserFetch } from '@/composable/useApiFetch'
-import authConfig from '@/authConfig/authConfig'
 
 const Deactivation = ({ data }: any) => {
 
     const [isCheckedState, setIsCheckedState] = useState(false);
-    const token = useAuthStore((state: any) => (state.token))
+
 
     const { register, handleSubmit, control } = useForm<any>({
     });
 
     const onSubmit: any = (data: any) => console.log(data)
-
-
-    const deactivateHandler = () => {
-        if (!token) { return }
-        const FetchData = async (token: any) => {
-            const dataUser = await useUserFetch('api/crypto-user/delete/', token, 'DELETE')
-            return dataUser
-        }
-        const fetchDataAndLog = async () => {
-            const result = await FetchData(token);
-
-            console.log(result.status)
-
-            if(result?.status === 'success') {
-                useAuthStore.setState({token: null})
-                authConfig.logout();
-            }
-        };
-        fetchDataAndLog()
-    }
 
     return (
         <form className={styles.deactivation} id='deactivation' onSubmit={handleSubmit(onSubmit)}>
@@ -76,7 +53,7 @@ const Deactivation = ({ data }: any) => {
                 </div>
             </div>
             <div className={styles.footer}>
-                <button type='submit' onClick={deactivateHandler}  className={`${styles.buttonWhite} ${isCheckedState ? '' : styles.buttonWhiteno}`}>{data?.buttonDeactivateAccount}</button>
+                <button type='submit' disabled={isCheckedState ? false : true} className={`${styles.buttonWhite} ${isCheckedState ? '' : styles.buttonWhiteno}`}>{data?.buttonDeactivateAccount}</button>
             </div>
         </form>
     )

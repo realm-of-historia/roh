@@ -38,7 +38,7 @@ const Burger = ({ networks, link, button, linkauthorized, hideButtonBuy }: Stand
 
     const unLogIn = () => {
         if (isSignedIn) {
-            authConfig.logout();
+            signOut()
         } else {
             console.log('disconnected')
         }

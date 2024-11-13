@@ -36,7 +36,7 @@ const Explorer = ({ data }: StandardComponentProps) => {
           <SwiperSlide key={index} >
             <Link href={item?.href || '/'} className={styles.swiperSlide}>
               <div className={styles.wrapperMedia}>
-                <ImageMy src={item.img.data.attributes.url} alt='' width={1920} height={720} />
+                <ImageMy src={item.img.data.attributes.url} alt='' width={1920} height={720} poster={item?.poster?.data?.attributes.url} />
               </div>
               <Text><p>{item.title}</p></Text>
             </Link>

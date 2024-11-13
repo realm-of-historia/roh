@@ -80,7 +80,7 @@ const GetStarted = ({data, article, dataArticleLast,comments} : StandardComponen
                     </div>
                     {
                         articleData?.img &&
-                        <ImageMy src={articleData?.img.data.attributes.url} height={468} width={1068} alt=''/>
+                        <ImageMy src={articleData?.img.data.attributes.url} height={468} width={1068} alt='' poster={articleData?.poster?.data?.attributes.url}/>
                     }
                     <div className={styles.text}>
                         { articleData?.description &&
