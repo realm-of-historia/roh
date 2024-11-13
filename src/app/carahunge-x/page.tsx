@@ -57,13 +57,15 @@ export default async function CarahungeXPage() {
                 <RunningLine image={ribbon?.data.attributes.url} />
             </WrapperTexture>
             <WrapperTexture>
-                <InitiationX data={dataInitiationX} roadColumn={true}/>
+                <CollectionOfWorks />
+                {/* <InitiationX data={dataInitiationX} roadColumn={true}/> */}
             </WrapperTexture>
             <WrapperTexture>
                 <RunningLine image={ribbon2?.data.attributes.url} />
             </WrapperTexture>
             <WrapperTexture>
-                <CollectionOfWorks />
+                <InitiationX data={dataInitiationX} roadColumn={true}/>
+                {/* <CollectionOfWorks /> */}
             </WrapperTexture>
             <WrapperTexture>
                 <Heritage data={selfSustainableHeritage} />
