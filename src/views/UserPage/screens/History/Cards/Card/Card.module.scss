@@ -1,0 +1,202 @@
+@use '../../../../../../assets/styles/index.scss' as *;
+
+.card{
+    width: rm(641);
+    height: rm(480);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+    @include lg{
+        width: rm(480);
+    }
+
+    @include md{
+        height: rm(420);
+    }
+
+    @include xsm{
+        width: 100%;
+        height: rm(480);
+    }
+
+    .block{
+        background-color: #EAD8B1;
+        height: 1px;
+        width: 100%;
+        position: absolute;
+    }
+
+    .topFirst{
+        left: 0;
+        top: rm(180);
+
+        @include md{
+            top: rm(151);
+        }
+
+        @include xsm{
+            // top: rm();
+        }
+
+    }
+
+    .topSecond{
+        left: 0;
+        bottom: rm(180);
+
+        @include md{
+            bottom: rm(151);
+        }
+
+    }
+
+    .left{
+        width: 1px;
+        height: 100%;
+        top: rm(0);
+        left: rm(79);
+
+        @include lg{
+            left: rm(29);
+        }
+
+        @include md{
+            left: rm(29);
+        }
+
+        @include xsm{
+            left: rm(49);
+        }
+    }
+
+    .right{
+        width: 1px;
+        height: 100%;
+        top: rm(0);
+        right: rm(79);
+        
+        @include lg{
+            right: rm(29);
+        }
+
+        @include md{
+            right: rm(29);
+        }
+
+        @include xsm{
+            right: rm(49);
+        }
+    }
+
+    .mainCircle{
+        position: absolute;
+        border: 1px solid #EAD8B1;
+        width: rm(480);
+        height: rm(480);
+        border-radius: rm(1000);
+        background-color: transparent;
+        opacity: 0.75;
+
+        @include lg{
+            width: rm(370);
+            height: rm(370);
+        }
+
+        @include md{
+            width: rm(300);
+            height: rm(300);
+        }
+
+        @include xsm{
+            width: rm(480);
+            height: rm(480);
+        }
+    }
+
+
+    img{
+        position: absolute;
+        width: rm(227);
+        height: rm(227);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        @include lg{
+            width: rm(175);
+            height: rm(175);
+        }
+
+        @include md{
+            width: rm(140);
+            height: rm(140);
+        }
+
+        @include xsm{
+            width: rm(227);
+            height: rm(227);
+        }
+
+    }
+
+    .firstElipse{
+        transform: translate(-106%, -55%);
+    }
+
+    .secondElipse{
+        transform: translate(6%, -55%);
+    }
+
+    .thirdElipse{
+        transform: translate(-50%, -106%);
+
+    }
+
+    .fourthElipse{
+        transform: translate(-50%, 6%);
+    }
+
+    .logo{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        height: 100%;
+        width: 100%;
+        position: relative;
+
+
+        .first{
+            color: color(text-black);
+            font-size: font(24);
+            margin-bottom: rm(16);
+            @include font-dune-regular;
+            line-height: 120%;
+        }
+
+        .second{
+            color: color(text-brown);
+            @include font-work-regular;
+            font-size: font(18);
+            line-height: 140%;
+        }
+    }
+
+    .divider{
+        display: none;
+
+        @include md{
+            display: inline-block;
+            width: rm(630);
+            height: 1px;
+            background-color: #EAD8B1;
+            position: absolute;
+            top: rm(0);
+        }
+    }
+}
+    

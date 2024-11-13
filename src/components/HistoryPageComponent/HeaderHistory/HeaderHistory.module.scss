@@ -1,0 +1,47 @@
+@use "../../../assets/styles/index.scss" as *;
+
+
+.container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: rm(304);
+    padding-bottom: rm(304);
+    background-color: color(text-black);
+    @include xsm {
+        padding-top: rm(272);
+        padding-bottom: rm(272);
+        padding-left: rm(32);
+        padding-right: rm(32);
+    }
+    >:nth-child(1) {
+        font-size: font(32);
+        color: color(text-brown-88);
+        @include font-dune-regular();
+        font-weight: 400;
+        line-height: 120%;
+        // text-transform: uppercase;
+        text-align: center;
+        width: rm(840);
+        @include xsm {
+            width: 100%;
+        }
+    }
+
+    >:nth-child(2) {
+        font-size: font(16);
+        color: color(text-brown-88);
+        @include font-work-regular();
+        font-weight: 400;
+        line-height: 160%;
+        text-align: center;
+        width: rm(840);
+        margin-top: rm(32);
+        @include xsm {
+            width: 100%;
+        }
+    }
+}

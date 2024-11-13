@@ -1,0 +1,34 @@
+@use 'sass:map';
+
+$colors: (
+    white-100: #FFFFFF,
+    bg: #FBF6E8,
+    bg-1: #F5F2EB,
+    text-brown: #583F21,
+    bg-black: #23190F,
+    bg-red: #7B2719,
+    text-yellow-100: #EFCF80,
+    text-yellow-90: #EAD8B1,
+    text-yellow-80: #F6EDD4,
+    text-yellow-70: #F8F1DC,
+    text-yellow-60: #FAF5E6,
+    text-black: #171513,
+    text-brown-88: #887961,
+    text-brown-38: #383727,
+    text-brown-85: #85836A,
+    burgundyBg: #421713,
+);
+@function color($name) {
+    @if not map.get($colors, $name) {
+        @error '"#{$name}" is not a valid color name';
+    }
+    @return var(--color-#{$name})
+  };
+  
+@function color-hex($name) {
+    @if not map-get($colors, $name) {
+        @error '"#{$name}" is not a valid color name';
+        @return var(--invalid-color-name);
+    }
+    @return map-get($colors, $name);
+}

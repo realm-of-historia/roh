@@ -1,0 +1,162 @@
+@use "@/assets/styles/index.scss" as *;
+
+.carahunge {
+    position: relative;
+    width: 100%;
+    padding: rm(64);
+    overflow: hidden;
+    @include md{
+        padding-bottom: 0 !important;
+    }
+    @include xsm {
+        padding: rm(32);
+    }
+    .container {
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        @include md {
+            flex-direction: column;
+        }
+        >:nth-child(1){
+            height: 150% !important;
+            top: -30% !important;
+            @include md {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        >:nth-child(2){
+            height: 150% !important;
+            top: -30% !important;
+            @include md {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        >:nth-child(3){
+            height: 150% !important;
+            top: -30% !important;
+            right: 50% !important;
+            @include md {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+        >:nth-child(5) {
+            width: 50%;
+            @include md{
+                width: 100%;
+            }
+        }
+
+        >:last-child{
+            width: 50%;
+            @include md{
+                width: 100%;
+                padding-bottom: rm(64);
+            }
+            @include xsm {
+                padding-bottom: rm(32);
+            }
+        }
+        .left {
+            position: relative;
+            // width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-end;
+            padding-left: rm(32);
+            @include md{
+                align-items: flex-start;
+                padding-left: rm(64);
+
+            }
+            @include xsm {
+                align-items: flex-start;
+                padding-left: rm(32);
+            }
+            >:nth-child(1) {
+                p {
+                    @include font-dune-regular();
+                    color: color(text-brown-38);
+                    font-size: font(16);
+                    // text-transform: uppercase;
+                    text-transform: capitalize;
+                    align-items: end;
+                    font-weight: 400;
+                    line-height: 120%;
+                    padding-right: rm(64);
+
+                    @include xsm {
+                        padding-right: rm(32);
+                        font-size: font(14);
+                    }
+                }
+            }
+            >:nth-child(2) {
+                p {
+                    @include font-dune-regular();
+                    color: color(text-brown-38);
+                    font-size: font(56);
+                    // text-transform: uppercase;
+                    text-transform: capitalize;
+                    font-weight: 400;
+                    line-height: 120%;
+                    padding-top: rm(8);
+                    padding-right: rm(64);
+                    padding-left: rm(64);
+                    text-align: end;
+                    @include lg{
+                        font-size: font(48);
+                    }
+                    @include md {
+                        padding-left: rm(0);
+                    }
+                    @include xsm {
+                        padding-right: rm(32);
+                        font-size: font(32);
+
+                    }
+                }
+            }
+           
+        }
+    }
+}
+
+.dot{
+    position: absolute;
+    width: rm(9);
+    height: rm(9);
+    background-color: color(text-brown-38);
+    border-radius: 100%;
+    top: 0;
+    left: 50%;
+    z-index: 100;
+    transform: translate(-50%, 0%);
+    @include md {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.dot2{
+    width: rm(9);
+    height: rm(9);
+    background-color: color(text-brown-88);
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 100%;
+    z-index: 100;
+    transform: translate(-50%, 0%);
+
+    display: none;
+    @include md{
+        display: block;
+
+    }
+}

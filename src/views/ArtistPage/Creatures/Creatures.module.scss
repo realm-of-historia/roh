@@ -1,0 +1,111 @@
+@use "../../../assets/styles/index.scss" as *;
+
+.creatures{
+    // height: rm(800);
+    position: relative;
+    width: 100%;
+    // display: flex;
+    // flex-wrap: wrap;
+    display: grid;
+    overflow: hidden;
+    grid-template: 1fr/1fr 1fr 1fr 1fr;
+    @include lg{
+        grid-template: 1fr/1fr 1fr 1fr;
+    }
+    @include md{
+        grid-template: 1fr/1fr 1fr;
+    }
+    >:nth-child(1){
+        z-index: 444;
+        opacity: 1 !important;
+        @include lg{
+            display: none;
+        }
+    }
+   
+
+    .wrapper{
+        position: relative;
+        width: rm(360);
+        @include lg{
+            width: 100%;
+
+        }
+        >a{
+            position: relative;
+            // z-index: 999;
+            background-color: color(bg-1);
+            height: 100%;
+        }
+        .wrapperImgNon{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            // z-index: 2;
+        }
+        @include lg{
+            >:last-child{
+                z-index: 444;
+                opacity: 1 !important;
+            }
+        }
+        @include xsm {
+            width: 100%;
+            >a{
+            width: 100%;
+                >div{
+                    // width: 50% !important;
+                }
+            }
+        }
+
+    }
+    .wrappercircle{
+        position: absolute;
+        width: 100%;
+        height: rm(360);
+        left: 0;
+        top: 50%;
+        border: 1px solid color(text-brown-85);
+        border-radius: 100%;
+        transform: translate(0, -50%);
+        z-index: 1;
+    }
+   
+    // @include xsm{
+    //     display: flex;
+    //     align-items: center;
+    //     flex-direction: column;
+    // }
+
+    // div{
+    //     width: rm(355);
+        
+    //     >:nth-child(3){
+    //         padding: rm(32) !important;
+
+    //         >:nth-child(1){
+    //             width: rm(64);
+    //         }
+
+    //     }
+
+    //     >:nth-child(4){
+    //         padding: rm(32) !important;
+    //         padding-top: rm(0) !important;
+
+    //         >:nth-child(1){
+    //             width: rm(64);
+    //         }
+    //     }
+
+    //     img{
+    //         width: rm(360) !important;
+    //         object-fit: cover;
+    //     }
+    // }
+
+}

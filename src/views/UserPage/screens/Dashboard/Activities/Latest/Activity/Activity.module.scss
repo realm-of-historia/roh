@@ -1,0 +1,47 @@
+@use '../../../../../../../assets/styles/index.scss' as *;
+
+.activity{
+    display: flex;
+    width: 100%;
+
+    .section{
+        display: flex;
+        flex-direction: column;
+        gap: rm(4);
+        padding: rm(16) rm(32) !important;
+        min-width: rm(312) !important;
+        border-left: 1px color(text-yellow-90) solid;
+        border-top: 1px color(text-yellow-90) solid;
+
+        p{
+            line-height: 140%;
+            color: color(text-brown);
+            @include font-work-regular;
+        }
+
+        >:first-child{
+            font-size: font(18);
+            font-weight: 600;
+        }
+
+        >:last-child{
+            font-size: font(14);
+        }
+    }
+
+    .link{
+        min-width: rm(64);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-left: 1px color(text-yellow-90) solid;
+        border-right: 1px color(text-yellow-90) solid;
+        border-top: 1px color(text-yellow-90) solid;
+
+        
+        span{
+            width: rm(32);
+            height: rm(32);
+        }
+    }
+}

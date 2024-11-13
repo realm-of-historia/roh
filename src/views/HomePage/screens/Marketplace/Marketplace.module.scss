@@ -1,0 +1,57 @@
+@use "../../../../assets/styles/index.scss" as *;
+
+.marketplace{
+
+
+    .viewAnimation{
+        transition: transform .5s ease;
+        transform: translateY(rm(-50));
+    }
+
+    .title{
+        padding: rm(114) rm(64) rm(0) rm(64);
+        overflow: hidden;
+        position: relative;
+
+        @include md{
+            padding: rm(100) rm(32) rm(0) rm(32);
+        }
+
+
+
+        >:nth-child(2){
+            position: absolute;
+            background-color: color(text-yellow-90);
+            width: 1px;
+            height: 100%;
+            top: 0 !important;
+            left: 50% !important;
+
+            @include xsm{
+                left: rm(512) !important;
+            }
+        }   
+
+
+        p{
+            // width: rm(536);
+            width: 45%;
+            color: color(text-black);
+            font-size: font(48);
+            @include font-dune-regular;
+            line-height: 160%;
+
+            @include md{
+                font-size: font(40);
+            }
+
+            @include xsm{
+                font-size: font(32);
+            }
+        }
+    }
+
+    .cardsContainer{
+        display: flex;
+    }
+}

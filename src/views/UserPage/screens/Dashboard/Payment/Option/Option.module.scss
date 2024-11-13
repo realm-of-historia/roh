@@ -1,0 +1,352 @@
+@use '../../../../../../assets/styles/index.scss' as *;
+
+.focusSelect{
+    >:nth-child(3){
+        >:nth-child(2){
+            >:nth-child(2){
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+
+.option{
+    padding-left: rm(64);
+    padding-right: rm(64);
+    width: 100%;
+    position: relative;
+
+    @include md{
+        padding-left: rm(32);
+        padding-right: rm(32);
+    }
+
+    
+    @include xsm{
+        padding-bottom: rm(64);
+    }
+
+
+    .selectContainer{
+        position: relative;
+        width: 100%;
+        padding-top: rm(20);
+
+        @include lg{
+            padding-top: rm(15)
+        }
+
+        @include md{
+            padding-top: rm(15);
+        }
+
+        @include xsm{
+            padding-top: rm(20);
+        }
+
+        .name{
+            font-size: font(14);
+            color: color(text-brown);
+            line-height: 140%;
+            position: absolute;
+            z-index: 10000;
+            top: rm(5);
+            left: rm(1);
+        }
+
+        .dividerDetector{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+    
+
+    }
+
+        
+    .selectStyles{
+        background-color: color(bg) !important;
+        font-size: font(18);
+        color: color(text-brown);
+        padding-left: rm(0);
+        border-color: color(bg);
+        cursor: pointer;
+        width: rm(300) !important;
+
+
+        // input:focus{
+            
+        //     ~ .selectDivider > :last-child {
+        //         transform: translateX(-50%) scale(1);
+        //     }
+        // }
+
+        @include lg{
+            width: rm(160) !important;
+        }
+
+
+        @include xsm{
+            width: rm(460) !important;
+        }
+
+
+
+        >:nth-child(3){
+            padding-top: rm(5);
+            box-shadow: none;
+            border-color: color(bg) !important;
+            border-top: none;
+            width: 100% !important;
+            display: flex;
+            justify-content: space-between;
+
+            
+
+            >:nth-child(2){
+
+                >:nth-child(1){
+                    display: none;
+                }
+
+                >:nth-child(2){
+                    color: color(text-black);
+                    transition: transform .3s ease-in-out;
+                    margin-top: rm(-25);
+                }
+            }
+
+
+            >:nth-child(1){
+                padding-left: rm(0);
+
+                >:nth-child(1){
+                    color: color(text-brown) !important;
+                }
+
+                >:nth-child(2){
+                    padding: rm(0);
+                }
+            }
+        }
+
+        >:nth-child(4){
+            background-color: color(bg);
+            width: 117% !important;
+            left: -10%;
+            top: 112%;
+
+            @include lg{
+                width: 118% !important;
+                left: -9%;
+                top: 100%;
+            }
+
+            @include md{
+                width: 126% !important;
+                top: 100%;
+            }
+
+            @include xsm{
+                width: 110.5% !important;
+                left: -6.5%;
+                top: 115%;
+            }
+
+            >:nth-child(1){
+
+                div{
+                    background-color: transparent;
+                    cursor: pointer;
+                    transition: background-color .3s ease-in-out;
+                    padding-left: rm(20);
+    
+                    @include lg{
+                        padding-left: rm(6);
+                    }
+        
+                    @include md{
+                        padding-left: rm(7);
+                    }
+        
+                    @include xsm{
+                        padding-left: rm(20);
+                    }
+    
+                    &:hover{
+                         background-color: rgba(	234,	216,	177, .4);
+                    }
+                }
+            }
+        }
+    }
+
+    >:nth-child(1){
+        left: rm(64) !important;
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        background-color: color(text-yellow-90);
+        top: 0;
+
+        @include md{
+            left: rm(32) !important;
+        }
+    }
+
+    >:nth-child(2){
+        right: rm(64) !important;
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        background-color: color(text-yellow-90);
+        top: 0;
+
+        @include md{
+            right: rm(32) !important;
+        }
+    }
+
+    .coinName{
+        @include md{
+            padding-top: rm(2) !important;
+            padding-bottom: rm(2) !important;
+        }
+
+        @include xsm{
+            padding: rm(16) rm(22) rm(16) rm(32) !important;
+        }
+    }
+
+    .coinName, .money, .amount{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        border-top: 1px color(text-yellow-90) solid;
+        border-bottom: 1px color(text-yellow-90) solid;
+        padding: rm(16) rm(22) rm(16) rm(32);
+
+        @include lg{
+            padding: rm(8) rm(11) rm(8) rm(16);
+        }
+
+        @include xsm{
+            padding: rm(16) rm(22) rm(16) rm(32);
+        }
+
+    
+
+        .text{
+            >:first-child{
+
+                p{
+                    font-size: font(14);
+                    line-height: 140%;
+                    color: color(text-brown);
+                    margin-bottom: rm(4);
+
+                    @include md{
+                        font-size: font(12);
+                    }
+
+                    @include xsm{
+                        font-size: font(14);
+                    }
+                }
+            }
+
+            >:last-child{
+                p{
+                    font-size: font(18);
+                    color: color(text-brown);
+                    line-height: 140%;
+
+                    @include md{
+                        font-size: font(14);
+                    }
+
+                    @include xsm{
+                        font-size: font(18);
+                    }
+                }
+            }
+        }
+
+        span{
+            width: rm(40);
+            height: rm(40);
+        }
+    }
+
+    .money, .amount{
+        border-top: none;
+    }
+
+    .choose{
+        width: 100%;
+        display: flex;
+
+        p{
+            font-size: font(15);
+            color: color(text-brown);
+            line-height: 140%;
+        }
+
+        button{
+            transition: background-color .7s ease-in-out;
+        }
+
+        button:hover{
+            background-color: rgba(	234,	216,	177, .4);
+        }
+
+        .buttonActive{
+            background-color: rgba(	234,	216,	177, .4);
+            font-weight: 600;
+        }
+
+        >:first-child{
+            width: 50%;
+            height: rm(70);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @include lg{
+                height: rm(52);
+            }
+
+            @include md{
+                height: rm(40);
+            }
+
+            @include xsm{
+                height: rm(70);
+            }
+        }
+
+        >:last-child{
+            width: 50%;
+            height: rm(70);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-left: 1px color(text-yellow-90) solid;
+
+            @include lg{
+                height: rm(52);
+            }
+
+            @include md{
+                height: rm(40);
+            }
+
+            @include xsm{
+                height: rm(70);
+            }
+        }
+    }
+}

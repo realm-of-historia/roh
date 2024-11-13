@@ -1,0 +1,76 @@
+@use "./styles/_colors" as *;
+@use "./styles/_grid" as *;
+@use "./styles/_typography" as *;
+@use "./styles/_functions" as *;
+
+
+@import "./fonts/stylesheet.css";
+@import "./styles/_normalize";
+@import "./styles/authModal";
+
+:root {
+
+    @each $name,
+    $color in $colors {
+        --color-#{$name}: #{$color};
+    }
+
+    @each $name,
+    $font in $fonts {
+        --font-size-#{$name}: #{$font};
+    }
+
+    @each $name,
+    $point in $breakpoints {
+        --breakpoint-#{$name}: #{$point};
+    }
+
+    @each $name,
+    $size in $breakpoints-fonts {
+        --breakpoint-font-#{$name}: #{$size};
+    }
+}
+
+html {
+    @include font-work-regular;
+    font-size: var(--breakpoint-font-xlg);
+    @include generate-grid;
+    background-color: color(bg-1);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    .example {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+    
+}
+
+.swiper{
+    width: 100%;
+}
+.mySwiper {
+    .swiper-slide {
+        height: auto !important;
+    }
+}
+
+.mySwiper{
+    // display: none;
+    // .swiper-slide{
+    //     height: auto !important;
+    // }
+    div{
+        transition-timing-function: linear;
+    }
+}
+
+.react-select__menu-list{
+    background-color: red !important;
+}

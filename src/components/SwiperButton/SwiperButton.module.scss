@@ -1,0 +1,42 @@
+@use "@/assets/styles/index.scss" as *;
+
+
+.navigation{
+    position: absolute;
+    top: 45%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+
+    @include xsm{
+        display: none;
+    }
+
+    svg{
+        width: rm(64);
+        height: rm(64);
+    }
+
+    button:first-child{
+        position: relative;
+        z-index: 100000;
+        margin-right: rm(-10);
+        
+    }
+
+    button:last-child{
+        position: relative;
+        z-index: 100000;
+
+    }
+
+    button{
+        opacity: 1;
+        transition: opacity 200ms ease-in-out;
+        &:hover{
+            cursor: pointer;
+            opacity: 0.6;
+        }
+    }
+}

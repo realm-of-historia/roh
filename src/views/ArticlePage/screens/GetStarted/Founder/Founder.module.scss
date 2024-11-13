@@ -1,0 +1,70 @@
+@use "../../../../../assets/styles/index.scss" as *;
+
+.founder{
+    display: flex;
+    position: relative;
+    padding-top: rm(64);
+    >:nth-child(1){
+        opacity: 1 !important;
+    }
+    @include xsm {
+        padding-top: rm(32);
+    }
+    .topDivider{
+
+        @include lg{
+            position: absolute;
+            left: 0;
+            top: rm(-32);
+            background-color: color(text-yellow-90);
+            width: 100%;
+            height: 1px;
+        }
+        @include xsm{
+            display: none;
+        }
+    }
+
+    img{
+        width: rm(80) !important;
+        height: rm(80) !important;
+        margin-right: rm(64) !important;
+        margin-left: rm(64) !important;
+        margin-bottom: rm(0) !important;
+        margin-top: rm(0) !important;
+        @include xsm{
+            width: rm(48) !important;
+            height: rm(48) !important;
+            margin-left: rm(32) !important;
+            margin-right: rm(32) !important;
+        }
+    }
+
+
+
+        p{
+            color: color(text-brown-38);
+            line-height: 160%;
+            font-size: font(18);
+            @include font-work-regular;
+
+        }
+
+
+        p:first-child{
+            margin-bottom: rm(32);
+            width: rm(774);
+
+            @include md{
+                width: rm(436);
+                margin-bottom: rm(16);
+            }
+        }
+
+        p:last-child{
+                text-transform: uppercase;
+                font-weight: 600;
+        }
+
+    
+}

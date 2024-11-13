@@ -1,0 +1,39 @@
+@use '../assets/styles/index.scss' as *;
+
+@keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    //   stroke-dasharray: 0;
+    }
+  }
+  
+
+  .loading{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    gap: rm(30);
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+    background-color: color(bg);
+    transition: opacity 0.7s ease-in-out;
+    z-index: 10000000;
+    opacity: 1;
+  }
+  
+  .svgContainer {
+    @include md{
+      width: 50%;
+    }
+    path{
+        animation: dash 1.5s ease-in-out forwards;
+    }
+  }
+
+  .loaded{
+    opacity: 0 !important;
+  }

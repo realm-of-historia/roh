@@ -1,0 +1,157 @@
+@use "../../../../../../assets/styles/index.scss" as *;
+
+
+.deactivation {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: rm(64);
+    @include xsm {
+        padding: 0;
+    }
+
+
+    .footer {
+        padding-left: rm(64);
+        padding-right: rm(64);
+        @include xsm{
+            padding: 0;
+        }
+        >:last-child {
+            height: rm(60);
+        }
+    }
+
+    .buttonWhite {
+        font-size: font(16);
+        position: relative;
+        color: color(text-brown-38);
+        @include font-work-regular;
+        line-height: 140%;
+        display: flex;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border: 1px solid #EAD8B1;
+        height: rm(60);
+        font-weight: 600;
+        transition: background-color .7s ease;
+        // z-index: 1000;
+
+        @include lg {
+            margin-left: rm(0);
+        }
+
+        &:hover {
+            background-color: rgba(234, 216, 177, .4);
+        }
+    }
+
+    .section {
+        display: flex;
+        align-items: center;
+        margin-bottom: rm(32);
+        gap: rm(8);
+        padding: rm(64);
+        padding-bottom: rm(0);
+        @include xsm{
+            padding: 0;
+            padding-top: rm(32);
+        }
+
+        >:nth-child(1) {
+            p {
+                color: color(text-brown-38);
+                font-size: font(16);
+                line-height: 160%;
+                @include font-work-regular;
+            }
+        }
+
+        >:nth-child(2) {
+            p {
+                color: color(text-brown-38);
+                font-size: font(16);
+                line-height: 160%;
+                @include font-work-regular;
+
+            }
+        }
+
+    }
+
+}
+
+.description {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: rm(64);
+    padding: rm(64);
+    @include xsm{
+        padding: rm(0);
+        padding-bottom: rm(32);
+    }
+    img{
+        position: relative;
+        width: rm(64);
+        height: rm(64);
+    }
+    .wrapperText {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding-left: rm(40);
+
+        >:nth-child(1) {
+            color: color(text-brown-38);
+            font-size: font(18);
+            @include font-work-regular();
+            font-weight: 600;
+            line-height: 160%;
+            text-transform: uppercase;
+            margin-bottom: rm(16);
+        }
+
+        >:nth-child(2) {
+            color: color(text-brown-38);
+            font-size: font(18);
+            @include font-work-regular();
+            font-weight: 400;
+            line-height: 160%;
+            @include md{
+                font-size: font(16);
+            }
+            span {
+                position: relative;
+                color: color(text-brown-38);
+                font-size: font(18);
+                @include font-work-regular();
+                font-weight: 600;
+                line-height: 160%;
+                text-decoration-line: underline;
+                @include md{
+                    font-size: font(16);
+                }
+                cursor: pointer;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    height: 1px;
+                    width: 100%;
+                    margin-bottom: rm(2);
+                    background-color: color(text-brown-85);
+                }
+            }
+        }
+    }
+}
+
+.buttonWhiteno{
+    cursor: no-drop !important;
+    &:hover{
+        background-color: inherit !important;
+    }
+}

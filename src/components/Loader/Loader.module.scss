@@ -1,0 +1,45 @@
+@use '../../assets/styles/index.scss' as *;
+
+
+.main{
+    width: 100%;
+    height: rm(100);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.anim {
+    display: inline-block;
+    position: relative;
+    width: rm(40);
+    height: rm(40);
+  }
+  .anim div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: rm(32);
+    height: rm(32);
+    border: 1px solid color(text-brown);
+    border-radius: 50%;
+    animation: ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: color(text-brown) transparent transparent transparent;
+  }
+  .anim div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .anim div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .anim div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }

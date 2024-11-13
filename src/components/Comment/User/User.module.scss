@@ -1,0 +1,70 @@
+@use "../../../assets/styles/index.scss" as *;
+
+.user{
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    
+    @include xsm{
+        // margin-bottom: rm(32);
+    }
+
+    .commentImage{
+        img{
+            width: rm(24);
+            height: rm(24);
+            margin-right: rm(20);
+        }
+    }
+
+    .newsImage{
+        img{
+            width: rm(48);
+            height: rm(48);
+            margin-right: rm(16);
+            margin-left: rm(32);
+    
+            @include md{
+                width: rm(32);
+                height: rm(32);
+                margin-left: rm(24);
+            }
+    
+            @include xsm{
+                width: rm(48);
+                height: rm(48);
+                margin-right: rm(16);
+                margin-left: rm(0);
+            }
+        }
+    }
+
+    p{
+        text-transform: uppercase;
+        font-size: font(14);
+        color: color(text-brown-38);
+        @include font-work-regular;
+        font-weight: 600;
+
+        @include md{
+            font-size: font(11);
+        }
+    }
+
+    .titleNews{
+        color: color(text-brown-38);
+        text-transform: none;
+        font-size: font(18);
+        @include font-work-regular;
+        font-weight: 600;
+        margin-bottom: rm(8);
+        line-height: 130%;
+
+        @include md{
+            font-size: font(14);
+            margin-bottom: rm(6);
+            line-height: 100%;
+        }
+    }
+    
+}

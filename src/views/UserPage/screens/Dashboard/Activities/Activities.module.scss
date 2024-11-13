@@ -1,0 +1,10 @@
+@use '../../../../../assets/styles/index.scss' as *;
+ 
+
+.activities{
+    display: flex;
+
+    @include xsm{
+        flex-direction: column;
+    }
+}

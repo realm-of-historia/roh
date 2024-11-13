@@ -1,0 +1,85 @@
+@use '../../../../../assets/styles/index.scss' as *;
+
+.categories{
+    display: flex;
+
+    .title{
+        width: rm(160);
+        font-size: font(16);
+        @include font-work-regular;
+        color: color(text-black);
+        line-height: 160%;
+        font-weight: 600;
+    }
+
+    // .text{
+    //     width: rm(344);
+    //     font-size: font(16);
+    //     @include font-work-regular;
+    //     color: color(text-brown);
+    //     line-height: 160%;
+    //     display: flex;
+    //     flex-direction: column;
+    //     gap: rm(16);
+
+    //     div{
+
+    //         p{
+    //             cursor: pointer;
+    //         }
+
+    //         &:hover{
+
+    //             p{
+            
+    //                 &:hover{
+    //                     text-decoration: underline;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+
+    // .numbers{
+    //     font-size: font(16);
+    //     @include font-work-regular;
+    //     color: color(text-brown);
+    //     line-height: 160%;
+    //     display: flex;
+    //     flex-direction: column;
+    //     gap: rm(16);
+
+
+    //     p{
+    //         text-align: right;
+    //     }
+    // }
+}
+.containerInfo{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+}
+.wrapperInfo{
+    position: relative;
+    width: rm(370);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: rm(16);
+    cursor: pointer;
+    &:hover{
+        :nth-child(1){
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    p{
+        font-size: font(16);
+        @include font-work-regular;
+        color: color(text-brown);
+        line-height: 160%;
+    }
+}

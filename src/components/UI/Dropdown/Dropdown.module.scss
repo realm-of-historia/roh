@@ -1,0 +1,87 @@
+@use '../../../assets/styles/index.scss' as *;
+
+.dropdownButton {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    span{
+        transition: transform .6s ease-in-out;
+    }
+
+    &:hover{
+
+        span{
+            transform: rotate(180deg);
+        }
+    }
+
+
+    .text{
+        display: flex;
+        flex-direction: column;
+        gap: rm(4);
+        @include font-work-regular;
+        line-height: 140%;      
+        color: color(text-brown);
+
+
+
+        .title{
+            font-size: font(14);
+        }
+
+        .name{
+            font-size: font(18);
+        }
+    }
+  }
+
+  .dropdownContainer{
+    position: relative;
+    width: 100%;
+  }
+  
+  .dropdownList {
+    position: absolute;
+    top: 133%;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    background-color: color(bg);
+    display: flex;
+    flex-direction: column;
+    border-left: 1px color(text-yellow-90) solid;
+    border-right: 1px color(text-yellow-90) solid;
+
+
+
+    .dropdownItem{
+        font-size: font(18);
+        color: color(text-brown);
+        line-height: 140%;
+        border-bottom: 1px color(text-yellow-90) solid;
+        padding-bottom: rm(10);
+        padding-top: rm(10);
+        padding-left: rm(10);
+        padding-right: rm(10);
+        transition: background-color .6s ease-in-out;
+    }
+  }
+  
+  .dropdownItem {
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(	234,	216,	177, .4);
+    }
+  }
+
+  .open {
+    max-height: rm(200);
+
+  }

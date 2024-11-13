@@ -1,0 +1,43 @@
+@use "../../../assets/styles/index.scss" as *;
+
+.container{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: rm(300);
+    padding-bottom: rm(300);
+    padding-left: rm(32);
+    padding-right: rm(32);
+    background-color: color(text-black);
+    .wrapperInfo{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        >:nth-child(1){
+            @include font-dune-regular();
+            color: color(text-brown-88);
+            font-size: font(32);
+            line-height: 120%;
+            // text-transform: uppercase;
+            text-align: center;
+            @include xsm {
+                font-size: font(24);
+            }
+        }
+        >:nth-child(2){
+            @include font-dune-regular();
+            color: color(text-brown-88);
+            font-size: font(56);
+            line-height: 120%;
+            // text-transform: uppercase;
+            padding-top: rm(20);
+            text-align: center;
+            @include xsm {
+                font-size: font(34);
+            }
+        }
+    }
+}

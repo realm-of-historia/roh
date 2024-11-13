@@ -1,0 +1,26 @@
+@use "../../../../../assets/styles/index.scss" as *;
+
+.postInfo{
+    display: flex;
+    align-items: center;
+
+    p{
+        color: color(text-brown-38);
+        font-size: font(15);
+        line-height: 140%;
+        margin-left: rm(8);
+    }
+
+    svg{
+        width: rm(18);
+        height: rm(18);
+        z-index: 992 !important;
+    }
+
+    img{
+        width: rm(18) !important;
+        height: rm(18) !important;
+        margin: 0 !important;
+        z-index: 992 !important;
+    }
+}

@@ -1,0 +1,32 @@
+@use "../../../../assets/styles/index.scss" as *;
+
+.comments{
+    display: flex;
+    padding: rm(0) rm(64) rm(0) rm(64);
+    position: relative;
+    background-color: color(bg-1);
+
+    @include xsm{
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .divider{
+        position: absolute;
+        background-color: color(text-yellow-90);
+        height: 1px;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+    }
+}
+.linkArticles{
+    position: relative;
+    width: 100%;
+    @include xsm{
+        padding-bottom: rm(16);
+    }
+    &:hover{
+        background-color: rgba(	234,	216,	177, .4);
+    }
+}

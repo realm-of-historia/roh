@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    user-select: none;
+}
+
+span, a {
+    display: inline-block;
+}
+
+button {
+    background: none;
+}
+
+.Toastify{
+    z-index: 10000000000000;
+    position: relative;
+  }
+
+.Toastify__toast-container{
+    z-index: 100000000000;
+}
+

@@ -1,0 +1,193 @@
+@use "../../../../assets/styles/index.scss" as *;
+
+
+.posts{
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: color(bg-1);
+    // z-index: 996;
+    >:nth-child(2){
+        flex: 1;
+       
+    }
+    >:nth-child(3){
+        flex: 1;
+        display: flex;
+        align-self: stretch;
+        justify-content: center;
+        align-items: center;
+    }
+    @include xsm{
+        flex-direction: column;
+    }
+    .dividerTop{
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: rgb(133, 131, 106);;
+        top: 0;
+        left: 0;
+        z-index: 10;
+    }
+
+    .left{
+        // width: 53%;
+        // flex: 1;
+        position: relative;
+        // display: flex;
+        // flex-wrap: wrap;
+        display: grid;
+        grid-template: 1fr/1fr 1fr 1fr;
+        @include xsm{
+            order: 2;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            // display: none;
+        }
+
+        .container{
+            position: relative;
+
+            .animCircle{
+                width: rm(320);
+                height: rm(320);
+                // border: 1px solid color(text-yellow-90);
+                --borderW: 0.1px;
+                display: inline-grid;
+                place-content: center;
+                aspect-ratio: 1;
+                border-radius: 50%;
+
+                @include md{
+                    width: rm(270);
+                    height: rm(270);
+                }
+            }
+
+            .animCircleActive::before {
+                content: "";
+                position: absolute;
+                inset: calc(-1*var(--borderW));
+                clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%);
+                border: 1px solid color(text-yellow-90) ;
+                border-radius: 50%;
+                animation: progress 3s cubic-bezier(.25, .4, .75, .6) paused forwards;
+              }
+              .animCircleActive::before {
+                animation-play-state: running;
+              }
+
+
+              @keyframes progress {
+                  0% { clip-path: polygon(50% 50%, 50% -21%, 50% -21%, 50% -21%, 50% -21%, 50% -21%); }
+                 25% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 121% 50%, 121% 50%, 121% 50%); }
+                 50% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, 50% 121%, 50% 121%); }
+                 75% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, -21% 50%); }
+                100% { clip-path: polygon(50% 50%, 50% -21%, 121% 50%, 50% 121%, -21% 50%, 50% -21%);}
+              }
+
+            .dividerBottom{
+                position: absolute;
+                background-color: color(text-yellow-90);
+                width: 100%;
+                height: 1px;
+                bottom: 0;
+                left: 0;
+                border: none;
+            }
+
+            .dividerRight{
+                position: absolute;
+                background-color: color(text-yellow-90);
+                width: 1px;
+                height: 100%;
+                top: 0;
+                right: 0;
+                border: none;
+            }
+
+        }
+
+        .container:nth-child(1){
+            background-color: color(text-yellow-80);
+        }
+
+        .container:nth-child(2){
+            background-color: color(text-yellow-70);
+        }
+
+
+
+    }
+
+    .right{
+        // width: 50%;
+        // flex: 1;
+        // height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: rm(32);
+        padding-bottom: rm(32);
+        // transition: background-color .3s ease-in-out;
+        
+        // &:hover{
+        //     background-color: rgba(	234,	216,	177, .4);
+        // }
+
+        @include xsm{
+            width: 100%;
+        }
+
+        p:first-child{
+            width: rm(406);
+            text-align: center;
+            color: color(text-black);
+            font-size: font(48);
+            @include font-dune-regular;
+            line-height: 160%;
+            cursor: pointer;
+            opacity: 1;
+            transition: opacity .3s ease-in-out;
+
+            @include lg{
+                font-size: font(40);
+            }
+
+            @include xsm{
+                width: rm(500);
+                font-size: font(32);
+                // margin-top: rm(32);
+                // margin-bottom: rm(32);
+            }
+
+            &:hover{
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+.wrapperInstPost{
+    position: relative;
+    width: 100%;
+    height: rm(320);
+    cursor: pointer;
+    @include lg {
+         height: rm(210); 
+    }
+    @include xsm {
+     height: rm(640);
+    }
+    img{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 999;
+    }
+}

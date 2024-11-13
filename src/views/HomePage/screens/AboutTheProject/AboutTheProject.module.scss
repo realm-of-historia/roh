@@ -1,0 +1,42 @@
+@use "../../../../assets/styles/index.scss" as *;
+
+.container{
+    position: relative;
+    width: 100%;
+    display: flex;
+    background-color: color(burgundyBg);
+    @include xsm {
+        flex-direction: column;
+    }
+    .wrapperColumn{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        .cell{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: rm(60);
+            @include xsm{
+                padding: rm(32);
+            }
+            >:nth-child(1){
+                font-size: font(18);
+                @include font-work-regular();
+                color: color(text-brown-88);
+                line-height: 160%; 
+                text-transform: uppercase;     
+                font-weight: 700; 
+                padding-bottom: rm(16);
+            }
+            >:nth-child(2){
+                font-size: font(18);
+                @include font-work-regular();
+                color: color(text-brown-88);
+                line-height: 160%;
+                white-space: pre-wrap;
+            }
+        }
+    }
+}

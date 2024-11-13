@@ -1,0 +1,123 @@
+@use "../../../../../assets/styles/index.scss" as *;
+
+
+.faces {
+    // display: flex;
+    // align-items: center;
+    position: relative;
+    width: 100%;
+    padding-right: rm(64);
+    padding-left: rm(64);
+    .wrapper{
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        // display: grid;
+        // grid-template: 1fr/ 1fr 1fr 1fr;
+        overflow: hidden;
+        @include xsm{
+            display: flex;
+            flex-direction: column;
+        }
+        >:nth-child(1){
+            opacity: 1 !important;
+        }
+        .swiper-slide {
+            height: auto !important;
+            // @include xmd {
+            //     background: color(black-3) !important;
+            // }
+        }
+    }
+
+    .mySwiper {
+        height: rm(640);
+
+        @include lg {
+            height: rm(425);
+        }
+
+        @include md {
+            height: rm(355);
+        }
+
+        @include xsm {
+            height: rm(640);
+        }
+    }
+
+    .wrapperCard {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        >:last-child{
+            opacity: 1 !important;
+        }
+        .text {
+            display: flex;
+            position: relative;
+            width: 100%;
+            padding: rm(32);
+            padding-right: rm(80);
+            flex-direction: column;
+
+            .titleCard {
+                text-transform: lowercase;
+                line-height: 120% !important;
+                @include font-dune-regular();
+                font-size: font(20) !important;
+                color: color(text-brown-38);
+                padding-bottom: rm(8);
+                @include lg{
+                    font-size: font(18) !important;
+                }
+                @include md{
+                    font-size: font(16) !important;
+                }
+                @include xsm{
+                    font-size: font(20) !important;
+                }
+            }
+
+            p {
+                font-weight: 400;
+                line-height: 160%;
+                @include font-work-regular();
+                font-size: font(16);
+                color: color(text-brown-38);
+            }
+            img{
+                position: absolute;
+                width: rm(32);
+                height: rm(32);
+                right: rm(32);
+                top: 50%;
+                transform: translate(0, -50%);
+            }
+        }
+    }
+
+    img {
+        // width: rm(640);
+        width: 100%;
+        // flex: 1;
+        height: rm(640);
+        object-fit: cover;
+        @include lg {
+            // width: rm(425);
+            height: rm(425);
+        }
+
+        @include md {
+            // width: rm(360);
+            height: rm(360);
+        }
+
+        @include xsm {
+            // width: rm(576);
+            height: rm(576);
+        }
+    }
+}

@@ -1,0 +1,55 @@
+@use "../../../../../assets/styles/index.scss" as *;
+
+
+.stat{
+    position: relative;
+    padding: rm(32);
+    width: 33.333333333%;
+
+
+    >:nth-child(2){
+        position: absolute;
+        background-color: color(text-brown-85);
+        top: 0 !important;
+        width: 1px;
+        height: 100%;
+        left: 0 !important;
+    }
+
+    >:nth-child(3){
+        position: absolute;
+        background-color: color(text-brown-85);
+        top: 0 !important;
+        width: 1px;
+        height: 100%;
+        right: 0 !important;
+
+    }
+
+    :first-child{
+        p{
+            color: color(text-black);
+            font-size: font(32);
+            @include font-dune-regular;
+            line-height: 130%;
+            text-transform: uppercase;
+            margin-bottom: rm(16);
+
+            @include xsm{
+                font-size: font(24);
+            }
+
+        }
+    }
+
+    :last-child{
+        width: rm(747);
+        p{
+            color: color(text-brown-38);
+            line-height: 160%;
+            font-size: font(18);
+            @include font-work-regular;
+            text-transform: uppercase;
+        }
+    }
+}
