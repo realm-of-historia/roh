@@ -9,7 +9,7 @@ import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 const Item = ({ title, price, image, isText, isArtist, description, href }: { title?: string | Array<string>, price?: string | Array<string>, image: string | Array<string>, isText?: boolean, isArtist?: boolean, description?: any, href?: any }) => {
 
     return (
-        <Link href={href || '/marketplace'}>
+        <div>
             <Divider position={"top right"} noAnim={true} />
             <div className={styles.item}>
                 <div className={styles.imageContainer}>
@@ -63,7 +63,7 @@ const Item = ({ title, price, image, isText, isArtist, description, href }: { ti
                 </Text>
             </div> : <></>} */}
             </div>
-        </Link>
+        </div>
     )
 }
 

@@ -79,9 +79,8 @@ const Header = ({ data }: StandardComponentProps) => {
         if (pathname) {
             useAuthStore.setState({ isBurger: false })
         }
-
-
     }, [innerWidth, pathname])
+
     useEffect(() => {
         if (innerWidth <= 1080) {
             setActiveBurger(true)
