@@ -2,8 +2,6 @@
 
 import ImageMy from '@/components/Image/ImageMy'
 import style from './CollectionOfWorks.module.scss'
-import Clock from './components/Clock/Clock'
-import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 import Divider from '@/components/Divider/Divider'
 import Text from '@/components/Text/Text'
 import { useAuthStore } from '@/store/store'
@@ -11,12 +9,14 @@ import { useEffect, useState } from 'react'
 import Markdown from 'react-markdown'
 
 const CollectionOfWorks = () => {
-    const carahunge: any = useAuthStore((state: any) => (state.carahunges))
-    const [data, setData] : any = useState(null)
+    const carahunge = useAuthStore((state: any) => (state.carahunges))
+    const [data, setData] = useState<any>(null)
+
     useEffect(() => {
         if(!carahunge) return
         setData(carahunge)
-    },[carahunge])
+    }, [carahunge])
+
     return (
         <>
             {
@@ -47,9 +47,9 @@ const CollectionOfWorks = () => {
                             </Text>
                         </div>
                         <div className={style.wrapperClock}>
-                            <Divider position={'top right'} horizontal={true} />
+                            <Divider position={'top right'} horizontal={true}/>
                             <Divider position={'top right'}/>
-                            <Clock data={data.date}/>
+                            <a href="https://www.crossmint.com/collections/roh-seal-of-carahunge/drop" target="_blank" className={style.button}>BUY</a>
                         </div>
                     </div>
                     <div className={style.wrapperImage}>

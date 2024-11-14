@@ -1,8 +1,7 @@
-
-import Divider from '@/components/Divider/Divider'
-import stules from './Heritage.module.scss'
-import WrapperTexture from '@/components/WrapperTexture/WrapperTexture'
 import Text from '@/components/Text/Text'
+
+import stules from './Heritage.module.scss'
+
 export interface StandardComponentProps {
     data?: any,
     bg?: boolean,
@@ -38,7 +37,7 @@ const Heritage = ({ data, bg = false }: StandardComponentProps) => {
                 </div>
             </div>
             <div className={stules.wpapperCircle}>
-                <svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle opacity="0.5" cx="400" cy="400" r="399.5" stroke="#887961" />
                 </svg>
                 <svg width="378" height="377" viewBox="0 0 378 377" fill="none" xmlns="http://www.w3.org/2000/svg">
