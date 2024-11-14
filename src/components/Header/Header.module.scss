@@ -9,7 +9,8 @@
     // overflow: hidden;
     @include font-work-regular;
     color: color(text-brown);
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1.9fr 0.1fr;
     align-items: center;
     // justify-content: space-around;
     justify-content: space-between;
