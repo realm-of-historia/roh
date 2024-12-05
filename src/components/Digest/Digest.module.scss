@@ -312,6 +312,22 @@
                 display: none;
             }
         }
+
+        .rightDivider {
+            position: absolute;
+            background-color: color(text-brown-85);
+            width: 1px;
+            height: 100%;
+            left: rm(0);
+            top: 0;
+            opacity: 1;
+            // @include md{
+            //     display: none;
+            // }
+            @include md{
+                display: none;
+            }
+        }
     }
 
     .header{
@@ -348,7 +364,6 @@
             line-height: 140%;
             @include font-work-regular;
             border: 1px solid color(text-brown-85);
-            border-left: 0;
             cursor: pointer;
             transition: background-color .7s ease;
             z-index: 1000;

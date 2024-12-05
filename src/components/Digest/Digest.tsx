@@ -113,54 +113,28 @@ const Digest = ({ reff, data }: StandardComponentProps) => {
             ))
           }
         </div>
+        <div className={styles.rightDivider}></div>
         <div className={styles.container}>
-          <div className={styles.text}>
-            <p className={`${inView ? styles.translation : ''}`}>
-              {data?.titleDescription}
+          <div className={styles.promotion}>
+            <Image className={styles.logo} alt='' src={'/RoHlogoFooter.svg'} width={630} height={180} />
+            <p className={styles.footerMob}>
+              {data?.rofDate}
             </p>
-            <p className={`${inView ? styles.translation : ''}`}>
-              {data?.titleRegistration}
-            </p>
-            <div className={`${styles.input_wrapper} ${inView ? styles.translation : ''}`}>
-              <input
-                placeholder={data?.placeholder || 'Email'}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <div className={styles.input_divider}>
-                <div></div>
-                <div></div>
-              </div>
-            </div>
-            <button className={`${styles.loaderContainer} ${inView ? styles.translation : ''}`}
-              onClick={subscribeHandler}>{loading ? (
-                <Loader />
-              ) : (
-                'Subscribe'
-              )}
-            </button>
-            <div className={styles.left}></div>
-            <div className={styles.right}></div>
+            <Divider horizontal={true} position={'top left'} noAnim={true}></Divider>
+            <Divider horizontal={true} position={'bottom left'} noAnim={true}></Divider>
+            {/* <Divider position={'top left'}></Divider>
+            <Divider position={'top right'}></Divider> */}
+            {/* <div className={styles.divider}></div> */}
+            <div className={styles.mainCircle}></div>
+            <picture><img className={styles.firstElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
+            <picture><img className={styles.secondElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
+            <picture><img className={styles.thirdElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
+            <picture><img className={styles.fourthElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
           </div>
         </div>
         <div className={styles.leftDivider}></div>
       </div>
-      <div className={styles.promotion}>
-        <Image className={styles.logo} alt='' src={'/RoHlogoFooter.svg'} width={630} height={180} />
-        <p className={styles.footerMob}>
-          {data?.rofDate}
-        </p>
-        <Divider horizontal={true} position={'top left'} noAnim={true}></Divider>
-        <Divider horizontal={true} position={'bottom left'} noAnim={true}></Divider>
-        {/* <Divider position={'top left'}></Divider>
-        <Divider position={'top right'}></Divider> */}
-        {/* <div className={styles.divider}></div> */}
-        <div className={styles.mainCircle}></div>
-        <picture><img className={styles.firstElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
-        <picture><img className={styles.secondElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
-        <picture><img className={styles.thirdElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
-        <picture><img className={styles.fourthElipse} alt='' width='198' height='198' src='/Ellipse.svg' /></picture>
-      </div>
+      
     </div>
   )
 }
